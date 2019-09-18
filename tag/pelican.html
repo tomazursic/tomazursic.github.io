@@ -22,9 +22,7 @@
             <li><a href="../category/blog.html">blog</a></li>
         </ul></nav><!-- /#menu -->
 
-        <div id="contrast">Add more contrast</div>
         <div id="invmode">Night</div>
-
 
         <div id="content">
 <section id="content">
@@ -32,31 +30,31 @@
 
 <ol id="post-list">
         <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="../setup-pelican-blog.html" rel="bookmark" title="Permalink to Setup Pelican Blog">Setup Pelican Blog</a></h2> </header>
+                <header> <h2 class="entry-title"><a href="../setup-pelican.html" rel="bookmark" title="Permalink to Setup Pelican">Setup Pelican</a></h2> </header>
                 <footer class="post-info">
                     <time class="published" datetime="2018-05-03T07:10:56+02:00"> Thu 03 May 2018 </time>
                     <address class="vcard author">By
                         <a class="url fn" href="../author/tomaz.html">Tomaz</a>
                     </address>
                 </footer><!-- /.post-info -->
-                <div class="entry-content"> <h2>The blog setup notes</h2>
+                <div class="entry-content"> <h2>Pelican setup notes</h2>
 <h3>Install Pelican</h3>
-<div class="highlight"><pre><span></span><span class="err">$</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pelican</span> <span class="n">ghp</span><span class="o">-</span><span class="kn">import</span> <span class="nn">Markdown</span>
+<div class="highlight"><pre><span></span>$ pip install pelican ghp-import Markdown
 </pre></div>
 
 
 <h3>Create github page</h3>
 <p>Create empty new repository on GitHub, with name <username>.github.io</p>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">username</span><span class="o">/</span><span class="n">username</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="n">io</span>
+<div class="highlight"><pre><span></span>https://github.com/username/username.github.io
 </pre></div>
 
 
-<h3>Setup git repositpory</h3>
+<h3>Setup git repository</h3>
 <div class="highlight"><pre><span></span>$ git clone https://github.com/username/username.github.io blog
 $ <span class="nb">cd</span> blog
 
-$ git checkout …</pre></div> </div><!-- /.entry-content -->
+$ git checkout -b content …</pre></div> </div><!-- /.entry-content -->
         </article></li>
 </ol><!-- /#posts-list -->
 </section><!-- /#content -->
