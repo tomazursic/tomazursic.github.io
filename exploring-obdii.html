@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <title>Weblog - Exploring OBDII</title>
+        <meta charset="utf-8" />
+
+
+
+
+    <meta name="tags" content="python" />
+    <meta name="tags" content="raspberry-pi" />
+    <meta name="tags" content="obd" />
+
+
+        <link rel="stylesheet" href="./theme/css/style.css"/>
+        <link rel="stylesheet" href="./theme/css/monokai.min.css"/>
+
+</head>
+
+<body id="index" class="home">
+
+ <div id="wrapper"> 
+
+        <header id="banner" class="body">
+                <h1><a href="./">Weblog <strong></strong></a></h1>
+        </header><!-- /#banner -->
+
+        <nav id="menu"><ul>
+            <li><a href="./pages/contact.html">Contact</a></li>
+            <li class="active"><a href="./category/blog.html">blog</a></li>
+        </ul></nav><!-- /#menu -->
+
+        <div id="invmode">Night</div>
+
+        <div id="content">
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="./exploring-obdii.html" rel="bookmark"
+         title="Permalink to Exploring OBDII">Exploring OBDII</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2019-03-04T11:09:02+01:00">
+      Mon 04 March 2019
+    </time>
+    <address class="vcard author">
+      By           <a class="url fn" href="./author/tomaz.html">Tomaz</a>
+    </address>
+    <div class="category">
+        Category: <a href="./category/blog.html">blog</a>
+    </div>
+    <div class="tags">
+        Tags:
+            <a href="./tag/python.html">python</a>
+            <a href="./tag/raspberry-pi.html">raspberry-pi</a>
+            <a href="./tag/obd.html">obd</a>
+    </div>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p>To satisfy the curiosity for reading car on-board diagnostics using Raspberry PI with build in Bluetooth
+and ODBII Bluetooth adapter.</p>
+<p>Turn on the car engine after attaching the adapter.</p>
+<p>Example target device:</p>
+<div class="highlight"><pre><span></span>00:19:5D:FE:9A:8F OBDII
+</pre></div>
+
+
+<h2>Setup:</h2>
+<h3>Terminal 1:</h3>
+<p>Turn on the bluetoot and scan for adapter address</p>
+<div class="highlight"><pre><span></span>$ sudo bluetoothctl
+    power on
+    agent on
+    default-agent
+    scan on
+    pair <span class="m">00</span>:19:5D:FE:9A:8F
+    trust <span class="m">00</span>:19:5D:FE:9A:8F
+</pre></div>
+
+
+<h3>Terminal 2</h3>
+<p>rfcomm associates the paired device ID with a serial device name</p>
+<div class="highlight"><pre><span></span>sudo rfcomm <span class="nb">bind</span> rfcomm0 <span class="m">00</span>:19:5D:FE:9A:9F
+</pre></div>
+
+
+<h3>Read output with pyobd</h3>
+<p>http://brendan-w.com/python-obd</p>
+<div class="highlight"><pre><span></span>    <span class="kn">import</span> <span class="nn">obd</span>
+    <span class="n">connection</span> <span class="o">=</span> <span class="n">obd</span><span class="o">.</span><span class="n">OBD</span><span class="p">(</span><span class="s1">&#39;/dev/rfcomm0&#39;</span><span class="p">)</span>
+    <span class="n">cmd</span> <span class="o">=</span> <span class="n">obd</span><span class="o">.</span><span class="n">commands</span><span class="o">.</span><span class="n">RPM</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Example output:</p>
+<p><img alt="OBDII Output" src="./images/obdII_output.jpg"></p>
+<h2>Unpairing a Bluetooth device</h2>
+<p>Start the Bluetooth utility.</p>
+<div class="highlight"><pre><span></span>    <span class="n">bluetoothctl</span>
+</pre></div>
+
+
+<p>Unpair the Bluetooth device if required.</p>
+<div class="highlight"><pre><span></span>    <span class="n">remove</span> <span class="o">&lt;</span><span class="n">dev</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<p>Make sure the agent is stopped for the Bluetooth device.</p>
+<div class="highlight"><pre><span></span>    <span class="n">agent</span> <span class="k">off</span>
+</pre></div>
+
+
+<p>Make sure the Bluetooth device is powered down.</p>
+<div class="highlight"><pre><span></span>    <span class="n">power</span> <span class="k">off</span>
+</pre></div>
+
+
+<p>Exit the Bluetooth utility.</p>
+<div class="highlight"><pre><span></span>    <span class="n">quit</span>
+</pre></div>
+
+
+<h2>Release serail</h2>
+<p>To remove the serial device do the following if required.</p>
+<div class="highlight"><pre><span></span>    <span class="n">rfcomm</span> <span class="n">release</span> <span class="mi">00</span><span class="p">:</span><span class="mi">19</span><span class="p">:</span><span class="mi">5</span><span class="n">D</span><span class="p">:</span><span class="n">FE</span><span class="p">:</span><span class="mi">9</span><span class="n">A</span><span class="p">:</span><span class="mi">8</span><span class="n">F</span>
+</pre></div>
+
+
+<p>Shouldn't need this command, force rfdevices to stop.</p>
+<div class="highlight"><pre><span></span>    <span class="n">rfkill</span> <span class="n">list</span>
+</pre></div>
+  </div><!-- /.entry-content -->
+</section>
+
+        <section id="extras" class="body">
+        </section><!-- /#extras -->
+        </div>
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
+
+ </div><!-- /.wrapper -->
+
+<script>
+var scriptSrc = ["./theme/js/main.js",];
+for (var i_2 = 0; i_2 < scriptSrc.length; i_2++) {
+  var index = scriptSrc[i_2];
+  var script = document.body.appendChild(document.createElement('script'));
+  script.async = false;
+  script.src = index;
+}
+</script>
+
+</body>
+</html>
