@@ -4,8 +4,6 @@ author: Tomaz
 category: blog
 tags: python, pelican
 
-## Pelican setup notes
-
 ### Install Pelican
 
 ```sh

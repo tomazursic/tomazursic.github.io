@@ -12,10 +12,13 @@ Hey there! Here are some links you might be interested in:
 * my [Email](mailto:tomaz.ursic+github@gmail.com)
 * my [PGP Key](https://keybase.io/tmz/pgp_keys.asc)
 
-```
-# my Stellar address: GBO6P36OOCQPIQTLPL7BCXUDEDCUKYKUN5X6JAOYBZG57ZROFOLZFIBD
-```
 
+
+```sh
+# my Stellar:
+
+tmz*keybase.io
+```
 ---
 
 ### About me

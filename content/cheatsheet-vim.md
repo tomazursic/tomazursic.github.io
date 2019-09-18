@@ -81,7 +81,6 @@ tags: vim, tools
    cip hna asr nia gd ee
 ```
 
-
 ## Normal mode
 
 This is Vim's default mode.
