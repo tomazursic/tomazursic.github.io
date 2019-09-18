@@ -10,13 +10,13 @@ and ODBII Bluetooth adapter.
 
 Turn on the car engine after attaching the adapter.
 
-Example target device:
+## Setup:
+
+Example target device MAC address
 
 ```text
 00:19:5D:FE:9A:8F OBDII
 ```
-
-## Setup:
 
 ### Terminal 1:
 
@@ -37,7 +37,7 @@ $ sudo bluetoothctl
 rfcomm associates the paired device ID with a serial device name
 
 ```sh
-sudo rfcomm bind rfcomm0 00:19:5D:FE:9A:9F
+sudo rfcomm bind rfcomm0 00:19:5D:FE:9A:8F
 ```
 
 ### Read output with pyobd
