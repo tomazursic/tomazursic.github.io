@@ -61,12 +61,12 @@
     <p>To satisfy the curiosity for reading car on-board diagnostics using Raspberry PI with build in Bluetooth
 and ODBII Bluetooth adapter.</p>
 <p>Turn on the car engine after attaching the adapter.</p>
-<p>Example target device:</p>
+<h2>Setup:</h2>
+<p>Example target device MAC address</p>
 <div class="highlight"><pre><span></span>00:19:5D:FE:9A:8F OBDII
 </pre></div>
 
 
-<h2>Setup:</h2>
 <h3>Terminal 1:</h3>
 <p>Turn on the bluetoot and scan for adapter address</p>
 <div class="highlight"><pre><span></span>$ sudo bluetoothctl
@@ -81,7 +81,7 @@ and ODBII Bluetooth adapter.</p>
 
 <h3>Terminal 2</h3>
 <p>rfcomm associates the paired device ID with a serial device name</p>
-<div class="highlight"><pre><span></span>sudo rfcomm <span class="nb">bind</span> rfcomm0 <span class="m">00</span>:19:5D:FE:9A:9F
+<div class="highlight"><pre><span></span>sudo rfcomm <span class="nb">bind</span> rfcomm0 <span class="m">00</span>:19:5D:FE:9A:8F
 </pre></div>
 
 
