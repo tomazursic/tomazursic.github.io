@@ -1,14 +1,16 @@
-title: Setup Pelican Blog
+title: Setup Pelican
 date: Wed May 3 7:10:56 CEST 2018
 author: Tomaz
 category: blog
 tags: python, pelican
 
-## The blog setup notes
+## Pelican setup notes
 
 ### Install Pelican
 
-    $ pip install pelican ghp-import Markdown
+```sh
+$ pip install pelican ghp-import Markdown
+```
 
 ### Create github page
 
@@ -16,19 +18,29 @@ Create empty new repository on GitHub, with name <username>.github.io
 
 Example:
 
-    https://github.com/username/username.github.io
+```text
+https://github.com/username/username.github.io
+```
 
-### Setup git repositpory
+### Setup git repository
 
-    $ git clone https://github.com/username/username.github.io blog
-    $ cd blog
+```sh
+$ git clone https://github.com/username/username.github.io blog
+$ cd blog
 
-    $ git checkout -b content
-    Switched to a new branch 'content'
+$ git checkout -b content
+Switched to a new branch 'content'
+```
 
 ### Configure Pelican
 
+```sh
 $ pelican-quickstart
+```
+
+Output:
+
+```text
 Welcome to pelican-quickstart v4.1.1.
 
 This script will help you create a new Pelican-based website.
@@ -36,7 +48,6 @@ This script will help you create a new Pelican-based website.
 Please answer the following questions so this script can generate the files
 needed by Pelican.
 
-```text
 > Where do you want to create your new web site? [.]
 > What will be the title of this web site? Blog
 > Who will be the author of this web site? <your-username>

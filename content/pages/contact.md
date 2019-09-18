@@ -4,18 +4,19 @@ author: Tomaz
 
 ## Tomaž Uršič
 
-* [twitter.com/tomazursic](https://twitter.com/tomazursic)
-* [github.com/tomazursic](https://github.com/tomazursic)
+Hey there! Here are some links you might be interested in:
 
-#### PGP Publick Key
-
-* [keybase.io/tmz/pgp_keys.asc](https://keybase.io/tmz/pgp_keys.asc)
-
-#### Stellar Address
+* my [Github profile](https://github.com/tomazursic)
+* my [Keybase chat](https://keybase.io/tmz)
+* my [Twitter account](https://twitter.com/tomazursic)
+* my [Email](mailto:tomaz.ursic+github@gmail.com)
+* my [PGP Key](https://keybase.io/tmz/pgp_keys.asc)
 
 ```
-GBO6P36OOCQPIQTLPL7BCXUDEDCUKYKUN5X6JAOYBZG57ZROFOLZFIBD
+# my Stellar address: GBO6P36OOCQPIQTLPL7BCXUDEDCUKYKUN5X6JAOYBZG57ZROFOLZFIBD
 ```
+
+---
 
 ### About me
 
@@ -36,7 +37,7 @@ who finds joy and peace of mind during rainy days.]. I really enjoy swimming
 but I have done 5 jumps from the sky. I have experience in classical equitation
 with KZS license as instructor. I deeply respect and love the animal kingdom.
 
-### Workon
+### Work
 
 Writing code to run on bare metal and setting up system which consists of interconnected devices that operate and automatically communicate
 over long distances thanks to the use of the LoRaWAN technology.

@@ -191,15 +191,12 @@ span.wr {
  font-weight:600;
  text-decoration:underline
 }
-div#contrast {
- color:#000;
- top:10px
-}
-div#contrast,div#invmode{
+
+div#invmode{
  cursor:pointer;
  position:absolute;
  right:10px;
- font-size: 1em;
+ font-size: 1.1em;
  text-decoration:underline;
  -webkit-touch-callout:none;
  -webkit-user-select:none;
@@ -210,9 +207,9 @@ div#contrast,div#invmode{
 div#invmode {
  color:#fff;
  background-color:#000;
- top:34px;
+ top:10px;
  padding:1px 5px;
- margin: 5px 0px;
+ margin-bottom: 5px;
 }
 
 html.inverted div#invmode {
@@ -291,7 +288,7 @@ html.inverted #banner h1 a {
  cursor:pointer;
  position:absolute;
  right:10px;
- font-size: 1em;
+ font-size: 1.1em;
  text-decoration:underline;
  -webkit-touch-callout:none;
  -webkit-user-select:none;
@@ -299,23 +296,21 @@ html.inverted #banner h1 a {
  -ms-user-select:none;
  user-select:none;
  list-style-type: none;
- top: 58px;
+ top: 34px;
 }
 
 #menu ul {
   text-align: right;
-  margin: 0;
-  padding: 0;
+  margin: 10px 0px;
 }
 
 #menu ul li {
   display: block;
   text-transform: capitalize;
-  margin: 5px 0px;
 }
 
 #menu ul li:first-child {
-  padding: 5px 0px 0px 0px;
+  /* padding: 5px 0px 0px 0px; */
 }
 
 
@@ -349,7 +344,7 @@ footer#contentinfo {
 .highlight pre {
   border: 1px solid rgba(0,0,0,.1);
   padding: 1rem;
-  font-size: 13px;
+  font-size: 14px;
 }
 /* @media (prefers-color-scheme: dark) { */
 /*     html { */
