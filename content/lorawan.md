@@ -210,11 +210,7 @@ try to mention the most important ones:
   Slower transmission (higher spreading factor) allows for a longer and
   more reliable range:
 
-.. figure:: radio_signal.jpg
-   :scale: 70%
-   :alt: LoRaWAN radio signal
-
-   LoRaWAN radio signal
+![ADR]({static}/images/lorawan/adr.jpg)
 
 - FEC: Forward Error Correction: Add redundant information
   (recovery/parity bits) to each message to be able to correct small
