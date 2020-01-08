@@ -397,16 +397,7 @@ Use make V=1 or set BUILD_VERBOSE in your environment to increase build verbosit
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="projects"></category><category term="iot"></category><category term="python"></category><category term="lorawan"></category></entry><entry><title>Setup Raspberry Pi</title><link href="/setup-raspberry-pi.html" rel="alternate"></link><published>2019-10-21T14:29:00+02:00</published><updated>2019-10-21T14:29:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2019-10-21:/setup-raspberry-pi.html</id><summary type="html">&lt;p&gt;Use rpi-utils repo for bring bare metal into life&lt;/p&gt;
-&lt;p&gt;Dent forget TMUX! Run all commands in tmux session to prevent catastrophic
-consequences&lt;/p&gt;
-&lt;h2&gt;Setup&lt;/h2&gt;
-&lt;h3&gt;Step 1: Flash Operating System&lt;/h3&gt;
-&lt;p&gt;You need to flash a micro SD image with an operating system.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Download Raspian Lite&lt;span class="o"&gt;(&lt;/span&gt;Stretch&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;352MB&lt;span class="o"&gt;)&lt;/span&gt;.
-    Follow OS specific guides here …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Use rpi-utils repo for bring bare metal into life&lt;/p&gt;
-&lt;p&gt;Dent forget TMUX! Run all commands in tmux session to prevent catastrophic
-consequences&lt;/p&gt;
+</content><category term="projects"></category><category term="iot"></category><category term="python"></category><category term="lorawan"></category></entry><entry><title>Setup Raspberry Pi</title><link href="/setup-raspberry-pi.html" rel="alternate"></link><published>2019-10-21T14:29:00+02:00</published><updated>2019-10-21T14:29:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2019-10-21:/setup-raspberry-pi.html</id><summary type="html">&lt;p&gt;Use rpi-utils repo for bring bare metal into life&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Advice is use TMUX! Run all commands in tmux session to prevent catastrophic consequences&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;Setup&lt;/h2&gt;
 &lt;h3&gt;Step 1: Flash Operating System&lt;/h3&gt;
 &lt;p&gt;You need to flash a micro SD image with an operating system.&lt;/p&gt;
@@ -639,18 +630,7 @@ enabled in sudo raspi-config&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://www.raspberryconnect.com/projects/65-raspberrypi-hotspot-accesspoints/158-raspberry-pi-auto-wifi-hotspot-switch-direct-connection"&gt;raspberry-pi-auto-wifi-hotspot-switch-direct-connection&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/lhelontra/tensorflow-on-arm/releases"&gt;Tensorflow ARM&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands"&gt;UFW Firewall&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="blog"></category><category term="pi"></category><category term="arm"></category><category term="linux"></category></entry><entry><title>Exploring OBDII</title><link href="/exploring-obdii.html" rel="alternate"></link><published>2019-03-04T11:09:02+01:00</published><updated>2019-03-04T11:09:02+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2019-03-04:/exploring-obdii.html</id><summary type="html">&lt;p&gt;To satisfy the curiosity for reading car on-board diagnostics using Raspberry PI with build in Bluetooth
-and ODBII Bluetooth adapter.&lt;/p&gt;
-&lt;p&gt;Turn on the car engine after attaching the adapter.&lt;/p&gt;
-&lt;h2&gt;Setup:&lt;/h2&gt;
-&lt;p&gt;Example target device MAC address&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;00:19:5D:FE:9A:8F OBDII
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;Terminal 1:&lt;/h3&gt;
-&lt;p&gt;Turn on the bluetoot and scan …&lt;/p&gt;</summary><content type="html">&lt;p&gt;To satisfy the curiosity for reading car on-board diagnostics using Raspberry PI with build in Bluetooth
-and ODBII Bluetooth adapter.&lt;/p&gt;
+&lt;/ul&gt;</content><category term="blog"></category><category term="pi"></category><category term="arm"></category><category term="linux"></category></entry><entry><title>Exploring OBDII</title><link href="/exploring-obdii.html" rel="alternate"></link><published>2019-03-04T11:09:02+01:00</published><updated>2019-03-04T11:09:02+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2019-03-04:/exploring-obdii.html</id><summary type="html">&lt;p&gt;To satisfy the curiosity for reading car on-board diagnostics using&lt;/p&gt;</summary><content type="html">&lt;p&gt;Raspberry PI with build in Bluetooth and ODBII Bluetooth adapter.&lt;/p&gt;
 &lt;p&gt;Turn on the car engine after attaching the adapter.&lt;/p&gt;
 &lt;h2&gt;Setup:&lt;/h2&gt;
 &lt;p&gt;Example target device MAC address&lt;/p&gt;
@@ -722,39 +702,7 @@ and ODBII Bluetooth adapter.&lt;/p&gt;
 
 &lt;p&gt;Shouldn't need this command, force rfdevices to stop.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rfkill list
-&lt;/pre&gt;&lt;/div&gt;</content><category term="blog"></category><category term="python"></category><category term="raspberry-pi"></category><category term="obd"></category></entry><entry><title>Vim User Disorder 2019</title><link href="/vim-user-disorder-2019.html" rel="alternate"></link><published>2018-09-07T13:48:16+02:00</published><updated>2018-09-07T13:48:16+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-09-07:/vim-user-disorder-2019.html</id><summary type="html">&lt;h2&gt;FZF&lt;/h2&gt;
-&lt;p&gt;fzf select&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;leader&gt;&lt;EETER&gt; open buffers&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;ctrl-t open new tab&lt;/p&gt;
-&lt;h3&gt;Tab navigation&lt;/h3&gt;
-&lt;h2&gt;Operator pending mode&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;        g~ Swap case
-        gu Make lowercase
-        gU Make uppercase
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Text objects&lt;/h2&gt;
-&lt;h4&gt;Bounded&lt;/h4&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;        iw current word
-        aw current word + space
-
-        iW current WORD
-        aW current WORD + space
-
-        is current sentence
-        as current sentence + space
-
-        ip current paragraph …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;h2&gt;FZF&lt;/h2&gt;
-&lt;p&gt;fzf select&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;leader&gt;&lt;EETER&gt; open buffers&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;ctrl-t open new tab&lt;/p&gt;
-&lt;h3&gt;Tab navigation&lt;/h3&gt;
-&lt;h2&gt;Operator pending mode&lt;/h2&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="blog"></category><category term="python"></category><category term="raspberry-pi"></category><category term="obd"></category></entry><entry><title>Vim User Disorder</title><link href="/vim-user-disorder.html" rel="alternate"></link><published>2018-09-07T13:48:16+02:00</published><updated>2018-09-07T13:48:16+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-09-07:/vim-user-disorder.html</id><summary type="html">&lt;p&gt;Cheatsheet and notes for vim test editor&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Operator pending mode&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;        g~ Swap case
         gu Make lowercase
         gU Make uppercase
@@ -1389,24 +1337,7 @@ so much that you start smashing into alien editors with vim commands.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;The Ex Editor&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Ex is a ‘line editor’ Vim is a ‘screen editor’ Ex is sub-editor within
-Vim. Amen.&lt;/p&gt;</content><category term="blog"></category><category term="vim"></category><category term="tools"></category></entry><entry><title>Setup Pelican</title><link href="/setup-pelican.html" rel="alternate"></link><published>2018-05-03T07:10:56+02:00</published><updated>2018-05-03T07:10:56+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-05-03:/setup-pelican.html</id><summary type="html">&lt;h3&gt;Install Pelican&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install pelican ghp-import Markdown
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;Create github page&lt;/h3&gt;
-&lt;p&gt;Create empty new repository on GitHub, with name &lt;username&gt;.github.io&lt;/p&gt;
-&lt;p&gt;Example:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://github.com/username/username.github.io
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;Setup git repository&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git clone https://github.com/username/username.github.io blog
-$ &lt;span class="nb"&gt;cd&lt;/span&gt; blog
-
-$ git checkout -b content
-Switched to a …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;h3&gt;Install Pelican&lt;/h3&gt;
+Vim. Amen.&lt;/p&gt;</content><category term="blog"></category><category term="vim"></category><category term="tools"></category></entry><entry><title>Setup Pelican</title><link href="/setup-pelican.html" rel="alternate"></link><published>2018-05-03T07:10:56+02:00</published><updated>2018-05-03T07:10:56+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-05-03:/setup-pelican.html</id><summary type="html">&lt;p&gt;Let play with static site generator to reorder mess of memories&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Install Pelican&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install pelican ghp-import Markdown
 &lt;/pre&gt;&lt;/div&gt;
 
