@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en" class="inverted">
+<head>
+          <title>Web Log - LoraWAN Reverse Beacon</title>
+        <meta charset="utf-8" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Web Log Full Atom Feed" />
+        <link href="/feeds/projects.atom.xml" type="application/atom+xml" rel="alternate" title="Web Log Categories Atom Feed" />
+
+
+
+
+    <meta name="tags" content="iot" />
+    <meta name="tags" content="python" />
+    <meta name="tags" content="lorawan" />
+    <meta name="tags" content="reverse_beacon" />
+
+
+        <link rel="stylesheet" href="/theme/css/style.css"/>
+        <link rel="stylesheet" href="/theme/css/monokai.min.css"/>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+        <script src="/theme/tipuesearch/tipuesearch_set.js"></script>
+        <script src="/theme/tipuesearch/tipuesearch.min.js"></script>
+        <script src="/tipuesearch_content.js"></script>
+
+ 
+
+</head>
+
+<body id="index" class="home">
+
+ <div id="wrapper"> 
+
+        <header id="banner" class="body">
+                <h1><a href="/">Web Log <strong></strong></a></h1>
+        </header><!-- /#banner -->
+
+        <nav id="menu"><ul>
+            <li><a href="/pages/contact.html">Contact</a></li>
+            <li><a href="/category/blog.html">blog</a></li>
+            <li class="active"><a href="/category/projects.html">projects</a></li>
+        </ul></nav><!-- /#menu -->
+
+        <div id="invmode">Day</div>
+
+        <div id="content">
+
+                <div style="">
+                  Personal Website & Blog
+                </div>
+
+
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="/drafts/lorawan-reverse-beacon.html" rel="bookmark"
+         title="Permalink to LoraWAN Reverse Beacon">LoraWAN Reverse Beacon</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2019-12-17T00:00:00+01:00">
+      Tue 17 December 2019
+    </time>
+    <address class="vcard author">
+      By           <a class="url fn" href="/author/tomaz-ursic.html">Tomaz Ursic</a>
+    </address>
+    <div class="category">
+        Category: <a href="/category/projects.html">projects</a>
+    </div>
+    <div class="tags">
+        Tags:
+            <a href="/tag/iot.html">iot</a>
+            <a href="/tag/python.html">python</a>
+            <a href="/tag/lorawan.html">lorawan</a>
+            <a href="/tag/reverse_beacon.html">reverse_beacon</a>
+    </div>
+  </footer><!-- /.post-info -->
+  <br>
+  <br>
+  <div class="entry-content">
+    <div class="section" id="reverse-beacon">
+<h2>Reverse-Beacon</h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="38%" />
+<col width="62%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Device ID</th>
+<th class="head">Firmware version</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>arcc-01</td>
+<td>17.1.3.b1</td>
+</tr>
+</tbody>
+</table>
+<p>The device is kind of reverse-beacon node on the Sabotin mountain and
+monitor TheThingsNetwork gateways in the signal range.</p>
+<p>The node is trasmiting packages to the gateways stations listening and
+reporting what stations they hear, when and how well.</p>
+<p>In the meantime is taking measurements (temperature and humidity) of undergrowth.</p>
+<p>All measurements:</p>
+<ul class="simple">
+<li>Temperature &amp; Humidity (undergrowth)</li>
+<li>Atmospheric pressure</li>
+<li>Device internal (temperature, humidity and current voltage)</li>
+</ul>
+<p>Public Dashboard:</p>
+<!-- https://lepavida.iot.novagorica.eu -->
+<div class="section" id="hardware-conponents">
+<h3>Hardware conponents</h3>
+<p>Table of all hardware components included in device</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="21%" />
+<col width="8%" />
+<col width="66%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Qty</th>
+<th class="head">Name</th>
+<th class="head">Link</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>1</td>
+<td><a class="reference internal" href="#sht10">SHT10</a></td>
+<td><a class="reference external" href="https://www.adafruit.com/product/1298">1</a></td>
+<td>Mesh-protected Weather-proof Temperature/Humidity Sensor</td>
+</tr>
+<tr><td>1</td>
+<td><a class="reference internal" href="#mpl3115a2">MPL3115A2</a></td>
+<td><a class="reference external" href="https://pycom.io/product/pysense/">2</a></td>
+<td>Air Pressure - Pysense</td>
+</tr>
+<tr><td>1</td>
+<td><a class="reference internal" href="#si7006a20">SI7006A20</a></td>
+<td><a class="reference external" href="https://pycom.io/product/pysense/">2</a></td>
+<td>Air Temperature &amp; Humidity - Pysense</td>
+</tr>
+<tr><td>1</td>
+<td><a class="reference internal" href="#milvent">Milvent</a></td>
+<td><a class="reference external" href="https://www.aliexpress.com/item/protective-vents-pressure-balance-valve-IP69K-waterproof-Valve-span-class-wholesale-product-span-IP68-vent-plug/32724507421.html">8</a></td>
+<td>M6 Screw in Vent</td>
+</tr>
+<tr><td>4</td>
+<td><a class="reference internal" href="#i2c-hub">I2C Hub</a></td>
+<td><a class="reference external" href="https://www.tme.eu/en/details/seeed-103020006/sensor-modules/seeed-studio/i2c-hub/">9</a></td>
+<td>Extension Grove module for connecting multiply I2C devices</td>
+</tr>
+<tr><td>5</td>
+<td><a class="reference internal" href="#i2c-cable">I2C Cable</a></td>
+<td><a class="reference external" href="https://www.seeedstudio.com/Grove-Universal-4-Pin-Buckled-20cm-Cable-%285-PCs-pack%29-p-936.html">10</a></td>
+<td>I2C Cable</td>
+</tr>
+<tr><td>3</td>
+<td><a class="reference internal" href="#i2c-jump-cable">I2C Jump Cable</a></td>
+<td><a class="reference external" href="https://eu.mouser.com/ProductDetail/713-110990036">11</a></td>
+<td>Grove universal cable 10cm</td>
+</tr>
+<tr><td>1</td>
+<td><a class="reference internal" href="#li-po-battery">Li-Po Battery</a></td>
+<td><a class="reference external" href="https://eu.mouser.com/ProductDetail/Adafruit/353?qs=sGAEpiMZZMu%252bmKbOcEVhFQfi8wYXkauJSTBnIZg31Q2eojF6CJs%252bDg%3d%3d">12</a></td>
+<td>Lithium ion battery</td>
+</tr>
+<tr><td>1</td>
+<td><a class="reference internal" href="#lopy">LoPy</a></td>
+<td><a class="reference external" href="https://pycom.io/product/lopy/">13</a></td>
+<td>Module v1.2</td>
+</tr>
+<tr><td>1</td>
+<td><a class="reference internal" href="#pysense">Pysense</a></td>
+<td><a class="reference external" href="https://pycom.io/product/pysense/">14</a></td>
+<td>Module Board</td>
+</tr>
+<tr><td>1</td>
+<td><a class="reference internal" href="#antenna">Antenna</a></td>
+<td><a class="reference external" href="https://pycom.io/product/lora-antenna-kit/">15</a></td>
+<td>Universal LoRa &amp; Sigfox Antenna Ki</td>
+</tr>
+<tr><td>1</td>
+<td><a class="reference internal" href="#enclosure">Enclosure</a></td>
+<td><a class="reference external" href="https://pycom.io/product/ip67-expansion-board-case/">16</a></td>
+<td>IP67 Case</td>
+</tr>
+<tr><td>20</td>
+<td><a class="reference internal" href="#spacers-screws">Spacers Screws</a></td>
+<td><a class="reference external" href="https://www.banggood.com/180pcs-M3-Nylon-Black-M-F-Hex-Spacers-Screw-Nut-Assortment-Kit-p-951950.html">17</a></td>
+<td>M3 Nylon Black M-F Hex Spacers Screw Nust</td>
+</tr>
+<tr><td>5</td>
+<td><a class="reference internal" href="#o-ring-seal">O Ring Seal</a></td>
+<td><a class="reference external" href="https://www.aliexpress.com/item/OD16mm-CS2mm-NBR-rubber-o-ring-gasket-seal-free-freight/32272386926.html">18</a></td>
+<td>Flexible Rubber O Ring Black</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sensors">
+<h3>Sensors</h3>
+<div class="section" id="sht10">
+<h4>SHT10</h4>
+<div class="figure">
+<img alt="SHT10" src="../images/components/sht10.jpg" />
+</div>
+<p>Specification:</p>
+<ul class="simple">
+<li>Body dimensions: 14mm diameter, 50mm long</li>
+<li>Cable length: 1 meter</li>
+<li>Humidity readings with 4.5% accuracy</li>
+<li>Temperature readings with 0.5 degree C accuracy</li>
+<li>Working Temperature/Humidity range: -40°C ~ 120°C, 0~100% RH</li>
+<li>Four wires: Red = VCC (3-5VDC), Black or Green = Ground, Yellow = Clock, Blue = Data</li>
+</ul>
+<p>Product page:
+<a class="reference external" href="https://cdn-shop.adafruit.com/datasheets/Sensirion_Humidity_SHT1x_Datasheet_V5.pdf">https://cdn-shop.adafruit.com/datasheets/Sensirion_Humidity_SHT1x_Datasheet_V5.pdf</a></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="53%" />
+<col width="47%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Color</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Red</td>
+<td>VCC (3-5VDC)</td>
+</tr>
+<tr><td>Black or Green</td>
+<td>GND</td>
+</tr>
+<tr><td>Yellow</td>
+<td>SCL</td>
+</tr>
+<tr><td>Blue</td>
+<td>SDA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="internal-sensors">
+<h3>Internal sensors</h3>
+<div class="section" id="mpl3115a2">
+<h4>MPL3115A2</h4>
+<p>Barometric Pressure Sensor with Altimeter (MPL3115A2)</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The barometric sensor is included on Pysense board.
+For more information see <a class="reference external" href="https://docs.pycom.io/chapter/pytrackpysense/apireference/pysense.html">Pysense documentation</a></p>
+</div>
+<p>Monitor measurements inside device enclosure</p>
+</div>
+<div class="section" id="si7006a20">
+<h4>SI7006A20</h4>
+<p>Humidity and Temperature Sensor (SI7006A20)</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For more information see <a class="reference external" href="https://docs.pycom.io/chapter/pytrackpysense/apireference/pysense.html">Pysense documentation</a></p>
+</div>
+</div>
+<div class="section" id="current-voltage">
+<h4>Current Voltage</h4>
+<p>Monitor power supply current voltage</p>
+<p>Using on module Analog to Digital Conversion</p>
+</div>
+</div>
+<div class="section" id="components">
+<h3>Components</h3>
+<div class="section" id="milvent">
+<h4>Milvent</h4>
+<p>Protective vents pressure balance valve</p>
+<ul class="simple">
+<li>M12*1.5</li>
+<li>IP69K waterproof Valve</li>
+</ul>
+<p>Uffical page: <a class="reference external" href="http://www.milvent.com/">http://www.milvent.com/</a></p>
+<div class="figure">
+<img alt="Milvent M12" src="../images/components/milvent-M12.jpg" />
+<p class="caption">Milvent M12</p>
+</div>
+</div>
+<div class="section" id="li-po-battery">
+<h4>Li-Po Battery</h4>
+<p>LI-PO 3.7V 2200mAH Polymer Lithium Ion</p>
+<p>Features:</p>
+<ul class="simple">
+<li>Charge voltage 4.2V, nominal voltage 3.7V, cut-off voltage 3.0V</li>
+<li>Max charge current 2200mAh</li>
+<li>Max discharge current 4400mAh</li>
+<li>Impedance 60mOhm at 1KHz</li>
+<li>Operating temperature: at charge 0-55C, at discharge -25C+60C</li>
+<li>Capacity loss after 500 cycles full charge/discharge at 20C: 20%</li>
+<li>Dimensions 63 x 44 x 6mm</li>
+</ul>
+<div class="figure">
+<img alt="LI-PO 3.7V 2200mAh" src="../images/components/Li-Po-Battery.jpg" />
+<p class="caption">LI-PO 3.7V 2200mAH</p>
+</div>
+</div>
+</div>
+<div class="section" id="module">
+<h3>Module</h3>
+<div class="section" id="lopy">
+<h4>LoPy</h4>
+<p>MicroPython enabled microcontroller</p>
+<p>LoPy Features:</p>
+<ul class="simple">
+<li>Powerful CPU, BLE and state of the art WiFi radio. 1KM Wifi Range</li>
+<li>Can also double up as Nano LoRa gateway</li>
+<li>MicroPython enabled</li>
+<li>Fits in a standard breadboard (with headers)</li>
+<li>Ultra-low power usage: a fraction compared to other connected micro controllers</li>
+</ul>
+<p>Processing:</p>
+<ul class="simple">
+<li>Espressif ESP32 chipset</li>
+<li>Dual processor + WiFi radio System on chip</li>
+<li>Network processor handles the WiFi connectivity and the IPv6 stack</li>
+<li>Main processor is entirely free to run the user application</li>
+<li>An extra ULP-coprocessor that can monitor GPIOs, the ADC channels and control most of the internal peripherals during deep-sleep mode while only consuming 25uA</li>
+</ul>
+<p>Operating Frequencies:</p>
+<ul class="simple">
+<li>868 MHz (Europe) at +14dBm maximum</li>
+<li>915 MHz (North and South America, Australia and New Zealand) at +20dBm maximum</li>
+</ul>
+<p>Range Specification:</p>
+<ul class="simple">
+<li>Node range: Up to 40km</li>
+<li>Nano-gateway: Up to 22km</li>
+<li>Nano-gateway capacity: Up to 100 nodes</li>
+</ul>
+<p>Interfaces:</p>
+<ul class="simple">
+<li>2 x UART, 2 x SPI, I2C, I2S, micro SD card</li>
+<li>Analog channels: 8×12 bit ADCs</li>
+<li>Timers: 4×16 bit with PWM and input capture</li>
+<li>DMA on all peripherals</li>
+<li>GPIO: Up to 24</li>
+</ul>
+<p>Security &amp; Certifications:</p>
+<ul class="simple">
+<li>SSL/TLS support</li>
+<li>WPA Enterprise security</li>
+<li>FCC – 2AJMTLOPY1R</li>
+<li>CE 0700</li>
+</ul>
+<p>Memory:</p>
+<ul class="simple">
+<li>RAM: 512KB</li>
+<li>External flash: 4MB</li>
+<li>Hardware floating point acceleration</li>
+<li>Python multi-threading</li>
+</ul>
+<p>Hash / encryption:</p>
+<ul class="simple">
+<li>SHA, MD5, DES, AES</li>
+</ul>
+<p>WiFi:</p>
+<ul class="simple">
+<li>802.1b/g/n 16mbps</li>
+</ul>
+<p>Bluetooth:</p>
+<ul class="simple">
+<li>Low energy and classic</li>
+</ul>
+<p>RTC:</p>
+<ul class="simple">
+<li>Running at 32KHz</li>
+</ul>
+<p>Power:</p>
+<ul class="simple">
+<li>Input: 3.3V – 5.5V</li>
+<li>3v3 output capable of sourcing up to 400mA</li>
+<li>WiFi: 12mA in active mode, 5uA in standby</li>
+<li>LoRa: 15mA in active mode, 1-uA in standby</li>
+</ul>
+<p>LoRa Specification:</p>
+<ul class="simple">
+<li>Semtech LoRa transceiver SX1272</li>
+<li>LoRaWAN stack</li>
+<li>Class A and C devices</li>
+</ul>
+<p>Size:</p>
+<p>55mm x 20mm x 3.5mm (Without Headers)</p>
+<div class="figure">
+<img alt="Lopy v1.2" src="../images/components/lopy.jpg" />
+<p class="caption">Lopy v1.2</p>
+</div>
+</div>
+<div class="section" id="pysense">
+<h4>Pysense</h4>
+<p>Features</p>
+<ul class="simple">
+<li>Ambient light sensor</li>
+<li>Barometric pressure sensor</li>
+<li>Humidity sensor</li>
+<li>3 axis 12-bit accelerometer</li>
+<li>Temperature sensor</li>
+<li>USB port with serial access</li>
+<li>LiPo battery charger</li>
+<li>MicroSD card compatibility</li>
+<li>Ultra low power operation (~1uA in deep sleep)</li>
+<li>Dimensions: 55mm x 35mm x 10mm</li>
+</ul>
+<div class="figure">
+<img alt="Pysense v1.0" src="../images/components/pysense.jpg" />
+<p class="caption">Pysense v1.2</p>
+</div>
+</div>
+<div class="section" id="antenna">
+<h4>Antenna</h4>
+<p>LoRa (868MHz/915MHz)</p>
+<ul class="simple">
+<li>External antenna.</li>
+<li>RF Cable Assemblies RP-SMA (Female) JK-IPEX MHF U.FL 1.13 100MM</li>
+<li>RP-SMA (Male) Tilt Swivel 1/2 Wave Whip antenna</li>
+</ul>
+</div>
+</div>
+<div class="section" id="connectors">
+<h3>Connectors</h3>
+<div class="section" id="i2c-hub">
+<h4>I2C Hub</h4>
+<p>I2C Hub Grove is an extension Grove module for connecting multiply I2C devices</p>
+<ul class="simple">
+<li>Use with cable:  Universal 4 Pin to X2 4 Pin cable</li>
+<li>Dimensions: 40mm x 20mm x 15mm</li>
+</ul>
+<div class="figure">
+<img alt="Grove - I2C hub" src="../images/components/i2c-hub.jpg" />
+<p class="caption">Grove - I2C hub</p>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="38%" />
+<col width="62%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Pin</th>
+<th class="head">Color</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>GND</td>
+<td>BALCK</td>
+</tr>
+<tr><td>VCC</td>
+<td>RED</td>
+</tr>
+<tr><td>SDA</td>
+<td>WHITE</td>
+</tr>
+<tr><td>SCL</td>
+<td>YELLOW</td>
+</tr>
+</tbody>
+</table>
+<p>Features:</p>
+<ul class="simple">
+<li>Chain able</li>
+</ul>
+</div>
+<div class="section" id="cables">
+<h4>Cables</h4>
+<ul class="simple">
+<li>20cm - 4 Pin Grove I2C cable with connector</li>
+<li>5cm - 4 Pin Grove I2C cable with connector</li>
+<li>JST 2 Pin power connector</li>
+</ul>
+</div>
+<div class="section" id="i2c-cable">
+<h4>I2C Cable</h4>
+<div class="figure">
+<img alt="I2C cable 10cm" src="../images/components/i2c_cable_10cm.jpg" />
+</div>
+</div>
+<div class="section" id="i2c-jump-cable">
+<h4>I2C Jump Cable</h4>
+<p>Jumper Wires</p>
+<div class="figure">
+<img alt="I2C cable 5cm" src="../images/components/i2c_cable_5cm.jpg" />
+</div>
+</div>
+</div>
+<div class="section" id="enclosure">
+<h3>Enclosure</h3>
+<ul class="simple">
+<li>Dimensions: 8.8 x 14.6 x 3.3 cm</li>
+</ul>
+<div class="section" id="spacers-screws">
+<h4>Spacers Screws</h4>
+<p>Screws for mounting internals</p>
+<p>Type: M2</p>
+</div>
+<div class="section" id="o-ring-seal">
+<h4>O Ring Seal</h4>
+<p>Flexible Rubber O Ring Seal Washer Gasket Black</p>
+<ul class="simple">
+<li>Dimensions: OD 16mm x CS 2mm</li>
+</ul>
+</div>
+</div>
+<div class="section" id="location">
+<h3>Location</h3>
+<p>Sabotin (top)
+Geo location: 45.9883, 13.63469</p>
+<div class="figure">
+<img alt="Device location on map" src="../images/device/sabotin01-elab-arcc.jpg" />
+<p class="caption">Device geo location</p>
+</div>
+<div class="figure">
+<img alt="The LoraWAN bush" src="../images/device/sabotin01_01.jpg" />
+<p class="caption">The LoraWAN bush</p>
+</div>
+<div class="figure">
+<img alt="Device bush installation" src="../images/device/sabotin01_02.jpg" />
+<p class="caption">Device bush installation</p>
+</div>
+<div class="figure">
+<img alt="Look at the bush from another angle" src="../images/device/sabotin01_03.jpg" />
+<p class="caption">Look at the bush from another angle</p>
+</div>
+<div class="figure">
+<img alt="#1 View from the location of the device" src="../images/device/sabotin01_04.jpg" />
+<p class="caption">#1 View from the location of the device</p>
+</div>
+<div class="figure">
+<img alt="#2 View from the location of the device" src="../images/device/sabotin01_05.jpg" />
+<p class="caption">#2 View from the location of the device</p>
+</div>
+</div>
+<div class="section" id="internals">
+<h3>Internals</h3>
+<div class="figure">
+<img alt="Device internals" src="../images/device/sabotin01_internals_01.jpg" />
+<p class="caption">Device internals</p>
+</div>
+</div>
+<div class="section" id="schematic">
+<h3>Schematic</h3>
+<blockquote>
+Transfer from paper into digital form!</blockquote>
+</div>
+</div>
+
+  </div><!-- /.entry-content -->
+</section>
+
+        <section id="extras" class="body">
+
+
+
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+        </div>
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
+
+ </div><!-- /.wrapper -->
+
+<script>
+// Handle site search
+$(document).ready(function() {
+     $('#tipue_search_input').tipuesearch({
+          'mode': 'json',
+          'contentLocation': 'tipuesearch_content.json'
+     });
+});
+// Insert scripts
+var scriptSrc = ["/theme/js/main.js",];
+for (var i_2 = 0; i_2 < scriptSrc.length; i_2++) {
+  var index = scriptSrc[i_2];
+  var script = document.body.appendChild(document.createElement('script'));
+  script.async = false;
+  script.src = index;
+}
+</script>
+
+</body>
+</html>

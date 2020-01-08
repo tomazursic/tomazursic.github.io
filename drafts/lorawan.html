@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="inverted">
 <head>
-          <title>Weblog - LoRaWAN</title>
+          <title>Web Log - LoRaWAN</title>
         <meta charset="utf-8" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Web Log Full Atom Feed" />
+        <link href="/feeds/blog.atom.xml" type="application/atom+xml" rel="alternate" title="Web Log Categories Atom Feed" />
 
 
 
@@ -11,8 +13,15 @@
     <meta name="tags" content="IoT" />
 
 
-        <link rel="stylesheet" href="./theme/css/style.css"/>
-        <link rel="stylesheet" href="./theme/css/monokai.min.css"/>
+        <link rel="stylesheet" href="/theme/css/style.css"/>
+        <link rel="stylesheet" href="/theme/css/monokai.min.css"/>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+        <script src="/theme/tipuesearch/tipuesearch_set.js"></script>
+        <script src="/theme/tipuesearch/tipuesearch.min.js"></script>
+        <script src="/tipuesearch_content.js"></script>
+
+ 
 
 </head>
 
@@ -21,40 +30,49 @@
  <div id="wrapper"> 
 
         <header id="banner" class="body">
-                <h1><a href="./">Weblog <strong></strong></a></h1>
+                <h1><a href="/">Web Log <strong></strong></a></h1>
         </header><!-- /#banner -->
 
         <nav id="menu"><ul>
-            <li><a href="./pages/contact.html">Contact</a></li>
-            <li class="active"><a href="./category/blog.html">blog</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+            <li class="active"><a href="/category/blog.html">blog</a></li>
+            <li><a href="/category/projects.html">projects</a></li>
         </ul></nav><!-- /#menu -->
 
-        <div id="invmode">Night</div>
+        <div id="invmode">Day</div>
 
         <div id="content">
+
+                <div style="">
+                  Personal Website & Blog
+                </div>
+
+
 <section id="content" class="body">
   <header>
     <h2 class="entry-title">
-      <a href="./lorawan.html" rel="bookmark"
+      <a href="/drafts/lorawan.html" rel="bookmark"
          title="Permalink to LoRaWAN">LoRaWAN</a></h2>
  
   </header>
   <footer class="post-info">
-    <time class="published" datetime="2018-09-07T13:48:16+02:00">
-      Fri 07 September 2018
+    <time class="published" datetime="2018-09-04T13:48:16+02:00">
+      Tue 04 September 2018
     </time>
     <address class="vcard author">
-      By           <a class="url fn" href="./author/tomaz.html">Tomaz</a>
+      By           <a class="url fn" href="/author/tomaz.html">Tomaz</a>
     </address>
     <div class="category">
-        Category: <a href="./category/blog.html">blog</a>
+        Category: <a href="/category/blog.html">blog</a>
     </div>
     <div class="tags">
         Tags:
-            <a href="./tag/lorrawan.html">LorRaWAN</a>
-            <a href="./tag/iot.html">IoT</a>
+            <a href="/tag/lorrawan.html">LorRaWAN</a>
+            <a href="/tag/iot.html">IoT</a>
     </div>
   </footer><!-- /.post-info -->
+  <br>
+  <br>
   <div class="entry-content">
     <h2>About LoRaWAN</h2>
 <p>LoRaWAN stands for Long Range Wide Area Network. It’s a standard for wireless
@@ -62,8 +80,8 @@ communication that allows IoT devices to communicate over large distance with
 minimal battery usage. This post is a try to explain LoRaWAN in a technical but
 simply understandable way.</p>
 <h3>LoRa or LoRaWAN</h3>
-<div class="highlight"><pre><span></span><span class="n">LoRa</span> <span class="o">=</span> <span class="n">Physical</span> <span class="n">Layer</span>
-<span class="n">LoRaWAN</span> <span class="o">=</span> <span class="n">MAC</span> <span class="n">Layer</span>
+<div class="highlight"><pre><span></span><span class="err">LoRa = Physical Layer</span>
+<span class="err">LoRaWAN = MAC Layer</span>
 </pre></div>
 
 
@@ -166,7 +184,7 @@ Access Policy</strong> and <strong>Duty Cycle</strong>).</p>
 <h2>Architecture</h2>
 <p>From a high level, the architecture of a typical LoRa network looks like the following:</p>
 <p>Devices -&gt; LoRa radio -&gt; Gateway -&gt; 3G/Ethernet -&gt; Network Server -&gt; Application</p>
-<p><img alt="LoRaWAN arhitecture" src="./images/lorawan/lorawan_architecture.jpg"></p>
+<p><img alt="LoRaWAN arhitecture" src="/images/lorawan/lorawan_architecture.jpg"></p>
 <p>For upstream messages, for example a sensor that sends information to an
 application, the flow is from left to right. The sensor value (payload)
 gets encrypted and gets transmitted over LoRa radio. One or more
@@ -271,12 +289,35 @@ try to mention the most important ones:</p>
   more reliable range:</p>
 </li>
 </ul>
-<p><img alt="ADR" src="./images/lorawan/adr.jpg"></p>
+<p><img alt="ADR" src="/images/lorawan/adr.jpg"></p>
 <ul>
 <li>FEC: Forward Error Correction: Add redundant information
   (recovery/parity bits) to each message to be able to correct small
   errors</li>
 </ul>
+<h2>RSSI</h2>
+<p>Received Signal Strength Indication (RSSI) is the received signal power in milliwatts and is measured in dBm. This value can be used as a measurement of how well a receiver can “hear” a signal from a sender.</p>
+<p>The RSSI is measured in dBm and is a negative value.</p>
+<p>The closer to 0 the better the signal is.</p>
+<p>• Typical LoRa RSSI values are:</p>
+<div class="highlight"><pre><span></span><span class="err">RSSI minimum = -120 dBm.</span>
+<span class="err">If RSSI=-30dBm: signal is strong.</span>
+<span class="err">If RSSI=-120dBm: signal is weak.</span>
+</pre></div>
+
+
+<h2>SNR</h2>
+<p>• Signal-to-Noise Ratio (SNR) is the ratio between the received power signal and the noise floor power level.
+• The noise floor is an area of all unwanted interfering signal sources which can corrupt the transmitted signal and therefore re-transmissions will occur</p>
+<p>Typical LoRa SNR values are between:</p>
+<div class="highlight"><pre><span></span><span class="err">-20dB and +10dB</span>
+</pre></div>
+
+
+<p>• A value closer to +10dB means the received signal is less corrupted.
+• LoRa can demodulate signals which are -7.5 dB to -20 dB below the noise floor.</p>
+<p>so, Make sure your SNR is between typical values to get more  LoRa signal strength.</p>
+<p><a href="https://en.wikipedia.org/wiki/Signal-to-noise_ratio">https://en.wikipedia.org/wiki/Signal-to-noise_ratio</a></p>
 <h2>Gateway</h2>
 <p>The gateway, also called modem or access point, is the device that is
 receiving all LoRa radio sent by the devices in it’s range. By design,
@@ -321,9 +362,9 @@ message so dulicates need to be filtered</p>
 </ul>
 <p>Some examples of Network Server software:</p>
 <p>.. todo:: Add some GW exaples</p>
-<div class="highlight"><pre><span></span><span class="n">Actility</span> <span class="n">Thingpark</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">actility</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">products</span><span class="o">/</span>
-<span class="n">Loraserver</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">brocaar</span><span class="o">/</span><span class="n">loraserver</span>
-<span class="n">Semtech</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">semtech</span><span class="p">.</span><span class="k">force</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">lora</span>
+<div class="highlight"><pre><span></span><span class="err">Actility Thingpark: https://www.actility.com/products/</span>
+<span class="c">Loraserver: https://github.com/brocaar/loraserver</span>
+<span class="c">Semtech: https://semtech.force.com/lora</span>
 </pre></div>
 
 
@@ -447,10 +488,44 @@ key by intercepting traffic over the air.</p>
 <p>All the above explanation is far from complete but I hope that my brief
 explanation of it give a better understanding of this technology. I’ll
 try to add some clarifications and/or graphs/schemes in the near future.</p>
+<h2>Encode &amp; Decode Messages</h2>
+<p>https://www.thethingsnetwork.org/forum/t/is-there-any-documentation-on-payload-functions/3441/3</p>
+<p>function bin2String(array) {
+    var result = "";
+    for (var i = 0; i &lt; array.length; i++) {
+        result += String.fromCharCode(parseInt(array[i], 10));
+    }
+    return result;
+}</p>
+<p>function Decoder(bytes, port) {
+    var decoded = {};</p>
+<div class="highlight"><pre><span></span><span class="n">decoded</span><span class="p">.</span><span class="n">pm10</span> <span class="o">=</span> <span class="n">bytes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">bytes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="mi">8</span><span class="p">);</span>
+<span class="n">decoded</span><span class="p">.</span><span class="n">pm25</span> <span class="o">=</span> <span class="n">bytes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">bytes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="mi">8</span><span class="p">);</span>
+<span class="n">decoded</span><span class="p">.</span><span class="n">temperature</span> <span class="o">=</span> <span class="p">((</span><span class="n">bytes</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="mi">8</span><span class="p">)</span> <span class="o">+</span> <span class="n">bytes</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span><span class="o">/</span><span class="mi">100</span> <span class="o">-</span> <span class="mi">273</span><span class="p">.</span><span class="mi">15</span><span class="p">;</span>
+<span class="n">decoded</span><span class="p">.</span><span class="n">humidity</span> <span class="o">=</span> <span class="p">((</span><span class="n">bytes</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="mi">8</span><span class="p">)</span> <span class="o">+</span> <span class="n">bytes</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span><span class="o">/</span><span class="mi">100</span><span class="p">;</span>
+<span class="n">decoded</span><span class="p">.</span><span class="n">vbatt</span> <span class="o">=</span> <span class="p">(</span><span class="n">bytes</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="mi">8</span><span class="p">)</span> <span class="o">+</span> <span class="n">bytes</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span>
+<span class="n">decoded</span><span class="p">.</span><span class="n">duration</span> <span class="o">=</span> <span class="p">(</span><span class="n">bytes</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="mi">8</span><span class="p">)</span> <span class="o">+</span> <span class="n">bytes</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="n">decoded</span><span class="p">.</span><span class="k">version</span> <span class="o">=</span> <span class="n">bin2String</span><span class="p">(</span><span class="n">bytes</span><span class="p">.</span><span class="n">slice</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">bytes</span><span class="p">.</span><span class="k">length</span><span class="p">));</span>
+
+<span class="k">return</span> <span class="n">decoded</span><span class="p">;</span>
+</pre></div>
+
+
+<p>}</p>
   </div><!-- /.entry-content -->
 </section>
 
         <section id="extras" class="body">
+
+
+
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
         </section><!-- /#extras -->
         </div>
 
@@ -464,7 +539,15 @@ try to add some clarifications and/or graphs/schemes in the near future.</p>
  </div><!-- /.wrapper -->
 
 <script>
-var scriptSrc = ["./theme/js/main.js",];
+// Handle site search
+$(document).ready(function() {
+     $('#tipue_search_input').tipuesearch({
+          'mode': 'json',
+          'contentLocation': 'tipuesearch_content.json'
+     });
+});
+// Insert scripts
+var scriptSrc = ["/theme/js/main.js",];
 for (var i_2 = 0; i_2 < scriptSrc.length; i_2++) {
   var index = scriptSrc[i_2];
   var script = document.body.appendChild(document.createElement('script'));

@@ -1,0 +1,1140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Web Log - blog</title><link href="/" rel="alternate"></link><link href="/feeds/blog.atom.xml" rel="self"></link><id>/</id><updated>2019-10-21T14:29:00+02:00</updated><entry><title>Setup Raspberry Pi</title><link href="/setup-raspberry-pi.html" rel="alternate"></link><published>2019-10-21T14:29:00+02:00</published><updated>2019-10-21T14:29:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2019-10-21:/setup-raspberry-pi.html</id><summary type="html">&lt;p&gt;Use rpi-utils repo for bring bare metal into life&lt;/p&gt;
+&lt;p&gt;Dent forget TMUX! Run all commands in tmux session to prevent catastrophic
+consequences&lt;/p&gt;
+&lt;h2&gt;Setup&lt;/h2&gt;
+&lt;h3&gt;Step 1: Flash Operating System&lt;/h3&gt;
+&lt;p&gt;You need to flash a micro SD image with an operating system.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Download Raspian Lite&lt;span class="o"&gt;(&lt;/span&gt;Stretch&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;352MB&lt;span class="o"&gt;)&lt;/span&gt;.
+    Follow OS specific guides here …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Use rpi-utils repo for bring bare metal into life&lt;/p&gt;
+&lt;p&gt;Dent forget TMUX! Run all commands in tmux session to prevent catastrophic
+consequences&lt;/p&gt;
+&lt;h2&gt;Setup&lt;/h2&gt;
+&lt;h3&gt;Step 1: Flash Operating System&lt;/h3&gt;
+&lt;p&gt;You need to flash a micro SD image with an operating system.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Download Raspian Lite&lt;span class="o"&gt;(&lt;/span&gt;Stretch&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;352MB&lt;span class="o"&gt;)&lt;/span&gt;.
+    Follow OS specific guides here.
+    Leave micro SD card in your machine and edit/create some files as below:
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Get the image:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    https://www.raspberrypi.org/downloads/raspbian/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Latest image: &lt;code&gt;raspbian_lite-2019-09-30/2019-09-26-raspbian-buster-lite.zip&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    wget https://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2019-09-30/2019-09-26-raspbian-buster-lite.zip
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;bring img on sd card&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo pv -tpreb name.img &lt;span class="p"&gt;|&lt;/span&gt; sudo dd &lt;span class="nv"&gt;of&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/sdX &lt;span class="nv"&gt;bs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;4M
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;create image from sd card&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo pv -tpreb /dev/sdX &lt;span class="p"&gt;|&lt;/span&gt; sudo dd &lt;span class="nv"&gt;of&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;name.img &lt;span class="nv"&gt;bs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;4M
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 2: Setup the WiFi for first boot&lt;/h3&gt;
+&lt;p&gt;We can create a special file which will be used to login to wifi on first boot. More reading here, but we will walk you through it.&lt;/p&gt;
+&lt;p&gt;On Windows, with your memory card image burned and memory disc still inserted, you should see two drives, which are actually two partitions on the mem disc. One is labeled boot. On Mac and Linux, you should also have access to the boot partition of the mem disc. This is formatted with the common FAT type and is where we will edit some files to help it find and log-on to your wifi on its first boot.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Note: If boot is not visible right away, try unplugging and re-inserting the memory card reader.
+
+    Start a text editor: gedit on Linux. Notepad++ on Windows. TextEdit on a Mac.
+    Paste and edit this contents to match your wifi:
+
+    &lt;span class="nv"&gt;country&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;US
+    &lt;span class="nv"&gt;ctrl_interface&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;DIR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/var/run/wpa_supplicant &lt;span class="nv"&gt;GROUP&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;netdev
+    &lt;span class="nv"&gt;update_config&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
+
+    &lt;span class="nv"&gt;network&lt;/span&gt;&lt;span class="o"&gt;={&lt;/span&gt;
+        &lt;span class="nv"&gt;ssid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;lt;your network name&amp;gt;&amp;quot;&lt;/span&gt;
+        &lt;span class="nv"&gt;psk&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;lt;your password&amp;gt;&amp;quot;&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Replace &lt;your network name&gt; with the ID of your network. Leave the quotes. I've seen problems when the network name contained an apostrophe, like "Joe's iPhone". Replace &lt;your password&gt; with your password, leaving it surrounded by quotes. If it bothers you to leave your password unencrypted, you may change the contents later once you've gotten the pi to boot and log-in.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Save this file to the root of boot partition with the filename wpa_supplicant.conf. On first boot, this file will be moved to /etc/wpa_supplicant/wpa_supplicant.conf where it may be edited later. If you are using Notepad on Windows, make sure it doesn&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;t have a .txt at the end.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 3: Setup Pi's Hostname&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Note: This step only possible on a linux host pc. Otherwise you can &lt;span class="nb"&gt;set&lt;/span&gt; it up later in raspi-config after logging in to your pi.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We can also setup the hostname so that your Pi easier to find once on the network. If yours is the only Pi on the network, then you can find it with&lt;/p&gt;
+&lt;p&gt;ping raspberrypi.local&lt;/p&gt;
+&lt;p&gt;once it's booted. If there are many other Pi's on the network, then this will have problems. If you are on a Linux machine, or are able to edit the UUID partition, then you can edit the /etc/hostname and /etc/hosts files now to make finding your pi on the network easier after boot. Edit those to replace raspberrypi with a name of your choosing. Use all lower case, no special characters, no hyphens, yes underscores _.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo vi /media/userID/UUID/etc/hostname
+    sudo vi /media/userID/UUID/etc/hosts
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 4: Enable SSH on Boot&lt;/h3&gt;
+&lt;p&gt;Put a file named ssh in the root of your boot partition.&lt;/p&gt;
+&lt;p&gt;Now your SD card is ready. Eject it from your computer, put it in the Pi and plug in the Pi.&lt;/p&gt;
+&lt;h3&gt;Step 5: Connecting to the Pi&lt;/h3&gt;
+&lt;p&gt;If you followed the above instructions to add wifi access, your Pi should now be connected to your wifi network. Now you need to find its IP address so you can connect to it via SSH.&lt;/p&gt;
+&lt;p&gt;The easiest way (on Ubuntu) is to use the findcar donkey command. You can try ping raspberrypi.local. If you've modified the hostname, then you should try:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    ping &amp;lt;your hostname&amp;gt;.local
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will fail on a windows machine. Windows users will need the full IP address (unless using cygwin).&lt;/p&gt;
+&lt;p&gt;If you are having troubles locating your Pi on the network, you will want to plug in an HDMI monitor and USB keyboard into the Pi. Boot it. Login with:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Username: pi
+    Password: raspberry
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then try the command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    ifconfig wlan0
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If this has a valid IPv4 address, 4 groups of numbers separated by dots, then you can try that with your SSH command. If you don't see anything like that, then your wifi config might have a mistake. You can try to fix with&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you don't have a HDMI monitor and keyboard, you can plug-in the Pi with a CAT5 cable to a router with DHCP. If that router is on the same network as your PC, you can try:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    ping raspberrypi.local
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Hopefully, one of those methods worked and you are now ready to SSH into your Pi. On Mac and Linux, you can open Terminal. On Windows you can install Putty, one of the alternatives, or on Windows 10 you may have ssh via the command prompt.&lt;/p&gt;
+&lt;p&gt;If you have a command prompt, you can try:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    ssh pi@raspberrypi.local
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;or&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    ssh pi@&amp;lt;your pi ip address&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;or via Putty.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Username: pi
+    Password: raspberry
+    Hostname:&amp;lt;your pi IP address&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 6: Update and Upgrade&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo apt-get update
+    sudo apt-get upgrade
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 7: Raspi-config&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo raspi-config
+
+    change default password &lt;span class="k"&gt;for&lt;/span&gt; pi
+    change hostname
+    &lt;span class="nb"&gt;enable&lt;/span&gt; Interfacing Options &lt;span class="p"&gt;|&lt;/span&gt; I2C
+    &lt;span class="nb"&gt;enable&lt;/span&gt; Interfacing Options &lt;span class="p"&gt;|&lt;/span&gt; Camera
+    Advanced Options &lt;span class="p"&gt;|&lt;/span&gt; Exapand Filesystem
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Choose and hit enter.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Note: Reboot after changing these settings. Should happen &lt;span class="k"&gt;if&lt;/span&gt; you say yes.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 8: Install Dependencies&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install &lt;span class="se"&gt;\&lt;/span&gt;
+         build-essential python3 python3-dev python3-pip &lt;span class="se"&gt;\&lt;/span&gt;
+         python3-virtualenv python3-numpy python3-picamera python3-pandas &lt;span class="se"&gt;\&lt;/span&gt;
+         python3-rpi.gpio i2c-tools avahi-utils joystick libopenjp2-7-dev libtiff5-dev &lt;span class="se"&gt;\&lt;/span&gt;
+         gfortran libatlas-base-dev libopenblas-dev libhdf5-serial-dev git ntp
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 9: Install Optional OpenCV Dependencies&lt;/h3&gt;
+&lt;p&gt;If you are going for a minimal install, you can get by without these. But it can be handy to have OpenCV.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo apt-get install libilmbase-dev libopenexr-dev libgstreamer1.0-dev &lt;span class="se"&gt;\&lt;/span&gt;
+    libjasper-dev libwebp-dev libatlas-base-dev libavcodec-dev libavformat-dev &lt;span class="se"&gt;\&lt;/span&gt;
+    libswscale-dev libqtgui4 libqt4-test
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 10: Setup Virtual Env&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    python3 -m virtualenv -p python3 env --system-site-packages
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;source env/bin/activate&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bashrc
+    &lt;span class="nb"&gt;source&lt;/span&gt; ~/.bashrc
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Modifying your .bashrc in this way will automatically enable this environment
+each time you login. To return to the system python you can type deactivate.&lt;/p&gt;
+&lt;h3&gt;Step 11: Install Donkeycar Python Code&lt;/h3&gt;
+&lt;p&gt;Change to a dir you would like to use as the head of your projects.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    mkdir projects
+    &lt;span class="nb"&gt;cd&lt;/span&gt; projects
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Fix the LC_errors&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    etc/envirmonet
+    &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games&amp;quot;&lt;/span&gt;
+    &lt;span class="nv"&gt;LC_ALL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;en_GB.UTF-8
+    &lt;span class="nv"&gt;LANG&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;en_GB.UTF-8
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Install Open CV&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo apt install python3-opencv
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Setup I2C&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo usermod -aG i2c &amp;lt;username&amp;gt;
+    sudo reboot
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;After a reboot, then try:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo i2cdetect -r -y &lt;span class="m"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Raspberry Pi:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo apt-get install i2c-tools
+    sudo i2cdetect -y &lt;span class="m"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This should show you a grid of addresses like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;         &lt;span class="m"&gt;0&lt;/span&gt;  &lt;span class="m"&gt;1&lt;/span&gt;  &lt;span class="m"&gt;2&lt;/span&gt;  &lt;span class="m"&gt;3&lt;/span&gt;  &lt;span class="m"&gt;4&lt;/span&gt;  &lt;span class="m"&gt;5&lt;/span&gt;  &lt;span class="m"&gt;6&lt;/span&gt;  &lt;span class="m"&gt;7&lt;/span&gt;  &lt;span class="m"&gt;8&lt;/span&gt;  &lt;span class="m"&gt;9&lt;/span&gt;  a  b  c  d  e  f
+    &lt;span class="m"&gt;00&lt;/span&gt;:          -- -- -- -- -- -- -- -- -- -- -- -- --
+    &lt;span class="m"&gt;10&lt;/span&gt;: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    &lt;span class="m"&gt;20&lt;/span&gt;: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    &lt;span class="m"&gt;30&lt;/span&gt;: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    &lt;span class="m"&gt;40&lt;/span&gt;: &lt;span class="m"&gt;40&lt;/span&gt; -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    &lt;span class="m"&gt;50&lt;/span&gt;: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    &lt;span class="m"&gt;60&lt;/span&gt;: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    &lt;span class="m"&gt;70&lt;/span&gt;: &lt;span class="m"&gt;70&lt;/span&gt; -- -- -- -- -- -- --
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In this case, the 40 shows up as the address of our PCA9685 board. If this does
+not show up, then check your wiring to the board. On a pi, ensure I2C is
+enabled in sudo raspi-config&lt;/p&gt;
+&lt;h2&gt;Nodejs&lt;/h2&gt;
+&lt;p&gt;use of nvm&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    https://github.com/nvm-sh/nvm
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh &lt;span class="p"&gt;|&lt;/span&gt; bash
+    &lt;span class="nb"&gt;source&lt;/span&gt; ~/.bashrc
+    nvm --version
+    nvm install node
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.raspberryconnect.com/projects/65-raspberrypi-hotspot-accesspoints/158-raspberry-pi-auto-wifi-hotspot-switch-direct-connection"&gt;raspberry-pi-auto-wifi-hotspot-switch-direct-connection&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/lhelontra/tensorflow-on-arm/releases"&gt;Tensorflow ARM&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands"&gt;UFW Firewall&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="blog"></category><category term="pi"></category><category term="arm"></category><category term="linux"></category></entry><entry><title>Exploring OBDII</title><link href="/exploring-obdii.html" rel="alternate"></link><published>2019-03-04T11:09:02+01:00</published><updated>2019-03-04T11:09:02+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2019-03-04:/exploring-obdii.html</id><summary type="html">&lt;p&gt;To satisfy the curiosity for reading car on-board diagnostics using Raspberry PI with build in Bluetooth
+and ODBII Bluetooth adapter.&lt;/p&gt;
+&lt;p&gt;Turn on the car engine after attaching the adapter.&lt;/p&gt;
+&lt;h2&gt;Setup:&lt;/h2&gt;
+&lt;p&gt;Example target device MAC address&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;00:19:5D:FE:9A:8F OBDII
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Terminal 1:&lt;/h3&gt;
+&lt;p&gt;Turn on the bluetoot and scan …&lt;/p&gt;</summary><content type="html">&lt;p&gt;To satisfy the curiosity for reading car on-board diagnostics using Raspberry PI with build in Bluetooth
+and ODBII Bluetooth adapter.&lt;/p&gt;
+&lt;p&gt;Turn on the car engine after attaching the adapter.&lt;/p&gt;
+&lt;h2&gt;Setup:&lt;/h2&gt;
+&lt;p&gt;Example target device MAC address&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;00:19:5D:FE:9A:8F OBDII
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Terminal 1:&lt;/h3&gt;
+&lt;p&gt;Turn on the bluetoot and scan for adapter address&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo bluetoothctl
+    power on
+    agent on
+    default-agent
+    scan on
+    pair &lt;span class="m"&gt;00&lt;/span&gt;:19:5D:FE:9A:8F
+    trust &lt;span class="m"&gt;00&lt;/span&gt;:19:5D:FE:9A:8F
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Terminal 2&lt;/h3&gt;
+&lt;p&gt;rfcomm associates the paired device ID with a serial device name&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo rfcomm &lt;span class="nb"&gt;bind&lt;/span&gt; rfcomm0 &lt;span class="m"&gt;00&lt;/span&gt;:19:5D:FE:9A:8F
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Read output with pyobd&lt;/h3&gt;
+&lt;p&gt;http://brendan-w.com/python-obd&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;obd&lt;/span&gt;
+&lt;span class="n"&gt;connection&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;obd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;OBD&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/dev/rfcomm0&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;cmd&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;obd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;commands&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;RPM&lt;/span&gt;
+&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;connection&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;query&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cmd&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Example output:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="OBDII Output" src="/images/obdII_output.jpg"&gt;&lt;/p&gt;
+&lt;h2&gt;Unpairing a Bluetooth device&lt;/h2&gt;
+&lt;p&gt;Start the Bluetooth utility.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;bluetoothctl
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Unpair the Bluetooth device if required.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;remove &amp;lt;dev&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Make sure the agent is stopped for the Bluetooth device.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;agent off
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Make sure the Bluetooth device is powered down.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;power off
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Exit the Bluetooth utility.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;quit
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Release serail&lt;/h2&gt;
+&lt;p&gt;To remove the serial device do the following if required.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rfcomm release &lt;span class="m"&gt;00&lt;/span&gt;:19:5D:FE:9A:8F
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Shouldn't need this command, force rfdevices to stop.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rfkill list
+&lt;/pre&gt;&lt;/div&gt;</content><category term="blog"></category><category term="python"></category><category term="raspberry-pi"></category><category term="obd"></category></entry><entry><title>Vim User Disorder 2019</title><link href="/vim-user-disorder-2019.html" rel="alternate"></link><published>2018-09-07T13:48:16+02:00</published><updated>2018-09-07T13:48:16+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-09-07:/vim-user-disorder-2019.html</id><summary type="html">&lt;h2&gt;FZF&lt;/h2&gt;
+&lt;p&gt;fzf select&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;leader&gt;&lt;EETER&gt; open buffers&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ctrl-t open new tab&lt;/p&gt;
+&lt;h3&gt;Tab navigation&lt;/h3&gt;
+&lt;h2&gt;Operator pending mode&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;        g~ Swap case
+        gu Make lowercase
+        gU Make uppercase
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Text objects&lt;/h2&gt;
+&lt;h4&gt;Bounded&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;        iw current word
+        aw current word + space
+
+        iW current WORD
+        aW current WORD + space
+
+        is current sentence
+        as current sentence + space
+
+        ip current paragraph …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;h2&gt;FZF&lt;/h2&gt;
+&lt;p&gt;fzf select&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;leader&gt;&lt;EETER&gt; open buffers&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ctrl-t open new tab&lt;/p&gt;
+&lt;h3&gt;Tab navigation&lt;/h3&gt;
+&lt;h2&gt;Operator pending mode&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;        g~ Swap case
+        gu Make lowercase
+        gU Make uppercase
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Text objects&lt;/h2&gt;
+&lt;h4&gt;Bounded&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;        iw current word
+        aw current word + space
+
+        iW current WORD
+        aW current WORD + space
+
+        is current sentence
+        as current sentence + space
+
+        ip current paragraph
+        ap current paragraph + space
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Delimited&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;        ab par of ()
+        ib inside ()
+
+        aB par of {}
+        iB inside {}
+
+        a] par of []
+        i] isnide []
+
+        a&amp;lt; par of &amp;lt;&amp;gt;
+        i&amp;lt; inside &amp;lt;&amp;gt;
+
+        at par of &amp;lt;xmltags&amp;gt;
+        it inside &amp;lt;xmltags&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Operators + text objects&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;        d {motion} aw, as, ap
+
+                dap delete a paragraph
+
+        c {motion} iw, it, i&amp;quot;
+
+                ci&amp;quot; change inside &amp;quot;
+
+        g {U, u, ~} aw, ap, it
+
+                gUw make word uppercase
+                gUiw make word uppercae
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Natural language text editor&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   VERBS   MOTIONS OBJECTS
+   [cdyv=] [iatf]   [w{&amp;quot;pt)sB]
+
+   ciw hno asr nid gd ee
+
+   vat ira sog uus an ld
+
+   cip hna asr nia gd ee
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Normal mode&lt;/h2&gt;
+&lt;p&gt;This is Vim's default mode.
+Typing a letter here doesn't insert text, but rather lets you navigate and manipulate text in various ways.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    gg - beginning of document
+    G - end of document
+        4G - go to line 4
+    b - beginning of previous word
+    B - beginnging of previous WORD (like the above except WORD can include punctuation)
+    w - next word
+    W - next WORD
+    e - end of word
+    E - end of WORD
+    ge - end of previous word
+    gE - end of previous WORD
+    0 - beginning of line
+    $ - end of line
+
+    + - move down by line beginnings
+    - - move up by line beginnings
+
+    ^ - first non-blank character
+    g_ - last non-blank character
+    &amp;#39;. - go to last edited line
+    &amp;#39;&amp;#39; - previous cursor position
+
+    gi - go to insert mode on previous cursor position
+    gx - go to the URL under the cursor
+    ga - show info about character under cursor
+    Ctrl-G - show line info
+
+    . - repeat previous command
+
+    f - find character on line
+        3fq - third occurrence of &amp;#39;q&amp;#39;
+    F - find character on line, looking backwards
+    t - go till the specified character
+    T - go till the specified character, looking backwards
+    ; - repeat last f, F, t or T command
+    , - repeat last f, F, t or T command, backwards
+
+    * - next occurrence of word under cursor
+    # - previous occurrence of word under cursor
+
+    4| - jump to column 4
+
+    H - top of screen (high)
+    M - middle of screen
+    L - bottom of screen (low)
+
+    Ctrl-f - forward one screenful
+    Ctrl-b - backward one screenful
+
+    { - previous empty line
+    } - next empty line
+    % - go to next matching parenthesis
+    ) - next sentence
+    ( - previous sentence
+    ]] - to next section (what a section is depends on the file type)
+    ][ - to next closing brace section
+    [[ - to previous section
+    [] - backwards to closing brace section
+    ]m - next method
+    [m - previous method
+    ]M - end of next method
+    [M - end of previous method
+
+    Ctrl-o - retrace movements in file backwards
+    Ctrl-i - retract movement in file forwards
+    Ctrl-u - up half a page
+    Ctrl-d - down half a page
+
+    zz - center screen on cursor
+    zt - align top of screen with cursor
+    zb - align bottom of screen with cursor
+
+    inplace editing
+        r - replace character
+        J - join line below to current one
+
+        ~ - toggle case
+        g~~ - toggle case of line
+        g~$ - toggle case until end of line
+
+        Ctrl-A - increment number beneath cursor
+        Ctrl-X - decrement number beneath cursor
+
+        == - autoindent
+        =% - autoindent within braces
+
+    entering insert mode
+        i - insert mode
+        I - insert at beginning of line
+        s - substitute character (deletes the character under the cursor and goes into insert mode)
+        S - subsitute line (same as doing cc)
+        C - substitute from cursor to end of line
+        a - append after cursor
+        A - append at end of line
+        o - open (append) new line below
+        O - open (append) new line above
+
+    search
+        / - search
+            /hello - search for the word &amp;#39;hello&amp;#39;
+            patterns
+                non-greedy match - /http.\{-}
+
+                including line endings
+                    \n - a newline character (line ending)
+                    \_s - a whitespace (space or tab) or newline character
+                    \_^ - the beginning of a line (zero width)
+                    \_$ - the end of a line (zero width)
+                    \_. - any character including a newline
+
+        ? - search backwards
+        n - repeat search
+        N - repeat search in opposite direction
+        /\v&amp;#39;.+&amp;#39; - search using &amp;#39;very magic mode&amp;#39;, to avoid having to escape common characters
+        /\n\zs[a-z0-9] - use \zs flag to crop selection
+        (in this case omitting the \n from the highlighted search result)
+
+    editing window
+        q/ - show and edit searches in a buffer
+        q: - show and edit history of commands
+        q? - show and edit backwards searches
+
+    cc - change entire line
+    dd - delete entire line
+        4dk - delete 4 lines upwards
+    yy - yank line
+    yw - yank word
+    &amp;quot;zyy - yank line to buffer z
+    c - change
+    p - paste
+    P - paste before cursor
+    gp - paste and go to end of text
+    gP - paste before cursor and go to end of text
+    x - cut
+    X - cut before cursor
+    D - delete till end of line
+
+    undo and redo
+        u - undo
+        U - hard undo (back to states before any edits were made)
+        Ctrl-r - redo
+        g- - go backwards in history tree
+        g+ - go forward in history tree
+        :earlier 20s
+
+    combining operators, movements and counts
+        cw - change word
+        ci&amp;#39; - change everything inside quotes
+            ci&amp;quot;
+            ci&amp;lt;
+        cib - change everything inside brackets
+        ciB - change everything inside braces
+        ct_ - change till underscore
+        cT_ - change till underscore (backwards)
+        cit - change in tag (XML or HTML)
+
+        dk - delete line above
+        3dk - delete the 3 lines above
+
+    windows
+        Ctrl-ww - switch window
+        Ctrl-wh - move cursor to left-hand window
+        Ctrl-wj - move cursor to upper window
+            2 Ctrl-wj - move cursor up 2 windows
+        Ctrl-wk - move cursor to upwards window
+        Ctrl-wl - move cursor to right-hand window
+        Ctrl-t - move cursor to top window
+        Ctrl-b - move cursor to bottom window
+        Ctrl-wq - quit window
+
+        Ctrl-= - even out window sizes
+        Ctrl-- - reduce window size
+        Ctrl-+ - increase window size
+        z6&amp;lt;CR&amp;gt; - make window 6 lines high
+
+        Ctrl-&amp;gt; - increase window width
+        Ctrl-&amp;lt; - decrease window width
+
+        Ctrl-x - exchange the window with the next one
+
+        Ctrl-H - move window to be left column
+        Ctrl-J - move window to be bottom row
+        Ctrl-K - move window to be top row
+        Ctrl-L - move window to be right column
+
+    open current buiffer in new tab
+        Ctrl + w + Shift t
+
+    switching tabs
+        Cmd-shift [ - previous tab
+        Cmd-shift ] - next tab
+
+    q - record macro
+        qa - record marcro in register &amp;#39;a&amp;#39;
+        do something special
+        press q again to stop recording
+        16@a - run the macro 16 times
+        &amp;quot;ap - paste the contents of the &amp;#39;a&amp;#39; macro
+        :%normal @b - repeat until end of file
+        @@ - repeat last macro
+
+    registers (any time you delete or yank text it goes into a register)
+        :reg - show contents of registers
+        &amp;quot;1p - paste from register 1.
+        &amp;quot;+p - paste from system clipboard
+
+    marks
+        :marks - show marks
+
+        lowercase marks (mark positions and jump around in the current file)
+            create
+                ma
+                mb
+            jump to
+                &amp;#39;a
+                &amp;#39;b
+
+        uppercase marks (mark positions and jump around between different files)
+            create
+                mA
+                mB
+            jump to
+                &amp;#39;A
+                &amp;#39;B
+
+        :delm - delete a mark
+
+        jumping to marks
+            use ` to move position-wise and &amp;#39; to move line-wise
+
+            `[ - jump to beginning of last yanked or changed text
+            `] - jump to end of last yanked or changed text
+            `&amp;lt; - jump to beginning of last visual selection
+            `&amp;gt; - jump to end of last visual selection
+
+    tags
+        vim will read a &amp;#39;tags&amp;#39; file automatically
+
+        Ctrl-] - jump to definition
+        Ctrl-t - jump back from definition
+
+        g] - list matching tags
+
+        :tag _initInputField - jump the function definition of _initInputField
+        :tag /placeholder - jump to tag matching the text &amp;#39;placeholder&amp;#39;
+
+        :ptag placeholderUrl - open tag in preview window
+        :tselect afterSave - select from multiple matching tags
+        :tjump url - jump to unique tag, or list non-unique ones
+
+    spell checking
+        :set spell
+        ]s - next spelling mistake
+        [s - previous spelling mistake
+        z= - bring up list of suggestions for word under cursor
+        1z= - replace word with first suggested spelling
+        zg - mark word as good in spell list
+        zw - mark word as bad in spell list
+
+        zug - undo adding as good
+        zuw - undo addings as bad
+
+        ~/.vim/spell/en.utf-8.add
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Insert mode&lt;/h2&gt;
+&lt;p&gt;This is where you actually insert text.
+You can type i to get into insert mode.
+Keep in mind that while the commands below are handy, Vim works best when you stay out of insert mode as much as possible. In other words, go into insert mode only to enter text, and get back into normal mode as soon as possible.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    3iGo - insert &amp;quot;Go&amp;quot; 3 times
+    Ctrl-P - autocomplete
+    Ctrl-X  Ctrl-O - omnicomplete
+
+    Ctrl-y - duplicate line above, character-by-character
+    Ctrl-e - duplicate line below, character-by-character
+
+    Ctrl-t - indent line
+    Ctrl-d - unindent line
+
+    Ctrl-r {reg} - insert from register
+        Ctrl-r =2+2 - insert &amp;#39;4&amp;#39; from expression register
+        Ctrl-r =sqrt(4)
+
+        :help function-list
+
+    inserting special characters, digraphs
+        Ctrl-K
+            Type approximation of the character, e.g.
+                a: for ä
+                14 for ¼
+            :dig to reference these
+        Ctrl-V
+
+    editing while in insert mode
+        Ctrl-w - delete word before cursor
+        Ctrl-u - delete line before cursor
+        Ctrl-rx - insert contents of register x
+        Ctrl-t - increase line indent
+        Ctrl-d - decrease line indent
+
+    paste laste yanked content in insert mode
+        Ctrl + r *
+
+    leaving
+        &amp;lt;Esc&amp;gt;
+        Ctrl-[
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Visual mode&lt;/h2&gt;
+&lt;p&gt;This mode lets you make visual selections of text.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    v - start selecting
+    V - visual line mode (follow with j or k to select up or down)
+    vib - select visually within brackets
+    viB - select visually within braces
+    viW - select visually within word (or URL or filename)
+    v2ap - select 2 paragraphs visually
+    gv - previous visual selection
+
+    gv - reselect what was previously selected
+    = - fix indentation on visually selected text
+
+    search within visual selection
+        make the selection
+        hit escape
+        /\%Vwhat_to_search
+
+    visual block mode
+        Ctrl-V
+        move around to make a selection, e.g - j
+        I to insert and type something
+        esc to exit the mode and insert the characters
+
+        c - change
+        d - delete
+        o - toggle to opposite
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Command line mode&lt;/h2&gt;
+&lt;p&gt;Typing a colon gives you access to many commands.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Ctrl-b - beginning of command line
+    Ctrl-e - end of command line
+    Ctrl-w - delete word
+    Ctrl-r - insert a register
+    Ctrl-r Ctrl-w - insert word from under cursor
+    Ctrl-f - edit using normal mode
+    @: - repeat previous ex command
+
+    :cd ~/Projects/myproject
+        cd %:h - change to the directory of the current file
+    :pwd
+    :so ~/.vimrc
+    :!ls
+    :sp a.txt - split window and edit a.txt
+    :vsp b.txt
+
+    :enew - edit a new buffer in the current window
+
+    :r - read in a file
+        :185r read in line 185
+
+    :w - write a file
+        :w test.txt
+
+    :normal - do something as if in normal mode
+
+    :put - put results on a new line
+        :put =4*2
+        :put =system(&amp;#39;echo $RANDOM&amp;#39;)
+
+    set wrap! - toggle line wrapping
+    set nowrap
+    set wrap
+
+    external command
+        :%! markdown - filter buffer via the external &amp;#39;markdown&amp;#39; command
+        :%! tidy - filter buffer via html tidy
+        :!wc % - word count
+
+    ranges
+        :15,30d - delete lines 15 - 30
+        :15,30m $ - move lines 15 - 30 to the end
+        :15,30&amp;gt;&amp;gt; - indent lines 15 - 30
+
+    command history
+        : and the up key
+
+    filename
+        use a % sign on the command line to denote the current file
+        :! echo %
+        :so %
+
+        :! markdown % &amp;gt; %:p:r.html
+        :help filename-modifiers
+
+    search and replace
+        :%s/old/new - search and replace (first occurrence in each line)
+        :%s/old/new/g - search and replace globally
+        :%s/old/new/gc - search and replace with confirmations
+        :%s/\%Vold/new/g - search and replace visual selection
+        d/pattern - delete &amp;#39;pattern&amp;#39;
+        :5,12s/old/new/g - search and replace within range
+        :%s/\s\+$//e - strip whitespace from ends of lines
+
+        :%s/&amp;lt;br&amp;gt;\n&amp;lt;br&amp;gt;/\r&amp;lt;\/p&amp;gt;\r&amp;lt;p&amp;gt;/g - replace br with p
+
+        :g/test/d - delete all lines that match &amp;#39;test&amp;#39;
+        :g!/test/d - delete all lines that don&amp;#39;t match &amp;#39;test&amp;#39;
+        :g/\t/d - delete all lines with a tab
+        :g/^$/d - delete blank lines
+        :g!/_/d - delete lines without underscores
+
+        replace line breaks
+            :%s/&amp;lt;Ctrl-V&amp;gt;&amp;lt;Ctrl-M&amp;gt;//g
+            Where &amp;lt;Ctrl-V&amp;gt;&amp;lt;Ctrl-M&amp;gt; means type Ctrl+V then Ctrl+M.
+
+    move
+        :m 12 - move current line to after line 12
+        :m 0 - move current line to before first line
+        :m $ - move current line to after last line
+        :m7 - move current line to line 7
+        :4m7 - move line 4 to line 7
+        :4m$ - move line 4 the end of document
+
+    copy
+        :3co7 - copy line 3 after line 7
+        :3t7 - same as above
+        :3t. - copy line 3 to after current line
+
+        :sort - sort lines alphabetically
+        :retab
+        :retab! - spaces to tabs
+        :changes
+        :dig - digraphs
+        :color - show current colorscheme
+
+    :%TOhtml - generate HTML page that looks like the current view
+    :w !sudo tee % - write current file with sudo, to avoid file permission error
+
+    buffers
+        :buffers
+        :ls
+        :files
+
+        :b3 - display buffer 3
+        :bn - next buffer
+        :bp previous buffer
+        Ctrl-6 - switch between recent buffers
+
+        :bd
+        :bdel
+        :5,999bd
+
+        :%bd - delete all buffers
+
+        :bdel galleries &amp;lt;Ctrl-a&amp;gt; - complete all matches
+
+        status column
+            h is hidden
+            + means unsaved changes
+
+    args
+        :args
+        :args ~/Dropbox/documents/unix.txt ~/Dropbox/documents/mac.txt
+        :args *.txt
+        :args `cat table_of_content.txt`
+        :args `find  - -type f`
+
+        argdo
+            :args *.txt
+            :argdo %s/\a/*/g
+            :argdo update
+
+            &amp;quot; OR&amp;quot;
+
+            :argdo %s/foo/buz/g | update
+
+            search and replace
+                :args `git grep -l findme`
+                :argdo %s/findme/replacement/gc
+                :argdo update
+
+    grep (search across multiple files)
+        :vimgrep /pr( **/*.ctp
+
+    quickfix window
+        :cw
+        :cnext
+        :cprev
+
+    fileformat
+        :set ff? - show fileformat
+
+        convert in current buffer
+            :setlocal ff=unix
+            :w
+
+    insert special characters
+        Ctrl-v
+            :%s/Ctrl-v Ctrl-m//g becomes :%s/^M//g
+
+
+    Global replace
+    First try the substitute and than make global run
+    Using: ag
+
+        : args `ag -l some_word`
+        : argdo %s/some_word*./foo/g | w
+
+    Global search and replace
+    Using: fzf
+
+        1) Search for files contains pattern
+            &amp;lt;leader&amp;gt;F
+
+        2) Inset pattern
+           :File &amp;lt;search_pattern&amp;gt;
+
+        3) Select all matches
+            Alt + a
+
+        4) Substitute
+           :cfdo %s/foo/baz/g
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;TIPS&lt;/h2&gt;
+&lt;h3&gt;Scrolling&lt;/h3&gt;
+&lt;p&gt;For scrolling avoid &lt;code&gt;j&lt;/code&gt; and &lt;code&gt;k&lt;/code&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you need to scroll, it's better to use ;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Ctrl-e and Ctrl-y
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;If you need to scroll faster, use:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Ctrl-d and Ctrl-u.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;If you really want to blaze through a file, use:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Ctrl-f or Ctrl-b.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;VUD&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Vim User Disorder&lt;/strong&gt; syndrom: The vim editor which is always in use,
+so much that you start smashing into alien editors with vim commands.&lt;/p&gt;
+&lt;h2&gt;History&lt;/h2&gt;
+&lt;p&gt;The Evolution:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    ed &amp;gt;&amp;gt; em &amp;gt;&amp;gt; ex &amp;gt;&amp;gt; vi &amp;gt;&amp;gt; vim
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;The Ex Editor&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Ex is a ‘line editor’ Vim is a ‘screen editor’ Ex is sub-editor within
+Vim. Amen.&lt;/p&gt;</content><category term="blog"></category><category term="vim"></category><category term="tools"></category></entry><entry><title>Setup Pelican</title><link href="/setup-pelican.html" rel="alternate"></link><published>2018-05-03T07:10:56+02:00</published><updated>2018-05-03T07:10:56+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-05-03:/setup-pelican.html</id><summary type="html">&lt;h3&gt;Install Pelican&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install pelican ghp-import Markdown
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Create github page&lt;/h3&gt;
+&lt;p&gt;Create empty new repository on GitHub, with name &lt;username&gt;.github.io&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://github.com/username/username.github.io
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Setup git repository&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git clone https://github.com/username/username.github.io blog
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; blog
+
+$ git checkout -b content
+Switched to a …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;h3&gt;Install Pelican&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install pelican ghp-import Markdown
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Create github page&lt;/h3&gt;
+&lt;p&gt;Create empty new repository on GitHub, with name &lt;username&gt;.github.io&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://github.com/username/username.github.io
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Setup git repository&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git clone https://github.com/username/username.github.io blog
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; blog
+
+$ git checkout -b content
+Switched to a new branch &lt;span class="s1"&gt;&amp;#39;content&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Configure Pelican&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pelican-quickstart
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Output:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Welcome to pelican-quickstart v4.1.1.
+
+This script will help you create a new Pelican-based website.
+
+Please answer the following questions so this script can generate the files
+needed by Pelican.
+
+&amp;gt; Where do you want to create your new web site? [.]
+&amp;gt; What will be the title of this web site? Blog
+&amp;gt; Who will be the author of this web site? &amp;lt;your-username&amp;gt;
+&amp;gt; What will be the default language of this web site? [en]
+&amp;gt; Do you want to specify a URL prefix? e.g., http://example.com   (Y/n) n
+&amp;gt; Do you want to enable article pagination? (Y/n)
+&amp;gt; How many articles per page do you want? [10]
+&amp;gt; What is your time zone? [Europe/Paris] Europe/Ljubljana
+&amp;gt; Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n) y
+&amp;gt; Do you want an auto-reload &amp;amp; simpleHTTP script to assist with theme and site development? (Y/n) y
+&amp;gt; Do you want to upload your website using FTP? (y/N) n
+&amp;gt; Do you want to upload your website using SSH? (y/N) n
+&amp;gt; Do you want to upload your website using Dropbox? (y/N) n
+&amp;gt; Do you want to upload your website using S3? (y/N) n
+&amp;gt; Do you want to upload your website using Rackspace Cloud Files? (y/N) n
+&amp;gt; Do you want to upload your website using GitHub Pages? (y/N) y
+&amp;gt; Is this your personal page (username.github.io)? (y/N) y
+Done. Your new project is available at /Users/username/blog
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Liftoff&lt;/h3&gt;
+&lt;p&gt;Add all the Pelican-generated files to the content branch of the local Git repo, commit the changes, and push the local changes to the remote repo hosted on GitHub by entering:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git add .
+$ git commit -m &lt;span class="s1"&gt;&amp;#39;initial pelican commit to content&amp;#39;&lt;/span&gt;
+$ git push origin content
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Write content&lt;/h3&gt;
+&lt;h3&gt;Publish&lt;/h3&gt;
+&lt;p&gt;Run Pelican to generate the static HTML files in output:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pelican content -o output -s publishconf.py
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Use ghp-import to add the contents of the output directory to the master branch:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    $ ghp-import -m &lt;span class="s2"&gt;&amp;quot;Generate Pelican site&amp;quot;&lt;/span&gt; --no-jekyll -b master output
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Push the local master branch to the remote repo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git push origin master
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Commit and push the new content to the content branch:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git add content
+$ git commit -m &lt;span class="s1"&gt;&amp;#39;added a first post, a photo and an about page&amp;#39;&lt;/span&gt;
+$ git push origin content
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Syntax Highlights with Pygments&lt;/h3&gt;
+&lt;p&gt;View avaiable options&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pygments.styles&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;STYLE_MAP&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;STYLE_MAP&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;monokai&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;manni&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;rrt&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;perldoc&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="s1"&gt;&amp;#39;borland&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;colorful&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;default&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="s1"&gt;&amp;#39;murphy&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;vs&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;trac&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;tango&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="s1"&gt;&amp;#39;fruity&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;autumn&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="s1"&gt;&amp;#39;bw&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;emacs&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;vim&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;pastie&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;friendly&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;native&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Generate style file and add to &lt;code&gt;base.html&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; $ &lt;span class="nb"&gt;cd&lt;/span&gt; thems/&amp;lt;theme-name&amp;gt;/css
+ $ pygmentize -S monokai -f html -a .highlight &amp;gt; pygments_vim.css
+&lt;/pre&gt;&lt;/div&gt;</content><category term="blog"></category><category term="python"></category><category term="pelican"></category></entry><entry><title>Liftoff</title><link href="/liftoff.html" rel="alternate"></link><published>2018-05-03T06:14:30+02:00</published><updated>2018-05-03T06:14:30+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-05-03:/liftoff.html</id><summary type="html">&lt;h2&gt;First Post&lt;/h2&gt;
+&lt;p&gt;World, hello again! This very first paragraph of the post will be used as
+excerpt in archives and feeds.&lt;/p&gt;
+&lt;p&gt;This post is consequence of merging old blog and accumulated notes.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Pelican is a static site generator.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is my first post on my new blog. While not …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;First Post&lt;/h2&gt;
+&lt;p&gt;World, hello again! This very first paragraph of the post will be used as
+excerpt in archives and feeds.&lt;/p&gt;
+&lt;p&gt;This post is consequence of merging old blog and accumulated notes.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Pelican is a static site generator.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is my first post on my new blog. While not super informative it
+should convey my sense of excitement and eagerness to engage with you,
+the reader!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Not until their lights were no longer discernible did I venture to flash my
+little lamp upon my compass, and then I found to my consternation that a
+fragment of the projectile had utterly destroyed my only guide, as well as my
+speedometer. It was true I could follow the stars in the general direction of
+Helium, but without knowing the exact location of the city or the speed at
+which I was traveling my chances for finding it were slim.&lt;/p&gt;
+&lt;p&gt;-- &lt;cite&gt; Moby-Dick - Novel by Herman Melville &lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content><category term="blog"></category></entry></feed>

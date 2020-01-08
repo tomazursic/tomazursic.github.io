@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" class="inverted">
 <head>
-        <title>Web Log - raspberry-pi tag</title>
+          <title>Web Log - Git Notes</title>
         <meta charset="utf-8" />
         <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Web Log Full Atom Feed" />
+        <link href="/feeds/notes.atom.xml" type="application/atom+xml" rel="alternate" title="Web Log Categories Atom Feed" />
+
+
+
+
+    <meta name="tags" content="git" />
+    <meta name="tags" content="linux" />
+
 
         <link rel="stylesheet" href="/theme/css/style.css"/>
         <link rel="stylesheet" href="/theme/css/monokai.min.css"/>
@@ -39,52 +47,87 @@
                   Personal Website & Blog
                 </div>
 
-          <div id="search" style="margin: 4rem 0rem 1.5rem 0rem;">
 
-            <form action="/">
-                <div class="tipue_search_right">
-                  <input placeholder="Type to search..." aria-hidden="true" data-choice="active" 
-                  type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required>
-                </div>
-                <div style="clear: both;"></div>
-            </form>
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="/drafts/git.html" rel="bookmark"
+         title="Permalink to Git Notes">Git Notes</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2019-12-23T00:00:00+01:00">
+      Mon 23 December 2019
+    </time>
+    <address class="vcard author">
+      By           <a class="url fn" href="/author/tomaz-ursic.html">Tomaz Ursic</a>
+    </address>
+    <div class="category">
+        Category: <a href="/category/notes.html">notes</a>
+    </div>
+    <div class="tags">
+        Tags:
+            <a href="/tag/git.html">git</a>
+            <a href="/tag/linux.html">linux</a>
+    </div>
+  </footer><!-- /.post-info -->
+  <br>
+  <br>
+  <div class="entry-content">
+    <div class="section" id="git-tips">
+<h2>Git Tips</h2>
+<div class="section" id="contribute">
+<h3>Contribute</h3>
+<ol class="arabic">
+<li><p class="first">Make Fork on webpage</p>
+</li>
+<li><p class="first">Create local clone</p>
+</li>
+<li><p class="first">Add remote upstrem to original repo</p>
+<blockquote>
+<p>$ git remote add upstream <a class="reference external" href="https://github.com/octocat/Spoon-Knife.git">https://github.com/octocat/Spoon-Knife.git</a></p>
+</blockquote>
+</li>
+<li><p class="first">View remote</p>
+<blockquote>
+<p>$ git remote -v</p>
+</blockquote>
+</li>
+<li><p class="first">Sync a fork</p>
+<blockquote>
+<p>$ git fetch upstream</p>
+</blockquote>
+</li>
+<li><p class="first">Branch set to track upsream master</p>
+<blockquote>
+<p>$ git branch --set-upstream-to=upstream/master master</p>
+</blockquote>
+</li>
+<li><p class="first">Create new brnch for working on</p>
+<blockquote>
+<p>$ git checkout -b &lt;branch-name&gt;</p>
+</blockquote>
+</li>
+<li><p class="first">Create changes, commit and push to origin remote</p>
+<blockquote>
+<p>$ git push -u origin &lt;branch-name&gt;</p>
+</blockquote>
+</li>
+<li><p class="first">Create Pull Request in GUI</p>
+</li>
+</ol>
+<p>tip:
+My tip</p>
+<div class="section" id="check-out-upstream-branch">
+<h4>Check out upstream branch</h4>
+<blockquote>
+$ git checkout --track origin/&lt;branch&gt;</blockquote>
+</div>
+</div>
+</div>
 
-            <div id="tipue_search_content" style="margin: 2rem 0rem; padding: 1rem; border-bottom: 1px solid;"></div>
-
-          </div>
-
-<section id="content">
-<h2>Articles tagged with raspberry-pi</h2>
-
-<ol id="post-list">
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="/exploring-obdii.html" rel="bookmark" title="Permalink to Exploring OBDII">Exploring OBDII</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2019-03-04T11:09:02+01:00"> Mon 04 March 2019 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="/author/tomaz.html">Tomaz</a>
-                    </address>
-                    <div>
-                    Tags: 
-                        <a class="url fn" href="/tag/python.html">python</a>
-                        <a class="url fn" href="/tag/raspberry-pi.html">raspberry-pi</a>
-                        <a class="url fn" href="/tag/obd.html">obd</a>
-                    </div>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <p>To satisfy the curiosity for reading car on-board diagnostics using Raspberry PI with build in Bluetooth
-and ODBII Bluetooth adapter.</p>
-<p>Turn on the car engine after attaching the adapter.</p>
-<h2>Setup:</h2>
-<p>Example target device MAC address</p>
-<div class="highlight"><pre><span></span>00:19:5D:FE:9A:8F OBDII
-</pre></div>
-
-
-<h3>Terminal 1:</h3>
-<p>Turn on the bluetoot and scan …</p> </div><!-- /.entry-content -->
-        </article></li>
-</ol><!-- /#posts-list -->
-</section><!-- /#content -->
+  </div><!-- /.entry-content -->
+</section>
 
         <section id="extras" class="body">
 

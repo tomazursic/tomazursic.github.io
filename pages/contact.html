@@ -1,13 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="inverted">
 <head>
-          <title>Weblog - Contact</title>
+          <title>Web Log - Contact</title>
         <meta charset="utf-8" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Web Log Full Atom Feed" />
 
 
 
-        <link rel="stylesheet" href="../theme/css/style.css"/>
-        <link rel="stylesheet" href="../theme/css/monokai.min.css"/>
+        <link rel="stylesheet" href="/theme/css/style.css"/>
+        <link rel="stylesheet" href="/theme/css/monokai.min.css"/>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+        <script src="/theme/tipuesearch/tipuesearch_set.js"></script>
+        <script src="/theme/tipuesearch/tipuesearch.min.js"></script>
+        <script src="/tipuesearch_content.js"></script>
+
+ 
 
 </head>
 
@@ -16,32 +24,39 @@
  <div id="wrapper"> 
 
         <header id="banner" class="body">
-                <h1><a href="../">Weblog <strong></strong></a></h1>
+                <h1><a href="/">Web Log <strong></strong></a></h1>
         </header><!-- /#banner -->
 
         <nav id="menu"><ul>
-            <li class="active"><a href="../pages/contact.html">Contact</a></li>
-            <li><a href="../category/blog.html">blog</a></li>
+            <li class="active"><a href="/pages/contact.html">Contact</a></li>
+            <li><a href="/category/blog.html">blog</a></li>
+            <li><a href="/category/projects.html">projects</a></li>
         </ul></nav><!-- /#menu -->
 
-        <div id="invmode">Night</div>
+        <div id="invmode">Day</div>
 
         <div id="content">
+
+                <div style="">
+                  Personal Website & Blog
+                </div>
+
+
     <h1>Contact</h1>
     
 
     <h2>Tomaž Uršič</h2>
 <p>Hey there! Here are some links you might be interested in:</p>
 <ul>
-<li>my <a href="https://github.com/tomazursic">Github profile</a></li>
-<li>my <a href="https://keybase.io/tmz">Keybase chat</a></li>
-<li>my <a href="https://twitter.com/tomazursic">Twitter account</a></li>
-<li>my <a href="mailto:tomaz.ursic+github@gmail.com">Email</a></li>
-<li>my <a href="https://keybase.io/tmz/pgp_keys.asc">PGP Key</a></li>
+<li><a href="https://github.com/tomazursic">Github</a></li>
+<li><a href="https://twitter.com/tomazursic">Twitter</a></li>
+<li><a href="mailto:tomaz.ursic+github@gmail.com">Email</a></li>
+<li><a href="https://keybase.io/tmz">Keybase</a></li>
+<li><a href="https://keybase.io/tmz/pgp_keys.asc">PGP Key</a></li>
 </ul>
-<div class="highlight"><pre><span></span><span class="c1"># my Stellar:</span>
-
-tmz*keybase.io
+<hr>
+<div class="highlight"><pre><span></span>    Stellar address:
+    GBO6P36OOCQPIQTLPL7BCXUDEDCUKYKUN5X6JAOYBZG57ZROFOLZFIBD
 </pre></div>
 
 
@@ -68,6 +83,16 @@ over long distances thanks to the use of the LoRaWAN technology.</p>
 
 
         <section id="extras" class="body">
+
+
+
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
         </section><!-- /#extras -->
         </div>
 
@@ -81,7 +106,15 @@ over long distances thanks to the use of the LoRaWAN technology.</p>
  </div><!-- /.wrapper -->
 
 <script>
-var scriptSrc = ["../theme/js/main.js",];
+// Handle site search
+$(document).ready(function() {
+     $('#tipue_search_input').tipuesearch({
+          'mode': 'json',
+          'contentLocation': 'tipuesearch_content.json'
+     });
+});
+// Insert scripts
+var scriptSrc = ["/theme/js/main.js",];
 for (var i_2 = 0; i_2 < scriptSrc.length; i_2++) {
   var index = scriptSrc[i_2];
   var script = document.body.appendChild(document.createElement('script'));

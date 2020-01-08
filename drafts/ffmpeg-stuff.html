@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" class="inverted">
 <head>
-        <title>Web Log - raspberry-pi tag</title>
+          <title>Web Log - FFMPEG Stuff</title>
         <meta charset="utf-8" />
         <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Web Log Full Atom Feed" />
+        <link href="/feeds/blog.atom.xml" type="application/atom+xml" rel="alternate" title="Web Log Categories Atom Feed" />
+
+
+
+
+
 
         <link rel="stylesheet" href="/theme/css/style.css"/>
         <link rel="stylesheet" href="/theme/css/monokai.min.css"/>
@@ -27,7 +33,7 @@
 
         <nav id="menu"><ul>
             <li><a href="/pages/contact.html">Contact</a></li>
-            <li><a href="/category/blog.html">blog</a></li>
+            <li class="active"><a href="/category/blog.html">blog</a></li>
             <li><a href="/category/projects.html">projects</a></li>
         </ul></nav><!-- /#menu -->
 
@@ -39,52 +45,44 @@
                   Personal Website & Blog
                 </div>
 
-          <div id="search" style="margin: 4rem 0rem 1.5rem 0rem;">
 
-            <form action="/">
-                <div class="tipue_search_right">
-                  <input placeholder="Type to search..." aria-hidden="true" data-choice="active" 
-                  type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required>
-                </div>
-                <div style="clear: both;"></div>
-            </form>
-
-            <div id="tipue_search_content" style="margin: 2rem 0rem; padding: 1rem; border-bottom: 1px solid;"></div>
-
-          </div>
-
-<section id="content">
-<h2>Articles tagged with raspberry-pi</h2>
-
-<ol id="post-list">
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="/exploring-obdii.html" rel="bookmark" title="Permalink to Exploring OBDII">Exploring OBDII</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2019-03-04T11:09:02+01:00"> Mon 04 March 2019 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="/author/tomaz.html">Tomaz</a>
-                    </address>
-                    <div>
-                    Tags: 
-                        <a class="url fn" href="/tag/python.html">python</a>
-                        <a class="url fn" href="/tag/raspberry-pi.html">raspberry-pi</a>
-                        <a class="url fn" href="/tag/obd.html">obd</a>
-                    </div>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <p>To satisfy the curiosity for reading car on-board diagnostics using Raspberry PI with build in Bluetooth
-and ODBII Bluetooth adapter.</p>
-<p>Turn on the car engine after attaching the adapter.</p>
-<h2>Setup:</h2>
-<p>Example target device MAC address</p>
-<div class="highlight"><pre><span></span>00:19:5D:FE:9A:8F OBDII
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="/drafts/ffmpeg-stuff.html" rel="bookmark"
+         title="Permalink to FFMPEG Stuff">FFMPEG Stuff</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2018-05-03T06:14:30+02:00">
+      Thu 03 May 2018
+    </time>
+    <address class="vcard author">
+      By           <a class="url fn" href="/author/tomaz.html">Tomaz</a>
+    </address>
+    <div class="category">
+        Category: <a href="/category/blog.html">blog</a>
+    </div>
+  </footer><!-- /.post-info -->
+  <br>
+  <br>
+  <div class="entry-content">
+    <h2>Gene palete</h2>
+<div class="highlight"><pre><span></span><span class="err">ffmpeg -y -i cut2.mp4 -vf palettegen palette.png</span>
+<span class="err">ffmpeg -y -i cut2.mp4 -i palette.png -filter_complex paletteuse -r 10 -s 320x480 file.gif</span>
 </pre></div>
 
 
-<h3>Terminal 1:</h3>
-<p>Turn on the bluetoot and scan …</p> </div><!-- /.entry-content -->
-        </article></li>
-</ol><!-- /#posts-list -->
-</section><!-- /#content -->
+<h2>Cut</h2>
+<div class="highlight"><pre><span></span><span class="err">ffmpeg -i cut_jk.mp4 -ss 00:00:00 -t 00:00:04 -async 1 cut.mp4</span>
+</pre></div>
+
+
+<h2>Optimeze</h2>
+<div class="highlight"><pre><span></span><span class="n">ffmpeg</span><span class="w"> </span><span class="o">-</span><span class="n">ss</span><span class="w"> </span><span class="mf">0.1</span><span class="w"> </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="mf">4.0</span><span class="w"> </span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="n">cut</span><span class="p">.</span><span class="n">mp4</span><span class="w"> </span><span class="o">-</span><span class="n">filter_complex</span><span class="w"> </span><span class="ss">&quot;[0:v] fps=12,scale=w=800:h=-1,split [a][b];[a] palettegen=stats_mode=single [p];[b][p] paletteuse=new=1&quot;</span><span class="w"> </span><span class="n">gvvy</span><span class="o">-</span><span class="mf">800.</span><span class="n">gif</span><span class="w"></span>
+</pre></div>
+  </div><!-- /.entry-content -->
+</section>
 
         <section id="extras" class="body">
 

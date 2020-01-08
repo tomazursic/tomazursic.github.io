@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Web Log - projects</title><link href="/" rel="alternate"></link><link href="/feeds/projects.atom.xml" rel="self"></link><id>/</id><updated>2019-10-27T01:04:00+02:00</updated><entry><title>MicroPython and Lopy</title><link href="/micropython-lopy.html" rel="alternate"></link><published>2019-10-27T01:04:00+02:00</published><updated>2019-10-27T01:04:00+02:00</updated><author><name>Tomaz Ursic</name></author><id>tag:None,2019-10-27:/micropython-lopy.html</id><summary type="html">&lt;p class="first last"&gt;How to setup and use lorawan device, using MicroPython and Lopy (ESP-32) module&lt;/p&gt;
+</summary><content type="html">&lt;div class="section" id="micro-controllers"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;Micro Controllers&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="contents topic" id="table-of-contents"&gt;
+&lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#micro-controllers" id="id1"&gt;Micro Controllers&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#lopy" id="id2"&gt;Lopy&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#ftp" id="id3"&gt;FTP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#telnet" id="id4"&gt;Telnet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#serial" id="id5"&gt;Serial&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#code-example" id="id6"&gt;Code example&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#config-file" id="id7"&gt;Config file&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#boot-file" id="id8"&gt;Boot file&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#main-file" id="id9"&gt;Main file&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#building-a-firmware-image" id="id10"&gt;Building a firmware image&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#requirements" id="id11"&gt;Requirements&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#debian-ubuntu" id="id12"&gt;Debian/Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#build-environment" id="id13"&gt;Build environment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#source-code" id="id14"&gt;Source code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#xtensa" id="id15"&gt;Xtensa&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#esp-idf" id="id16"&gt;ESP-IDF&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#build-process" id="id17"&gt;Build process&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#rebuild-process" id="id18"&gt;Rebuild process&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#encryption" id="id19"&gt;Encryption&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#reference" id="id20"&gt;Reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="lopy"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id2"&gt;Lopy&lt;/a&gt;&lt;/h3&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Official documentation: &lt;a class="reference external" href="https://docs.pycom.io/"&gt;https://docs.pycom.io/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Pinout: &lt;a class="reference external" href="https://docs.pycom.io/gitbook/assets/lopy4-pinout.pdf"&gt;https://docs.pycom.io/gitbook/assets/lopy4-pinout.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Frmware: &lt;a class="reference external" href="https://docs.pycom.io/pytrackpysense/installation/firmware/"&gt;https://docs.pycom.io/pytrackpysense/installation/firmware/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Old docs: &lt;a class="reference external" href="https://docs.pycom.io/chapter/pytrackpysense/installation/firmware.html"&gt;https://docs.pycom.io/chapter/pytrackpysense/installation/firmware.html&lt;/a&gt;&lt;/p&gt;
+&lt;div class="section" id="ftp"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id3"&gt;FTP&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Connect to access point with name same as DEV_ID and credentials:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;u: admin
+p: www.pycom.io
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="telnet"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id4"&gt;Telnet&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ telent &lt;span class="m"&gt;192&lt;/span&gt;.168.4.1
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="serial"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id5"&gt;Serial&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Connecting to UART we can use any program rshell or minicom, screen..&lt;/p&gt;
+&lt;p&gt;Get information about ports:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dmesg &lt;span class="p"&gt;|&lt;/span&gt; egrep --color &lt;span class="s1"&gt;&amp;#39;serial|ttyS&amp;#39;&lt;/span&gt;
+
+
+content
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Connect to device with &lt;cite&gt;rshell&lt;/cite&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install rshell
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rshell -p /dev/ttyUSB0 --buffer-size&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rshell -p /dev/ttyACM0 --buffer-size&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Copy file to device&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cp &amp;lt;file-name&amp;gt; /flash/
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Copy directory&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cp -r &amp;lt;directory-name&amp;gt; /flash/&amp;lt;directory-name&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Rsync project&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rsync -mv &amp;lt;directory-name&amp;gt;/ /flash/
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;After connecting to device over serial enter in REPL mode&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ repl
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Exit REPL&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;cite&gt;CTRL - X&lt;/cite&gt;&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="code-example"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id6"&gt;Code example&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Project structure&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;project/
+├── lib/       &amp;lt;--- Place for sensors drivers
+├── boot.py    &amp;lt;--- First file to be executed on start up
+├── config.py  &amp;lt;--- Global variables
+└── main.py    &amp;lt;--- Executed after boot
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="section" id="config-file"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id7"&gt;Config file&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# config.py&lt;/span&gt;
+
+&lt;span class="n"&gt;DEV_ID&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;lt;DEV_ID_REGISTERED_ON_LORA_SERVER&amp;quot;&lt;/span&gt;
+
+&lt;span class="c1"&gt;# TTN Registered Device IDs&lt;/span&gt;
+&lt;span class="n"&gt;DEV_EUI&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;lt;DEVICE-EUI&amp;gt;&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;APP_EUI&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;lt;APPLICATION-EUI&amp;gt;&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;APP_KEY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;lt;APPLICATION-KEY&amp;gt;&amp;#39;&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Debug&lt;/span&gt;
+&lt;span class="n"&gt;DEBUG_LED&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;
+&lt;span class="n"&gt;DEBUG_CON&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;
+
+&lt;span class="c1"&gt;# LoRa setup&lt;/span&gt;
+&lt;span class="n"&gt;LORA_FREQUENCY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;868100000&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Data Rate (0 - 7)&lt;/span&gt;
+&lt;span class="n"&gt;LORA_DR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="c1"&gt;# DR_5&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Bind socket to port&lt;/span&gt;
+&lt;span class="n"&gt;SOCK_PORT&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Sleep time in packet send&lt;/span&gt;
+&lt;span class="n"&gt;SLEEP_MAIN&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;300&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Low Energy config&lt;/span&gt;
+&lt;span class="n"&gt;HEARTBEAT&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;
+
+&lt;span class="c1"&gt;# LED color&lt;/span&gt;
+&lt;span class="n"&gt;LED_OFF&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mh"&gt;0x000000&lt;/span&gt;
+&lt;span class="n"&gt;GREEN&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mh"&gt;0x007f00&lt;/span&gt;
+&lt;span class="n"&gt;YELLOW&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mh"&gt;0x7f7f00&lt;/span&gt;
+&lt;span class="n"&gt;RED&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mh"&gt;0x7f0000&lt;/span&gt;
+&lt;span class="n"&gt;BLUE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mh"&gt;0x00007f&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="boot-file"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id8"&gt;Boot file&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# boot.py -- run on boot-up&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;machine&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Enable REPL duplication on UART0&lt;/span&gt;
+&lt;span class="n"&gt;uart&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;machine&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;UART&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;115200&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dupterm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;uart&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Run main module&lt;/span&gt;
+&lt;span class="n"&gt;machine&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;main.py&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="main-file"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id9"&gt;Main file&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="sd"&gt;Basic LoRa example based on OTAA (Over The Air Authentication)&lt;/span&gt;
+&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;network&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;LoRa&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;network&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;WLAN&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;binascii&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pycom&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;socket&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;time&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;config&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;c&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Set heartbeat&lt;/span&gt;
+&lt;span class="n"&gt;pycom&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;heartbeat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;HEARTBEAT&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Initialize LoRa in LORAWAN mode.&lt;/span&gt;
+&lt;span class="n"&gt;lora&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;LoRa&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mode&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;LoRa&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LORAWAN&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# create an OTA authentication params&lt;/span&gt;
+&lt;span class="n"&gt;dev_eui&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;binascii&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;unhexlify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEV_EUI&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;app_eui&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;binascii&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;unhexlify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;APP_EUI&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;app_key&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;binascii&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;unhexlify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;APP_KEY&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Join a network using OTAA&lt;/span&gt;
+&lt;span class="n"&gt;lora&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;activation&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;LoRa&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;OTAA&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;auth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dev_eui&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;app_eui&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;app_key&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;timeout&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Wait until the module has joined the network&lt;/span&gt;
+&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;lora&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;has_joined&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEBUG_CON&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Not joined yet...&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEBUG_LED&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;pycom&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rgbled&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;RED&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;pycom&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rgbled&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LED_OFF&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Create a LoRa socket&lt;/span&gt;
+&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;socket&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;socket&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;socket&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;AF_LORA&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;socket&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SOCK_RAW&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Set the LoRaWAN data rate&lt;/span&gt;
+&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setsockopt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;socket&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SOL_LORA&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;socket&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SO_DR&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LORA_DR&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Make the socket blocking&lt;/span&gt;
+&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setblocking&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;5.0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="c1"&gt;# Prepare the packet&lt;/span&gt;
+    &lt;span class="c1"&gt;# send &amp;#39;hi&amp;#39; as raw byte data (hex format)&lt;/span&gt;
+    &lt;span class="n"&gt;pkt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mh"&gt;0x68&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mh"&gt;0x69&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# Send it&lt;/span&gt;
+    &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;send&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pkt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEBUG_CON&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;send &amp;gt;&amp;gt; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;pkt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEBUG_LED&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;pycom&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rgbled&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;GREEN&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;pycom&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rgbled&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LED_OFF&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="c1"&gt;# Wait to receive packet&lt;/span&gt;
+    &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;rx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;recv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;256&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;rx&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEBUG_CON&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;pycom&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rgbled&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;BLUE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;pycom&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rgbled&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LED_OFF&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;receive &amp;lt;&amp;lt; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rx&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="c1"&gt;# Sleep 10 min&lt;/span&gt;
+    &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SLEEP_MAIN&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="building-a-firmware-image"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id10"&gt;Building a firmware image&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="Output console image" src="./images/iot/pycom-build.png" /&gt;
+&lt;/div&gt;
+&lt;div class="section" id="requirements"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id11"&gt;Requirements&lt;/a&gt;&lt;/h4&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Pycom MicroPython source code&lt;/li&gt;
+&lt;li&gt;Xtensa gcc compiler&lt;/li&gt;
+&lt;li&gt;Espressif IoT Development Framework&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="debian-ubuntu"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id12"&gt;Debian/Ubuntu&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install gcc git wget make libncurses-dev flex bison gperf python python-serial
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="build-environment"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id13"&gt;Build environment&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Make build project directory&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; mkdir pycom-build
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="source-code"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id14"&gt;Source code&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Get Pycom MicroPython source code&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git clone https://github.com/pycom/pycom-micropython-sigfox
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Check out to latest stable version (output on date 2018-07-23)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git tags
+
+    &lt;span class="m"&gt;1&lt;/span&gt;.11.0.b1
+    &lt;span class="m"&gt;1&lt;/span&gt;.12.0.b1
+    &lt;span class="m"&gt;1&lt;/span&gt;.13.0.b1
+    &lt;span class="m"&gt;1&lt;/span&gt;.6.13.b1
+    v1.14.0.b1
+    v1.15.0.b1
+    v1.16.0.b1
+    v1.17.0.b1
+    v1.17.2.b1
+    v1.17.3.b1
+    v1.18.0
+    v1.18.0.r1    &amp;lt;--- Check out tag
+    v1.18.0.r1-0.
+    v1.19.0.b2
+    v1.19.0.b3
+    v1.19.0.b4
+
+$ git checkout v1.18.0.r1
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="xtensa"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id15"&gt;Xtensa&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Install xtensa gcc compiler&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build
+$ wget https://dl.espressif.com/dl/xtensa-esp32-elf-linux64-1.22.0-80-g6c4433a-5.2.0.tar.gz
+$ tar -xzf xtensa-esp32-elf-linux64-1.22.0-80-g6c4433a-5.2.0.tar.gz
+$ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$PATH&lt;/span&gt;:&lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/xtensa-esp32-elf/bin
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Verify content of $PATH variables:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$PATH&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Verify toolchain installation:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ xtensa-esp32-elf-gcc -v
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If command returns &lt;cite&gt;xtensa-esp32-elf-gcc: Command not found&lt;/cite&gt; recheck the the
+export command!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="esp-idf"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id16"&gt;ESP-IDF&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Install ESP-IDF tools&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build
+$ git clone https://github.com/pycom/pycom-esp-idf.git
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; pycom-esp-idf
+$ git submodule update --init
+$ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;IDF_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/pycom-esp-idf
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;More details:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/pycom/pycom-esp-idf"&gt;https://github.com/pycom/pycom-esp-idf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://esp-idf.readthedocs.io/en/latest/get-started/linux-setup.html"&gt;https://esp-idf.readthedocs.io/en/latest/get-started/linux-setup.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/pycom/pycom-micropython-sigfox"&gt;https://github.com/pycom/pycom-micropython-sigfox&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://docs.espressif.com/projects/esp-idf/en/release-v3.0/get-started/linux-setup.html"&gt;https://docs.espressif.com/projects/esp-idf/en/release-v3.0/get-started/linux-setup.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="build-process"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id17"&gt;Build process&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Read this first: &lt;a class="reference external" href="https://github.com/pycom/pycom-micropython-sigfox"&gt;https://github.com/pycom/pycom-micropython-sigfox&lt;/a&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;ol class="first arabic"&gt;
+&lt;li&gt;Build mpy-cross&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/pycom-micropython-sigfox
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; mpy-cross &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; make clean &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; make &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;cd&lt;/span&gt; ..
+&lt;/pre&gt;&lt;/div&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;ol class="first arabic" start="4"&gt;
+&lt;li&gt;Frozen modules (OPTIONAL)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Add custom python modules to include in the firmware in following directory:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/pycom-micropython-sigfox/esp32/frozen/Custom
+&lt;/pre&gt;&lt;/div&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;ol class="first arabic" start="3"&gt;
+&lt;li&gt;Board build&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Currently support for the following BOARD types:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;WIPY LOPY SIPY GPY FIPY LOPY4
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/pycom-micropython-sigfoxesp32/esp32
+$ make &lt;span class="nv"&gt;BOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;LOPY clean
+$ make &lt;span class="nv"&gt;BOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;LOPY -j5 &lt;span class="nv"&gt;TARGET&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;boot
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;For LoRa need to specify the &lt;cite&gt;LORA_BAND&lt;/cite&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# LORA_BAND=USE_BAND_868&lt;/span&gt;
+&lt;span class="c1"&gt;# LORA_BAND=USE_BAND_915&lt;/span&gt;
+
+$ make &lt;span class="nv"&gt;BOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;LOPY -j5 &lt;span class="nv"&gt;LORA_BAND&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;USE_BAND_868 &lt;span class="nv"&gt;TARGET&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;app
+&lt;/pre&gt;&lt;/div&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;ol class="first arabic" start="4"&gt;
+&lt;li&gt;Flash the image on board&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Pysense board&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The pysense board enter automatic in programming mode&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# On linux&lt;/span&gt;
+$ make &lt;span class="nv"&gt;BOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;LOPY -j5 &lt;span class="nv"&gt;ESPPORT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/ttyACM0 flash
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Extension board&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Put in programming mode connect GND to P23&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# On linux&lt;/span&gt;
+$ make &lt;span class="nv"&gt;BOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;LOPY -j5 &lt;span class="nv"&gt;ESPPORT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/ttyUSB1 flash
+
+&lt;span class="c1"&gt;# On MacOSX&lt;/span&gt;
+$ make &lt;span class="nv"&gt;ESPPORT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/tty.usbserial-DQ008HQY flash
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="rebuild-process"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id18"&gt;Rebuild process&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Making rebuild looks like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$PATH&lt;/span&gt;:&lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/xtensa-esp32-elf/bin
+&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;IDF_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/pycom-esp-idf
+&lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/pycom-micropython-sigfox/esp32/
+make &lt;span class="nv"&gt;BOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;LOPY4 clean
+make &lt;span class="nv"&gt;BOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;LOPY4 release
+make &lt;span class="nv"&gt;BOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;LOPY4 -j5 &lt;span class="nv"&gt;ESPPORT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/ttyACM3 flash
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="encryption"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id19"&gt;Encryption&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Use make SECURE=on [optionally SECURE_KEY ?= secure_boot_signing_key.pem] to enable Secure Boot and Flash Encryption mechanisms.
+Use make V=1 or set BUILD_VERBOSE in your environment to increase build verbosity.&lt;/p&gt;
+&lt;div class="section" id="reference"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id20"&gt;Reference&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://github.com/pycom/pycom-micropython-sigfox#the-esp32-version"&gt;https://github.com/pycom/pycom-micropython-sigfox#the-esp32-version&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="projects"></category><category term="iot"></category><category term="python"></category><category term="lorawan"></category></entry></feed>

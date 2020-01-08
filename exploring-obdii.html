@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="inverted">
 <head>
-          <title>Weblog - Exploring OBDII</title>
+          <title>Web Log - Exploring OBDII</title>
         <meta charset="utf-8" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Web Log Full Atom Feed" />
+        <link href="/feeds/blog.atom.xml" type="application/atom+xml" rel="alternate" title="Web Log Categories Atom Feed" />
 
 
 
@@ -12,8 +14,15 @@
     <meta name="tags" content="obd" />
 
 
-        <link rel="stylesheet" href="./theme/css/style.css"/>
-        <link rel="stylesheet" href="./theme/css/monokai.min.css"/>
+        <link rel="stylesheet" href="/theme/css/style.css"/>
+        <link rel="stylesheet" href="/theme/css/monokai.min.css"/>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+        <script src="/theme/tipuesearch/tipuesearch_set.js"></script>
+        <script src="/theme/tipuesearch/tipuesearch.min.js"></script>
+        <script src="/tipuesearch_content.js"></script>
+
+ 
 
 </head>
 
@@ -22,21 +31,28 @@
  <div id="wrapper"> 
 
         <header id="banner" class="body">
-                <h1><a href="./">Weblog <strong></strong></a></h1>
+                <h1><a href="/">Web Log <strong></strong></a></h1>
         </header><!-- /#banner -->
 
         <nav id="menu"><ul>
-            <li><a href="./pages/contact.html">Contact</a></li>
-            <li class="active"><a href="./category/blog.html">blog</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+            <li class="active"><a href="/category/blog.html">blog</a></li>
+            <li><a href="/category/projects.html">projects</a></li>
         </ul></nav><!-- /#menu -->
 
-        <div id="invmode">Night</div>
+        <div id="invmode">Day</div>
 
         <div id="content">
+
+                <div style="">
+                  Personal Website & Blog
+                </div>
+
+
 <section id="content" class="body">
   <header>
     <h2 class="entry-title">
-      <a href="./exploring-obdii.html" rel="bookmark"
+      <a href="/exploring-obdii.html" rel="bookmark"
          title="Permalink to Exploring OBDII">Exploring OBDII</a></h2>
  
   </header>
@@ -45,18 +61,20 @@
       Mon 04 March 2019
     </time>
     <address class="vcard author">
-      By           <a class="url fn" href="./author/tomaz.html">Tomaz</a>
+      By           <a class="url fn" href="/author/tomaz.html">Tomaz</a>
     </address>
     <div class="category">
-        Category: <a href="./category/blog.html">blog</a>
+        Category: <a href="/category/blog.html">blog</a>
     </div>
     <div class="tags">
         Tags:
-            <a href="./tag/python.html">python</a>
-            <a href="./tag/raspberry-pi.html">raspberry-pi</a>
-            <a href="./tag/obd.html">obd</a>
+            <a href="/tag/python.html">python</a>
+            <a href="/tag/raspberry-pi.html">raspberry-pi</a>
+            <a href="/tag/obd.html">obd</a>
     </div>
   </footer><!-- /.post-info -->
+  <br>
+  <br>
   <div class="entry-content">
     <p>To satisfy the curiosity for reading car on-board diagnostics using Raspberry PI with build in Bluetooth
 and ODBII Bluetooth adapter.</p>
@@ -87,55 +105,65 @@ and ODBII Bluetooth adapter.</p>
 
 <h3>Read output with pyobd</h3>
 <p>http://brendan-w.com/python-obd</p>
-<div class="highlight"><pre><span></span>    <span class="kn">import</span> <span class="nn">obd</span>
-    <span class="n">connection</span> <span class="o">=</span> <span class="n">obd</span><span class="o">.</span><span class="n">OBD</span><span class="p">(</span><span class="s1">&#39;/dev/rfcomm0&#39;</span><span class="p">)</span>
-    <span class="n">cmd</span> <span class="o">=</span> <span class="n">obd</span><span class="o">.</span><span class="n">commands</span><span class="o">.</span><span class="n">RPM</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">obd</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">obd</span><span class="o">.</span><span class="n">OBD</span><span class="p">(</span><span class="s1">&#39;/dev/rfcomm0&#39;</span><span class="p">)</span>
+<span class="n">cmd</span> <span class="o">=</span> <span class="n">obd</span><span class="o">.</span><span class="n">commands</span><span class="o">.</span><span class="n">RPM</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 </pre></div>
 
 
 <p>Example output:</p>
-<p><img alt="OBDII Output" src="./images/obdII_output.jpg"></p>
+<p><img alt="OBDII Output" src="/images/obdII_output.jpg"></p>
 <h2>Unpairing a Bluetooth device</h2>
 <p>Start the Bluetooth utility.</p>
-<div class="highlight"><pre><span></span>    <span class="n">bluetoothctl</span>
+<div class="highlight"><pre><span></span>bluetoothctl
 </pre></div>
 
 
 <p>Unpair the Bluetooth device if required.</p>
-<div class="highlight"><pre><span></span>    <span class="n">remove</span> <span class="o">&lt;</span><span class="n">dev</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span></span>remove &lt;dev&gt;
 </pre></div>
 
 
 <p>Make sure the agent is stopped for the Bluetooth device.</p>
-<div class="highlight"><pre><span></span>    <span class="n">agent</span> <span class="k">off</span>
+<div class="highlight"><pre><span></span>agent off
 </pre></div>
 
 
 <p>Make sure the Bluetooth device is powered down.</p>
-<div class="highlight"><pre><span></span>    <span class="n">power</span> <span class="k">off</span>
+<div class="highlight"><pre><span></span>power off
 </pre></div>
 
 
 <p>Exit the Bluetooth utility.</p>
-<div class="highlight"><pre><span></span>    <span class="n">quit</span>
+<div class="highlight"><pre><span></span>quit
 </pre></div>
 
 
 <h2>Release serail</h2>
 <p>To remove the serial device do the following if required.</p>
-<div class="highlight"><pre><span></span>    <span class="n">rfcomm</span> <span class="n">release</span> <span class="mi">00</span><span class="p">:</span><span class="mi">19</span><span class="p">:</span><span class="mi">5</span><span class="n">D</span><span class="p">:</span><span class="n">FE</span><span class="p">:</span><span class="mi">9</span><span class="n">A</span><span class="p">:</span><span class="mi">8</span><span class="n">F</span>
+<div class="highlight"><pre><span></span>rfcomm release <span class="m">00</span>:19:5D:FE:9A:8F
 </pre></div>
 
 
 <p>Shouldn't need this command, force rfdevices to stop.</p>
-<div class="highlight"><pre><span></span>    <span class="n">rfkill</span> <span class="n">list</span>
+<div class="highlight"><pre><span></span>rfkill list
 </pre></div>
   </div><!-- /.entry-content -->
 </section>
 
         <section id="extras" class="body">
+
+
+
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
         </section><!-- /#extras -->
         </div>
 
@@ -149,7 +177,15 @@ and ODBII Bluetooth adapter.</p>
  </div><!-- /.wrapper -->
 
 <script>
-var scriptSrc = ["./theme/js/main.js",];
+// Handle site search
+$(document).ready(function() {
+     $('#tipue_search_input').tipuesearch({
+          'mode': 'json',
+          'contentLocation': 'tipuesearch_content.json'
+     });
+});
+// Insert scripts
+var scriptSrc = ["/theme/js/main.js",];
 for (var i_2 = 0; i_2 < scriptSrc.length; i_2++) {
   var index = scriptSrc[i_2];
   var script = document.body.appendChild(document.createElement('script'));

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="inverted">
 <head>
-          <title>Weblog - Setup Pelican</title>
+          <title>Web Log - Setup Pelican</title>
         <meta charset="utf-8" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Web Log Full Atom Feed" />
+        <link href="/feeds/blog.atom.xml" type="application/atom+xml" rel="alternate" title="Web Log Categories Atom Feed" />
 
 
 
@@ -11,8 +13,15 @@
     <meta name="tags" content="pelican" />
 
 
-        <link rel="stylesheet" href="./theme/css/style.css"/>
-        <link rel="stylesheet" href="./theme/css/monokai.min.css"/>
+        <link rel="stylesheet" href="/theme/css/style.css"/>
+        <link rel="stylesheet" href="/theme/css/monokai.min.css"/>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+        <script src="/theme/tipuesearch/tipuesearch_set.js"></script>
+        <script src="/theme/tipuesearch/tipuesearch.min.js"></script>
+        <script src="/tipuesearch_content.js"></script>
+
+ 
 
 </head>
 
@@ -21,21 +30,28 @@
  <div id="wrapper"> 
 
         <header id="banner" class="body">
-                <h1><a href="./">Weblog <strong></strong></a></h1>
+                <h1><a href="/">Web Log <strong></strong></a></h1>
         </header><!-- /#banner -->
 
         <nav id="menu"><ul>
-            <li><a href="./pages/contact.html">Contact</a></li>
-            <li class="active"><a href="./category/blog.html">blog</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+            <li class="active"><a href="/category/blog.html">blog</a></li>
+            <li><a href="/category/projects.html">projects</a></li>
         </ul></nav><!-- /#menu -->
 
-        <div id="invmode">Night</div>
+        <div id="invmode">Day</div>
 
         <div id="content">
+
+                <div style="">
+                  Personal Website & Blog
+                </div>
+
+
 <section id="content" class="body">
   <header>
     <h2 class="entry-title">
-      <a href="./setup-pelican.html" rel="bookmark"
+      <a href="/setup-pelican.html" rel="bookmark"
          title="Permalink to Setup Pelican">Setup Pelican</a></h2>
  
   </header>
@@ -44,17 +60,19 @@
       Thu 03 May 2018
     </time>
     <address class="vcard author">
-      By           <a class="url fn" href="./author/tomaz.html">Tomaz</a>
+      By           <a class="url fn" href="/author/tomaz.html">Tomaz</a>
     </address>
     <div class="category">
-        Category: <a href="./category/blog.html">blog</a>
+        Category: <a href="/category/blog.html">blog</a>
     </div>
     <div class="tags">
         Tags:
-            <a href="./tag/python.html">python</a>
-            <a href="./tag/pelican.html">pelican</a>
+            <a href="/tag/python.html">python</a>
+            <a href="/tag/pelican.html">pelican</a>
     </div>
   </footer><!-- /.post-info -->
+  <br>
+  <br>
   <div class="entry-content">
     <h3>Install Pelican</h3>
 <div class="highlight"><pre><span></span>$ pip install pelican ghp-import Markdown
@@ -163,6 +181,16 @@ $ git push origin content
 </section>
 
         <section id="extras" class="body">
+
+
+
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
         </section><!-- /#extras -->
         </div>
 
@@ -176,7 +204,15 @@ $ git push origin content
  </div><!-- /.wrapper -->
 
 <script>
-var scriptSrc = ["./theme/js/main.js",];
+// Handle site search
+$(document).ready(function() {
+     $('#tipue_search_input').tipuesearch({
+          'mode': 'json',
+          'contentLocation': 'tipuesearch_content.json'
+     });
+});
+// Insert scripts
+var scriptSrc = ["/theme/js/main.js",];
 for (var i_2 = 0; i_2 < scriptSrc.length; i_2++) {
   var index = scriptSrc[i_2];
   var script = document.body.appendChild(document.createElement('script'));

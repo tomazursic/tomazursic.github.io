@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en" class="inverted">
+<head>
+          <title>Web Log - MicroPython and Lopy</title>
+        <meta charset="utf-8" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Web Log Full Atom Feed" />
+        <link href="/feeds/projects.atom.xml" type="application/atom+xml" rel="alternate" title="Web Log Categories Atom Feed" />
+
+
+
+
+    <meta name="tags" content="iot" />
+    <meta name="tags" content="python" />
+    <meta name="tags" content="lorawan" />
+
+
+        <link rel="stylesheet" href="/theme/css/style.css"/>
+        <link rel="stylesheet" href="/theme/css/monokai.min.css"/>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+        <script src="/theme/tipuesearch/tipuesearch_set.js"></script>
+        <script src="/theme/tipuesearch/tipuesearch.min.js"></script>
+        <script src="/tipuesearch_content.js"></script>
+
+ 
+
+</head>
+
+<body id="index" class="home">
+
+ <div id="wrapper"> 
+
+        <header id="banner" class="body">
+                <h1><a href="/">Web Log <strong></strong></a></h1>
+        </header><!-- /#banner -->
+
+        <nav id="menu"><ul>
+            <li><a href="/pages/contact.html">Contact</a></li>
+            <li><a href="/category/blog.html">blog</a></li>
+            <li class="active"><a href="/category/projects.html">projects</a></li>
+        </ul></nav><!-- /#menu -->
+
+        <div id="invmode">Day</div>
+
+        <div id="content">
+
+                <div style="">
+                  Personal Website & Blog
+                </div>
+
+
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="/micropython-lopy.html" rel="bookmark"
+         title="Permalink to MicroPython and Lopy">MicroPython and Lopy</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2019-10-27T01:04:00+02:00">
+      Sun 27 October 2019
+    </time>
+    <address class="vcard author">
+      By           <a class="url fn" href="/author/tomaz-ursic.html">Tomaz Ursic</a>
+    </address>
+    <div class="category">
+        Category: <a href="/category/projects.html">projects</a>
+    </div>
+    <div class="tags">
+        Tags:
+            <a href="/tag/iot.html">iot</a>
+            <a href="/tag/python.html">python</a>
+            <a href="/tag/lorawan.html">lorawan</a>
+    </div>
+  </footer><!-- /.post-info -->
+  <br>
+  <br>
+  <div class="entry-content">
+    <div class="section" id="micro-controllers">
+<h2><a class="toc-backref" href="#id1">Micro Controllers</a></h2>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#micro-controllers" id="id1">Micro Controllers</a><ul>
+<li><a class="reference internal" href="#lopy" id="id2">Lopy</a><ul>
+<li><a class="reference internal" href="#ftp" id="id3">FTP</a></li>
+<li><a class="reference internal" href="#telnet" id="id4">Telnet</a></li>
+<li><a class="reference internal" href="#serial" id="id5">Serial</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#code-example" id="id6">Code example</a><ul>
+<li><a class="reference internal" href="#config-file" id="id7">Config file</a></li>
+<li><a class="reference internal" href="#boot-file" id="id8">Boot file</a></li>
+<li><a class="reference internal" href="#main-file" id="id9">Main file</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#building-a-firmware-image" id="id10">Building a firmware image</a><ul>
+<li><a class="reference internal" href="#requirements" id="id11">Requirements</a></li>
+<li><a class="reference internal" href="#debian-ubuntu" id="id12">Debian/Ubuntu</a></li>
+<li><a class="reference internal" href="#build-environment" id="id13">Build environment</a></li>
+<li><a class="reference internal" href="#source-code" id="id14">Source code</a></li>
+<li><a class="reference internal" href="#xtensa" id="id15">Xtensa</a></li>
+<li><a class="reference internal" href="#esp-idf" id="id16">ESP-IDF</a></li>
+<li><a class="reference internal" href="#build-process" id="id17">Build process</a></li>
+<li><a class="reference internal" href="#rebuild-process" id="id18">Rebuild process</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#encryption" id="id19">Encryption</a><ul>
+<li><a class="reference internal" href="#reference" id="id20">Reference</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="lopy">
+<h3><a class="toc-backref" href="#id2">Lopy</a></h3>
+<ul class="simple">
+<li>Official documentation: <a class="reference external" href="https://docs.pycom.io/">https://docs.pycom.io/</a></li>
+<li>Pinout: <a class="reference external" href="https://docs.pycom.io/gitbook/assets/lopy4-pinout.pdf">https://docs.pycom.io/gitbook/assets/lopy4-pinout.pdf</a></li>
+<li>Frmware: <a class="reference external" href="https://docs.pycom.io/pytrackpysense/installation/firmware/">https://docs.pycom.io/pytrackpysense/installation/firmware/</a></li>
+</ul>
+<p>Old docs: <a class="reference external" href="https://docs.pycom.io/chapter/pytrackpysense/installation/firmware.html">https://docs.pycom.io/chapter/pytrackpysense/installation/firmware.html</a></p>
+<div class="section" id="ftp">
+<h4><a class="toc-backref" href="#id3">FTP</a></h4>
+<p>Connect to access point with name same as DEV_ID and credentials:</p>
+<div class="highlight"><pre><span></span>u: admin
+p: www.pycom.io
+</pre></div>
+</div>
+<div class="section" id="telnet">
+<h4><a class="toc-backref" href="#id4">Telnet</a></h4>
+<div class="highlight"><pre><span></span>$ telent <span class="m">192</span>.168.4.1
+</pre></div>
+</div>
+<div class="section" id="serial">
+<h4><a class="toc-backref" href="#id5">Serial</a></h4>
+<p>Connecting to UART we can use any program rshell or minicom, screen..</p>
+<p>Get information about ports:</p>
+<div class="highlight"><pre><span></span>dmesg <span class="p">|</span> egrep --color <span class="s1">&#39;serial|ttyS&#39;</span>
+
+
+content
+</pre></div>
+<p>Connect to device with <cite>rshell</cite></p>
+<div class="highlight"><pre><span></span>pip install rshell
+</pre></div>
+<div class="highlight"><pre><span></span>rshell -p /dev/ttyUSB0 --buffer-size<span class="o">=</span><span class="m">30</span>
+</pre></div>
+<div class="highlight"><pre><span></span>rshell -p /dev/ttyACM0 --buffer-size<span class="o">=</span><span class="m">30</span><span class="s2">&quot;</span>
+</pre></div>
+<p>Copy file to device</p>
+<div class="highlight"><pre><span></span>cp &lt;file-name&gt; /flash/
+</pre></div>
+<p>Copy directory</p>
+<div class="highlight"><pre><span></span>cp -r &lt;directory-name&gt; /flash/&lt;directory-name&gt;
+</pre></div>
+<p>Rsync project</p>
+<div class="highlight"><pre><span></span>rsync -mv &lt;directory-name&gt;/ /flash/
+</pre></div>
+<p>After connecting to device over serial enter in REPL mode</p>
+<div class="highlight"><pre><span></span>$ repl
+</pre></div>
+<p>Exit REPL</p>
+<blockquote>
+<cite>CTRL - X</cite></blockquote>
+</div>
+</div>
+<div class="section" id="code-example">
+<h3><a class="toc-backref" href="#id6">Code example</a></h3>
+<p>Project structure</p>
+<div class="highlight"><pre><span></span>project/
+├── lib/       &lt;--- Place for sensors drivers
+├── boot.py    &lt;--- First file to be executed on start up
+├── config.py  &lt;--- Global variables
+└── main.py    &lt;--- Executed after boot
+</pre></div>
+<div class="section" id="config-file">
+<h4><a class="toc-backref" href="#id7">Config file</a></h4>
+<div class="highlight"><pre><span></span><span class="c1"># config.py</span>
+
+<span class="n">DEV_ID</span> <span class="o">=</span> <span class="s2">&quot;&lt;DEV_ID_REGISTERED_ON_LORA_SERVER&quot;</span>
+
+<span class="c1"># TTN Registered Device IDs</span>
+<span class="n">DEV_EUI</span> <span class="o">=</span> <span class="s1">&#39;&lt;DEVICE-EUI&gt;&#39;</span>
+<span class="n">APP_EUI</span> <span class="o">=</span> <span class="s1">&#39;&lt;APPLICATION-EUI&gt;&#39;</span>
+<span class="n">APP_KEY</span> <span class="o">=</span> <span class="s1">&#39;&lt;APPLICATION-KEY&gt;&#39;</span>
+
+<span class="c1"># Debug</span>
+<span class="n">DEBUG_LED</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">DEBUG_CON</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># LoRa setup</span>
+<span class="n">LORA_FREQUENCY</span> <span class="o">=</span> <span class="mi">868100000</span>
+
+<span class="c1"># Data Rate (0 - 7)</span>
+<span class="n">LORA_DR</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># DR_5</span>
+
+<span class="c1"># Bind socket to port</span>
+<span class="n">SOCK_PORT</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Sleep time in packet send</span>
+<span class="n">SLEEP_MAIN</span> <span class="o">=</span> <span class="mi">300</span>
+
+<span class="c1"># Low Energy config</span>
+<span class="n">HEARTBEAT</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="c1"># LED color</span>
+<span class="n">LED_OFF</span> <span class="o">=</span> <span class="mh">0x000000</span>
+<span class="n">GREEN</span> <span class="o">=</span> <span class="mh">0x007f00</span>
+<span class="n">YELLOW</span> <span class="o">=</span> <span class="mh">0x7f7f00</span>
+<span class="n">RED</span> <span class="o">=</span> <span class="mh">0x7f0000</span>
+<span class="n">BLUE</span> <span class="o">=</span> <span class="mh">0x00007f</span>
+</pre></div>
+</div>
+<div class="section" id="boot-file">
+<h4><a class="toc-backref" href="#id8">Boot file</a></h4>
+<div class="highlight"><pre><span></span><span class="c1"># boot.py -- run on boot-up</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">machine</span>
+
+<span class="c1"># Enable REPL duplication on UART0</span>
+<span class="n">uart</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">UART</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">115200</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">dupterm</span><span class="p">(</span><span class="n">uart</span><span class="p">)</span>
+
+<span class="c1"># Run main module</span>
+<span class="n">machine</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="s1">&#39;main.py&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="main-file">
+<h4><a class="toc-backref" href="#id9">Main file</a></h4>
+<div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Basic LoRa example based on OTAA (Over The Air Authentication)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">network</span> <span class="kn">import</span> <span class="n">LoRa</span>
+<span class="kn">from</span> <span class="nn">network</span> <span class="kn">import</span> <span class="n">WLAN</span>
+<span class="kn">import</span> <span class="nn">binascii</span>
+<span class="kn">import</span> <span class="nn">pycom</span>
+<span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">config</span> <span class="k">as</span> <span class="nn">c</span>
+
+<span class="c1"># Set heartbeat</span>
+<span class="n">pycom</span><span class="o">.</span><span class="n">heartbeat</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">HEARTBEAT</span><span class="p">)</span>
+
+<span class="c1"># Initialize LoRa in LORAWAN mode.</span>
+<span class="n">lora</span> <span class="o">=</span> <span class="n">LoRa</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">LoRa</span><span class="o">.</span><span class="n">LORAWAN</span><span class="p">)</span>
+
+<span class="c1"># create an OTA authentication params</span>
+<span class="n">dev_eui</span> <span class="o">=</span> <span class="n">binascii</span><span class="o">.</span><span class="n">unhexlify</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">DEV_EUI</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+<span class="n">app_eui</span> <span class="o">=</span> <span class="n">binascii</span><span class="o">.</span><span class="n">unhexlify</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">APP_EUI</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+<span class="n">app_key</span> <span class="o">=</span> <span class="n">binascii</span><span class="o">.</span><span class="n">unhexlify</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">APP_KEY</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+
+<span class="c1"># Join a network using OTAA</span>
+<span class="n">lora</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">activation</span><span class="o">=</span><span class="n">LoRa</span><span class="o">.</span><span class="n">OTAA</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="n">dev_eui</span><span class="p">,</span> <span class="n">app_eui</span><span class="p">,</span> <span class="n">app_key</span><span class="p">),</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Wait until the module has joined the network</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">lora</span><span class="o">.</span><span class="n">has_joined</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">DEBUG_CON</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Not joined yet...&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">DEBUG_LED</span><span class="p">:</span>
+        <span class="n">pycom</span><span class="o">.</span><span class="n">rgbled</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">RED</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+        <span class="n">pycom</span><span class="o">.</span><span class="n">rgbled</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">LED_OFF</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Create a LoRa socket</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_LORA</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_RAW</span><span class="p">)</span>
+
+<span class="c1"># Set the LoRaWAN data rate</span>
+<span class="n">s</span><span class="o">.</span><span class="n">setsockopt</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">SOL_LORA</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SO_DR</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">LORA_DR</span><span class="p">)</span>
+
+<span class="c1"># Make the socket blocking</span>
+<span class="n">s</span><span class="o">.</span><span class="n">setblocking</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">5.0</span><span class="p">)</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># Prepare the packet</span>
+    <span class="c1"># send &#39;hi&#39; as raw byte data (hex format)</span>
+    <span class="n">pkt</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">([</span><span class="mh">0x68</span><span class="p">,</span> <span class="mh">0x69</span><span class="p">])</span>
+
+    <span class="c1"># Send it</span>
+    <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">pkt</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">DEBUG_CON</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;send &gt;&gt; &#39;</span><span class="p">,</span> <span class="n">pkt</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">DEBUG_LED</span><span class="p">:</span>
+        <span class="n">pycom</span><span class="o">.</span><span class="n">rgbled</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">GREEN</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+        <span class="n">pycom</span><span class="o">.</span><span class="n">rgbled</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">LED_OFF</span><span class="p">)</span>
+    <span class="c1"># Wait to receive packet</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">rx</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">rx</span> <span class="ow">and</span> <span class="n">c</span><span class="o">.</span><span class="n">DEBUG_CON</span><span class="p">:</span>
+        <span class="n">pycom</span><span class="o">.</span><span class="n">rgbled</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">BLUE</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+        <span class="n">pycom</span><span class="o">.</span><span class="n">rgbled</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">LED_OFF</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;receive &lt;&lt; &quot;</span><span class="p">,</span> <span class="n">rx</span><span class="p">)</span>
+    <span class="c1"># Sleep 10 min</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">SLEEP_MAIN</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="building-a-firmware-image">
+<h3><a class="toc-backref" href="#id10">Building a firmware image</a></h3>
+<div class="figure align-center">
+<img alt="Output console image" src="./images/iot/pycom-build.png" />
+</div>
+<div class="section" id="requirements">
+<h4><a class="toc-backref" href="#id11">Requirements</a></h4>
+<ul class="simple">
+<li>Pycom MicroPython source code</li>
+<li>Xtensa gcc compiler</li>
+<li>Espressif IoT Development Framework</li>
+</ul>
+</div>
+<div class="section" id="debian-ubuntu">
+<h4><a class="toc-backref" href="#id12">Debian/Ubuntu</a></h4>
+<div class="highlight"><pre><span></span>sudo apt-get install gcc git wget make libncurses-dev flex bison gperf python python-serial
+</pre></div>
+</div>
+<div class="section" id="build-environment">
+<h4><a class="toc-backref" href="#id13">Build environment</a></h4>
+<p>Make build project directory</p>
+<div class="highlight"><pre><span></span>$ <span class="nb">cd</span> <span class="nv">$HOME</span> <span class="o">&amp;&amp;</span> mkdir pycom-build
+</pre></div>
+</div>
+<div class="section" id="source-code">
+<h4><a class="toc-backref" href="#id14">Source code</a></h4>
+<p>Get Pycom MicroPython source code</p>
+<div class="highlight"><pre><span></span>$ git clone https://github.com/pycom/pycom-micropython-sigfox
+</pre></div>
+<p>Check out to latest stable version (output on date 2018-07-23)</p>
+<div class="highlight"><pre><span></span>$ git tags
+
+    <span class="m">1</span>.11.0.b1
+    <span class="m">1</span>.12.0.b1
+    <span class="m">1</span>.13.0.b1
+    <span class="m">1</span>.6.13.b1
+    v1.14.0.b1
+    v1.15.0.b1
+    v1.16.0.b1
+    v1.17.0.b1
+    v1.17.2.b1
+    v1.17.3.b1
+    v1.18.0
+    v1.18.0.r1    &lt;--- Check out tag
+    v1.18.0.r1-0.
+    v1.19.0.b2
+    v1.19.0.b3
+    v1.19.0.b4
+
+$ git checkout v1.18.0.r1
+</pre></div>
+</div>
+<div class="section" id="xtensa">
+<h4><a class="toc-backref" href="#id15">Xtensa</a></h4>
+<p>Install xtensa gcc compiler</p>
+<div class="highlight"><pre><span></span>$ <span class="nb">cd</span> <span class="nv">$HOME</span>/pycom-build
+$ wget https://dl.espressif.com/dl/xtensa-esp32-elf-linux64-1.22.0-80-g6c4433a-5.2.0.tar.gz
+$ tar -xzf xtensa-esp32-elf-linux64-1.22.0-80-g6c4433a-5.2.0.tar.gz
+$ <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HOME</span>/pycom-build/xtensa-esp32-elf/bin
+</pre></div>
+<p>Verify content of $PATH variables:</p>
+<div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="nv">$PATH</span>
+</pre></div>
+<p>Verify toolchain installation:</p>
+<div class="highlight"><pre><span></span>$ xtensa-esp32-elf-gcc -v
+</pre></div>
+<p>If command returns <cite>xtensa-esp32-elf-gcc: Command not found</cite> recheck the the
+export command!</p>
+</div>
+<div class="section" id="esp-idf">
+<h4><a class="toc-backref" href="#id16">ESP-IDF</a></h4>
+<p>Install ESP-IDF tools</p>
+<div class="highlight"><pre><span></span>$ <span class="nb">cd</span> <span class="nv">$HOME</span>/pycom-build
+$ git clone https://github.com/pycom/pycom-esp-idf.git
+$ <span class="nb">cd</span> pycom-esp-idf
+$ git submodule update --init
+$ <span class="nb">export</span> <span class="nv">IDF_PATH</span><span class="o">=</span><span class="nv">$HOME</span>/pycom-build/pycom-esp-idf
+</pre></div>
+<p>More details:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/pycom/pycom-esp-idf">https://github.com/pycom/pycom-esp-idf</a></li>
+<li><a class="reference external" href="https://esp-idf.readthedocs.io/en/latest/get-started/linux-setup.html">https://esp-idf.readthedocs.io/en/latest/get-started/linux-setup.html</a></li>
+<li><a class="reference external" href="https://github.com/pycom/pycom-micropython-sigfox">https://github.com/pycom/pycom-micropython-sigfox</a></li>
+<li><a class="reference external" href="https://docs.espressif.com/projects/esp-idf/en/release-v3.0/get-started/linux-setup.html">https://docs.espressif.com/projects/esp-idf/en/release-v3.0/get-started/linux-setup.html</a></li>
+</ul>
+</div>
+<div class="section" id="build-process">
+<h4><a class="toc-backref" href="#id17">Build process</a></h4>
+<p>Read this first: <a class="reference external" href="https://github.com/pycom/pycom-micropython-sigfox">https://github.com/pycom/pycom-micropython-sigfox</a></p>
+<ul class="simple">
+<li><ol class="first arabic">
+<li>Build mpy-cross</li>
+</ol>
+</li>
+</ul>
+<div class="highlight"><pre><span></span>$ <span class="nv">$HOME</span>/pycom-build/pycom-micropython-sigfox
+$ <span class="nb">cd</span> mpy-cross <span class="o">&amp;&amp;</span> make clean <span class="o">&amp;&amp;</span> make <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ..
+</pre></div>
+<ul class="simple">
+<li><ol class="first arabic" start="4">
+<li>Frozen modules (OPTIONAL)</li>
+</ol>
+</li>
+</ul>
+<p>Add custom python modules to include in the firmware in following directory:</p>
+<div class="highlight"><pre><span></span><span class="nv">$HOME</span>/pycom-build/pycom-micropython-sigfox/esp32/frozen/Custom
+</pre></div>
+<ul class="simple">
+<li><ol class="first arabic" start="3">
+<li>Board build</li>
+</ol>
+</li>
+</ul>
+<p>Currently support for the following BOARD types:</p>
+<div class="highlight"><pre><span></span>WIPY LOPY SIPY GPY FIPY LOPY4
+</pre></div>
+<div class="highlight"><pre><span></span>$ <span class="nb">cd</span> <span class="nv">$HOME</span>/pycom-build/pycom-micropython-sigfoxesp32/esp32
+$ make <span class="nv">BOARD</span><span class="o">=</span>LOPY clean
+$ make <span class="nv">BOARD</span><span class="o">=</span>LOPY -j5 <span class="nv">TARGET</span><span class="o">=</span>boot
+</pre></div>
+<p>For LoRa need to specify the <cite>LORA_BAND</cite></p>
+<div class="highlight"><pre><span></span><span class="c1"># LORA_BAND=USE_BAND_868</span>
+<span class="c1"># LORA_BAND=USE_BAND_915</span>
+
+$ make <span class="nv">BOARD</span><span class="o">=</span>LOPY -j5 <span class="nv">LORA_BAND</span><span class="o">=</span>USE_BAND_868 <span class="nv">TARGET</span><span class="o">=</span>app
+</pre></div>
+<ul class="simple">
+<li><ol class="first arabic" start="4">
+<li>Flash the image on board</li>
+</ol>
+</li>
+</ul>
+<p><strong>Pysense board</strong></p>
+<p>The pysense board enter automatic in programming mode</p>
+<div class="highlight"><pre><span></span><span class="c1"># On linux</span>
+$ make <span class="nv">BOARD</span><span class="o">=</span>LOPY -j5 <span class="nv">ESPPORT</span><span class="o">=</span>/dev/ttyACM0 flash
+</pre></div>
+<p><strong>Extension board</strong></p>
+<p>Put in programming mode connect GND to P23</p>
+<div class="highlight"><pre><span></span><span class="c1"># On linux</span>
+$ make <span class="nv">BOARD</span><span class="o">=</span>LOPY -j5 <span class="nv">ESPPORT</span><span class="o">=</span>/dev/ttyUSB1 flash
+
+<span class="c1"># On MacOSX</span>
+$ make <span class="nv">ESPPORT</span><span class="o">=</span>/dev/tty.usbserial-DQ008HQY flash
+</pre></div>
+</div>
+<div class="section" id="rebuild-process">
+<h4><a class="toc-backref" href="#id18">Rebuild process</a></h4>
+<p>Making rebuild looks like this:</p>
+<div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HOME</span>/pycom-build/xtensa-esp32-elf/bin
+<span class="nb">export</span> <span class="nv">IDF_PATH</span><span class="o">=</span><span class="nv">$HOME</span>/pycom-build/pycom-esp-idf
+<span class="nv">$HOME</span>/pycom-build/pycom-micropython-sigfox/esp32/
+make <span class="nv">BOARD</span><span class="o">=</span>LOPY4 clean
+make <span class="nv">BOARD</span><span class="o">=</span>LOPY4 release
+make <span class="nv">BOARD</span><span class="o">=</span>LOPY4 -j5 <span class="nv">ESPPORT</span><span class="o">=</span>/dev/ttyACM3 flash
+</pre></div>
+</div>
+</div>
+<div class="section" id="encryption">
+<h3><a class="toc-backref" href="#id19">Encryption</a></h3>
+<p>Use make SECURE=on [optionally SECURE_KEY ?= secure_boot_signing_key.pem] to enable Secure Boot and Flash Encryption mechanisms.
+Use make V=1 or set BUILD_VERBOSE in your environment to increase build verbosity.</p>
+<div class="section" id="reference">
+<h4><a class="toc-backref" href="#id20">Reference</a></h4>
+<p><a class="reference external" href="https://github.com/pycom/pycom-micropython-sigfox#the-esp32-version">https://github.com/pycom/pycom-micropython-sigfox#the-esp32-version</a></p>
+</div>
+</div>
+</div>
+
+  </div><!-- /.entry-content -->
+</section>
+
+        <section id="extras" class="body">
+
+
+
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+        </div>
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
+
+ </div><!-- /.wrapper -->
+
+<script>
+// Handle site search
+$(document).ready(function() {
+     $('#tipue_search_input').tipuesearch({
+          'mode': 'json',
+          'contentLocation': 'tipuesearch_content.json'
+     });
+});
+// Insert scripts
+var scriptSrc = ["/theme/js/main.js",];
+for (var i_2 = 0; i_2 < scriptSrc.length; i_2++) {
+  var index = scriptSrc[i_2];
+  var script = document.body.appendChild(document.createElement('script'));
+  script.async = false;
+  script.src = index;
+}
+</script>
+
+</body>
+</html>

@@ -1,11 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="inverted">
 <head>
-        <title>Weblog - blog category</title>
+        <title>Web Log - blog category</title>
         <meta charset="utf-8" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Web Log Full Atom Feed" />
+        <link href="/feeds/blog.atom.xml" type="application/atom+xml" rel="alternate" title="Web Log Categories Atom Feed" />
 
-        <link rel="stylesheet" href="../theme/css/style.css"/>
-        <link rel="stylesheet" href="../theme/css/monokai.min.css"/>
+        <link rel="stylesheet" href="/theme/css/style.css"/>
+        <link rel="stylesheet" href="/theme/css/monokai.min.css"/>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+        <script src="/theme/tipuesearch/tipuesearch_set.js"></script>
+        <script src="/theme/tipuesearch/tipuesearch.min.js"></script>
+        <script src="/tipuesearch_content.js"></script>
+
+ 
 
 </head>
 
@@ -14,28 +23,77 @@
  <div id="wrapper"> 
 
         <header id="banner" class="body">
-                <h1><a href="../">Weblog <strong></strong></a></h1>
+                <h1><a href="/">Web Log <strong></strong></a></h1>
         </header><!-- /#banner -->
 
         <nav id="menu"><ul>
-            <li><a href="../pages/contact.html">Contact</a></li>
-            <li class="active"><a href="../category/blog.html">blog</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+            <li class="active"><a href="/category/blog.html">blog</a></li>
+            <li><a href="/category/projects.html">projects</a></li>
         </ul></nav><!-- /#menu -->
 
-        <div id="invmode">Night</div>
+        <div id="invmode">Day</div>
 
         <div id="content">
+
+                <div style="">
+                  Personal Website & Blog
+                </div>
+
+          <div id="search" style="margin: 4rem 0rem 1.5rem 0rem;">
+
+            <form action="/">
+                <div class="tipue_search_right">
+                  <input placeholder="Type to search..." aria-hidden="true" data-choice="active" 
+                  type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required>
+                </div>
+                <div style="clear: both;"></div>
+            </form>
+
+            <div id="tipue_search_content" style="margin: 2rem 0rem; padding: 1rem; border-bottom: 1px solid;"></div>
+
+          </div>
+
 <section id="content">
 <h2>Articles in the blog category</h2>
 
 <ol id="post-list">
         <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="../exploring-obdii.html" rel="bookmark" title="Permalink to Exploring OBDII">Exploring OBDII</a></h2> </header>
+                <header> <h2 class="entry-title"><a href="/setup-raspberry-pi.html" rel="bookmark" title="Permalink to Setup Raspberry Pi">Setup Raspberry Pi</a></h2> </header>
+                <footer class="post-info">
+                    <time class="published" datetime="2019-10-21T14:29:00+02:00"> Mon 21 October 2019 </time>
+                    <address class="vcard author">By
+                        <a class="url fn" href="/author/tomaz.html">Tomaz</a>
+                    </address>
+                    <div>
+                    Tags: 
+                        <a class="url fn" href="/tag/pi.html">pi</a>
+                        <a class="url fn" href="/tag/arm.html">arm</a>
+                        <a class="url fn" href="/tag/linux.html">linux</a>
+                    </div>
+                </footer><!-- /.post-info -->
+                <div class="entry-content"> <p>Use rpi-utils repo for bring bare metal into life</p>
+<p>Dent forget TMUX! Run all commands in tmux session to prevent catastrophic
+consequences</p>
+<h2>Setup</h2>
+<h3>Step 1: Flash Operating System</h3>
+<p>You need to flash a micro SD image with an operating system.</p>
+<div class="highlight"><pre><span></span>    Download Raspian Lite<span class="o">(</span>Stretch<span class="o">)</span> <span class="o">(</span>352MB<span class="o">)</span>.
+    Follow OS specific guides here …</pre></div> </div><!-- /.entry-content -->
+        </article></li>
+        <li><article class="hentry">
+                <header> <h2 class="entry-title"><a href="/exploring-obdii.html" rel="bookmark" title="Permalink to Exploring OBDII">Exploring OBDII</a></h2> </header>
                 <footer class="post-info">
                     <time class="published" datetime="2019-03-04T11:09:02+01:00"> Mon 04 March 2019 </time>
                     <address class="vcard author">By
-                        <a class="url fn" href="../author/tomaz.html">Tomaz</a>
+                        <a class="url fn" href="/author/tomaz.html">Tomaz</a>
                     </address>
+                    <div>
+                    Tags: 
+                        <a class="url fn" href="/tag/python.html">python</a>
+                        <a class="url fn" href="/tag/raspberry-pi.html">raspberry-pi</a>
+                        <a class="url fn" href="/tag/obd.html">obd</a>
+                    </div>
                 </footer><!-- /.post-info -->
                 <div class="entry-content"> <p>To satisfy the curiosity for reading car on-board diagnostics using Raspberry PI with build in Bluetooth
 and ODBII Bluetooth adapter.</p>
@@ -50,28 +108,57 @@ and ODBII Bluetooth adapter.</p>
 <p>Turn on the bluetoot and scan …</p> </div><!-- /.entry-content -->
         </article></li>
         <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="../lorawan.html" rel="bookmark" title="Permalink to LoRaWAN">LoRaWAN</a></h2> </header>
+                <header> <h2 class="entry-title"><a href="/vim-user-disorder-2019.html" rel="bookmark" title="Permalink to Vim User Disorder 2019">Vim User Disorder 2019</a></h2> </header>
                 <footer class="post-info">
                     <time class="published" datetime="2018-09-07T13:48:16+02:00"> Fri 07 September 2018 </time>
                     <address class="vcard author">By
-                        <a class="url fn" href="../author/tomaz.html">Tomaz</a>
+                        <a class="url fn" href="/author/tomaz.html">Tomaz</a>
                     </address>
+                    <div>
+                    Tags: 
+                        <a class="url fn" href="/tag/vim.html">vim</a>
+                        <a class="url fn" href="/tag/tools.html">tools</a>
+                    </div>
                 </footer><!-- /.post-info -->
-                <div class="entry-content"> <h2>About LoRaWAN</h2>
-<p>LoRaWAN stands for Long Range Wide Area Network. It’s a standard for wireless
-communication that allows IoT devices to communicate over large distance with
-minimal battery usage. This post is a try to explain LoRaWAN in a technical but
-simply understandable way.</p>
-<h3>LoRa or LoRaWAN</h3>
-<div class="highlight"><pre><span></span><span class="n">LoRa</span> <span class="o">=</span> <span class="n">Physical …</span></pre></div> </div><!-- /.entry-content -->
+                <div class="entry-content"> <h2>FZF</h2>
+<p>fzf select</p>
+<ul>
+<li><leader><EETER> open buffers</li>
+</ul>
+<p>ctrl-t open new tab</p>
+<h3>Tab navigation</h3>
+<h2>Operator pending mode</h2>
+<div class="highlight"><pre><span></span>        g~ Swap case
+        gu Make lowercase
+        gU Make uppercase
+</pre></div>
+
+
+<h2>Text objects</h2>
+<h4>Bounded</h4>
+<div class="highlight"><pre><span></span>        iw current word
+        aw current word + space
+
+        iW current WORD
+        aW current WORD + space
+
+        is current sentence
+        as current sentence + space
+
+        ip current paragraph …</pre></div> </div><!-- /.entry-content -->
         </article></li>
         <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="../setup-pelican.html" rel="bookmark" title="Permalink to Setup Pelican">Setup Pelican</a></h2> </header>
+                <header> <h2 class="entry-title"><a href="/setup-pelican.html" rel="bookmark" title="Permalink to Setup Pelican">Setup Pelican</a></h2> </header>
                 <footer class="post-info">
                     <time class="published" datetime="2018-05-03T07:10:56+02:00"> Thu 03 May 2018 </time>
                     <address class="vcard author">By
-                        <a class="url fn" href="../author/tomaz.html">Tomaz</a>
+                        <a class="url fn" href="/author/tomaz.html">Tomaz</a>
                     </address>
+                    <div>
+                    Tags: 
+                        <a class="url fn" href="/tag/python.html">python</a>
+                        <a class="url fn" href="/tag/pelican.html">pelican</a>
+                    </div>
                 </footer><!-- /.post-info -->
                 <div class="entry-content"> <h3>Install Pelican</h3>
 <div class="highlight"><pre><span></span>$ pip install pelican ghp-import Markdown
@@ -93,55 +180,19 @@ $ git checkout -b content
 Switched to a …</pre></div> </div><!-- /.entry-content -->
         </article></li>
         <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="../vim-cheatsheet.html" rel="bookmark" title="Permalink to Vim Cheatsheet">Vim Cheatsheet</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2018-05-03T07:10:56+02:00"> Thu 03 May 2018 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="../author/tomaz.html">Tomaz</a>
-                    </address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <h2>Operator pending mode</h2>
-<div class="highlight"><pre><span></span>        g~ Swap case
-        gu Make lowercase
-        gU Make uppercase
-</pre></div>
-
-
-<h2>Text objects</h2>
-<h4>Bounded</h4>
-<div class="highlight"><pre><span></span>        iw current word
-        aw current word + space
-
-        iW current WORD
-        aW current WORD + space
-
-        is current sentence
-        as current sentence + space
-
-        ip current paragraph
-        ap current paragraph + space
-</pre></div>
-
-
-<h4>Delimited</h4>
-<div class="highlight"><pre><span></span>        ab par of ()
-        ib inside ()
-
-        aB …</pre></div> </div><!-- /.entry-content -->
-        </article></li>
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="../liftoff.html" rel="bookmark" title="Permalink to Liftoff">Liftoff</a></h2> </header>
+                <header> <h2 class="entry-title"><a href="/liftoff.html" rel="bookmark" title="Permalink to Liftoff">Liftoff</a></h2> </header>
                 <footer class="post-info">
                     <time class="published" datetime="2018-05-03T06:14:30+02:00"> Thu 03 May 2018 </time>
                     <address class="vcard author">By
-                        <a class="url fn" href="../author/tomaz.html">Tomaz</a>
+                        <a class="url fn" href="/author/tomaz.html">Tomaz</a>
                     </address>
+                    <div>
                 </footer><!-- /.post-info -->
                 <div class="entry-content"> <h2>First Post</h2>
 <p>World, hello again! This very first paragraph of the post will be used as
 excerpt in archives and feeds.</p>
 <p>This post is consequence of merging old blog and accumulated notes.</p>
-<div class="highlight"><pre><span></span>   <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Pelican is a static site generator.&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span>   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pelican is a static site generator.&quot;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -151,6 +202,16 @@ excerpt in archives and feeds.</p>
 </section><!-- /#content -->
 
         <section id="extras" class="body">
+
+
+
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
         </section><!-- /#extras -->
         </div>
 
@@ -164,7 +225,15 @@ excerpt in archives and feeds.</p>
  </div><!-- /.wrapper -->
 
 <script>
-var scriptSrc = ["../theme/js/main.js",];
+// Handle site search
+$(document).ready(function() {
+     $('#tipue_search_input').tipuesearch({
+          'mode': 'json',
+          'contentLocation': 'tipuesearch_content.json'
+     });
+});
+// Insert scripts
+var scriptSrc = ["/theme/js/main.js",];
 for (var i_2 = 0; i_2 < scriptSrc.length; i_2++) {
   var index = scriptSrc[i_2];
   var script = document.body.appendChild(document.createElement('script'));
