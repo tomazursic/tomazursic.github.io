@@ -203,7 +203,7 @@ div#invmode{
  cursor:pointer;
  position:fixed;
  right:20px;
- bottom:0px;
+ bottom:89px;
  font-size: 1.0rem;
  text-decoration:underline;
  -webkit-touch-callout:none;
@@ -213,7 +213,7 @@ div#invmode{
  user-select:none;
  color:#fff;
  background-color:#000;
- padding:1px 5px;
+ padding:1px 7px;
  margin-bottom: 5px;
  margin-top: 5px;
 }
@@ -645,7 +645,6 @@ ul.nav-menu li a{
 }
   div#invmode{
     right:30px;
-    bottom:10px;
   }
 }
 ul.tags { list-style-type: none; }
@@ -653,4 +652,23 @@ ul.tags li { display: inline-block; }
 
 .tags-footer li {
   display:inline;
+}
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: #5bf; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  /* border-radius: 10px; /1* Rounded corners *1/ */
+  font-size: 18px; /* Increase font size */
+}
+
+#myBtn:hover {
+  background-color: #11151a; /* Add a dark-grey background on hover */
 }
