@@ -2,10 +2,10 @@
 <html lang="en" class="inverted">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Web Log - The Bread Code Branch</title>
+    <title>Web Logs - tomazursic.github.io - The Bread Code Branch</title>
   <meta charset="utf-8" />
-  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Web Log Full Atom Feed" />
-  <link href="/feeds/projects.atom.xml" type="application/atom+xml" rel="alternate" title="Web Log Categories Atom Feed" />
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Web Logs - tomazursic.github.io Full Atom Feed" />
+  <link href="/feeds/projects.atom.xml" type="application/atom+xml" rel="alternate" title="Web Logs - tomazursic.github.io Categories Atom Feed" />
 
 
 
@@ -29,19 +29,17 @@
 
 <body id="index" class="home">
 
+  <div id="invmode">Day</div>
+
   <nav class="navigation">
     <div class="nav-logo">
-      <a href="/">Web Log <strong></strong></a>
+      <a href="/"><i class="ion-md-home"></i></a>
     </div>
     <ul class="nav-menu">
 
           <li><a href="/category/blog.html">blog</a></li>
           <li class="active"><a href="/category/projects.html">projects</a></li>
           <li><a href="/pages/contact.html">Contact</a></li>
-
-      <li>
-        <div id="invmode">Day</div>
-        </li>
     </ul>
     <div class="nav-toggle">
       <span class="icon-bar"></span>
@@ -165,6 +163,7 @@
                 </address><!-- /#about -->
         </footer><!-- /#contentinfo -->
 
+<button onclick="goUp()" id="myBtn" title="Go to top"><i class="ion-ios-arrow-up"></i></button> 
  </div><!-- /.wrapper -->
 
 
@@ -200,7 +199,26 @@
           $('.nav-overlay').toggleClass('active');
       })
   })(jQuery);
-</script>
 
+//Get the button:
+mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+} 
+</script>
 </body>
 </html>
