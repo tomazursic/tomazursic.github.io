@@ -643,9 +643,6 @@ ul.nav-menu li a{
   line-height:100%;
   padding:0 10px;
 }
-  div#invmode{
-    right:30px;
-  }
 }
 ul.tags { list-style-type: none; }
 ul.tags li { display: inline-block; }
