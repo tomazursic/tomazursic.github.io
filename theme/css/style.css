@@ -485,6 +485,10 @@ nav.navigation{
   padding: 20px;
 }
 
+.nav-logo a i {
+  color: #fff;
+}
+
 
 ul.nav-menu, ul.nav-menu li, ul.nav-menu li a{
 	float:left;
