@@ -203,13 +203,6 @@
 
 <script>var _gaq=[['_setAccount','UA-155970867-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
 <script>
-  // Handle site search
-  $(document).ready(function() {
-       $('#tipue_search_input').tipuesearch({
-            'mode': 'json',
-            'contentLocation': 'tipuesearch_content.json'
-       });
-  });
   // Insert scripts
   var scriptSrc = ["/theme/js/main.js",];
   for (var i_2 = 0; i_2 < scriptSrc.length; i_2++) {
@@ -219,41 +212,49 @@
     script.src = index;
   }
 
-  //menu toggle
-  (function($){
-      $('.nav-toggle').click(function(e){
-          e.preventDefault();
-          $('.nav-toggle').toggleClass('active');
-          $('.nav-menu').toggleClass('active');
-          $('.nav-overlay').toggleClass('active');
-      })
-      $('.nav-overlay').click(function(e){
-          e.preventDefault();
-          $('.nav-toggle').toggleClass('active');
-          $('.nav-menu').toggleClass('active');
-          $('.nav-overlay').toggleClass('active');
-      })
-  })(jQuery);
+  // Handle site search
+  $(document).ready(function() {
+    // Search handler
+     $('#tipue_search_input').tipuesearch({
+          'mode': 'json',
+          'contentLocation': 'tipuesearch_content.json'
+     });
 
-//Get the button:
-mybutton = document.getElementById("upBtn");
+    //Get the button:
+    mybutton = document.getElementById("upBtn");
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
 
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
-}
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
 
-// When the user clicks on the button, scroll to the top of the document
-function goUp() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-} 
+    // When the user clicks on the button, scroll to the top of the document
+    function goUp() {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    } 
+
+    $('.nav-toggle').click(function(e){
+        e.preventDefault();
+        $('.nav-toggle').toggleClass('active');
+        $('.nav-menu').toggleClass('active');
+        $('.nav-overlay').toggleClass('active');
+    })
+    $('.nav-overlay').click(function(e){
+        e.preventDefault();
+        $('.nav-toggle').toggleClass('active');
+        $('.nav-menu').toggleClass('active');
+        $('.nav-overlay').toggleClass('active');
+    })
+
+  });
+
 </script>
 </body>
 </html>
