@@ -23,9 +23,6 @@ h3 {
 a {
    outline: 0;
 }
-ol, ul {
-  list-style: none;
-}
 
 html.contrast body {
  color:#050505
@@ -358,6 +355,17 @@ footer#contentinfo {
   white-space: pre;
 }
 
+pre.code {
+  border: 1px solid rgba(0,0,0,.1);
+  padding: 1rem;
+  font-size: 1rem;
+}
+pre.code {
+  overflow: auto;
+  word-wrap: normal;
+  white-space: pre;
+}
+
 /* @media (prefers-color-scheme: light) { */ 
 /*     html { */ 
 /*         color: white; */
@@ -489,6 +497,9 @@ nav.navigation{
   color: #fff;
 }
 
+ul.nav-menu {
+  list-style: none;
+}
 
 ul.nav-menu, ul.nav-menu li, ul.nav-menu li a{
 	float:left;
