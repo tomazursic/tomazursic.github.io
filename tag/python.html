@@ -19,35 +19,58 @@
 
 <body id="index" class="home">
 
+  <nav class="navigation">
+    <div class="nav-logo">
+      <a href="/">Web Log <strong></strong></a>
+    </div>
+    <ul class="nav-menu">
+
+          <li><a href="/category/blog.html">blog</a></li>
+          <li><a href="/category/projects.html">projects</a></li>
+          <li><a href="/category/recipes.html">recipes</a></li>
+          <li><a href="/pages/contact.html">Contact</a></li>
+
+      <li>
+        <div id="invmode">Day</div>
+        </li>
+    </ul>
+    <div class="nav-toggle">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+  </nav>
+  <div class="nav-overlay"></div>
+
  <div id="wrapper"> 
 
-        <header id="banner" class="body">
-                <h1><a href="/">Web Log <strong></strong></a></h1>
-        </header><!-- /#banner -->
 
-        <nav id="menu"><ul>
-            <li><a href="/pages/contact.html">Contact</a></li>
-            <li><a href="/category/blog.html">blog</a></li>
-            <li><a href="/category/projects.html">projects</a></li>
-        </ul></nav><!-- /#menu -->
 
-        <div id="invmode">Day</div>
 
         <div id="content">
 
-                <div style="">
-                  Personal Website & Blog
-                </div>
+
+
+
+
+
 
           <div id="search" style="margin: 4rem 0rem 1.5rem 0rem;">
 
-            <form action="/">
-                <div class="tipue_search_right">
-                  <input placeholder="Type to search..." aria-hidden="true" data-choice="active" 
+ 
+
+   <div class="search tipue_search_right">
+      <input type="text" class="searchTerm" placeholder="What are you looking for?"  aria-hidden="true" data-choice="active"
                   type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required>
-                </div>
-                <div style="clear: both;"></div>
-            </form>
+      
+      <button type="submit" class="searchButton">
+        <div style="-webkit-transform: rotate(45deg); 
+                    -moz-transform: rotate(45deg); 
+                    -o-transform: rotate(45deg);
+                    transform: rotate(45deg);">&#9906;</div>
+
+     </button>
+   </div>
 
             <div id="tipue_search_content" style="margin: 2rem 0rem; padding: 1rem; border-bottom: 1px solid;"></div>
 
@@ -91,6 +114,24 @@
                 <div class="entry-content"> <p>To satisfy the curiosity for reading car on-board diagnostics using</p> </div><!-- /.entry-content -->
         </article></li>
         <li><article class="hentry">
+                <header> <h2 class="entry-title"><a href="/lorawan-reverse-beacon.html" rel="bookmark" title="Permalink to LoraWAN Reverse Beacon">LoraWAN Reverse Beacon</a></h2> </header>
+                <footer class="post-info">
+                    <time class="published" datetime="2018-05-27T00:00:00+02:00"> Sun 27 May 2018 </time>
+                    <address class="vcard author">By
+                        <a class="url fn" href="/author/tomaz-ursic.html">Tomaz Ursic</a>
+                    </address>
+                    <div>
+                    Tags: 
+                        <a class="url fn" href="/tag/iot.html">iot</a>
+                        <a class="url fn" href="/tag/python.html">python</a>
+                        <a class="url fn" href="/tag/lorawan.html">lorawan</a>
+                        <a class="url fn" href="/tag/reverse_beacon.html">reverse_beacon</a>
+                    </div>
+                </footer><!-- /.post-info -->
+                <div class="entry-content"> <p class="first last">Exploring LoraWAN coverage with drop node deployed higher than the receivers</p>
+ </div><!-- /.entry-content -->
+        </article></li>
+        <li><article class="hentry">
                 <header> <h2 class="entry-title"><a href="/setup-pelican.html" rel="bookmark" title="Permalink to Setup Pelican">Setup Pelican</a></h2> </header>
                 <footer class="post-info">
                     <time class="published" datetime="2018-05-03T07:10:56+02:00"> Thu 03 May 2018 </time>
@@ -131,6 +172,7 @@
 
  </div><!-- /.wrapper -->
 
+
 <script>
 // Handle site search
 $(document).ready(function() {
@@ -147,6 +189,22 @@ for (var i_2 = 0; i_2 < scriptSrc.length; i_2++) {
   script.async = false;
   script.src = index;
 }
+
+//menu toggle
+(function($){
+    $('.nav-toggle').click(function(e){
+        e.preventDefault();
+        $('.nav-toggle').toggleClass('active');
+        $('.nav-menu').toggleClass('active');
+        $('.nav-overlay').toggleClass('active');
+    })
+    $('.nav-overlay').click(function(e){
+        e.preventDefault();
+        $('.nav-toggle').toggleClass('active');
+        $('.nav-menu').toggleClass('active');
+        $('.nav-overlay').toggleClass('active');
+    })
+})(jQuery);
 </script>
 
 </body>

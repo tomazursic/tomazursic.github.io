@@ -29,37 +29,48 @@
 
 <body id="index" class="home">
 
+  <nav class="navigation">
+    <div class="nav-logo">
+      <a href="/">Web Log <strong></strong></a>
+    </div>
+    <ul class="nav-menu">
+
+          <li><a href="/category/blog.html">blog</a></li>
+          <li class="active"><a href="/category/projects.html">projects</a></li>
+          <li><a href="/category/recipes.html">recipes</a></li>
+          <li><a href="/pages/contact.html">Contact</a></li>
+
+      <li>
+        <div id="invmode">Day</div>
+        </li>
+    </ul>
+    <div class="nav-toggle">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+  </nav>
+  <div class="nav-overlay"></div>
+
  <div id="wrapper"> 
 
-        <header id="banner" class="body">
-                <h1><a href="/">Web Log <strong></strong></a></h1>
-        </header><!-- /#banner -->
 
-        <nav id="menu"><ul>
-            <li><a href="/pages/contact.html">Contact</a></li>
-            <li><a href="/category/blog.html">blog</a></li>
-            <li class="active"><a href="/category/projects.html">projects</a></li>
-        </ul></nav><!-- /#menu -->
 
-        <div id="invmode">Day</div>
 
         <div id="content">
 
-                <div style="">
-                  Personal Website & Blog
-                </div>
 
 
 <section id="content" class="body">
   <header>
     <h2 class="entry-title">
-      <a href="/drafts/lorawan-reverse-beacon.html" rel="bookmark"
+      <a href="/lorawan-reverse-beacon.html" rel="bookmark"
          title="Permalink to LoraWAN Reverse Beacon">LoraWAN Reverse Beacon</a></h2>
  
   </header>
   <footer class="post-info">
-    <time class="published" datetime="2019-12-17T00:00:00+01:00">
-      Tue 17 December 2019
+    <time class="published" datetime="2018-05-27T00:00:00+02:00">
+      Sun 27 May 2018
     </time>
     <address class="vcard author">
       By           <a class="url fn" href="/author/tomaz-ursic.html">Tomaz Ursic</a>
@@ -79,38 +90,71 @@
   <br>
   <div class="entry-content">
     <div class="section" id="reverse-beacon">
-<h2>Reverse-Beacon</h2>
-<table border="1" class="docutils">
-<colgroup>
-<col width="38%" />
-<col width="62%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">Device ID</th>
-<th class="head">Firmware version</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>arcc-01</td>
-<td>17.1.3.b1</td>
-</tr>
-</tbody>
-</table>
+<h2><a class="toc-backref" href="#id14">Reverse-Beacon</a></h2>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#reverse-beacon" id="id14">Reverse-Beacon</a><ul>
+<li><a class="reference internal" href="#parts" id="id15">Parts</a></li>
+<li><a class="reference internal" href="#sensors" id="id16">Sensors</a><ul>
+<li><a class="reference internal" href="#sht10" id="id17">SHT10</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#internal-sensors" id="id18">Internal sensors</a><ul>
+<li><a class="reference internal" href="#mpl3115a2" id="id19">MPL3115A2</a></li>
+<li><a class="reference internal" href="#si7006a20" id="id20">SI7006A20</a></li>
+<li><a class="reference internal" href="#current-voltage" id="id21">Current Voltage</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#components" id="id22">Components</a><ul>
+<li><a class="reference internal" href="#milvent" id="id23">Milvent</a></li>
+<li><a class="reference internal" href="#li-po-battery" id="id24">Li-Po Battery</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module" id="id25">Module</a><ul>
+<li><a class="reference internal" href="#lopy" id="id26">LoPy</a></li>
+<li><a class="reference internal" href="#pysense" id="id27">Pysense</a></li>
+<li><a class="reference internal" href="#antenna" id="id28">Antenna</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#connectors" id="id29">Connectors</a><ul>
+<li><a class="reference internal" href="#i2c-hub" id="id30">I2C Hub</a></li>
+<li><a class="reference internal" href="#cables" id="id31">Cables</a></li>
+<li><a class="reference internal" href="#i2c-cable" id="id32">I2C Cable</a></li>
+<li><a class="reference internal" href="#i2c-jump-cable" id="id33">I2C Jump Cable</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enclosure" id="id34">Enclosure</a><ul>
+<li><a class="reference internal" href="#spacers-screws" id="id35">Spacers Screws</a></li>
+<li><a class="reference internal" href="#o-ring-seal" id="id36">O Ring Seal</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#location" id="id37">Location</a></li>
+<li><a class="reference internal" href="#internals" id="id38">Internals</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<hr class="docutils" />
+<p><strong>Archived</strong>: 09.17.2018</p>
+<hr class="docutils" />
+<div class="figure">
+<img alt="Data visulaization" src="../images/device/sabotin01_charts.png" />
+</div>
 <p>The device is kind of reverse-beacon node on the Sabotin mountain and
 monitor TheThingsNetwork gateways in the signal range.</p>
-<p>The node is trasmiting packages to the gateways stations listening and
+<p>The node is transmitting packages to the gateways stations listening and
 reporting what stations they hear, when and how well.</p>
 <p>In the meantime is taking measurements (temperature and humidity) of undergrowth.</p>
-<p>All measurements:</p>
+<p><strong>Collected measurements:</strong></p>
 <ul class="simple">
 <li>Temperature &amp; Humidity (undergrowth)</li>
 <li>Atmospheric pressure</li>
 <li>Device internal (temperature, humidity and current voltage)</li>
 </ul>
-<p>Public Dashboard:</p>
-<!-- https://lepavida.iot.novagorica.eu -->
-<div class="section" id="hardware-conponents">
-<h3>Hardware conponents</h3>
+<p>Link to public data: <a class="reference external" href="https://lepavida.iot.novagorica.eu/d/000000012/sabotin01-archive">https://lepavida.iot.novagorica.eu/d/000000012/sabotin01-archive</a></p>
+<div class="section" id="parts">
+<h3><a class="toc-backref" href="#id15">Parts</a></h3>
 <p>Table of all hardware components included in device</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -201,9 +245,9 @@ reporting what stations they hear, when and how well.</p>
 </table>
 </div>
 <div class="section" id="sensors">
-<h3>Sensors</h3>
+<h3><a class="toc-backref" href="#id16">Sensors</a></h3>
 <div class="section" id="sht10">
-<h4>SHT10</h4>
+<h4><a class="toc-backref" href="#id17">SHT10</a></h4>
 <div class="figure">
 <img alt="SHT10" src="../images/components/sht10.jpg" />
 </div>
@@ -246,9 +290,9 @@ reporting what stations they hear, when and how well.</p>
 </div>
 </div>
 <div class="section" id="internal-sensors">
-<h3>Internal sensors</h3>
+<h3><a class="toc-backref" href="#id18">Internal sensors</a></h3>
 <div class="section" id="mpl3115a2">
-<h4>MPL3115A2</h4>
+<h4><a class="toc-backref" href="#id19">MPL3115A2</a></h4>
 <p>Barometric Pressure Sensor with Altimeter (MPL3115A2)</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -258,7 +302,7 @@ For more information see <a class="reference external" href="https://docs.pycom.
 <p>Monitor measurements inside device enclosure</p>
 </div>
 <div class="section" id="si7006a20">
-<h4>SI7006A20</h4>
+<h4><a class="toc-backref" href="#id20">SI7006A20</a></h4>
 <p>Humidity and Temperature Sensor (SI7006A20)</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -266,15 +310,15 @@ For more information see <a class="reference external" href="https://docs.pycom.
 </div>
 </div>
 <div class="section" id="current-voltage">
-<h4>Current Voltage</h4>
+<h4><a class="toc-backref" href="#id21">Current Voltage</a></h4>
 <p>Monitor power supply current voltage</p>
 <p>Using on module Analog to Digital Conversion</p>
 </div>
 </div>
 <div class="section" id="components">
-<h3>Components</h3>
+<h3><a class="toc-backref" href="#id22">Components</a></h3>
 <div class="section" id="milvent">
-<h4>Milvent</h4>
+<h4><a class="toc-backref" href="#id23">Milvent</a></h4>
 <p>Protective vents pressure balance valve</p>
 <ul class="simple">
 <li>M12*1.5</li>
@@ -287,7 +331,7 @@ For more information see <a class="reference external" href="https://docs.pycom.
 </div>
 </div>
 <div class="section" id="li-po-battery">
-<h4>Li-Po Battery</h4>
+<h4><a class="toc-backref" href="#id24">Li-Po Battery</a></h4>
 <p>LI-PO 3.7V 2200mAH Polymer Lithium Ion</p>
 <p>Features:</p>
 <ul class="simple">
@@ -306,9 +350,9 @@ For more information see <a class="reference external" href="https://docs.pycom.
 </div>
 </div>
 <div class="section" id="module">
-<h3>Module</h3>
+<h3><a class="toc-backref" href="#id25">Module</a></h3>
 <div class="section" id="lopy">
-<h4>LoPy</h4>
+<h4><a class="toc-backref" href="#id26">LoPy</a></h4>
 <p>MicroPython enabled microcontroller</p>
 <p>LoPy Features:</p>
 <ul class="simple">
@@ -396,7 +440,7 @@ For more information see <a class="reference external" href="https://docs.pycom.
 </div>
 </div>
 <div class="section" id="pysense">
-<h4>Pysense</h4>
+<h4><a class="toc-backref" href="#id27">Pysense</a></h4>
 <p>Features</p>
 <ul class="simple">
 <li>Ambient light sensor</li>
@@ -416,7 +460,7 @@ For more information see <a class="reference external" href="https://docs.pycom.
 </div>
 </div>
 <div class="section" id="antenna">
-<h4>Antenna</h4>
+<h4><a class="toc-backref" href="#id28">Antenna</a></h4>
 <p>LoRa (868MHz/915MHz)</p>
 <ul class="simple">
 <li>External antenna.</li>
@@ -426,9 +470,9 @@ For more information see <a class="reference external" href="https://docs.pycom.
 </div>
 </div>
 <div class="section" id="connectors">
-<h3>Connectors</h3>
+<h3><a class="toc-backref" href="#id29">Connectors</a></h3>
 <div class="section" id="i2c-hub">
-<h4>I2C Hub</h4>
+<h4><a class="toc-backref" href="#id30">I2C Hub</a></h4>
 <p>I2C Hub Grove is an extension Grove module for connecting multiply I2C devices</p>
 <ul class="simple">
 <li>Use with cable:  Universal 4 Pin to X2 4 Pin cable</li>
@@ -469,7 +513,7 @@ For more information see <a class="reference external" href="https://docs.pycom.
 </ul>
 </div>
 <div class="section" id="cables">
-<h4>Cables</h4>
+<h4><a class="toc-backref" href="#id31">Cables</a></h4>
 <ul class="simple">
 <li>20cm - 4 Pin Grove I2C cable with connector</li>
 <li>5cm - 4 Pin Grove I2C cable with connector</li>
@@ -477,13 +521,13 @@ For more information see <a class="reference external" href="https://docs.pycom.
 </ul>
 </div>
 <div class="section" id="i2c-cable">
-<h4>I2C Cable</h4>
+<h4><a class="toc-backref" href="#id32">I2C Cable</a></h4>
 <div class="figure">
 <img alt="I2C cable 10cm" src="../images/components/i2c_cable_10cm.jpg" />
 </div>
 </div>
 <div class="section" id="i2c-jump-cable">
-<h4>I2C Jump Cable</h4>
+<h4><a class="toc-backref" href="#id33">I2C Jump Cable</a></h4>
 <p>Jumper Wires</p>
 <div class="figure">
 <img alt="I2C cable 5cm" src="../images/components/i2c_cable_5cm.jpg" />
@@ -491,17 +535,17 @@ For more information see <a class="reference external" href="https://docs.pycom.
 </div>
 </div>
 <div class="section" id="enclosure">
-<h3>Enclosure</h3>
+<h3><a class="toc-backref" href="#id34">Enclosure</a></h3>
 <ul class="simple">
 <li>Dimensions: 8.8 x 14.6 x 3.3 cm</li>
 </ul>
 <div class="section" id="spacers-screws">
-<h4>Spacers Screws</h4>
+<h4><a class="toc-backref" href="#id35">Spacers Screws</a></h4>
 <p>Screws for mounting internals</p>
 <p>Type: M2</p>
 </div>
 <div class="section" id="o-ring-seal">
-<h4>O Ring Seal</h4>
+<h4><a class="toc-backref" href="#id36">O Ring Seal</a></h4>
 <p>Flexible Rubber O Ring Seal Washer Gasket Black</p>
 <ul class="simple">
 <li>Dimensions: OD 16mm x CS 2mm</li>
@@ -509,7 +553,7 @@ For more information see <a class="reference external" href="https://docs.pycom.
 </div>
 </div>
 <div class="section" id="location">
-<h3>Location</h3>
+<h3><a class="toc-backref" href="#id37">Location</a></h3>
 <p>Sabotin (top)
 Geo location: 45.9883, 13.63469</p>
 <div class="figure">
@@ -538,16 +582,11 @@ Geo location: 45.9883, 13.63469</p>
 </div>
 </div>
 <div class="section" id="internals">
-<h3>Internals</h3>
+<h3><a class="toc-backref" href="#id38">Internals</a></h3>
 <div class="figure">
 <img alt="Device internals" src="../images/device/sabotin01_internals_01.jpg" />
 <p class="caption">Device internals</p>
 </div>
-</div>
-<div class="section" id="schematic">
-<h3>Schematic</h3>
-<blockquote>
-Transfer from paper into digital form!</blockquote>
 </div>
 </div>
 
@@ -577,6 +616,7 @@ Transfer from paper into digital form!</blockquote>
 
  </div><!-- /.wrapper -->
 
+
 <script>
 // Handle site search
 $(document).ready(function() {
@@ -593,6 +633,22 @@ for (var i_2 = 0; i_2 < scriptSrc.length; i_2++) {
   script.async = false;
   script.src = index;
 }
+
+//menu toggle
+(function($){
+    $('.nav-toggle').click(function(e){
+        e.preventDefault();
+        $('.nav-toggle').toggleClass('active');
+        $('.nav-menu').toggleClass('active');
+        $('.nav-overlay').toggleClass('active');
+    })
+    $('.nav-overlay').click(function(e){
+        e.preventDefault();
+        $('.nav-toggle').toggleClass('active');
+        $('.nav-menu').toggleClass('active');
+        $('.nav-overlay').toggleClass('active');
+    })
+})(jQuery);
 </script>
 
 </body>

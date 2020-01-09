@@ -27,25 +27,36 @@
 
 <body id="index" class="home">
 
+  <nav class="navigation">
+    <div class="nav-logo">
+      <a href="/">Web Log <strong></strong></a>
+    </div>
+    <ul class="nav-menu">
+
+          <li><a href="/category/blog.html">blog</a></li>
+          <li><a href="/category/projects.html">projects</a></li>
+          <li><a href="/category/recipes.html">recipes</a></li>
+          <li><a href="/pages/contact.html">Contact</a></li>
+
+      <li>
+        <div id="invmode">Day</div>
+        </li>
+    </ul>
+    <div class="nav-toggle">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+  </nav>
+  <div class="nav-overlay"></div>
+
  <div id="wrapper"> 
 
-        <header id="banner" class="body">
-                <h1><a href="/">Web Log <strong></strong></a></h1>
-        </header><!-- /#banner -->
 
-        <nav id="menu"><ul>
-            <li><a href="/pages/contact.html">Contact</a></li>
-            <li><a href="/category/blog.html">blog</a></li>
-            <li><a href="/category/projects.html">projects</a></li>
-        </ul></nav><!-- /#menu -->
 
-        <div id="invmode">Day</div>
 
         <div id="content">
 
-                <div style="">
-                  Personal Website & Blog
-                </div>
 
 
 <section id="content" class="body">
@@ -152,6 +163,7 @@ $ git checkout --track origin/&lt;branch&gt;</blockquote>
 
  </div><!-- /.wrapper -->
 
+
 <script>
 // Handle site search
 $(document).ready(function() {
@@ -168,6 +180,22 @@ for (var i_2 = 0; i_2 < scriptSrc.length; i_2++) {
   script.async = false;
   script.src = index;
 }
+
+//menu toggle
+(function($){
+    $('.nav-toggle').click(function(e){
+        e.preventDefault();
+        $('.nav-toggle').toggleClass('active');
+        $('.nav-menu').toggleClass('active');
+        $('.nav-overlay').toggleClass('active');
+    })
+    $('.nav-overlay').click(function(e){
+        e.preventDefault();
+        $('.nav-toggle').toggleClass('active');
+        $('.nav-menu').toggleClass('active');
+        $('.nav-overlay').toggleClass('active');
+    })
+})(jQuery);
 </script>
 
 </body>
