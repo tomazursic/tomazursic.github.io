@@ -139,14 +139,6 @@ https://www.pyimagesearch.com/2019/04/15/live-video-streaming-over-network-with-
     script.src = index;
   }
 
-  // Handle site search
-  $(document).ready(function() {
-    // Search handler
-     $('#tipue_search_input').tipuesearch({
-          'mode': 'json',
-          'contentLocation': 'tipuesearch_content.json'
-     });
-
     //Get the button:
     mybutton = document.getElementById("upBtn");
 
@@ -166,6 +158,15 @@ https://www.pyimagesearch.com/2019/04/15/live-video-streaming-over-network-with-
       document.body.scrollTop = 0; // For Safari
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     } 
+
+
+  // Handle site search
+  $(document).ready(function() {
+    // Search handler
+     $('#tipue_search_input').tipuesearch({
+          'mode': 'json',
+          'contentLocation': 'tipuesearch_content.json'
+     });
 
     $('.nav-toggle').click(function(e){
         e.preventDefault();

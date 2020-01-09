@@ -537,14 +537,6 @@ Use make V=1 or set BUILD_VERBOSE in your environment to increase build verbosit
     script.src = index;
   }
 
-  // Handle site search
-  $(document).ready(function() {
-    // Search handler
-     $('#tipue_search_input').tipuesearch({
-          'mode': 'json',
-          'contentLocation': 'tipuesearch_content.json'
-     });
-
     //Get the button:
     mybutton = document.getElementById("upBtn");
 
@@ -564,6 +556,15 @@ Use make V=1 or set BUILD_VERBOSE in your environment to increase build verbosit
       document.body.scrollTop = 0; // For Safari
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     } 
+
+
+  // Handle site search
+  $(document).ready(function() {
+    // Search handler
+     $('#tipue_search_input').tipuesearch({
+          'mode': 'json',
+          'contentLocation': 'tipuesearch_content.json'
+     });
 
     $('.nav-toggle').click(function(e){
         e.preventDefault();

@@ -642,14 +642,6 @@ Geo location: 45.9883, 13.63469</p>
     script.src = index;
   }
 
-  // Handle site search
-  $(document).ready(function() {
-    // Search handler
-     $('#tipue_search_input').tipuesearch({
-          'mode': 'json',
-          'contentLocation': 'tipuesearch_content.json'
-     });
-
     //Get the button:
     mybutton = document.getElementById("upBtn");
 
@@ -669,6 +661,15 @@ Geo location: 45.9883, 13.63469</p>
       document.body.scrollTop = 0; // For Safari
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     } 
+
+
+  // Handle site search
+  $(document).ready(function() {
+    // Search handler
+     $('#tipue_search_input').tipuesearch({
+          'mode': 'json',
+          'contentLocation': 'tipuesearch_content.json'
+     });
 
     $('.nav-toggle').click(function(e){
         e.preventDefault();

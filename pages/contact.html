@@ -142,14 +142,6 @@ over long distances thanks to the use of the LoRaWAN technology.</p>
     script.src = index;
   }
 
-  // Handle site search
-  $(document).ready(function() {
-    // Search handler
-     $('#tipue_search_input').tipuesearch({
-          'mode': 'json',
-          'contentLocation': 'tipuesearch_content.json'
-     });
-
     //Get the button:
     mybutton = document.getElementById("upBtn");
 
@@ -169,6 +161,15 @@ over long distances thanks to the use of the LoRaWAN technology.</p>
       document.body.scrollTop = 0; // For Safari
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     } 
+
+
+  // Handle site search
+  $(document).ready(function() {
+    // Search handler
+     $('#tipue_search_input').tipuesearch({
+          'mode': 'json',
+          'contentLocation': 'tipuesearch_content.json'
+     });
 
     $('.nav-toggle').click(function(e){
         e.preventDefault();
