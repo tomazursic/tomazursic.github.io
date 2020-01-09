@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Web Logs - tomazursic.github.io - projects</title><link href="/" rel="alternate"></link><link href="/feeds/projects.atom.xml" rel="self"></link><id>/</id><updated>2019-10-27T01:04:00+02:00</updated><entry><title>MicroPython and Lopy</title><link href="/micropython-lopy.html" rel="alternate"></link><published>2019-10-27T01:04:00+02:00</published><updated>2019-10-27T01:04:00+02:00</updated><author><name>Tomaz Ursic</name></author><id>tag:None,2019-10-27:/micropython-lopy.html</id><summary type="html">&lt;p class="first last"&gt;How to setup and use lorawan device, using MicroPython and Lopy (ESP-32) module&lt;/p&gt;
-</summary><content type="html">&lt;div class="section" id="micro-controllers"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;Micro Controllers&lt;/a&gt;&lt;/h2&gt;
+</summary><content type="html">&lt;div class="section" id="micropython-and-lopy"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;Micropython and Lopy&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;About ruining Python on bare metal, using &lt;a class="reference external" href="https://pycom.io/"&gt;Pycom&lt;/a&gt; Lopy and &lt;a class="reference external" href="https://micropython.org/"&gt;Micropython&lt;/a&gt;&lt;/p&gt;
 &lt;div class="contents topic" id="table-of-contents"&gt;
 &lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#micro-controllers" id="id1"&gt;Micro Controllers&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#micropython-and-lopy" id="id1"&gt;Micropython and Lopy&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#lopy" id="id2"&gt;Lopy&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#ftp" id="id3"&gt;FTP&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#telnet" id="id4"&gt;Telnet&lt;/a&gt;&lt;/li&gt;
@@ -569,8 +570,6 @@ reporting what stations they hear, when and how well.&lt;/p&gt;
 &lt;li&gt;Working Temperature/Humidity range: -40°C ~ 120°C, 0~100% RH&lt;/li&gt;
 &lt;li&gt;Four wires: Red = VCC (3-5VDC), Black or Green = Ground, Yellow = Clock, Blue = Data&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Product page:
-&lt;a class="reference external" href="https://cdn-shop.adafruit.com/datasheets/Sensirion_Humidity_SHT1x_Datasheet_V5.pdf"&gt;https://cdn-shop.adafruit.com/datasheets/Sensirion_Humidity_SHT1x_Datasheet_V5.pdf&lt;/a&gt;&lt;/p&gt;
 &lt;table border="1" class="docutils"&gt;
 &lt;colgroup&gt;
 &lt;col width="53%" /&gt;
@@ -596,6 +595,7 @@ reporting what stations they hear, when and how well.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;p&gt;Reference: &lt;a class="reference external" href="https://cdn-shop.adafruit.com/datasheets/Sensirion_Humidity_SHT1x_Datasheet_V5.pdf"&gt;https://cdn-shop.adafruit.com/datasheets/Sensirion_Humidity_SHT1x_Datasheet_V5.pdf&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="internal-sensors"&gt;
