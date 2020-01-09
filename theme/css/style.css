@@ -461,30 +461,28 @@ form input[type=search]:focus {
 
 
 nav.navigation{
-	position:relative;
-	height:50px;
-	background-color:#3c3c3c;
-	z-index:2;
-        text-transform: uppercase;
+  position:relative;
+  height:50px;
+  background-color:#3c3c3c;
+  z-index:2;
+  text-transform: uppercase;
 }
 
 .nav-logo{
-	float:left;
-	height:50px;
-	line-height:50px;
-	padding:0 20px;
-	background-color:#11999e;
-	color:#ffffff;
-	font-weight:700;
-	text-transform:uppercase;
+  float:left;
+  line-height:50px;
+  height:50px;
+  background-color:#11999e;
+  color:#ffffff;
+  font-weight:700;
+  text-transform:uppercase;
 }
+
 
 .nav-logo a {
   text-decoration: none;
-}
-
-html .nav-logo a {
   color: #fff;
+  padding: 20px;
 }
 
 
