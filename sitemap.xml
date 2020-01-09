@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/</loc>
-<lastmod>2020-01-09T17:03:07-00:00</lastmod>
+<lastmod>2020-01-09T17:35:31-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/archives.html</loc>
-<lastmod>2020-01-09T17:03:07-00:00</lastmod>
+<lastmod>2020-01-09T17:35:31-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/tags.html</loc>
-<lastmod>2020-01-09T17:03:07-00:00</lastmod>
+<lastmod>2020-01-09T17:35:31-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/categories.html</loc>
-<lastmod>2020-01-09T17:03:07-00:00</lastmod>
+<lastmod>2020-01-09T17:35:31-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -81,14 +81,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>/bread-code.html</loc>
+<loc>/liftoff.html</loc>
 <lastmod>2018-05-03T06:14:30+02:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/liftoff.html</loc>
+<loc>/the-bread-code-branch.html</loc>
 <lastmod>2018-05-03T06:14:30+02:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
@@ -104,13 +104,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>/category/projects.html</loc>
 <lastmod>2019-10-27T01:04:00+01:22</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>/category/recipes.html</loc>
-<lastmod>2018-05-03T06:14:30+01:22</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -195,6 +188,20 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>/tag/pelican.html</loc>
 <lastmod>2018-05-03T07:10:56+01:22</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/tag/bread.html</loc>
+<lastmod>2018-05-03T06:14:30+01:22</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/tag/misc.html</loc>
+<lastmod>2018-05-03T06:14:30+01:22</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
