@@ -468,6 +468,7 @@ nav.navigation{
 	z-index:2;
         text-transform: uppercase;
 }
+
 .nav-logo{
 	float:left;
 	height:50px;
@@ -487,6 +488,9 @@ html .nav-logo a {
   color: #dad0c7;
 }
 
+.nav-logo{
+  display: none
+}
 
 ul.nav-menu, ul.nav-menu li, ul.nav-menu li a{
 	float:left;
