@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en" class="inverted">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Web Logs - tomazursic.github.io - Python Cheatsheet</title>
+  <meta charset="utf-8" />
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Web Logs - tomazursic.github.io Full Atom Feed" />
+  <link href="/feeds/blog.atom.xml" type="application/atom+xml" rel="alternate" title="Web Logs - tomazursic.github.io Categories Atom Feed" />
+
+
+
+
+    <meta name="tags" content="python" />
+    <meta name="tags" content="notes" />
+    <meta name="tags" content="cheatsheet" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/theme/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/theme/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/theme/favicons/favicon-16x16.png">
+  <link rel="manifest" href="/theme/favicons/site.webmanifest">
+
+  <link rel="stylesheet" href="/theme/css/style.css"/>
+  <link rel="stylesheet" href="/theme/css/monokai.min.css"/>
+  <link rel="stylesheet" href="/theme/css/ionicons.css"/>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <script src="/theme/tipuesearch/tipuesearch_set.js"></script>
+  <script src="/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="/tipuesearch_content.js"></script>
+
+ 
+
+</head>
+
+<body id="index" class="home">
+
+  <nav class="navigation">
+    <div class="nav-logo">
+      <a href="/"><i class="ion-md-home"></i></a>
+    </div>
+    <ul class="nav-menu">
+
+          <li class="active"><a href="/category/blog.html">blog</a></li>
+          <li><a href="/category/projects.html">projects</a></li>
+          <li><a href="/pages/contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-toggle">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+  </nav>
+  <div class="nav-overlay"></div>
+
+ <div id="wrapper"> 
+
+        <div id="content">
+        <div id="invmode">Day</div>
+        <button onclick="goUp()" id="upBtn" title="Go to top"><i class="ion-ios-arrow-up"></i></button> 
+
+
+
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="/python-cheatsheet.html" rel="bookmark"
+         title="Permalink to Python Cheatsheet">Python Cheatsheet</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2017-11-05T00:00:00+01:00">
+      <b>Published</b>: Sun 05 November 2017
+    </time>
+    <br>
+    <time class="modified" datetime="2020-01-04T00:00:00+01:00">
+      <b>Modified</b>: Sat 04 January 2020
+    </time>
+    <div class="category">
+        <b>Category</b>: <a href="/category/blog.html">blog</a>
+    </div>
+    <div class="tags">
+        <b>Tags</b>:
+            <a href="/tag/python.html">python</a>
+            <a href="/tag/notes.html">notes</a>
+            <a href="/tag/cheatsheet.html">cheatsheet</a>
+    </div>
+  </footer><!-- /.post-info -->
+
+  <div class="entry-content">
+    <div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#python-cheatsheet" id="id1">Python Cheatsheet</a><ul>
+<li><a class="reference internal" href="#compatibly-with-python2-and-python3" id="id2">Compatibly with Python2 and Python3</a><ul>
+<li><a class="reference internal" href="#using-six-package" id="id3">Using six package</a></li>
+<li><a class="reference internal" href="#using-sys-package" id="id4">Using sys package</a></li>
+<li><a class="reference internal" href="#open-file" id="id5">Open file</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#files" id="id6">Files</a><ul>
+<li><a class="reference internal" href="#exception-if-file-exists" id="id7">Exception if file exists.</a></li>
+<li><a class="reference internal" href="#pickle-save" id="id8">Pickle save:</a></li>
+<li><a class="reference internal" href="#pickle-load" id="id9">Pickle load:</a></li>
+<li><a class="reference internal" href="#iterating-over-a-file" id="id10">Iterating over a file</a></li>
+<li><a class="reference internal" href="#json-file" id="id11">Json file</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#http-server" id="id12">Http Server</a><ul>
+<li><a class="reference internal" href="#python2" id="id13">Python2</a></li>
+<li><a class="reference internal" href="#python3" id="id14">Python3</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#smtp-debugging-server" id="id15">Smtp Debugging Server</a></li>
+<li><a class="reference internal" href="#argaparse" id="id16">Argaparse</a></li>
+<li><a class="reference internal" href="#swapping-variables" id="id17">Swapping Variables</a></li>
+<li><a class="reference internal" href="#reversing" id="id18">Reversing</a></li>
+<li><a class="reference internal" href="#remove-duplicates" id="id19">Remove duplicates</a></li>
+<li><a class="reference internal" href="#preserve-order-no-duplicates" id="id20">Preserve order no duplicates</a></li>
+<li><a class="reference internal" href="#inverting-a-dictionary-using-zip" id="id21">Inverting a dictionary using zip</a></li>
+<li><a class="reference internal" href="#mege-dictionary" id="id22">Mege dictionary</a><ul>
+<li><a class="reference internal" href="#copy-and-update" id="id23">Copy and update</a></li>
+<li><a class="reference internal" href="#dictionary-comprehension" id="id24">Dictionary comprehension</a></li>
+<li><a class="reference internal" href="#dictionary-unpacking-in-python-3-5" id="id25">Dictionary unpacking in Python 3.5</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#flattening-lists" id="id26">Flattening lists</a></li>
+<li><a class="reference internal" href="#sort-a-list-of-tuples-by-2nd-item" id="id27">Sort a list of tuples by 2nd item</a></li>
+<li><a class="reference internal" href="#unique-list-that-preserves-the-order" id="id28">Unique list that preserves the order</a></li>
+<li><a class="reference internal" href="#loading-a-csv-file-into-a-listed-dictionary" id="id29">Loading a csv file into a listed dictionary</a></li>
+<li><a class="reference internal" href="#use-named-tuple-instead-of-a-class-for-simple-scenarios" id="id30">Use named tuple instead of a class for simple scenarios</a></li>
+<li><a class="reference internal" href="#fib-generator" id="id31">Fib generator</a></li>
+<li><a class="reference internal" href="#classes" id="id32">Classes</a><ul>
+<li><a class="reference internal" href="#python-2" id="id33">Python 2</a></li>
+<li><a class="reference internal" href="#python-3" id="id34">Python 3</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#check-for-one-condition" id="id35">Check for one condition</a></li>
+<li><a class="reference internal" href="#check-for-all-condition" id="id36">Check for all condition</a></li>
+<li><a class="reference internal" href="#range-check" id="id37">Range check</a></li>
+<li><a class="reference internal" href="#copy-a-list" id="id38">Copy a list</a></li>
+<li><a class="reference internal" href="#list-comprehension" id="id39">List comprehension</a></li>
+<li><a class="reference internal" href="#frequency-count" id="id40">Frequency count</a></li>
+<li><a class="reference internal" href="#exceptions" id="id41">Exceptions</a></li>
+<li><a class="reference internal" href="#raising-key-error-in-dictionary" id="id42">Raising key error in dictionary</a></li>
+<li><a class="reference internal" href="#normalize-utc" id="id43">Normalize utc</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="python-cheatsheet">
+<h2><a class="toc-backref" href="#id1">Python Cheatsheet</a></h2>
+<div class="section" id="compatibly-with-python2-and-python3">
+<h3><a class="toc-backref" href="#id2">Compatibly with Python2 and Python3</a></h3>
+<div class="section" id="using-six-package">
+<h4><a class="toc-backref" href="#id3">Using six package</a></h4>
+<pre class="code python literal-block">
+<span class="kn">import</span> <span class="nn">six</span>
+
+<span class="k">if</span> <span class="n">six</span><span class="o">.</span><span class="n">PY2</span><span class="p">:</span>
+    <span class="c1"># Python 2 code</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;python2&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># Python 3 code</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;python3&quot;</span><span class="p">)</span>
+</pre>
+</div>
+<div class="section" id="using-sys-package">
+<h4><a class="toc-backref" href="#id4">Using sys package</a></h4>
+<pre class="code python literal-block">
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="c1"># Python 3 code</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># Python 2 code</span>
+</pre>
+</div>
+<div class="section" id="open-file">
+<h4><a class="toc-backref" href="#id5">Open file</a></h4>
+<pre class="code python literal-block">
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="n">JSON_DATA</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;filename.json&quot;</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">JSON_DATA</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">(</span><span class="s2">&quot;filename.json&quot;</span><span class="p">))</span>
+</pre>
+</div>
+</div>
+<div class="section" id="files">
+<h3><a class="toc-backref" href="#id6">Files</a></h3>
+<div class="section" id="exception-if-file-exists">
+<h4><a class="toc-backref" href="#id7">Exception if file exists.</a></h4>
+<pre class="code python literal-block">
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'xt'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'Hello</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+</pre>
+</div>
+<div class="section" id="pickle-save">
+<h4><a class="toc-backref" href="#id8">Pickle save:</a></h4>
+<pre class="code python literal-block">
+<span class="kn">import</span> <span class="nn">cPickle</span> <span class="k">as</span> <span class="nn">pickle</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'data.p'</span><span class="p">,</span> <span class="s1">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">fp</span><span class="p">)</span>
+</pre>
+</div>
+<div class="section" id="pickle-load">
+<h4><a class="toc-backref" href="#id9">Pickle load:</a></h4>
+<pre class="code python literal-block">
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'data.p'</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+</pre>
+</div>
+<div class="section" id="iterating-over-a-file">
+<h4><a class="toc-backref" href="#id10">Iterating over a file</a></h4>
+<pre class="code python literal-block">
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'filename.txt'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+         <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre>
+</div>
+<div class="section" id="json-file">
+<h4><a class="toc-backref" href="#id11">Json file</a></h4>
+<pre class="code python literal-block">
+<span class="k">def</span> <span class="nf">save_to_json_file</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">fp</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">open_json</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">update_json_file</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">open_json</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+    <span class="n">save_to_json_file</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+</pre>
+</div>
+</div>
+<div class="section" id="http-server">
+<h3><a class="toc-backref" href="#id12">Http Server</a></h3>
+<div class="section" id="python2">
+<h4><a class="toc-backref" href="#id13">Python2</a></h4>
+<pre class="code python literal-block">
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">SimpleHTTPServer</span> <span class="mi">8000</span>
+</pre>
+</div>
+<div class="section" id="python3">
+<h4><a class="toc-backref" href="#id14">Python3</a></h4>
+<pre class="code python literal-block">
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">http</span><span class="o">.</span><span class="n">server</span> <span class="mi">8000</span>
+</pre>
+</div>
+</div>
+<div class="section" id="smtp-debugging-server">
+<h3><a class="toc-backref" href="#id15">Smtp Debugging Server</a></h3>
+<pre class="code sh literal-block">
+python -m smtpd -n -c DebuggingServer localhost:25
+</pre>
+</div>
+<div class="section" id="argaparse">
+<h3><a class="toc-backref" href="#id16">Argaparse</a></h3>
+<pre class="code python literal-block">
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+
+<span class="n">ap</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-f&quot;</span><span class="p">,</span> <span class="s2">&quot;--file&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Path to json file&quot;</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="nb">vars</span><span class="p">(</span><span class="n">ap</span><span class="o">.</span><span class="n">parse_args</span><span class="p">())</span>
+
+<span class="k">def</span> <span class="nf">read_file</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Select valid json file&quot;</span><span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">read_file</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="s1">'file'</span><span class="p">])</span>
+</pre>
+<pre class="code python literal-block">
+<span class="kn">import</span> <span class="nn">argparse</span>
+
+<span class="c1"># Functions here</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">'Create Marketing Report'</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'--accounts'</span><span class="p">,</span>
+                        <span class="n">action</span><span class="o">=</span><span class="s1">'store_true'</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">'Process Account Data)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'--sales'</span><span class="p">,</span>
+                        <span class="n">action</span><span class="o">=</span><span class="s1">'store_true'</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">'Process Sales Data'</span><span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="c1"># Process accounts</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">accounts</span><span class="p">:</span>
+        <span class="c1"># Do something</span>
+    <span class="c1"># Process sales</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">sales</span><span class="p">:</span>
+        <span class="c1"># Do Something</span>
+</pre>
+<pre class="code python literal-block">
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'-v'</span><span class="p">,</span> <span class="s1">'--verbose'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">'count'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'-q'</span><span class="p">,</span> <span class="s1">'--quiet'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">'count'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">logging_level</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">WARN</span> <span class="o">+</span> <span class="mi">10</span><span class="o">*</span><span class="n">args</span><span class="o">.</span><span class="n">quiet</span> <span class="o">-</span> <span class="mi">10</span><span class="o">*</span><span class="n">args</span><span class="o">.</span><span class="n">verbose</span>
+
+<span class="c1"># script -qqq -&gt;         # no logging at all</span>
+<span class="c1"># script -vv -&gt; DEBUG    # detailed info</span>
+<span class="c1"># script -v -&gt; INFO      # confirmation that things according to plan</span>
+<span class="c1"># script -&gt; WARNING      # something unexpected</span>
+<span class="c1"># script -q -&gt; ERROR     # some function error</span>
+<span class="c1"># script -qq -&gt; CRITICAL # something failed application must close</span>
+</pre>
+</div>
+<hr class="docutils" />
+<div class="section" id="swapping-variables">
+<h3><a class="toc-backref" href="#id17">Swapping Variables</a></h3>
+<pre class="code python literal-block">
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span>
+</pre>
+</div>
+<div class="section" id="reversing">
+<h3><a class="toc-backref" href="#id18">Reversing</a></h3>
+<pre class="code python literal-block">
+<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">my_list</span><span class="p">)))</span>
+</pre>
+</div>
+<div class="section" id="remove-duplicates">
+<h3><a class="toc-backref" href="#id19">Remove duplicates</a></h3>
+<pre class="code python literal-block">
+<span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">li</span><span class="p">))</span> <span class="c1"># create unordered list with no duplicates</span>
+</pre>
+</div>
+<div class="section" id="preserve-order-no-duplicates">
+<h3><a class="toc-backref" href="#id20">Preserve order no duplicates</a></h3>
+<pre class="code python literal-block">
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+
+<span class="n">d</span> <span class="o">=</span>  <span class="n">OrderedDict</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">li</span><span class="p">:</span>
+
+    <span class="n">d</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+
+
+<span class="c1"># or a terrible oneliner:</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+
+<span class="nb">print</span> <span class="n">OrderedDict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">li</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="p">)))</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+
+<span class="c1"># or</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">OrderedDict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">li</span><span class="p">)))</span>
+</pre>
+</div>
+<div class="section" id="inverting-a-dictionary-using-zip">
+<h3><a class="toc-backref" href="#id21">Inverting a dictionary using zip</a></h3>
+<p>(i.e create a list with keys and values swapped)</p>
+<pre class="code python literal-block">
+<span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">di</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span><span class="n">di</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+
+<span class="n">via</span> <span class="n">dictionary</span> <span class="n">comprehension</span> <span class="p">(</span><span class="n">python</span> <span class="o">&gt;=</span><span class="mf">2.7</span><span class="p">)</span>
+
+<span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">di</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+<span class="nb">dict</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">reversed</span><span class="p">,</span> <span class="n">di</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
+</pre>
+</div>
+<div class="section" id="mege-dictionary">
+<h3><a class="toc-backref" href="#id22">Mege dictionary</a></h3>
+<div class="section" id="copy-and-update">
+<h4><a class="toc-backref" href="#id23">Copy and update</a></h4>
+<pre class="code python literal-block">
+<span class="n">context</span> <span class="o">=</span> <span class="n">defaults</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">context</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+</pre>
+</div>
+<div class="section" id="dictionary-comprehension">
+<h4><a class="toc-backref" href="#id24">Dictionary comprehension</a></h4>
+<pre class="code python literal-block">
+<span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="p">[</span><span class="n">defaults</span><span class="p">,</span> <span class="n">user</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</pre>
+</div>
+<div class="section" id="dictionary-unpacking-in-python-3-5">
+<h4><a class="toc-backref" href="#id25">Dictionary unpacking in Python 3.5</a></h4>
+<pre class="code python literal-block">
+<span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">defaults</span><span class="p">,</span> <span class="o">**</span><span class="n">user</span><span class="p">}</span>
+</pre>
+</div>
+</div>
+<div class="section" id="flattening-lists">
+<h3><a class="toc-backref" href="#id26">Flattening lists</a></h3>
+<pre class="code python literal-block">
+<span class="n">a</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]]</span>
+
+<span class="nb">print</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">))</span>
+</pre>
+</div>
+<div class="section" id="sort-a-list-of-tuples-by-2nd-item">
+<h3><a class="toc-backref" href="#id27">Sort a list of tuples by 2nd item</a></h3>
+<pre class="code python literal-block">
+<span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">itemgetter</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">),(</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">)]</span>
+<span class="n">data</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1">#alternately with no need to import:</span>
+
+<span class="nb">sorted</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre>
+</div>
+<div class="section" id="unique-list-that-preserves-the-order">
+<h3><a class="toc-backref" href="#id28">Unique list that preserves the order</a></h3>
+<p>The original order (by first occurrence)</p>
+<pre class="code python literal-block">
+<span class="n">first_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">unique_order_maintained</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">first_list</span><span class="p">)),</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span>
+<span class="n">first_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre>
+</div>
+<div class="section" id="loading-a-csv-file-into-a-listed-dictionary">
+<h3><a class="toc-backref" href="#id29">Loading a csv file into a listed dictionary</a></h3>
+<pre class="code python literal-block">
+<span class="n">listed_dictionary</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">'filename.csv'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)))</span>
+</pre>
+</div>
+<div class="section" id="use-named-tuple-instead-of-a-class-for-simple-scenarios">
+<h3><a class="toc-backref" href="#id30">Use named tuple instead of a class for simple scenarios</a></h3>
+<pre class="code python literal-block">
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+
+<span class="c1"># define new type</span>
+<span class="n">BuildInput</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">'BuildInput'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'files'</span><span class="p">])</span>
+
+<span class="c1"># test scenarios</span>
+<span class="n">b1</span> <span class="o">=</span> <span class="n">BuildInput</span><span class="p">(</span><span class="s1">'test_build_1'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'file1.txt'</span><span class="p">,</span> <span class="s1">'file2.txt'</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b1</span><span class="p">)</span> <span class="c1"># output: BuildInput(name='test_build_1', files=['test1.txt',</span>
+<span class="s1">'test2.txt'</span><span class="p">])</span>
+
+<span class="n">b2</span> <span class="o">=</span> <span class="n">BuildInput</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'test_build_2'</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="p">[</span><span class="s1">'file3.txt'</span><span class="p">,</span> <span class="s1">'file4.txt'</span><span class="p">])</span>
+<span class="n">another_b1</span> <span class="o">=</span> <span class="n">BuildInput</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'test_build_1'</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="p">[</span><span class="s1">'file1.txt'</span><span class="p">,</span> <span class="s1">'file2.txt'</span><span class="p">])</span>
+
+<span class="k">assert</span> <span class="n">b1</span> <span class="o">!=</span> <span class="n">b2</span><span class="p">,</span> <span class="s1">'b1 and b2 should be different'</span>
+<span class="k">assert</span> <span class="n">b1</span> <span class="o">==</span> <span class="n">another_b1</span><span class="p">,</span> <span class="s1">'b1 and another_b1 should be equal'</span>
+</pre>
+</div>
+<div class="section" id="fib-generator">
+<h3><a class="toc-backref" href="#id31">Fib generator</a></h3>
+<pre class="code python literal-block">
+<span class="k">def</span> <span class="nf">fibgen</span><span class="p">(</span><span class="n">numb</span><span class="p">):</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">numb</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="s1">'</span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">fibgen</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre>
+</div>
+<div class="section" id="classes">
+<h3><a class="toc-backref" href="#id32">Classes</a></h3>
+<div class="section" id="python-2">
+<span id="python-2-1"></span><h4><a class="toc-backref" href="#id33">Python 2</a></h4>
+<pre class="code python literal-block">
+<span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="k">class</span> <span class="nc">Rectangle</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">area</span> <span class="o">=</span> <span class="n">width</span> <span class="o">*</span> <span class="n">height</span>
+
+<span class="k">class</span> <span class="nc">Square</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Square</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">Square</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">area</span><span class="p">)</span> <span class="c1">#25</span>
+</pre>
+</div>
+<div class="section" id="python-3">
+<span id="python-3-1"></span><h4><a class="toc-backref" href="#id34">Python 3</a></h4>
+<pre class="code python literal-block">
+<span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="k">class</span> <span class="nc">Rectangle</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">area</span> <span class="o">=</span> <span class="n">width</span> <span class="o">*</span> <span class="n">height</span>
+
+<span class="k">class</span> <span class="nc">Square</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">Square</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">area</span><span class="p">)</span> <span class="c1">#25</span>
+</pre>
+</div>
+</div>
+<div class="section" id="check-for-one-condition">
+<h3><a class="toc-backref" href="#id35">Check for one condition</a></h3>
+<pre class="code python literal-block">
+<span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="n">user</span><span class="o">.</span><span class="n">is_admin</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">is_dude</span><span class="p">]):</span>
+    <span class="c1"># Grant Access</span>
+</pre>
+</div>
+<div class="section" id="check-for-all-condition">
+<h3><a class="toc-backref" href="#id36">Check for all condition</a></h3>
+<pre class="code python literal-block">
+<span class="k">if</span> <span class="nb">all</span><span class="p">([</span><span class="n">user</span><span class="o">.</span><span class="n">is_admin</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">is_dude</span><span class="p">]):</span>
+    <span class="c1"># Grant Access</span>
+</pre>
+</div>
+<div class="section" id="range-check">
+<h3><a class="toc-backref" href="#id37">Range check</a></h3>
+<pre class="code python literal-block">
+<span class="n">status_code</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="k">if</span> <span class="mi">200</span> <span class="o">&lt;=</span> <span class="n">status_code</span> <span class="o">&lt;=</span> <span class="mi">299</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;HTTP call is success&quot;</span><span class="p">)</span>
+</pre>
+</div>
+<div class="section" id="copy-a-list">
+<h3><a class="toc-backref" href="#id38">Copy a list</a></h3>
+<pre class="code python literal-block">
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">]</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">langs</span><span class="p">[:]</span>
+<span class="n">new_colors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;grey&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="n">new_colors</span><span class="p">)</span>
+<span class="c1"># ([&quot;black&quot;, &quot;white&quot;, &quot;blue&quot;],[&quot;black&quot;, &quot;white&quot;, &quot;blue&quot;, &quot;grey&quot;])</span>
+</pre>
+</div>
+<div class="section" id="list-comprehension">
+<h3><a class="toc-backref" href="#id39">List comprehension</a></h3>
+<pre class="code python literal-block">
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">evens</span> <span class="o">=</span> <span class="p">[</span><span class="n">numb</span> <span class="k">for</span> <span class="n">numb</span> <span class="ow">in</span> <span class="n">numbers</span> <span class="k">if</span> <span class="n">numb</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">evens</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+</pre>
+</div>
+<div class="section" id="frequency-count">
+<h3><a class="toc-backref" href="#id40">Frequency count</a></h3>
+<pre class="code python literal-block">
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="n">frequency</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">frequency</span><span class="p">)</span>
+<span class="n">Counter</span><span class="p">({</span><span class="s1">'foo'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'the'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'bar'</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+</pre>
+</div>
+<div class="section" id="exceptions">
+<h3><a class="toc-backref" href="#id41">Exceptions</a></h3>
+<pre class="code python literal-block">
+<span class="k">try</span><span class="p">:</span>
+   <span class="n">foo</span><span class="p">()</span>
+<span class="k">except</span> <span class="p">(</span><span class="ne">IndexError</span><span class="p">,</span> <span class="ne">KeyError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;something went wrong&quot;</span><span class="p">)</span>
+</pre>
+</div>
+<div class="section" id="raising-key-error-in-dictionary">
+<h3><a class="toc-backref" href="#id42">Raising key error in dictionary</a></h3>
+<pre class="code python literal-block">
+<span class="c1">#Easier to Ask for Forgiveness than Permission</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s2">&quot;foo&quot;</span><span class="p">]</span>
+<span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;foo is missing&quot;</span><span class="p">)</span>
+</pre>
+</div>
+<div class="section" id="normalize-utc">
+<h3><a class="toc-backref" href="#id43">Normalize utc</a></h3>
+<pre class="code python literal-block">
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">pytz</span>
+
+<span class="k">def</span> <span class="nf">now_utc_normalize</span><span class="p">()</span>
+    <span class="n">est</span> <span class="o">=</span> <span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="s1">'US/Eastern'</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">est</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">est</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">d</span>
+</pre>
+</div>
+</div>
+
+  </div><!-- /.entry-content -->
+</section>
+
+          <ul class="tags-footer">
+              <li style="font-size: 100.0%;"><a href="/tag/arm.html">arm</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/bread.html">bread</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/cheatsheet.html">cheatsheet</a></li>
+              <li style="font-size: 139.6%;"><a href="/tag/iot.html">iot</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/linux.html">linux</a></li>
+              <li style="font-size: 139.6%;"><a href="/tag/lorawan.html">lorawan</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/misc.html">misc</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/network.html">network</a></li>
+              <li style="font-size: 125.0%;"><a href="/tag/notes.html">notes</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/obd.html">obd</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/pelican.html">pelican</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/pi.html">pi</a></li>
+              <li style="font-size: 164.6%;"><a href="/tag/python.html">python</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/raspberry-pi.html">raspberry-pi</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/reverse_beacon.html">reverse_beacon</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/tools.html">tools</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/vim.html">vim</a></li>
+          </ul>
+
+        <section id="extras" class="body">
+
+
+
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
+
+        </div>
+        </section>
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
+
+ </div><!-- /.wrapper -->
+
+
+<script>var _gaq=[['_setAccount','UA-155970867-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+<script>
+  // Insert scripts
+  var scriptSrc = ["/theme/js/main.js",];
+  for (var i_2 = 0; i_2 < scriptSrc.length; i_2++) {
+    var index = scriptSrc[i_2];
+    var script = document.body.appendChild(document.createElement('script'));
+    script.async = false;
+    script.src = index;
+  }
+
+    //Get the button:
+    mybutton = document.getElementById("upBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function goUp() {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    } 
+
+
+  // Handle site search
+  $(document).ready(function() {
+    // Search handler
+     $('#tipue_search_input').tipuesearch({
+          'mode': 'json',
+          'contentLocation': 'tipuesearch_content.json'
+     });
+
+    $('.nav-toggle').click(function(e){
+        e.preventDefault();
+        $('.nav-toggle').toggleClass('active');
+        $('.nav-menu').toggleClass('active');
+        $('.nav-overlay').toggleClass('active');
+    })
+    $('.nav-overlay').click(function(e){
+        e.preventDefault();
+        $('.nav-toggle').toggleClass('active');
+        $('.nav-menu').toggleClass('active');
+        $('.nav-overlay').toggleClass('active');
+    })
+
+  });
+
+</script>
+</body>
+</html>

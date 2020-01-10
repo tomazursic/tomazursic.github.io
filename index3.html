@@ -2,15 +2,9 @@
 <html lang="en" class="inverted">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Web Logs - tomazursic.github.io - Food Code</title>
+  <title>Web Logs - tomazursic.github.io</title>
   <meta charset="utf-8" />
   <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Web Logs - tomazursic.github.io Full Atom Feed" />
-  <link href="/feeds/blog.atom.xml" type="application/atom+xml" rel="alternate" title="Web Logs - tomazursic.github.io Categories Atom Feed" />
-
-
-
-
-
 
   <link rel="apple-touch-icon" sizes="180x180" href="/theme/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/theme/favicons/favicon-32x32.png">
@@ -38,7 +32,7 @@
     </div>
     <ul class="nav-menu">
 
-          <li class="active"><a href="/category/blog.html">blog</a></li>
+          <li><a href="/category/blog.html">blog</a></li>
           <li><a href="/category/projects.html">projects</a></li>
           <li><a href="/pages/contact.html">Contact</a></li>
     </ul>
@@ -57,41 +51,46 @@
         <button onclick="goUp()" id="upBtn" title="Go to top"><i class="ion-ios-arrow-up"></i></button> 
 
 
+          <div id="search" >
 
-<section id="content" class="body">
-  <header>
-    <h2 class="entry-title">
-      <a href="/drafts/food-code.html" rel="bookmark"
-         title="Permalink to Food Code">Food Code</a></h2>
+            <form action="/">
+           <div class="search tipue_search_right">
+              <input type="text" class="searchTerm" placeholder="Search by keywords.."  aria-hidden="true" data-choice="active"
+                          type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required>
+              
+              <button type="submit" class="searchButton">
+               <i class="ion-ios-search"></i>
+             </button>
+           </div>
+            </form>
+
  
-  </header>
-  <footer class="post-info">
-    <time class="published" datetime="2018-05-03T06:14:30+02:00">
-      <b>Published</b>: Thu 03 May 2018
-    </time>
-    <br>
-    <div class="category">
-        <b>Category</b>: <a href="/category/blog.html">blog</a>
-    </div>
-  </footer><!-- /.post-info -->
 
-  <div class="entry-content">
-    <p>Telečja rebra ali pleča
-Meso solimo popramo rožmarin, olje
--- mariniraj</p>
-<p>korenje,
-čebula,
-česnik,
-paradižnik,
-krompir
--- dodamo</p>
-<p>Pokrijem z oglejm in pepelom da produšimo izhod pare
-1. odkrijemo po 40min
-   poberemo sok,
-   brnemo meso</p>
-<p>2dcl blo vino</p>
-  </div><!-- /.entry-content -->
-</section>
+            <div id="tipue_search_content" style="margin: 2rem 0rem; padding: 1rem; border-bottom: 1px solid;"></div>
+
+          </div>
+
+<section id="content">
+<h2>All articles</h2>
+
+<ol id="post-list">
+        <li><article class="hentry">
+                <header> <h2 class="entry-title"><a href="/liftoff.html" rel="bookmark" title="Permalink to Liftoff">Liftoff</a></h2> </header>
+                <footer class="post-info">
+                    <time class="published" datetime="2017-05-03T06:14:30+02:00"> Wed 03 May 2017 </time>
+                    <address class="vcard author">By
+                        <a class="url fn" href="/author/tomaz.html">Tomaz</a>
+                    </address>
+                    <div>
+                </footer><!-- /.post-info -->
+                <div class="entry-content"> <p>hello world</p> </div><!-- /.entry-content -->
+        </article></li>
+</ol><!-- /#posts-list -->
+<p class="paginator">
+        <a href="/index2.html">&laquo;</a>
+    Page 3 / 3
+</p>
+</section><!-- /#content -->
 
           <ul class="tags-footer">
               <li style="font-size: 100.0%;"><a href="/tag/arm.html">arm</a></li>
