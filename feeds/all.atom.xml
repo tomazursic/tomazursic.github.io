@@ -1907,6 +1907,7 @@ try to add some clarifications and/or graphs/schemes in the near future.&lt;/p&g
 &lt;/li&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#location" id="id37"&gt;Location&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#internals" id="id38"&gt;Internals&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#summary" id="id39"&gt;Summary&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -2362,6 +2363,16 @@ Geo location: 45.9883, 13.63469&lt;/p&gt;
 &lt;img alt="Device internals" src="../images/device/sabotin01_internals_01.jpg" /&gt;
 &lt;p class="caption"&gt;Device internals&lt;/p&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="summary"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id39"&gt;Summary&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;To be aware, dispose of the device/node in nature with any LiPo/Li-Ion battery it can
+be a dangerous think, from fire ignition perspectives. The purpose of this
+experiment was show case for monitoring the temperature of undergrowth in fire
+alarming scenario!&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </content><category term="projects"></category><category term="iot"></category><category term="python"></category><category term="lorawan"></category><category term="reverse_beacon"></category></entry><entry><title>Setup Pelican</title><link href="/setup-pelican.html" rel="alternate"></link><published>2018-05-03T07:10:56+02:00</published><updated>2018-05-03T07:10:56+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-05-03:/setup-pelican.html</id><summary type="html">&lt;p&gt;Let play with static site generator to reorder mess of memories&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Install Pelican&lt;/h3&gt;
