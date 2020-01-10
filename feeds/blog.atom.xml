@@ -939,14 +939,53 @@ so much that you start smashing into alien editors with vim commands.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;The Ex Editor&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Ex is a ‘line editor’ Vim is a ‘screen editor’ Ex is sub-editor within
-Vim. Amen.&lt;/p&gt;</content><category term="blog"></category><category term="vim"></category><category term="tools"></category></entry><entry><title>LoRaWAN Network</title><link href="/lorawan-network.html" rel="alternate"></link><published>2018-09-04T13:48:16+02:00</published><updated>2018-09-04T13:48:16+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-09-04:/lorawan-network.html</id><summary type="html">About LoraWAN Network</summary><content type="html">&lt;div class="section" id="about-lorawan"&gt;
-&lt;h2&gt;About LoRaWAN&lt;/h2&gt;
+Vim. Amen.&lt;/p&gt;</content><category term="blog"></category><category term="vim"></category><category term="tools"></category></entry><entry><title>LoRaWAN Network</title><link href="/lorawan-network.html" rel="alternate"></link><published>2018-09-04T13:48:16+02:00</published><updated>2018-09-04T13:48:16+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-09-04:/lorawan-network.html</id><summary type="html">About LoraWAN Network</summary><content type="html">&lt;div class="section" id="lorawan-network"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;LoRaWAN Network&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="contents topic" id="table-of-contents"&gt;
+&lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#lorawan-network" id="id1"&gt;LoRaWAN Network&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#about-lorawan" id="id2"&gt;About LoRaWAN&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#lora-or-lorawan" id="id3"&gt;LoRa or LoRaWAN&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#use-cases" id="id4"&gt;Use cases&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#architecture" id="id5"&gt;Architecture&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#devices" id="id6"&gt;Devices&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#device-classes" id="id7"&gt;Device classes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#device-addressing" id="id8"&gt;Device addressing&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#lora-radio" id="id9"&gt;LoRa radio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#rssi" id="id10"&gt;RSSI&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#snr" id="id11"&gt;SNR&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#gateway" id="id12"&gt;Gateway&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#the-things-stack-for-lorawan" id="id13"&gt;The Things Stack for LoRaWAN&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#network-server" id="id14"&gt;Network Server&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#duty-cycle" id="id15"&gt;Duty Cycle&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#ttn-fair-access-policy" id="id16"&gt;TTN Fair Access Policy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#compliance" id="id17"&gt;Compliance&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#security" id="id18"&gt;Security&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#joining-the-network" id="id19"&gt;Joining the network&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#activation-by-personalization-abp" id="id20"&gt;Activation By Personalization (ABP)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#over-the-air-activation-otaa" id="id21"&gt;Over The Air Activation (OTAA)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#encode-decode-messages" id="id22"&gt;Encode &amp;amp; Decode Messages&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="about-lorawan"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id2"&gt;About LoRaWAN&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;LoRaWAN stands for Long Range Wide Area Network. It’s a standard for
 wireless communication that allows IoT devices to communicate over large
 distance with minimal battery usage. This post is a try to explain
 LoRaWAN in a technical but simply understandable way.&lt;/p&gt;
 &lt;div class="section" id="lora-or-lorawan"&gt;
-&lt;h3&gt;LoRa or LoRaWAN&lt;/h3&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id3"&gt;LoRa or LoRaWAN&lt;/a&gt;&lt;/h4&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;LoRa = Physical Layer&lt;/li&gt;
 &lt;li&gt;LoRaWAN = MAC Layer&lt;/li&gt;
@@ -996,7 +1035,7 @@ network for a few hundred Euro or Dollar.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="use-cases"&gt;
-&lt;h2&gt;Use cases&lt;/h2&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id4"&gt;Use cases&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;As mentioned before, LoRa allows for low power, long range but low data
 rates. Typical use cases can be found in the IoT (Internet of Things),
 IoE (Internet of Everything) or M2M (Machine to Machine) area, or
@@ -1064,7 +1103,7 @@ interval (&lt;strong&gt;Fair Access Policy&lt;/strong&gt; and &lt;strong&gt;Duty
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="architecture"&gt;
-&lt;h2&gt;Architecture&lt;/h2&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id5"&gt;Architecture&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;From a high level, the architecture of a typical LoRa network looks like
 the following:&lt;/p&gt;
 &lt;p&gt;Devices -&amp;gt; LoRa radio -&amp;gt; Gateway -&amp;gt; 3G/Ethernet -&amp;gt; Network Server -&amp;gt;
@@ -1089,7 +1128,7 @@ classes&lt;/p&gt;
 diagram and try to go a little more into detail for each.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="devices"&gt;
-&lt;h2&gt;Devices&lt;/h2&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id6"&gt;Devices&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;LoRaWAN devices can be anything that sends or receives information,
 there is no real definition for them but usually we’re speaking about
 sensors, detectors, actuators.&lt;/p&gt;
@@ -1116,7 +1155,7 @@ mangetic switch,…&lt;/li&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="section" id="device-classes"&gt;
-&lt;h3&gt;Device classes&lt;/h3&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id7"&gt;Device classes&lt;/a&gt;&lt;/h4&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;strong&gt;A&lt;/strong&gt;: Can only receive a message at the time the device is sending a
 message&lt;/li&gt;
@@ -1134,7 +1173,7 @@ be piggybacked (send together) with data messages and multiple MAC
 messages can be sent in one time.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="device-addressing"&gt;
-&lt;h3&gt;Device addressing&lt;/h3&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id8"&gt;Device addressing&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;As with most networking standards, devices need some kind of address and
 identification to be able to contact them and differentiate them from
 each other. LoRa uses the following addressing.&lt;/p&gt;
@@ -1154,7 +1193,7 @@ device.&lt;/li&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="lora-radio"&gt;
-&lt;h2&gt;LoRa radio&lt;/h2&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id9"&gt;LoRa radio&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;LoRa is using RF signals to communicate. It’s operating in unlicensed
 spectrum. This means that everybody can freely use this band without
 paying or getting a license as longs as you follow some regulations.
@@ -1190,7 +1229,7 @@ errors&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="rssi"&gt;
-&lt;h2&gt;RSSI&lt;/h2&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id10"&gt;RSSI&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Received Signal Strength Indication (RSSI) is the received signal power
 in milliwatts and is measured in dBm. This value can be used as a
 measurement of how well a receiver can “hear” a signal from a sender.&lt;/p&gt;
@@ -1206,7 +1245,7 @@ If RSSI=-120dBm: signal is weak.
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="section" id="snr"&gt;
-&lt;h2&gt;SNR&lt;/h2&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;SNR&lt;/a&gt;&lt;/h3&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;Signal-to-Noise Ratio (SNR) is the ratio between the received power signal and the noise floor power level.&lt;/li&gt;
 &lt;li&gt;The noise floor is an area of all unwanted interfering signal sources which can corrupt the transmitted signal and therefore re-transmissions will occur&lt;/li&gt;
@@ -1224,7 +1263,7 @@ strength.&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Signal-to-noise_ratio"&gt;https://en.wikipedia.org/wiki/Signal-to-noise_ratio&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="gateway"&gt;
-&lt;h2&gt;Gateway&lt;/h2&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id12"&gt;Gateway&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;The gateway, also called modem or access point, is the device that is
 receiving all LoRa radio sent by the devices in it’s range. By design,
 there isn’t really a association between a device and a specific LoRa
@@ -1234,12 +1273,12 @@ is part of a network that doesn’t know the device that sent the message.&lt;/p
 &lt;!-- Some examples of LoRa gateways currently available: --&gt;
 &lt;/div&gt;
 &lt;div class="section" id="the-things-stack-for-lorawan"&gt;
-&lt;h2&gt;The Things Stack for LoRaWAN&lt;/h2&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id13"&gt;The Things Stack for LoRaWAN&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;New all in one solution :)&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://github.com/TheThingsNetwork/lorawan-stack"&gt;https://github.com/TheThingsNetwork/lorawan-stack&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="network-server"&gt;
-&lt;h2&gt;Network Server&lt;/h2&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id14"&gt;Network Server&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;After a device sent a message that was received by a LoRa gateway, it
 will most likely be forwarded to a Network Server. This component is the
 most intelligent part in the LoRaWAN network. The Network Server is
@@ -1271,7 +1310,7 @@ this is done by either forwarding it to a HTTP(S) webservice or putting
 it into an MQTT queue.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="duty-cycle"&gt;
-&lt;h2&gt;Duty Cycle&lt;/h2&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id15"&gt;Duty Cycle&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Indicates the fraction of time a resource is busy.&lt;/p&gt;
 &lt;p&gt;In Europe, duty cycles are regulated by section 7.2.3 of the ETSI
 EN300.220 standard. This standard defines the following sub-bands and
@@ -1290,7 +1329,7 @@ Duty Cycle = PW/T * 100%
 &lt;/pre&gt;
 &lt;p&gt;Here’s a diagram to help you better visualize what a duty cycle is:&lt;/p&gt;
 &lt;div class="section" id="ttn-fair-access-policy"&gt;
-&lt;h3&gt;TTN Fair Access Policy&lt;/h3&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id16"&gt;TTN Fair Access Policy&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;The Things Network’s public community network, we have a Fair Access
 Policy that limits the uplink airtime to 30 seconds per day (24 hours)
 per node and the downlink messages to 10 messages per day (24 hours) per
@@ -1298,7 +1337,7 @@ node. If you use a private network, these limits do not apply, but you
 still have to be compliant with the governmental and LoRaWAN limits.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="compliance"&gt;
-&lt;h3&gt;Compliance&lt;/h3&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id17"&gt;Compliance&lt;/a&gt;&lt;/h4&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;Every radio device must be compliant with the regulated duty cycle
 limits. This applies to both nodes and gateways.&lt;/li&gt;
@@ -1310,7 +1349,7 @@ and use that information to choose a good transmit interval.&lt;/li&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="security"&gt;
-&lt;h2&gt;Security&lt;/h2&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id18"&gt;Security&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;As I mentioned in the beginning of this article, LoRaWAN is designed
 with security in mind. For me personally this was one of the more
 difficult parts or LoRaWAN to understand although I’m not completely new
@@ -1331,7 +1370,7 @@ to be able to know where to forward the message to. The application
 server then decrypts the information using the same key.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="section" id="joining-the-network"&gt;
-&lt;h3&gt;Joining the network&lt;/h3&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id19"&gt;Joining the network&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;Until here, things are still quite understandable but the way that a
 device can join the network makes it more complicated. Since you
 wouldn’t want that for every application/use case, that the user is
@@ -1344,7 +1383,7 @@ NwkAddr. Once these are received or configured, the rest of the
 communication is exactly the same for both of the activation methods.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="activation-by-personalization-abp"&gt;
-&lt;h3&gt;Activation By Personalization (ABP)&lt;/h3&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id20"&gt;Activation By Personalization (ABP)&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;ABP is the most simple way to activate a LoRa device on a network. With
 ABP, the supplier of the device agrees with the network provider and
 buys/reserves a range of DevAddr from a network provider and
@@ -1363,7 +1402,7 @@ information&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 &lt;div class="section" id="over-the-air-activation-otaa"&gt;
-&lt;h3&gt;Over The Air Activation (OTAA)&lt;/h3&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id21"&gt;Over The Air Activation (OTAA)&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;OTAA is a little more complicated but allows for devices to join any
 network in the range and doesn’t require a special agreement between
 network operator and the device supplier. As with ABP, the goal of the
@@ -1398,7 +1437,7 @@ try to add some clarifications and/or graphs/schemes in the near future.&lt;/p&g
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="encode-decode-messages"&gt;
-&lt;h2&gt;Encode &amp;amp; Decode Messages&lt;/h2&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;Encode &amp;amp; Decode Messages&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://www.thethingsnetwork.org/forum/t/is-there-any-documentation-on-payload-functions/3441/3"&gt;https://www.thethingsnetwork.org/forum/t/is-there-any-documentation-on-payload-functions/3441/3&lt;/a&gt;&lt;/p&gt;
 &lt;pre class="code javascript literal-block"&gt;
 &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;bin2String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;array&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
@@ -1424,6 +1463,7 @@ try to add some clarifications and/or graphs/schemes in the near future.&lt;/p&g
 
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 </content><category term="blog"></category><category term="lorawan"></category><category term="iot"></category><category term="network"></category></entry><entry><title>Setup Pelican</title><link href="/setup-pelican.html" rel="alternate"></link><published>2018-05-03T07:10:56+02:00</published><updated>2018-05-03T07:10:56+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-05-03:/setup-pelican.html</id><summary type="html">&lt;p&gt;Let play with static site generator to reorder mess of memories&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Install Pelican&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install pelican ghp-import Markdown
