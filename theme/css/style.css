@@ -680,3 +680,12 @@ ul.tags li { display: inline-block; }
 #upBtn:hover {
   background-color: #11151a; /* Add a dark-grey background on hover */
 }
+
+.entry-content {
+  margin-top: 35px;
+}
+p.topic-title {
+  margin-top: 35px;
+  font-size: 1.4rem;
+  line-height: 1;
+}
