@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Web Logs - tomazursic.github.io - blog</title><link href="/" rel="alternate"></link><link href="/feeds/blog.atom.xml" rel="self"></link><id>/</id><updated>2019-10-21T14:29:00+02:00</updated><entry><title>Setup Raspberry Pi</title><link href="/setup-raspberry-pi.html" rel="alternate"></link><published>2019-10-21T14:29:00+02:00</published><updated>2019-10-21T14:29:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2019-10-21:/setup-raspberry-pi.html</id><summary type="html">&lt;p&gt;Use rpi-utils repo for bring bare metal into life&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Advice is use TMUX! Run all commands in tmux session to prevent catastrophic consequences&lt;/strong&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Web Logs - tomazursic.github.io - blog</title><link href="/" rel="alternate"></link><link href="/feeds/blog.atom.xml" rel="self"></link><id>/</id><updated>2020-01-10T00:00:00+01:00</updated><entry><title>Setup Raspberry Pi</title><link href="/setup-raspberry-pi.html" rel="alternate"></link><published>2019-10-21T14:29:00+02:00</published><updated>2019-10-21T14:29:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2019-10-21:/setup-raspberry-pi.html</id><summary type="html">&lt;p&gt;Use rpi-utils repo for bring bare metal into life&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Advice is use TMUX! Run all commands in tmux session to prevent catastrophic consequences&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;Setup&lt;/h2&gt;
 &lt;h3&gt;Step 1: Flash Operating System&lt;/h3&gt;
 &lt;p&gt;You need to flash a micro SD image with an operating system.&lt;/p&gt;
@@ -939,7 +939,7 @@ so much that you start smashing into alien editors with vim commands.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;The Ex Editor&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Ex is a ‘line editor’ Vim is a ‘screen editor’ Ex is sub-editor within
-Vim. Amen.&lt;/p&gt;</content><category term="blog"></category><category term="vim"></category><category term="tools"></category></entry><entry><title>LoRaWAN Network</title><link href="/lorawan-network.html" rel="alternate"></link><published>2018-09-04T13:48:16+02:00</published><updated>2018-09-04T13:48:16+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-09-04:/lorawan-network.html</id><summary type="html">About LoraWAN Network</summary><content type="html">&lt;div class="section" id="lorawan-network"&gt;
+Vim. Amen.&lt;/p&gt;</content><category term="blog"></category><category term="vim"></category><category term="tools"></category></entry><entry><title>LoRaWAN Network</title><link href="/lorawan-network.html" rel="alternate"></link><published>2018-09-04T13:48:16+02:00</published><updated>2020-01-10T00:00:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-09-04:/lorawan-network.html</id><summary type="html">About LoraWAN Network</summary><content type="html">&lt;div class="section" id="lorawan-network"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;LoRaWAN Network&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="contents topic" id="table-of-contents"&gt;
 &lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
@@ -974,6 +974,7 @@ Vim. Amen.&lt;/p&gt;</content><category term="blog"></category><category term="v
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#encode-decode-messages" id="id22"&gt;Encode &amp;amp; Decode Messages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#terminology" id="id23"&gt;Terminology&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -1470,6 +1471,24 @@ try to add some clarifications and/or graphs/schemes in the near future.&lt;/p&g
    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;decoded&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="terminology"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id23"&gt;Terminology&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;LPWAN&lt;/p&gt;
+&lt;p&gt;Is not a single technology, but a group of various low-power, wide area
+network technologies that take many shapes and forms. LPWANs can use licensed
+or unlicensed frequencies and include proprietary or open standard options.
+Created for machine-to-machine (M2M) and internet of things (IoT) networks,
+LPWANs operate at a lower cost with greater power efficiency than traditional
+mobile networks. They are also able to support a greater number of connected
+devices over a larger area.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Narrowband-IoT&lt;/p&gt;
+&lt;p&gt;(NB-IoT) and LTE-M are both 3rd Generation Partnership Project (3GPP)
+standards that operate on the licensed spectrum.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </content><category term="blog"></category><category term="lorawan"></category><category term="iot"></category><category term="network"></category></entry><entry><title>Setup Pelican</title><link href="/setup-pelican.html" rel="alternate"></link><published>2018-05-03T07:10:56+02:00</published><updated>2018-05-03T07:10:56+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-05-03:/setup-pelican.html</id><summary type="html">&lt;p&gt;Let play with static site generator to reorder mess of memories&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Install Pelican&lt;/h3&gt;
