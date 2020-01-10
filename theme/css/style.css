@@ -421,7 +421,7 @@ form input[type=search]:focus {
 
 .searchTerm {
   width: 100%;
-  border: 3px solid #11999e;
+  border: 3px solid #5bf;
   border-right: none;
   padding: 5px;
   height: 20px;
@@ -431,14 +431,14 @@ form input[type=search]:focus {
 }
 
 .searchTerm:focus{
-  color: #11999e;
+  color: #5bf;
 }
 
 .searchButton {
   width: 40px;
   height: 36px;
-  border: 1px solid #11999e;
-  background: #11999e;
+  border: 1px solid #5bf;
+  background: #5bf;
   text-align: center;
   color: #fff;
   /* border-radius: 0 5px 5px 0; */
@@ -480,7 +480,7 @@ nav.navigation{
   float:left;
   line-height:50px;
   height:50px;
-  background-color:#11999e;
+  background-color:#5bf;
   color:#ffffff;
   font-weight:700;
   text-transform:uppercase;
@@ -528,7 +528,7 @@ ul.nav-menu li a:hover{
 	right:0;
 	width:50px;
 	height:50px;
-	background-color:#11999e;
+	background-color:#5bf;
 	cursor:pointer;
 }
 span.icon-bar{
