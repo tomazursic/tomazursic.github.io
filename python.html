@@ -89,7 +89,7 @@
 <p class="topic-title first">Table of Contents</p>
 <ul class="simple">
 <li><a class="reference internal" href="#introduction" id="id9">Introduction</a><ul>
-<li><a class="reference internal" href="#news" id="id10">News</a><ul>
+<li><a class="reference internal" href="#new-features" id="id10">New Features</a><ul>
 <li><a class="reference internal" href="#python-3-8" id="id11">Python 3.8</a></li>
 </ul>
 </li>
@@ -99,106 +99,107 @@
 <li><a class="reference internal" href="#installation" id="id13">Installation</a><ul>
 <li><a class="reference internal" href="#build-from-source" id="id14">Build from source</a></li>
 <li><a class="reference internal" href="#troubleshooting" id="id15">Troubleshooting</a></li>
+<li><a class="reference internal" href="#jupyter-notebook" id="id16">Jupyter Notebook</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#invoking-python" id="id16">Invoking Python</a></li>
-<li><a class="reference internal" href="#repl" id="id17">REPL</a></li>
+<li><a class="reference internal" href="#invoking-python" id="id17">Invoking Python</a></li>
+<li><a class="reference internal" href="#repl" id="id18">REPL</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#the-zen-of-python" id="id18">The Zen of Python</a></li>
-<li><a class="reference internal" href="#built-in-types" id="id19">Built-in Types</a><ul>
-<li><a class="reference internal" href="#variables" id="id20">Variables</a></li>
-<li><a class="reference internal" href="#numbers" id="id21">Numbers</a></li>
-<li><a class="reference internal" href="#strings" id="id22">Strings</a></li>
-<li><a class="reference internal" href="#lists" id="id23">Lists</a></li>
-<li><a class="reference internal" href="#dictionaries" id="id24">Dictionaries</a></li>
-<li><a class="reference internal" href="#tuples" id="id25">Tuples</a></li>
-<li><a class="reference internal" href="#sets" id="id26">Sets</a></li>
+<li><a class="reference internal" href="#the-zen-of-python" id="id19">The Zen of Python</a></li>
+<li><a class="reference internal" href="#built-in-types" id="id20">Built-in Types</a><ul>
+<li><a class="reference internal" href="#variables" id="id21">Variables</a></li>
+<li><a class="reference internal" href="#numbers" id="id22">Numbers</a></li>
+<li><a class="reference internal" href="#strings" id="id23">Strings</a></li>
+<li><a class="reference internal" href="#lists" id="id24">Lists</a></li>
+<li><a class="reference internal" href="#dictionaries" id="id25">Dictionaries</a></li>
+<li><a class="reference internal" href="#tuples" id="id26">Tuples</a></li>
+<li><a class="reference internal" href="#sets" id="id27">Sets</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#built-in-functions" id="id27">Built in Functions</a></li>
-<li><a class="reference internal" href="#unicode" id="id28">Unicode</a></li>
-<li><a class="reference internal" href="#string-formatting" id="id29">String Formatting</a><ul>
-<li><a class="reference internal" href="#conversion-flags" id="id30">Conversion Flags</a></li>
-<li><a class="reference internal" href="#format-specification" id="id31">Format Specification</a></li>
-<li><a class="reference internal" href="#some-format-examples" id="id32">Some <tt class="docutils literal">format</tt> Examples</a></li>
+<li><a class="reference internal" href="#built-in-functions" id="id28">Built in Functions</a></li>
+<li><a class="reference internal" href="#unicode" id="id29">Unicode</a></li>
+<li><a class="reference internal" href="#string-formatting" id="id30">String Formatting</a><ul>
+<li><a class="reference internal" href="#conversion-flags" id="id31">Conversion Flags</a></li>
+<li><a class="reference internal" href="#format-specification" id="id32">Format Specification</a></li>
+<li><a class="reference internal" href="#some-format-examples" id="id33">Some <tt class="docutils literal">format</tt> Examples</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#files" id="id33">Files</a><ul>
-<li><a class="reference internal" href="#writing-files" id="id34">Writing Files</a></li>
-<li><a class="reference internal" href="#reading-files" id="id35">Reading Files</a></li>
+<li><a class="reference internal" href="#files" id="id34">Files</a><ul>
+<li><a class="reference internal" href="#writing-files" id="id35">Writing Files</a></li>
+<li><a class="reference internal" href="#reading-files" id="id36">Reading Files</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#functions" id="id36">Functions</a><ul>
-<li><a class="reference internal" href="#defining-functions" id="id37">Defining functions</a></li>
-<li><a class="reference internal" href="#calling-functions" id="id38">Calling Functions</a></li>
-<li><a class="reference internal" href="#getting-help" id="id39">Getting Help</a></li>
+<li><a class="reference internal" href="#functions" id="id37">Functions</a><ul>
+<li><a class="reference internal" href="#defining-functions" id="id38">Defining functions</a></li>
+<li><a class="reference internal" href="#calling-functions" id="id39">Calling Functions</a></li>
+<li><a class="reference internal" href="#getting-help" id="id40">Getting Help</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#classes" id="id40">Classes</a><ul>
-<li><a class="reference internal" href="#subclasses" id="id41">Subclasses</a></li>
-<li><a class="reference internal" href="#class-methods-and-static-methods" id="id42">Class Methods and Static Methods</a></li>
-<li><a class="reference internal" href="#properties" id="id43">Properties</a></li>
+<li><a class="reference internal" href="#classes" id="id41">Classes</a><ul>
+<li><a class="reference internal" href="#subclasses" id="id42">Subclasses</a></li>
+<li><a class="reference internal" href="#class-methods-and-static-methods" id="id43">Class Methods and Static Methods</a></li>
+<li><a class="reference internal" href="#properties" id="id44">Properties</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#looping" id="id44">Looping</a><ul>
-<li><a class="reference internal" href="#while-loops" id="id45"><tt class="docutils literal">while</tt> Loops</a></li>
-<li><a class="reference internal" href="#iteration-protocol" id="id46">Iteration Protocol</a></li>
+<li><a class="reference internal" href="#looping" id="id45">Looping</a><ul>
+<li><a class="reference internal" href="#while-loops" id="id46"><tt class="docutils literal">while</tt> Loops</a></li>
+<li><a class="reference internal" href="#iteration-protocol" id="id47">Iteration Protocol</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#conditionals" id="id47">Conditionals</a><ul>
-<li><a class="reference internal" href="#truthiness" id="id48">Truthiness</a></li>
-<li><a class="reference internal" href="#short-circuiting" id="id49">Short Circuiting</a></li>
-<li><a class="reference internal" href="#ternary-operator" id="id50">Ternary Operator</a></li>
+<li><a class="reference internal" href="#conditionals" id="id48">Conditionals</a><ul>
+<li><a class="reference internal" href="#truthiness" id="id49">Truthiness</a></li>
+<li><a class="reference internal" href="#short-circuiting" id="id50">Short Circuiting</a></li>
+<li><a class="reference internal" href="#ternary-operator" id="id51">Ternary Operator</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#exceptions" id="id51">Exceptions</a><ul>
-<li><a class="reference internal" href="#raising-exceptions" id="id52">Raising Exceptions</a></li>
+<li><a class="reference internal" href="#exceptions" id="id52">Exceptions</a><ul>
+<li><a class="reference internal" href="#raising-exceptions" id="id53">Raising Exceptions</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#decorators" id="id53">Decorators</a><ul>
-<li><a class="reference internal" href="#parameterized-decorators" id="id54">Parameterized Decorators</a></li>
+<li><a class="reference internal" href="#decorators" id="id54">Decorators</a><ul>
+<li><a class="reference internal" href="#parameterized-decorators" id="id55">Parameterized Decorators</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#class-decorators-and-metaclasses" id="id55">Class Decorators and Metaclasses</a><ul>
-<li><a class="reference internal" href="#class-decorators" id="id56">Class Decorators</a></li>
-<li><a class="reference internal" href="#creating-classes-with-type" id="id57">Creating Classes with <tt class="docutils literal">type</tt></a></li>
-<li><a class="reference internal" href="#metaclasses-with-functions" id="id58">Metaclasses with Functions</a></li>
-<li><a class="reference internal" href="#metaclasses-with-classes" id="id59">Metaclasses with Classes</a></li>
+<li><a class="reference internal" href="#class-decorators-and-metaclasses" id="id56">Class Decorators and Metaclasses</a><ul>
+<li><a class="reference internal" href="#class-decorators" id="id57">Class Decorators</a></li>
+<li><a class="reference internal" href="#creating-classes-with-type" id="id58">Creating Classes with <tt class="docutils literal">type</tt></a></li>
+<li><a class="reference internal" href="#metaclasses-with-functions" id="id59">Metaclasses with Functions</a></li>
+<li><a class="reference internal" href="#metaclasses-with-classes" id="id60">Metaclasses with Classes</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#generators" id="id60">Generators</a></li>
-<li><a class="reference internal" href="#coroutines" id="id61">Coroutines</a><ul>
-<li><a class="reference internal" href="#asynchronous-generators" id="id62">Asynchronous Generators</a></li>
+<li><a class="reference internal" href="#generators" id="id61">Generators</a></li>
+<li><a class="reference internal" href="#coroutines" id="id62">Coroutines</a><ul>
+<li><a class="reference internal" href="#asynchronous-generators" id="id63">Asynchronous Generators</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#comprehensions" id="id63">Comprehensions</a><ul>
-<li><a class="reference internal" href="#set-comprehensions" id="id64">Set Comprehensions</a></li>
-<li><a class="reference internal" href="#dict-comprehensions" id="id65">Dict Comprehensions</a></li>
-<li><a class="reference internal" href="#generator-expressions" id="id66">Generator Expressions</a></li>
-<li><a class="reference internal" href="#asynchronous-comprehensions" id="id67">Asynchronous Comprehensions</a></li>
+<li><a class="reference internal" href="#comprehensions" id="id64">Comprehensions</a><ul>
+<li><a class="reference internal" href="#set-comprehensions" id="id65">Set Comprehensions</a></li>
+<li><a class="reference internal" href="#dict-comprehensions" id="id66">Dict Comprehensions</a></li>
+<li><a class="reference internal" href="#generator-expressions" id="id67">Generator Expressions</a></li>
+<li><a class="reference internal" href="#asynchronous-comprehensions" id="id68">Asynchronous Comprehensions</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#context-managers" id="id68">Context Managers</a><ul>
-<li><a class="reference internal" href="#function-based-context-managers" id="id69">Function Based Context Managers</a></li>
-<li><a class="reference internal" href="#class-based-context-managers" id="id70">Class Based Context Managers</a></li>
-<li><a class="reference internal" href="#context-objects" id="id71">Context objects</a></li>
+<li><a class="reference internal" href="#context-managers" id="id69">Context Managers</a><ul>
+<li><a class="reference internal" href="#function-based-context-managers" id="id70">Function Based Context Managers</a></li>
+<li><a class="reference internal" href="#class-based-context-managers" id="id71">Class Based Context Managers</a></li>
+<li><a class="reference internal" href="#context-objects" id="id72">Context objects</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#type-annotations" id="id72">Type Annotations</a><ul>
-<li><a class="reference internal" href="#the-typing-module" id="id73">The <tt class="docutils literal">typing</tt> Module</a></li>
-<li><a class="reference internal" href="#type-checking" id="id74">Type Checking</a></li>
+<li><a class="reference internal" href="#type-annotations" id="id73">Type Annotations</a><ul>
+<li><a class="reference internal" href="#the-typing-module" id="id74">The <tt class="docutils literal">typing</tt> Module</a></li>
+<li><a class="reference internal" href="#type-checking" id="id75">Type Checking</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#scripts-packages-and-modules" id="id75">Scripts, Packages, and Modules</a><ul>
-<li><a class="reference internal" href="#scripts" id="id76">Scripts</a></li>
-<li><a class="reference internal" href="#modules" id="id77">Modules</a></li>
-<li><a class="reference internal" href="#packages" id="id78">Packages</a></li>
-<li><a class="reference internal" href="#importing" id="id79">Importing</a></li>
+<li><a class="reference internal" href="#scripts-packages-and-modules" id="id76">Scripts, Packages, and Modules</a><ul>
+<li><a class="reference internal" href="#scripts" id="id77">Scripts</a></li>
+<li><a class="reference internal" href="#modules" id="id78">Modules</a></li>
+<li><a class="reference internal" href="#packages" id="id79">Packages</a></li>
+<li><a class="reference internal" href="#importing" id="id80">Importing</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#environments" id="id80">Environments</a><ul>
-<li><a class="reference internal" href="#installing-packages" id="id81">Installing Packages</a></li>
+<li><a class="reference internal" href="#environments" id="id81">Environments</a><ul>
+<li><a class="reference internal" href="#installing-packages" id="id82">Installing Packages</a></li>
 </ul>
 </li>
 </ul>
@@ -212,8 +213,8 @@ resource during training, meant to be distributed as a physical notebook.
 Participants (who favor the physical characteristics of dead tree material)
 could add their own notes, thoughts, and have a valuable reference
 of curated examples.</p>
-<div class="section" id="news">
-<h3><a class="toc-backref" href="#id10">News</a></h3>
+<div class="section" id="new-features">
+<h3><a class="toc-backref" href="#id10">New Features</a></h3>
 <div class="section" id="python-3-8">
 <h4><a class="toc-backref" href="#id11">Python 3.8</a></h4>
 <p><strong>Positional-Only Arguments</strong></p>
@@ -237,9 +238,11 @@ arguments after the slash</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="n">speed</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{name}</span><span class="s2">/</span><span class="si">{speed}</span><span class="s2">&quot;</span>
 </pre></div>
-<ul class="simple">
-<li><strong>Warlus</strong></li>
-</ul>
+<p><strong>f string</strong></p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="sa">f</span><span class="s2">&quot;string&quot;</span>
+</pre></div>
+<p><strong>Assignment Expressions - Warlus</strong></p>
+<p>PEP 572: <a class="reference external" href="https://www.python.org/dev/peps/pep-0572/">https://www.python.org/dev/peps/pep-0572/</a></p>
 <p>Assign and return a value in the same expression</p>
 <div class="highlight"><pre><span></span><span class="n">walrus</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">walrus</span><span class="p">)</span>
@@ -249,6 +252,8 @@ arguments after the slash</p>
 <div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">walrus</span> <span class="p">:</span><span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kc">True</span>
 </pre></div>
+<p><strong>PEP505</strong></p>
+<p>proposes 3 Python equivalents for the None value: <a class="reference external" href="https://www.python.org/dev/peps/pep-0505/">https://www.python.org/dev/peps/pep-0505/</a></p>
 </div>
 </div>
 </div>
@@ -325,9 +330,14 @@ $ <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</
 </tbody>
 </table>
 </div>
+<div class="section" id="jupyter-notebook">
+<h4><a class="toc-backref" href="#id16">Jupyter Notebook</a></h4>
+<div class="highlight"><pre><span></span>$ python3 -m pip install -U jupyter jupyter-contrib-nbextensions
+</pre></div>
+</div>
 </div>
 <div class="section" id="invoking-python">
-<h3><a class="toc-backref" href="#id16">Invoking Python</a></h3>
+<h3><a class="toc-backref" href="#id17">Invoking Python</a></h3>
 <p>The Python executable will behave differently depending on the command line options you give it:</p>
 <ul>
 <li><p class="first">Start the Python REPL:</p>
@@ -358,7 +368,7 @@ $ python3 -c &quot;print('hi')&quot;
 </ul>
 </div>
 <div class="section" id="repl">
-<h3><a class="toc-backref" href="#id17">REPL</a></h3>
+<h3><a class="toc-backref" href="#id18">REPL</a></h3>
 <ul class="simple">
 <li>Use the <tt class="docutils literal">help</tt> function to read the documentation for a module/class/function. As a standalone invocation,
 you enter the help system and can explore various topics.</li>
@@ -372,7 +382,7 @@ are typing it in, ignore the primary and secondary prompts (<tt class="docutils 
 </div>
 </div>
 <div class="section" id="the-zen-of-python">
-<h2><a class="toc-backref" href="#id18">The Zen of Python</a></h2>
+<h2><a class="toc-backref" href="#id19">The Zen of Python</a></h2>
 <p>Run the following in an interpreter to get an Easter egg that describes some of the ethos behind Python. This is also codified in PEP 20:</p>
 <pre class="literal-block">
 &gt;&gt;&gt; import this
@@ -411,9 +421,9 @@ every once in a while and see if these hold true for their code. (Or to
 justify their code reviews)</p>
 </div>
 <div class="section" id="built-in-types">
-<h2><a class="toc-backref" href="#id19">Built-in Types</a></h2>
+<h2><a class="toc-backref" href="#id20">Built-in Types</a></h2>
 <div class="section" id="variables">
-<h3><a class="toc-backref" href="#id20">Variables</a></h3>
+<h3><a class="toc-backref" href="#id21">Variables</a></h3>
 <p>Python variables are like cattle tags, they point to objects (which can be
 classes, instances, modules, or functions), but variables are not the objects. You can
 reuse variable names for different object types (though you probably shouldn't):</p>
@@ -433,7 +443,7 @@ most editors with Python support can comment out a region.</p>
 </div>
 </div>
 <div class="section" id="numbers">
-<h3><a class="toc-backref" href="#id21">Numbers</a></h3>
+<h3><a class="toc-backref" href="#id22">Numbers</a></h3>
 <p>Python includes three types of numeric literals:
 <em>integers</em>, <em>floats</em>, and <em>complex numbers</em>.
 Python 3.6 adds the ability to use underscores to
@@ -667,7 +677,7 @@ the standard library.</p>
 </table>
 </div>
 <div class="section" id="strings">
-<h3><a class="toc-backref" href="#id22">Strings</a></h3>
+<h3><a class="toc-backref" href="#id23">Strings</a></h3>
 <p>Python 3 strings hold unicode data. Python has a few ways to represent strings. There is also a bytes type (PEP 3137):</p>
 <!-- longtable: format: {r l} -->
 <table border="1" class="docutils">
@@ -981,7 +991,7 @@ the standard library.</p>
 </table>
 </div>
 <div class="section" id="lists">
-<h3><a class="toc-backref" href="#id23">Lists</a></h3>
+<h3><a class="toc-backref" href="#id24">Lists</a></h3>
 <p>Lists are ordered mutable sequences:</p>
 <pre class="literal-block">
 &gt;&gt;&gt; people = ['Paul', 'John', 'George']
@@ -1182,7 +1192,7 @@ False
 </table>
 </div>
 <div class="section" id="dictionaries">
-<h3><a class="toc-backref" href="#id24">Dictionaries</a></h3>
+<h3><a class="toc-backref" href="#id25">Dictionaries</a></h3>
 <p>Dictionaries are mutable mappings of keys to values. Keys
 must be hashable, but values can be any object:</p>
 <pre class="literal-block">
@@ -1313,7 +1323,7 @@ George - Guitar
 </table>
 </div>
 <div class="section" id="tuples">
-<h3><a class="toc-backref" href="#id25">Tuples</a></h3>
+<h3><a class="toc-backref" href="#id26">Tuples</a></h3>
 <p>Tuples are immutable sequences. Typically they are used to store
 <em>record</em> type data:</p>
 <pre class="literal-block">
@@ -1460,7 +1470,7 @@ capitalized variable):</p>
 </table>
 </div>
 <div class="section" id="sets">
-<h3><a class="toc-backref" href="#id26">Sets</a></h3>
+<h3><a class="toc-backref" href="#id27">Sets</a></h3>
 <p>A set is a mutable unordered collection that cannot contain duplicates. Sets are used to
 remove duplicates and test for membership:</p>
 <pre class="literal-block">
@@ -1688,7 +1698,7 @@ True
 </div>
 </div>
 <div class="section" id="built-in-functions">
-<h2><a class="toc-backref" href="#id27">Built in Functions</a></h2>
+<h2><a class="toc-backref" href="#id28">Built in Functions</a></h2>
 <p>In the default namespace you have access to various callables:</p>
 <!-- longtable: format: {p{.35\textwidth} p{.55\textwidth}} -->
 <!-- longtable: format: {>{\hangindent=1em\hangafter=1\raggedright\arraybackslash }p{.35\textwidth}  >{\hangindent=1em\hangafter=1\raggedright\arraybackslash }p{.55\textwidth}} -->
@@ -1930,7 +1940,7 @@ True
 </table>
 </div>
 <div class="section" id="unicode">
-<h2><a class="toc-backref" href="#id28">Unicode</a></h2>
+<h2><a class="toc-backref" href="#id29">Unicode</a></h2>
 <p>Python 3 represents strings as Unicode. We can <em>encode</em> strings to a series of
 bytes such as UTF-8. If we have bytes, we can <em>decode</em> them to a Unicode string:</p>
 <pre class="literal-block">
@@ -1962,7 +1972,7 @@ that might give the user erroneous data, or <em>mojibake</em>.</p>
 </div>
 </div>
 <div class="section" id="string-formatting">
-<h2><a class="toc-backref" href="#id29">String Formatting</a></h2>
+<h2><a class="toc-backref" href="#id30">String Formatting</a></h2>
 <p>Most modern Python code uses the <tt class="docutils literal">.format</tt> method (PEP 3101) to create strings from other parts. The format method uses <tt class="docutils literal">{}</tt> as a placeholder.</p>
 <p>Inside of the placeholder we can provide different specifiers:</p>
 <ul class="simple">
@@ -1997,7 +2007,7 @@ Name: Paul plays: Bass
 <p>F-strings inspect variables that are available and allow you to
 inline methods, or attributes from those variables.</p>
 <div class="section" id="conversion-flags">
-<h3><a class="toc-backref" href="#id30">Conversion Flags</a></h3>
+<h3><a class="toc-backref" href="#id31">Conversion Flags</a></h3>
 <p>You can provide a <em>conversion flag</em> inside the placeholder.</p>
 <ul class="simple">
 <li><tt class="docutils literal">!s</tt> - Call <tt class="docutils literal">str()</tt> on argument</li>
@@ -2022,7 +2032,7 @@ Format Str Repr Repr
 </pre>
 </div>
 <div class="section" id="format-specification">
-<h3><a class="toc-backref" href="#id31">Format Specification</a></h3>
+<h3><a class="toc-backref" href="#id32">Format Specification</a></h3>
 <p>You can provide a format specification following a colon. The grammar for format specification is as follows:</p>
 <pre class="literal-block">
 [[fill]align][sign][#][0][width][grouping_option]
@@ -2152,7 +2162,7 @@ separators</td>
 </table>
 </div>
 <div class="section" id="some-format-examples">
-<h3><a class="toc-backref" href="#id32">Some <tt class="docutils literal">format</tt> Examples</a></h3>
+<h3><a class="toc-backref" href="#id33">Some <tt class="docutils literal">format</tt> Examples</a></h3>
 <p>Here are a few examples of using <tt class="docutils literal">.format</tt>.
 Let’s format a string in the center of 12 characters surrounded by <tt class="docutils literal">*</tt>.
 <tt class="docutils literal">*</tt> is the <em>fill</em> character, <tt class="docutils literal">^</tt> is the <em>align</em> field, and <tt class="docutils literal">12</tt> is the
@@ -2180,7 +2190,7 @@ to a percentage:</p>
 </div>
 </div>
 <div class="section" id="files">
-<h2><a class="toc-backref" href="#id33">Files</a></h2>
+<h2><a class="toc-backref" href="#id34">Files</a></h2>
 <p>The <tt class="docutils literal">open</tt> function will take a file path and mode as input and return a file
 handle. There are various modes to open a file, depending on the content and
 your needs. If you open the file in binary mode, you will get bytes out. In text
@@ -2228,7 +2238,7 @@ mode you will get strings back:</p>
 </tbody>
 </table>
 <div class="section" id="writing-files">
-<h3><a class="toc-backref" href="#id34">Writing Files</a></h3>
+<h3><a class="toc-backref" href="#id35">Writing Files</a></h3>
 <p>We use a context manager with a file to ensure that the file is closed when the context block exits.</p>
 <pre class="literal-block">
 &gt;&gt;&gt; with open('/tmp/names.txt', 'w') as fout:
@@ -2237,7 +2247,7 @@ mode you will get strings back:</p>
 </pre>
 </div>
 <div class="section" id="reading-files">
-<h3><a class="toc-backref" href="#id35">Reading Files</a></h3>
+<h3><a class="toc-backref" href="#id36">Reading Files</a></h3>
 <p>With an opened text file, you can iterate over the lines. This saves memory as the lines are read in as needed:</p>
 <pre class="literal-block">
 &gt;&gt;&gt; with open('/tmp/names.txt') as fin:
@@ -2345,9 +2355,9 @@ mode you will get strings back:</p>
 </div>
 </div>
 <div class="section" id="functions">
-<h2><a class="toc-backref" href="#id36">Functions</a></h2>
+<h2><a class="toc-backref" href="#id37">Functions</a></h2>
 <div class="section" id="defining-functions">
-<h3><a class="toc-backref" href="#id37">Defining functions</a></h3>
+<h3><a class="toc-backref" href="#id38">Defining functions</a></h3>
 <p>Functions may take input, do some processing, and return output. You can
 provide a docstring directly following the name
 and parameters of the function:</p>
@@ -2435,7 +2445,7 @@ but 4 were given
 </pre>
 </div>
 <div class="section" id="calling-functions">
-<h3><a class="toc-backref" href="#id38">Calling Functions</a></h3>
+<h3><a class="toc-backref" href="#id39">Calling Functions</a></h3>
 <p>You can also use <tt class="docutils literal">*</tt> and <tt class="docutils literal">**</tt> to <em>unpack</em> sequence and dictionary
 arguments:</p>
 <pre class="literal-block">
@@ -2472,7 +2482,7 @@ arguments:</p>
 </pre>
 </div>
 <div class="section" id="getting-help">
-<h3><a class="toc-backref" href="#id39">Getting Help</a></h3>
+<h3><a class="toc-backref" href="#id40">Getting Help</a></h3>
 <p>You can get help on a function that has a docstring by using <tt class="docutils literal">help</tt>:</p>
 <pre class="literal-block">
 &gt;&gt;&gt; help(add_all)
@@ -2484,7 +2494,7 @@ add_all(*args, **kwargs)
 </div>
 </div>
 <div class="section" id="classes">
-<h2><a class="toc-backref" href="#id40">Classes</a></h2>
+<h2><a class="toc-backref" href="#id41">Classes</a></h2>
 <p>Python supports object oriented programming but doesn't require you to create classes. You
 can use the built-in data structures to great effect. Here's a class for a simple bike. The class attribute,
 <tt class="docutils literal">num_passengers</tt>, is shared for all instances of <tt class="docutils literal">Bike</tt>. The instance attributes, <tt class="docutils literal">size</tt> and
@@ -2523,7 +2533,7 @@ but Python passes that around for us automatically:</p>
 <p>If an attribute is not found on the instance, Python will then look for it on the class, it will look through
 the parent classes to continue to try and find it. If the lookup is unsuccessful, an <tt class="docutils literal">AttributeError</tt> is raised.</p>
 <div class="section" id="subclasses">
-<h3><a class="toc-backref" href="#id41">Subclasses</a></h3>
+<h3><a class="toc-backref" href="#id42">Subclasses</a></h3>
 <p>To subclass a class, simply place the parent class name in parentheses following
 the class name in the declaration. We can call the <tt class="docutils literal">super</tt> function to gain access to parent
 methods:</p>
@@ -2559,7 +2569,7 @@ brace that hasn't been closed
 </pre>
 </div>
 <div class="section" id="class-methods-and-static-methods">
-<h3><a class="toc-backref" href="#id42">Class Methods and Static Methods</a></h3>
+<h3><a class="toc-backref" href="#id43">Class Methods and Static Methods</a></h3>
 <p>The <tt class="docutils literal">classmethod</tt> decorator is used to create methods that you
 can invoke directly on the
 class. This allows us to create alternate constructors. Note
@@ -2604,7 +2614,7 @@ True
 </pre>
 </div>
 <div class="section" id="properties">
-<h3><a class="toc-backref" href="#id43">Properties</a></h3>
+<h3><a class="toc-backref" href="#id44">Properties</a></h3>
 <p>If you want to have actions occur under the covers on attribute access,
 you can use properties to do that:</p>
 <pre class="literal-block">
@@ -2637,7 +2647,7 @@ you can use properties to do that:</p>
 </div>
 </div>
 <div class="section" id="looping">
-<h2><a class="toc-backref" href="#id44">Looping</a></h2>
+<h2><a class="toc-backref" href="#id45">Looping</a></h2>
 <p>You can loop over objects in a sequence:</p>
 <pre class="literal-block">
 &gt;&gt;&gt; names = ['John', 'Paul', 'Ringo']
@@ -2686,7 +2696,7 @@ ValueError: No Georges
 3. Ringo
 </pre>
 <div class="section" id="while-loops">
-<h3><a class="toc-backref" href="#id45"><tt class="docutils literal">while</tt> Loops</a></h3>
+<h3><a class="toc-backref" href="#id46"><tt class="docutils literal">while</tt> Loops</a></h3>
 <p>You can use <tt class="docutils literal">while</tt> loops to create loops as well. If it is an infinite loop,
 you can break out of it:</p>
 <pre class="literal-block">
@@ -2697,7 +2707,7 @@ you can break out of it:</p>
 </pre>
 </div>
 <div class="section" id="iteration-protocol">
-<h3><a class="toc-backref" href="#id46">Iteration Protocol</a></h3>
+<h3><a class="toc-backref" href="#id47">Iteration Protocol</a></h3>
 <p>To make an iterator implement <tt class="docutils literal">__iter__</tt> and  <tt class="docutils literal">__next__</tt>:</p>
 <pre class="literal-block">
 &gt;&gt;&gt; class fib:
@@ -2751,7 +2761,7 @@ StopIteration
 </div>
 </div>
 <div class="section" id="conditionals">
-<h2><a class="toc-backref" href="#id47">Conditionals</a></h2>
+<h2><a class="toc-backref" href="#id48">Conditionals</a></h2>
 <p>Python has an <tt class="docutils literal">if</tt> statement with zero or more <tt class="docutils literal">elif</tt> statements,
 and an optional <tt class="docutils literal">else</tt> statement at the end. In Python, the word <tt class="docutils literal">elif</tt> is Dutch for <em>else if</em>:</p>
 <pre class="literal-block">
@@ -2795,7 +2805,7 @@ Four!
 5
 </pre>
 <div class="section" id="truthiness">
-<h3><a class="toc-backref" href="#id48">Truthiness</a></h3>
+<h3><a class="toc-backref" href="#id49">Truthiness</a></h3>
 <p>You can define the <tt class="docutils literal">__bool__</tt> method to teach your classes how to act in a boolean context. If that doesn't exists, Python will use <tt class="docutils literal">__len__</tt>, and finally default to <tt class="docutils literal">True</tt>.</p>
 <p>The following table lists <em>truthy</em> and <em>falsey</em> values:</p>
 <table border="1" class="docutils">
@@ -2841,7 +2851,7 @@ Four!
 </table>
 </div>
 <div class="section" id="short-circuiting">
-<h3><a class="toc-backref" href="#id49">Short Circuiting</a></h3>
+<h3><a class="toc-backref" href="#id50">Short Circuiting</a></h3>
 <p>The <tt class="docutils literal">and</tt> statement will short circuit if it evaluates to false:</p>
 <pre class="literal-block">
 &gt;&gt;&gt; 0 and 1/0
@@ -2854,7 +2864,7 @@ Four!
 </pre>
 </div>
 <div class="section" id="ternary-operator">
-<h3><a class="toc-backref" href="#id50">Ternary Operator</a></h3>
+<h3><a class="toc-backref" href="#id51">Ternary Operator</a></h3>
 <p>Python has its own ternary operator, called a <em>conditional expression</em> (see PEP 308). These are handy as they can be used in comprehension constructs and <tt class="docutils literal">lambda</tt> functions:</p>
 <pre class="literal-block">
 &gt;&gt;&gt; last = 'Lennon' if band == 'Beatles' else 'Jones'
@@ -2864,7 +2874,7 @@ distinguishes these two. An easy way to determine between the two, is to remembe
 </div>
 </div>
 <div class="section" id="exceptions">
-<h2><a class="toc-backref" href="#id51">Exceptions</a></h2>
+<h2><a class="toc-backref" href="#id52">Exceptions</a></h2>
 <p>Python can catch one or more exceptions (PEP 3110). You can provide a chain of different exceptions to catch if you want to react differently.
 A few hints:</p>
 <ul class="simple">
@@ -2898,7 +2908,7 @@ TypeError: unsupported operand type(s) for +: 'int'
 and 'str'
 </pre>
 <div class="section" id="raising-exceptions">
-<h3><a class="toc-backref" href="#id52">Raising Exceptions</a></h3>
+<h3><a class="toc-backref" href="#id53">Raising Exceptions</a></h3>
 <p>You can raise an exception using the <tt class="docutils literal">raise</tt> statement (PEP 3109):</p>
 <pre class="literal-block">
 &gt;&gt;&gt; def bad_code(x):
@@ -2912,7 +2922,7 @@ ValueError: Bad code
 </div>
 </div>
 <div class="section" id="decorators">
-<h2><a class="toc-backref" href="#id53">Decorators</a></h2>
+<h2><a class="toc-backref" href="#id54">Decorators</a></h2>
 <p>A decorator (PEP 318) allows us to insert logic before and after a function is called. You can define a decorator with a function that takes a function as input and returns a function as output. Here is the identity decorator:</p>
 <pre class="literal-block">
 &gt;&gt;&gt; def identity(func):
@@ -2954,7 +2964,7 @@ Result:1
 1
 </pre>
 <div class="section" id="parameterized-decorators">
-<h3><a class="toc-backref" href="#id54">Parameterized Decorators</a></h3>
+<h3><a class="toc-backref" href="#id55">Parameterized Decorators</a></h3>
 <p>Because we can use closures to create functions, we can use closures to create decorators as well.
 This is very similar to our decorator above, but now we make a function that will
 return a decorator. Based on the inputs to that function, we can control (or parameterize)
@@ -2989,11 +2999,11 @@ Result:0.2
 </div>
 </div>
 <div class="section" id="class-decorators-and-metaclasses">
-<h2><a class="toc-backref" href="#id55">Class Decorators and Metaclasses</a></h2>
+<h2><a class="toc-backref" href="#id56">Class Decorators and Metaclasses</a></h2>
 <p>Python allows you to dynamically create and modify classes. Class decorators and
 metaclasses are two ways to do this.</p>
 <div class="section" id="class-decorators">
-<h3><a class="toc-backref" href="#id56">Class Decorators</a></h3>
+<h3><a class="toc-backref" href="#id57">Class Decorators</a></h3>
 <p>You can decorate a class definition with a <em>class decorator</em> (PEP 3129). It is a function that takes a class as input and returns a class.</p>
 <pre class="literal-block">
 &gt;&gt;&gt; def add_chirp(cls):
@@ -3013,7 +3023,7 @@ CHIRP
 </pre>
 </div>
 <div class="section" id="creating-classes-with-type">
-<h3><a class="toc-backref" href="#id57">Creating Classes with <tt class="docutils literal">type</tt></a></h3>
+<h3><a class="toc-backref" href="#id58">Creating Classes with <tt class="docutils literal">type</tt></a></h3>
 <p>You can use <tt class="docutils literal">type</tt> to determine the type of an object, but you can also
 provide the name, parents, and attributes map, and it will return a class.</p>
 <pre class="literal-block">
@@ -3030,7 +3040,7 @@ HOWL
 </pre>
 </div>
 <div class="section" id="metaclasses-with-functions">
-<h3><a class="toc-backref" href="#id58">Metaclasses with Functions</a></h3>
+<h3><a class="toc-backref" href="#id59">Metaclasses with Functions</a></h3>
 <p>In the class definition you can specify a metaclass (PEP 3115), which can be a
 function or a class. Here is an example of a function that can
 alter the class.</p>
@@ -3050,7 +3060,7 @@ WOOF!
 </pre>
 </div>
 <div class="section" id="metaclasses-with-classes">
-<h3><a class="toc-backref" href="#id59">Metaclasses with Classes</a></h3>
+<h3><a class="toc-backref" href="#id60">Metaclasses with Classes</a></h3>
 <p>You can define a class decorator and use either <tt class="docutils literal">__new__</tt> or
 <tt class="docutils literal">__init__</tt>. Typically most use <tt class="docutils literal">__new__</tt> as it can alter
 attributes like <tt class="docutils literal">__slots__</tt>.</p>
@@ -3079,7 +3089,7 @@ MEOW
 </div>
 </div>
 <div class="section" id="generators">
-<h2><a class="toc-backref" href="#id60">Generators</a></h2>
+<h2><a class="toc-backref" href="#id61">Generators</a></h2>
 <p>Generators (PEP 255) are functions that suspend their state as you iterate over the results
 of them. Each <tt class="docutils literal">yield</tt> statement returns the next item of iteration and then
 <em>freezes</em> the state of the function. When iteration is resumed, the function
@@ -3107,7 +3117,7 @@ function is a generator:</p>
 </pre>
 </div>
 <div class="section" id="coroutines">
-<h2><a class="toc-backref" href="#id61">Coroutines</a></h2>
+<h2><a class="toc-backref" href="#id62">Coroutines</a></h2>
 <p>The <tt class="docutils literal">asyncio</tt> library (PEP 3153) provides asynchronous I/O in Python 3. We use <tt class="docutils literal">async def</tt> to define a <em>coroutine function</em> (see PEP 492). The result of calling this is a <em>coroutine object</em>. Inside a coroutine we can use <tt class="docutils literal">var = await future</tt> to suspend the coroutine and wait for <tt class="docutils literal">future</tt> to return. We can also await another coroutine. A coroutine object may be created but isn't run until an event loop is running:</p>
 <pre class="literal-block">
 &gt;&gt;&gt; import asyncio
@@ -3157,7 +3167,7 @@ decorated with <tt class="docutils literal">&#64;asyncio.coroutine</tt></li>
 </ul>
 </div>
 <div class="section" id="asynchronous-generators">
-<h3><a class="toc-backref" href="#id62">Asynchronous Generators</a></h3>
+<h3><a class="toc-backref" href="#id63">Asynchronous Generators</a></h3>
 <p>Python 3.6 adds asynchronous generators (PEP 525). You can use the <tt class="docutils literal">yield</tt>
 statement in an <tt class="docutils literal">async def</tt> function:</p>
 <pre class="literal-block">
@@ -3187,7 +3197,7 @@ statement in an <tt class="docutils literal">async def</tt> function:</p>
 </div>
 </div>
 <div class="section" id="comprehensions">
-<h2><a class="toc-backref" href="#id63">Comprehensions</a></h2>
+<h2><a class="toc-backref" href="#id64">Comprehensions</a></h2>
 <p>Comprehension constructs allow us to combine the functional ideas behind map and filter into an
 easy to read, single line of code. When you see code that is aggregating into a list (or dict, set, or
 generator), you
@@ -3235,7 +3245,7 @@ result = [num*num for num in nums
 </li>
 </ul>
 <div class="section" id="set-comprehensions">
-<h3><a class="toc-backref" href="#id64">Set Comprehensions</a></h3>
+<h3><a class="toc-backref" href="#id65">Set Comprehensions</a></h3>
 <p>If you replace the <tt class="docutils literal">[</tt> with <tt class="docutils literal">{</tt>, you will get a set comprehension (PEP 274) instead of a list comprehension:</p>
 <pre class="literal-block">
 &gt;&gt;&gt; {num*num for num in nums if num % 2 == 0}
@@ -3243,7 +3253,7 @@ result = [num*num for num in nums
 </pre>
 </div>
 <div class="section" id="dict-comprehensions">
-<h3><a class="toc-backref" href="#id65">Dict Comprehensions</a></h3>
+<h3><a class="toc-backref" href="#id66">Dict Comprehensions</a></h3>
 <p>If you replace the <tt class="docutils literal">[</tt> with <tt class="docutils literal">{</tt>, and separate the key and value with a colon,
 you will get a dictionary comprehension (PEP 274):</p>
 <pre class="literal-block">
@@ -3256,7 +3266,7 @@ you will get a dictionary comprehension (PEP 274):</p>
 </div>
 </div>
 <div class="section" id="generator-expressions">
-<h3><a class="toc-backref" href="#id66">Generator Expressions</a></h3>
+<h3><a class="toc-backref" href="#id67">Generator Expressions</a></h3>
 <p>If you replace the <tt class="docutils literal">[</tt> with <tt class="docutils literal">(</tt>, you will get a generator instead of a list. This is called a <em>generator expression</em> (PEP 289):</p>
 <pre class="literal-block">
 &gt;&gt;&gt; (num*num for num in nums if num % 2 == 0)
@@ -3264,7 +3274,7 @@ you will get a dictionary comprehension (PEP 274):</p>
 </pre>
 </div>
 <div class="section" id="asynchronous-comprehensions">
-<h3><a class="toc-backref" href="#id67">Asynchronous Comprehensions</a></h3>
+<h3><a class="toc-backref" href="#id68">Asynchronous Comprehensions</a></h3>
 <p>Python 3.6 (PEP 530) gives us <em>asynchronous comprehensions</em>. You can add <tt class="docutils literal">async</tt> following what you are collecting to make it asynchronous. If you had the following code:</p>
 <pre class="literal-block">
 &gt;&gt;&gt; async def process(aiter):
@@ -3282,7 +3292,7 @@ you will get a dictionary comprehension (PEP 274):</p>
 </div>
 </div>
 <div class="section" id="context-managers">
-<h2><a class="toc-backref" href="#id68">Context Managers</a></h2>
+<h2><a class="toc-backref" href="#id69">Context Managers</a></h2>
 <p>If you find code where you need to make sure something happens before <em>and</em> after a block,
 a context manager (PEP 343) is a convenient way to enforce that. Another code smell that indicates
 you could be using a context manager is a <tt class="docutils literal">try</tt>/<tt class="docutils literal">finally</tt> block.</p>
@@ -3315,7 +3325,7 @@ the environments are closed properly:</p>
 </pre>
 <p>This code can use a context manager to be a little cleaner.</p>
 <div class="section" id="function-based-context-managers">
-<h3><a class="toc-backref" href="#id69">Function Based Context Managers</a></h3>
+<h3><a class="toc-backref" href="#id70">Function Based Context Managers</a></h3>
 <p>To create a context manager with a function, decorate with
 <tt class="docutils literal">contextlib.contextmanager</tt>, and yield where you want to insert your block:</p>
 <pre class="literal-block">
@@ -3341,7 +3351,7 @@ the environments are closed properly:</p>
 </pre>
 </div>
 <div class="section" id="class-based-context-managers">
-<h3><a class="toc-backref" href="#id70">Class Based Context Managers</a></h3>
+<h3><a class="toc-backref" href="#id71">Class Based Context Managers</a></h3>
 <p>To create a class based context manager, implement the <tt class="docutils literal">__enter__</tt> and <tt class="docutils literal">__exit__</tt> methods:</p>
 <pre class="literal-block">
 &gt;&gt;&gt; class env:
@@ -3372,7 +3382,7 @@ the environments are closed properly:</p>
 </pre>
 </div>
 <div class="section" id="context-objects">
-<h3><a class="toc-backref" href="#id71">Context objects</a></h3>
+<h3><a class="toc-backref" href="#id72">Context objects</a></h3>
 <p>Some context managers create objects that we can use while inside of the context.
 The <tt class="docutils literal">open</tt> context manager returns a file object:</p>
 <pre class="literal-block">
@@ -3384,7 +3394,7 @@ In a class based context manager, return the object in the <tt class="docutils l
 </div>
 </div>
 <div class="section" id="type-annotations">
-<h2><a class="toc-backref" href="#id72">Type Annotations</a></h2>
+<h2><a class="toc-backref" href="#id73">Type Annotations</a></h2>
 <p>Python 3.6 (PEP 483 and 484) allows you to provide types for
 input and output of functions. They can be used to:</p>
 <ul class="simple">
@@ -3427,7 +3437,7 @@ input and output of functions. They can be used to:</p>
 &gt;&gt;&gt; ages = {}  # type: Dict[str, int]
 </pre>
 <div class="section" id="the-typing-module">
-<h3><a class="toc-backref" href="#id73">The <tt class="docutils literal">typing</tt> Module</a></h3>
+<h3><a class="toc-backref" href="#id74">The <tt class="docutils literal">typing</tt> Module</a></h3>
 <p>This module allows you to provide hints for:</p>
 <ul class="simple">
 <li>Callback functions</li>
@@ -3437,7 +3447,7 @@ input and output of functions. They can be used to:</p>
 <p>To designate a class or function to not type check its annotations, use the <tt class="docutils literal">&#64;typing.no_type_check</tt> decorator.</p>
 </div>
 <div class="section" id="type-checking">
-<h3><a class="toc-backref" href="#id74">Type Checking</a></h3>
+<h3><a class="toc-backref" href="#id75">Type Checking</a></h3>
 <p>Python 3.6 provides no support for type checking. You will need to install a tool like <tt class="docutils literal">mypy</tt>:</p>
 <pre class="literal-block">
 $ pip install mypy
@@ -3446,9 +3456,9 @@ $ python3 -m mypy script.py
 </div>
 </div>
 <div class="section" id="scripts-packages-and-modules">
-<h2><a class="toc-backref" href="#id75">Scripts, Packages, and Modules</a></h2>
+<h2><a class="toc-backref" href="#id76">Scripts, Packages, and Modules</a></h2>
 <div class="section" id="scripts">
-<h3><a class="toc-backref" href="#id76">Scripts</a></h3>
+<h3><a class="toc-backref" href="#id77">Scripts</a></h3>
 <p>A script is a Python file that you invoke <tt class="docutils literal">python</tt> on. Typically there is a line near
 the bottom that looks like this:</p>
 <pre class="literal-block">
@@ -3460,14 +3470,14 @@ The <tt class="docutils literal">__name__</tt> attribute of a module is set to <
 if you import the module, it will be the name of the module (without <tt class="docutils literal">.py</tt>).</p>
 </div>
 <div class="section" id="modules">
-<h3><a class="toc-backref" href="#id77">Modules</a></h3>
+<h3><a class="toc-backref" href="#id78">Modules</a></h3>
 <p>Modules are files that end in <tt class="docutils literal">.py</tt>. According to PEP 8, we lowercase the
 module name and don't put underscores between the words in them. Any
 module found in the <tt class="docutils literal">PYTHONPATH</tt> environment variable or the <tt class="docutils literal">sys.path</tt>
 list, can be imported.</p>
 </div>
 <div class="section" id="packages">
-<h3><a class="toc-backref" href="#id78">Packages</a></h3>
+<h3><a class="toc-backref" href="#id79">Packages</a></h3>
 <p>A directory that has a file named <tt class="docutils literal">__init__.py</tt> in it is a <em>package</em>. A package can
 have modules in it as well as sub packages. The package should be found in
 <tt class="docutils literal">PYTHONPATH</tt> or <tt class="docutils literal">sys.path</tt> to be imported. An example might look like this:</p>
@@ -3483,7 +3493,7 @@ packagename/
 package to remove nesting in import statements.</p>
 </div>
 <div class="section" id="importing">
-<h3><a class="toc-backref" href="#id79">Importing</a></h3>
+<h3><a class="toc-backref" href="#id80">Importing</a></h3>
 <p>You can import a package or a module:</p>
 <pre class="literal-block">
 import packagename
@@ -3510,7 +3520,7 @@ package_fib()
 </div>
 </div>
 <div class="section" id="environments">
-<h2><a class="toc-backref" href="#id80">Environments</a></h2>
+<h2><a class="toc-backref" href="#id81">Environments</a></h2>
 <p>Python 3 includes the <tt class="docutils literal">venv</tt> module for creating a sandbox for your project or a <em>virtual environment</em>.</p>
 <p>To create an environment on Unix systems, run:</p>
 <pre class="literal-block">
@@ -3534,7 +3544,7 @@ To <em>deactivate</em> an environment on both platforms, just run the following:
 (env) $ deactivate
 </pre>
 <div class="section" id="installing-packages">
-<h3><a class="toc-backref" href="#id81">Installing Packages</a></h3>
+<h3><a class="toc-backref" href="#id82">Installing Packages</a></h3>
 <p>You should now have a <tt class="docutils literal">pip</tt> executable, that will install a package from PyPI <a class="footnote-reference" href="#id6" id="id5">[3]</a>  into your virtual environment:</p>
 <pre class="literal-block">
 (env) $ pip install django
