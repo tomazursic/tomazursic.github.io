@@ -124,6 +124,12 @@
 </div>
 <div class="section" id="about-lorawan">
 <h3><a class="toc-backref" href="#id2">About LoRaWAN</a></h3>
+<p>LoRaWAN is a point-to-multipoint networking protocol that uses Semtech’s LoRa
+modulation scheme.</p>
+<p>The interesting thing is not about radio waves but how radio waves communicate with
+LoRaWAN gateways encryption and identification, and to not forget LoRa is one
+of the most competitive technologies because of its low power consumption and
+low cost design.</p>
 <p>LoRaWAN stands for Long Range Wide Area Network. It’s a standard for
 wireless communication that allows IoT devices to communicate over large
 distance with minimal battery usage. This post is a try to explain
@@ -495,9 +501,7 @@ and use that information to choose a good transmit interval.</li>
 <div class="section" id="security">
 <h3><a class="toc-backref" href="#id18">Security</a></h3>
 <p>As I mentioned in the beginning of this article, LoRaWAN is designed
-with security in mind. For me personally this was one of the more
-difficult parts or LoRaWAN to understand although I’m not completely new
-to this.</p>
+with security in mind,</p>
 <p>The basic idea is that communication should be secure on multiple
 levels. A Network Server does not need to be able to read the actual
 contents of the message if it’s not relevant for the network or
@@ -547,29 +551,35 @@ information</li>
 </div>
 <div class="section" id="over-the-air-activation-otaa">
 <h4><a class="toc-backref" href="#id21">Over The Air Activation (OTAA)</a></h4>
-<p>OTAA is a little more complicated but allows for devices to join any
+<p>In the OTAA mode, an end node communicates with the network server to perform
+the activation process, which is called join procedure
+OTAA is a little more complicated but allows for devices to join any
 network in the range and doesn’t require a special agreement between
 network operator and the device supplier. As with ABP, the goal of the
 process is to become the NwkSKey, DevAddr and AppSKey for each device
 prior to sending actual data.</p>
 <p>To retrieve this information in a secure way, there is an extra key
-involved which is pre-provisioned in the device: the Appkey. Personally
-I find the name very confusing as it’s pretty similar to AppSKey. The
-Appkey is a different 128 bit key.</p>
+involved which is pre-provisioned in the device: the Appkey.
+The Appkey is a different 128 bit key.</p>
 <p>Steps in the OTAA join process:</p>
 <ol class="arabic simple">
 <li>LoRa Device sends JOIN_REQUEST (signed with AppKey). The join request
 contains the following information: AppEUI, DevEUI, DevNonce.
-DevNonce is a randomly generated number.</li>
+DevNonce is a randomly generated number by the end node.
+An application key (AppKey) is preshared between the end node and the network server.</li>
 <li>The Network Server receives the JOIN_REQUEST and calculates AppSKey
 and NwkSKey based on: AppKey, AppNonce, NetID and DevNonce. As with
-DevNonce, the AppNonce is another randomly generated number.</li>
+DevNonce, the AppNonce is randomly generated number by the network server.</li>
 <li>Network Server generates JOIN_ACCEPT and includes AppNonce</li>
 <li>Device receives JOIN_ACCEPT (encrypted with AppKey). The JOIN_ACCEPT
 contains the following information: AppNonce, NetID, DevAddr, RFU,
 RxDely, CFList Since at this point both the Network Server and LoRa
 device have the same information, the LoRa device can equally
-calculate the NwkSkey and AppSKey</li>
+calculate the NwkSkey and AppSKey
+Finally, the whole join accept message is encrypted with the AppKey.</li>
+<li>Transfer App_SKey</li>
+<li>After receiving the join accept message, the end node decrypts it and
+generates session keys using extracted parameters.</li>
 </ol>
 <p>If reading carefully, you can see that at no point in the whole progress
 keys are sent over the air but only the missing parts of a calculation,
@@ -583,6 +593,7 @@ try to add some clarifications and/or graphs/schemes in the near future.</p>
 <div class="section" id="encode-decode-messages">
 <h3><a class="toc-backref" href="#id22">Encode &amp; Decode Messages</a></h3>
 <p><a class="reference external" href="https://www.thethingsnetwork.org/forum/t/is-there-any-documentation-on-payload-functions/3441/3">https://www.thethingsnetwork.org/forum/t/is-there-any-documentation-on-payload-functions/3441/3</a></p>
+<p>Example server side decoder function</p>
 <pre class="code javascript literal-block">
 <span class="kd">function</span> <span class="nx">bin2String</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
    <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
@@ -593,8 +604,6 @@ try to add some clarifications and/or graphs/schemes in the near future.</p>
 <span class="p">}</span>
 
 <span class="kd">function</span> <span class="nx">Decoder</span><span class="p">(</span><span class="nx">bytes</span><span class="p">,</span> <span class="nx">port</span><span class="p">)</span> <span class="p">{</span> <span class="kd">var</span> <span class="nx">decoded</span> <span class="o">=</span> <span class="p">{};</span>
-
-
    <span class="nx">decoded</span><span class="p">.</span><span class="nx">pm10</span> <span class="o">=</span> <span class="nx">bytes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="nx">bytes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="mi">8</span><span class="p">);</span>
    <span class="nx">decoded</span><span class="p">.</span><span class="nx">pm25</span> <span class="o">=</span> <span class="nx">bytes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="nx">bytes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="mi">8</span><span class="p">);</span>
    <span class="nx">decoded</span><span class="p">.</span><span class="nx">temperature</span> <span class="o">=</span> <span class="p">((</span><span class="nx">bytes</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="mi">8</span><span class="p">)</span> <span class="o">+</span> <span class="nx">bytes</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span><span class="o">/</span><span class="mi">100</span> <span class="o">-</span> <span class="mf">273.15</span><span class="p">;</span>
@@ -602,9 +611,7 @@ try to add some clarifications and/or graphs/schemes in the near future.</p>
    <span class="nx">decoded</span><span class="p">.</span><span class="nx">vbatt</span> <span class="o">=</span> <span class="p">(</span><span class="nx">bytes</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="mi">8</span><span class="p">)</span> <span class="o">+</span> <span class="nx">bytes</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span>
    <span class="nx">decoded</span><span class="p">.</span><span class="nx">duration</span> <span class="o">=</span> <span class="p">(</span><span class="nx">bytes</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="mi">8</span><span class="p">)</span> <span class="o">+</span> <span class="nx">bytes</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
    <span class="nx">decoded</span><span class="p">.</span><span class="nx">version</span> <span class="o">=</span> <span class="nx">bin2String</span><span class="p">(</span><span class="nx">bytes</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="nx">bytes</span><span class="p">.</span><span class="nx">length</span><span class="p">));</span>
-
    <span class="k">return</span> <span class="nx">decoded</span><span class="p">;</span>
-
 <span class="p">}</span>
 </pre>
 </div>

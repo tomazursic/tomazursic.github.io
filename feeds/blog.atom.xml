@@ -980,6 +980,12 @@ Vim. Amen.&lt;/p&gt;</content><category term="blog"></category><category term="v
 &lt;/div&gt;
 &lt;div class="section" id="about-lorawan"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id2"&gt;About LoRaWAN&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;LoRaWAN is a point-to-multipoint networking protocol that uses Semtech’s LoRa
+modulation scheme.&lt;/p&gt;
+&lt;p&gt;The interesting thing is not about radio waves but how radio waves communicate with
+LoRaWAN gateways encryption and identification, and to not forget LoRa is one
+of the most competitive technologies because of its low power consumption and
+low cost design.&lt;/p&gt;
 &lt;p&gt;LoRaWAN stands for Long Range Wide Area Network. It’s a standard for
 wireless communication that allows IoT devices to communicate over large
 distance with minimal battery usage. This post is a try to explain
@@ -1351,9 +1357,7 @@ and use that information to choose a good transmit interval.&lt;/li&gt;
 &lt;div class="section" id="security"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id18"&gt;Security&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;As I mentioned in the beginning of this article, LoRaWAN is designed
-with security in mind. For me personally this was one of the more
-difficult parts or LoRaWAN to understand although I’m not completely new
-to this.&lt;/p&gt;
+with security in mind,&lt;/p&gt;
 &lt;p&gt;The basic idea is that communication should be secure on multiple
 levels. A Network Server does not need to be able to read the actual
 contents of the message if it’s not relevant for the network or
@@ -1403,29 +1407,35 @@ information&lt;/li&gt;
 &lt;/div&gt;
 &lt;div class="section" id="over-the-air-activation-otaa"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="#id21"&gt;Over The Air Activation (OTAA)&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;OTAA is a little more complicated but allows for devices to join any
+&lt;p&gt;In the OTAA mode, an end node communicates with the network server to perform
+the activation process, which is called join procedure
+OTAA is a little more complicated but allows for devices to join any
 network in the range and doesn’t require a special agreement between
 network operator and the device supplier. As with ABP, the goal of the
 process is to become the NwkSKey, DevAddr and AppSKey for each device
 prior to sending actual data.&lt;/p&gt;
 &lt;p&gt;To retrieve this information in a secure way, there is an extra key
-involved which is pre-provisioned in the device: the Appkey. Personally
-I find the name very confusing as it’s pretty similar to AppSKey. The
-Appkey is a different 128 bit key.&lt;/p&gt;
+involved which is pre-provisioned in the device: the Appkey.
+The Appkey is a different 128 bit key.&lt;/p&gt;
 &lt;p&gt;Steps in the OTAA join process:&lt;/p&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;LoRa Device sends JOIN_REQUEST (signed with AppKey). The join request
 contains the following information: AppEUI, DevEUI, DevNonce.
-DevNonce is a randomly generated number.&lt;/li&gt;
+DevNonce is a randomly generated number by the end node.
+An application key (AppKey) is preshared between the end node and the network server.&lt;/li&gt;
 &lt;li&gt;The Network Server receives the JOIN_REQUEST and calculates AppSKey
 and NwkSKey based on: AppKey, AppNonce, NetID and DevNonce. As with
-DevNonce, the AppNonce is another randomly generated number.&lt;/li&gt;
+DevNonce, the AppNonce is randomly generated number by the network server.&lt;/li&gt;
 &lt;li&gt;Network Server generates JOIN_ACCEPT and includes AppNonce&lt;/li&gt;
 &lt;li&gt;Device receives JOIN_ACCEPT (encrypted with AppKey). The JOIN_ACCEPT
 contains the following information: AppNonce, NetID, DevAddr, RFU,
 RxDely, CFList Since at this point both the Network Server and LoRa
 device have the same information, the LoRa device can equally
-calculate the NwkSkey and AppSKey&lt;/li&gt;
+calculate the NwkSkey and AppSKey
+Finally, the whole join accept message is encrypted with the AppKey.&lt;/li&gt;
+&lt;li&gt;Transfer App_SKey&lt;/li&gt;
+&lt;li&gt;After receiving the join accept message, the end node decrypts it and
+generates session keys using extracted parameters.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;If reading carefully, you can see that at no point in the whole progress
 keys are sent over the air but only the missing parts of a calculation,
@@ -1439,6 +1449,7 @@ try to add some clarifications and/or graphs/schemes in the near future.&lt;/p&g
 &lt;div class="section" id="encode-decode-messages"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;Encode &amp;amp; Decode Messages&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://www.thethingsnetwork.org/forum/t/is-there-any-documentation-on-payload-functions/3441/3"&gt;https://www.thethingsnetwork.org/forum/t/is-there-any-documentation-on-payload-functions/3441/3&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Example server side decoder function&lt;/p&gt;
 &lt;pre class="code javascript literal-block"&gt;
 &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;bin2String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;array&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -1449,8 +1460,6 @@ try to add some clarifications and/or graphs/schemes in the near future.&lt;/p&g
 &lt;span class="p"&gt;}&lt;/span&gt;
 
 &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;Decoder&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;port&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;decoded&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{};&lt;/span&gt;
-
-
    &lt;span class="nx"&gt;decoded&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;pm10&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
    &lt;span class="nx"&gt;decoded&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;pm25&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
    &lt;span class="nx"&gt;decoded&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;temperature&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mf"&gt;273.15&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -1458,9 +1467,7 @@ try to add some clarifications and/or graphs/schemes in the near future.&lt;/p&g
    &lt;span class="nx"&gt;decoded&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;vbatt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
    &lt;span class="nx"&gt;decoded&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;duration&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
    &lt;span class="nx"&gt;decoded&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;version&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;bin2String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;slice&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;length&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
-
    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;decoded&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;
 &lt;/div&gt;
