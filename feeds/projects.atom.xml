@@ -329,7 +329,7 @@ $ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;IDF_PATH&lt;
 $ &lt;span class="nb"&gt;cd&lt;/span&gt; mpy-cross &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; make clean &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; make &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;cd&lt;/span&gt; ..
 &lt;/pre&gt;&lt;/div&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;ol class="first arabic" start="4"&gt;
+&lt;li&gt;&lt;ol class="first arabic" start="2"&gt;
 &lt;li&gt;Frozen modules (OPTIONAL)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;

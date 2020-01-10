@@ -1,0 +1,3673 @@
+<!DOCTYPE html>
+<html lang="en" class="inverted">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Web Logs - tomazursic.github.io - Python Notes</title>
+  <meta charset="utf-8" />
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Web Logs - tomazursic.github.io Full Atom Feed" />
+  <link href="/feeds/blog.atom.xml" type="application/atom+xml" rel="alternate" title="Web Logs - tomazursic.github.io Categories Atom Feed" />
+
+
+
+
+    <meta name="tags" content="python" />
+    <meta name="tags" content="notes" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/theme/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/theme/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/theme/favicons/favicon-16x16.png">
+  <link rel="manifest" href="/theme/favicons/site.webmanifest">
+
+  <link rel="stylesheet" href="/theme/css/style.css"/>
+  <link rel="stylesheet" href="/theme/css/monokai.min.css"/>
+  <link rel="stylesheet" href="/theme/css/ionicons.css"/>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <script src="/theme/tipuesearch/tipuesearch_set.js"></script>
+  <script src="/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="/tipuesearch_content.js"></script>
+
+ 
+
+</head>
+
+<body id="index" class="home">
+
+  <nav class="navigation">
+    <div class="nav-logo">
+      <a href="/"><i class="ion-md-home"></i></a>
+    </div>
+    <ul class="nav-menu">
+
+          <li class="active"><a href="/category/blog.html">blog</a></li>
+          <li><a href="/category/projects.html">projects</a></li>
+          <li><a href="/pages/contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-toggle">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+  </nav>
+  <div class="nav-overlay"></div>
+
+ <div id="wrapper"> 
+
+        <div id="content">
+        <div id="invmode">Day</div>
+        <button onclick="goUp()" id="upBtn" title="Go to top"><i class="ion-ios-arrow-up"></i></button> 
+
+
+
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="/python.html" rel="bookmark"
+         title="Permalink to Python Notes">Python Notes</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2020-01-10T00:00:00+01:00">
+      <b>Published</b>: Fri 10 January 2020
+    </time>
+    <br>
+    <div class="category">
+        <b>Category</b>: <a href="/category/blog.html">blog</a>
+    </div>
+    <div class="tags">
+        <b>Tags</b>:
+            <a href="/tag/python.html">python</a>
+            <a href="/tag/notes.html">notes</a>
+    </div>
+  </footer><!-- /.post-info -->
+  <br>
+  <br>
+  <div class="entry-content">
+    <!-- :Date: 2018-04-20 22:51 -->
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#introduction" id="id9">Introduction</a><ul>
+<li><a class="reference internal" href="#news" id="id10">News</a><ul>
+<li><a class="reference internal" href="#python-3-8" id="id11">Python 3.8</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#running-python" id="id12">Running Python</a><ul>
+<li><a class="reference internal" href="#installation" id="id13">Installation</a><ul>
+<li><a class="reference internal" href="#build-from-source" id="id14">Build from source</a></li>
+<li><a class="reference internal" href="#troubleshooting" id="id15">Troubleshooting</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#invoking-python" id="id16">Invoking Python</a></li>
+<li><a class="reference internal" href="#repl" id="id17">REPL</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-zen-of-python" id="id18">The Zen of Python</a></li>
+<li><a class="reference internal" href="#built-in-types" id="id19">Built-in Types</a><ul>
+<li><a class="reference internal" href="#variables" id="id20">Variables</a></li>
+<li><a class="reference internal" href="#numbers" id="id21">Numbers</a></li>
+<li><a class="reference internal" href="#strings" id="id22">Strings</a></li>
+<li><a class="reference internal" href="#lists" id="id23">Lists</a></li>
+<li><a class="reference internal" href="#dictionaries" id="id24">Dictionaries</a></li>
+<li><a class="reference internal" href="#tuples" id="id25">Tuples</a></li>
+<li><a class="reference internal" href="#sets" id="id26">Sets</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#built-in-functions" id="id27">Built in Functions</a></li>
+<li><a class="reference internal" href="#unicode" id="id28">Unicode</a></li>
+<li><a class="reference internal" href="#string-formatting" id="id29">String Formatting</a><ul>
+<li><a class="reference internal" href="#conversion-flags" id="id30">Conversion Flags</a></li>
+<li><a class="reference internal" href="#format-specification" id="id31">Format Specification</a></li>
+<li><a class="reference internal" href="#some-format-examples" id="id32">Some <tt class="docutils literal">format</tt> Examples</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#files" id="id33">Files</a><ul>
+<li><a class="reference internal" href="#writing-files" id="id34">Writing Files</a></li>
+<li><a class="reference internal" href="#reading-files" id="id35">Reading Files</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#functions" id="id36">Functions</a><ul>
+<li><a class="reference internal" href="#defining-functions" id="id37">Defining functions</a></li>
+<li><a class="reference internal" href="#calling-functions" id="id38">Calling Functions</a></li>
+<li><a class="reference internal" href="#getting-help" id="id39">Getting Help</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#classes" id="id40">Classes</a><ul>
+<li><a class="reference internal" href="#subclasses" id="id41">Subclasses</a></li>
+<li><a class="reference internal" href="#class-methods-and-static-methods" id="id42">Class Methods and Static Methods</a></li>
+<li><a class="reference internal" href="#properties" id="id43">Properties</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#looping" id="id44">Looping</a><ul>
+<li><a class="reference internal" href="#while-loops" id="id45"><tt class="docutils literal">while</tt> Loops</a></li>
+<li><a class="reference internal" href="#iteration-protocol" id="id46">Iteration Protocol</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#conditionals" id="id47">Conditionals</a><ul>
+<li><a class="reference internal" href="#truthiness" id="id48">Truthiness</a></li>
+<li><a class="reference internal" href="#short-circuiting" id="id49">Short Circuiting</a></li>
+<li><a class="reference internal" href="#ternary-operator" id="id50">Ternary Operator</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#exceptions" id="id51">Exceptions</a><ul>
+<li><a class="reference internal" href="#raising-exceptions" id="id52">Raising Exceptions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#decorators" id="id53">Decorators</a><ul>
+<li><a class="reference internal" href="#parameterized-decorators" id="id54">Parameterized Decorators</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#class-decorators-and-metaclasses" id="id55">Class Decorators and Metaclasses</a><ul>
+<li><a class="reference internal" href="#class-decorators" id="id56">Class Decorators</a></li>
+<li><a class="reference internal" href="#creating-classes-with-type" id="id57">Creating Classes with <tt class="docutils literal">type</tt></a></li>
+<li><a class="reference internal" href="#metaclasses-with-functions" id="id58">Metaclasses with Functions</a></li>
+<li><a class="reference internal" href="#metaclasses-with-classes" id="id59">Metaclasses with Classes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#generators" id="id60">Generators</a></li>
+<li><a class="reference internal" href="#coroutines" id="id61">Coroutines</a><ul>
+<li><a class="reference internal" href="#asynchronous-generators" id="id62">Asynchronous Generators</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#comprehensions" id="id63">Comprehensions</a><ul>
+<li><a class="reference internal" href="#set-comprehensions" id="id64">Set Comprehensions</a></li>
+<li><a class="reference internal" href="#dict-comprehensions" id="id65">Dict Comprehensions</a></li>
+<li><a class="reference internal" href="#generator-expressions" id="id66">Generator Expressions</a></li>
+<li><a class="reference internal" href="#asynchronous-comprehensions" id="id67">Asynchronous Comprehensions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#context-managers" id="id68">Context Managers</a><ul>
+<li><a class="reference internal" href="#function-based-context-managers" id="id69">Function Based Context Managers</a></li>
+<li><a class="reference internal" href="#class-based-context-managers" id="id70">Class Based Context Managers</a></li>
+<li><a class="reference internal" href="#context-objects" id="id71">Context objects</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#type-annotations" id="id72">Type Annotations</a><ul>
+<li><a class="reference internal" href="#the-typing-module" id="id73">The <tt class="docutils literal">typing</tt> Module</a></li>
+<li><a class="reference internal" href="#type-checking" id="id74">Type Checking</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#scripts-packages-and-modules" id="id75">Scripts, Packages, and Modules</a><ul>
+<li><a class="reference internal" href="#scripts" id="id76">Scripts</a></li>
+<li><a class="reference internal" href="#modules" id="id77">Modules</a></li>
+<li><a class="reference internal" href="#packages" id="id78">Packages</a></li>
+<li><a class="reference internal" href="#importing" id="id79">Importing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#environments" id="id80">Environments</a><ul>
+<li><a class="reference internal" href="#installing-packages" id="id81">Installing Packages</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id9">Introduction</a></h2>
+<p>This content is fruit of extending and applying own annotations to original source <a class="reference external" href="link-blockhttps://github.com/mattharrison/Tiny-Python-3.6-Notebook.">Tiny-Python-3.6-Notebook</a>.
+This is not so much an instructional manual, but rather notes, tables, and
+examples for Python syntax. It was created by the author as an additional
+resource during training, meant to be distributed as a physical notebook.
+Participants (who favor the physical characteristics of dead tree material)
+could add their own notes, thoughts, and have a valuable reference
+of curated examples.</p>
+<div class="section" id="news">
+<h3><a class="toc-backref" href="#id10">News</a></h3>
+<div class="section" id="python-3-8">
+<h4><a class="toc-backref" href="#id11">Python 3.8</a></h4>
+<p><strong>Positional-Only Arguments</strong></p>
+<p>use / to denote that all arguments before it must be specified by position</p>
+<div class="highlight"><pre><span></span>&gt;&gt;&gt; def price(x, /)
+        return x * 3.14
+</pre></div>
+<p>before:</p>
+<div class="highlight"><pre><span></span>&gt;&gt;&gt; def price(x):
+...     return x * 3.14
+...
+&gt;&gt;&gt; price(3.14)
+9.8596
+&gt;&gt;&gt; price(x=3.14)
+9.8596
+&gt;&gt;&gt;
+</pre></div>
+<p>By adding / after x, you specify that x is a positional-only argument. You can
+combine regular arguments with positional-only ones by placing the regular
+arguments after the slash</p>
+<div class="highlight"><pre><span></span>def run<span class="o">(</span>name, /, <span class="nv">speed</span><span class="o">=</span><span class="m">0</span><span class="o">)</span>:
+    <span class="k">return</span> f<span class="s2">&quot;{name}/{speed}&quot;</span>
+</pre></div>
+<ul>
+<li><p class="first"><strong>Warlus</strong></p>
+<p>Assign and return a value in the same expression:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; walrus = False
+&gt;&gt;&gt; print(walrus)
+False
+</pre>
+<p>walrus operator:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; print(walrus := True)
+True
+</pre>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="running-python">
+<h2><a class="toc-backref" href="#id12">Running Python</a></h2>
+<div class="section" id="installation">
+<h3><a class="toc-backref" href="#id13">Installation</a></h3>
+<p>To check if Python is installed, run the following from a terminal:</p>
+<pre class="literal-block">
+$ python3 --version
+</pre>
+<div class="section" id="build-from-source">
+<h4><a class="toc-backref" href="#id14">Build from source</a></h4>
+<ol class="arabic simple">
+<li>Dependences and requirements</li>
+</ol>
+<p>First, make sure your system is fully updated and next, install required tools.</p>
+<pre class="code shell literal-block">
+$ sudo apt update
+$ sudo apt upgrade
+$ sudo apt install libgdbm-dev libdb5.3-dev libbz2-dev libexpat1-dev liblzma-dev libffi-dev uuid-dev
+
+<span class="c1"># For apt-based systems (like Debian, Ubuntu, and Mint)
+</span>$ sudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev
+  libreadline-dev libsqlite3-dev curl wget llvm libncurses5-dev
+  libncursesw5-dev xz-utils
+
+<span class="c1"># For yum-based systems (like CentOS)
+</span>$ sudo yum -y groupinstall development
+$ sudo yum -y install zlib-devel
+</pre>
+<p>Support for develop GUI applications require Tkinter module:</p>
+<pre class="code shell literal-block">
+$ sudo apt install tk-dev
+</pre>
+<ol class="arabic simple" start="2">
+<li>Build process</li>
+</ol>
+<pre class="code shell literal-block">
+$ wget https://www.python.org/ftp/python/3.9.0/
+$ tar xf Python-3.9.0a1.tar.xz
+$ rm -rf Python-3.9.0a1.tar.xz
+$ <span class="nb">cd</span> Python-3.9.0a1
+
+$ ./configure --enable-optimizations --with-ensurepip<span class="o">=</span>install
+$ make -j <span class="m">8</span>
+$ sudo make altinstall
+
+<span class="c1"># Warning: Please only use the altinstall target on make. Using the install
+# target will overwrite the python binary. While this seems like it would be
+# cool, there are big portions of the system that rely on the pre-installed
+# version of Python.
+# sudo make install</span>
+</pre>
+<ol class="arabic simple" start="3">
+<li>Verification</li>
+</ol>
+<pre class="code shell literal-block">
+$ python3.9 -V
+Python <span class="m">3</span>.9.0a1
+</pre>
+</div>
+<div class="section" id="troubleshooting">
+<h4><a class="toc-backref" href="#id15">Troubleshooting</a></h4>
+<p>Find the install</p>
+<pre class="code shell literal-block">
+$ <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/bin/python-3.9/bin:<span class="nv">$PATH</span>
+</pre>
+<p>Otherwise, install Python 3 from the website <a class="footnote-reference" href="#id2" id="id1">[1]</a>.</p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><a class="reference external" href="http://python.org">http://python.org</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="invoking-python">
+<h3><a class="toc-backref" href="#id16">Invoking Python</a></h3>
+<p>The Python executable will behave differently depending on the command line options you give it:</p>
+<ul>
+<li><p class="first">Start the Python REPL:</p>
+<pre class="literal-block">
+$ python3
+</pre>
+</li>
+<li><p class="first">Execute the <tt class="docutils literal">file.py</tt> file:</p>
+<pre class="literal-block">
+$ python3 file.py
+</pre>
+</li>
+<li><p class="first">Execute the <tt class="docutils literal">file.py</tt> file, and drop into REPL with namespace of <tt class="docutils literal">file.py</tt>:</p>
+<pre class="literal-block">
+$ python3 -i file.py
+</pre>
+</li>
+<li><p class="first">Execute the <tt class="docutils literal">json/tool.py</tt> module:</p>
+<pre class="literal-block">
+$ python3 -m json.tool
+</pre>
+</li>
+<li><p class="first">Execute <tt class="docutils literal"><span class="pre">&quot;print('hi')&quot;</span></tt></p>
+<pre class="literal-block">
+$ python3 -c &quot;print('hi')&quot;
+</pre>
+</li>
+</ul>
+</div>
+<div class="section" id="repl">
+<h3><a class="toc-backref" href="#id17">REPL</a></h3>
+<ul class="simple">
+<li>Use the <tt class="docutils literal">help</tt> function to read the documentation for a module/class/function. As a standalone invocation,
+you enter the help system and can explore various topics.</li>
+<li>Use the <tt class="docutils literal">dir</tt> function to list contents of the namespace, or attributes of an object if you pass one in.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The majority of code in this book is written as if it were executed in a REPL. If you
+are typing it in, ignore the primary and secondary prompts (<tt class="docutils literal">&gt;&gt;&gt;</tt> and <tt class="docutils literal">...</tt>).</p>
+</div>
+</div>
+</div>
+<div class="section" id="the-zen-of-python">
+<h2><a class="toc-backref" href="#id18">The Zen of Python</a></h2>
+<p>Run the following in an interpreter to get an Easter egg that describes some of the ethos behind Python. This is also codified in PEP 20:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; import this
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the
+rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation
+to guess.
+There should be one --and preferably only one--
+obvious way to do it.
+Although that way may not be obvious at first
+unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a
+bad idea.
+If the implementation is easy to explain, it may
+be a good idea.
+Namespaces are one honking great idea -- let's
+do more of those!
+</pre>
+<p>These might just seem like silly one liners, but there is a lot of wisdom
+packed in here. It is good for Python programmers to review these
+every once in a while and see if these hold true for their code. (Or to
+justify their code reviews)</p>
+</div>
+<div class="section" id="built-in-types">
+<h2><a class="toc-backref" href="#id19">Built-in Types</a></h2>
+<div class="section" id="variables">
+<h3><a class="toc-backref" href="#id20">Variables</a></h3>
+<p>Python variables are like cattle tags, they point to objects (which can be
+classes, instances, modules, or functions), but variables are not the objects. You can
+reuse variable names for different object types (though you probably shouldn't):</p>
+<pre class="literal-block">
+&gt;&gt;&gt; a = 400     # a points to an integer
+&gt;&gt;&gt; a = '400'   # a now points to a string
+</pre>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <tt class="docutils literal">#</tt> character denotes the start of a comment. There are no multi-line comments, though
+most editors with Python support can comment out a region.</p>
+</div>
+<p>The figure that follows illustrates how everything is an object in Python and variables just point to them.</p>
+<div class="figure">
+<img alt="" src="img/py/rebind.png" />
+<p class="caption">Illustration of reusing the same variable</p>
+</div>
+</div>
+<div class="section" id="numbers">
+<h3><a class="toc-backref" href="#id21">Numbers</a></h3>
+<p>Python includes three types of numeric literals:
+<em>integers</em>, <em>floats</em>, and <em>complex numbers</em>.
+Python 3.6 adds the ability to use underscores to
+improve readability (PEP 515).</p>
+<!-- longtable: format: {r l} -->
+<table border="1" class="docutils">
+<caption>Number types</caption>
+<colgroup>
+<col width="37%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Type</th>
+<th class="head">Example</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Integer</td>
+<td><tt class="docutils literal">14</tt></td>
+</tr>
+<tr><td>Integer (Hex)</td>
+<td><tt class="docutils literal">0xe</tt></td>
+</tr>
+<tr><td>Integer (Octal)</td>
+<td><tt class="docutils literal">0o16</tt></td>
+</tr>
+<tr><td>Integer (Binary)</td>
+<td><tt class="docutils literal">0b1110</tt></td>
+</tr>
+<tr><td>Float</td>
+<td><tt class="docutils literal">14.0</tt></td>
+</tr>
+<tr><td>Float</td>
+<td><tt class="docutils literal">1.4e1</tt></td>
+</tr>
+<tr><td>Complex</td>
+<td><tt class="docutils literal">14+0j</tt></td>
+</tr>
+<tr><td>Underscore</td>
+<td><tt class="docutils literal">1_000</tt></td>
+</tr>
+</tbody>
+</table>
+<p>There are many built-in functions for manipulating
+numbers ie. <tt class="docutils literal">abs</tt>, <tt class="docutils literal">min</tt>, <tt class="docutils literal">max</tt>, <tt class="docutils literal">ceil</tt>.
+Also see the <tt class="docutils literal">math</tt>, <tt class="docutils literal">random</tt>, and <tt class="docutils literal">statistics</tt> modules in
+the standard library.</p>
+<!-- longtable: format: {p{.3\textwidth} l >{\raggedright\arraybackslash}p{.3\textwidth}} -->
+<!-- longtable: format: {>{\hangindent=1em\hangafter=1 }p{.3\textwidth} l >{\hangindent=1em\hangafter=1 }p{.3\textwidth}} -->
+<table border="1" class="docutils">
+<caption>Number magic methods</caption>
+<colgroup>
+<col width="29%" />
+<col width="23%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Operation</th>
+<th class="head">Provided By</th>
+<th class="head">Result</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">abs(num)</tt></td>
+<td><tt class="docutils literal">__abs__</tt></td>
+<td>Absolute value of <tt class="docutils literal">num</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">num + num2</tt></td>
+<td><tt class="docutils literal">__add__</tt></td>
+<td>Addition</td>
+</tr>
+<tr><td><tt class="docutils literal">bool(num)</tt></td>
+<td><tt class="docutils literal">__bool__</tt></td>
+<td>Boolean conversion</td>
+</tr>
+<tr><td><tt class="docutils literal">num == num2</tt></td>
+<td><tt class="docutils literal">__eq__</tt></td>
+<td>Equality</td>
+</tr>
+<tr><td><tt class="docutils literal">float(num)</tt></td>
+<td><tt class="docutils literal">__float__</tt></td>
+<td>Float conversion</td>
+</tr>
+<tr><td><tt class="docutils literal">num // num2</tt></td>
+<td><tt class="docutils literal">__floordiv__</tt></td>
+<td>Integer division</td>
+</tr>
+<tr><td><tt class="docutils literal">num &gt;= num2</tt></td>
+<td><tt class="docutils literal">__ge__</tt></td>
+<td>Greater or equal</td>
+</tr>
+<tr><td><tt class="docutils literal">num &gt; num2</tt></td>
+<td><tt class="docutils literal">__gt__</tt></td>
+<td>Greater than</td>
+</tr>
+<tr><td><tt class="docutils literal">int(num)</tt></td>
+<td><tt class="docutils literal">__int__</tt></td>
+<td>Integer conversion</td>
+</tr>
+<tr><td><tt class="docutils literal">num &lt;= num2</tt></td>
+<td><tt class="docutils literal">__le__</tt></td>
+<td>Less or equal</td>
+</tr>
+<tr><td><tt class="docutils literal">num &lt; num2</tt></td>
+<td><tt class="docutils literal">__lt__</tt></td>
+<td>Less than</td>
+</tr>
+<tr><td><tt class="docutils literal">num % num2</tt></td>
+<td><tt class="docutils literal">__mod__</tt></td>
+<td>Modulus</td>
+</tr>
+<tr><td><tt class="docutils literal">num * num2</tt></td>
+<td><tt class="docutils literal">__mul__</tt></td>
+<td>Multiplication</td>
+</tr>
+<tr><td><tt class="docutils literal">num != num2</tt></td>
+<td><tt class="docutils literal">__ne__</tt></td>
+<td>Not equal</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">-num</span></tt></td>
+<td><tt class="docutils literal">__neg__</tt></td>
+<td>Negative</td>
+</tr>
+<tr><td><tt class="docutils literal">+num</tt></td>
+<td><tt class="docutils literal">__pos__</tt></td>
+<td>Positive</td>
+</tr>
+<tr><td><tt class="docutils literal">num ** num2</tt></td>
+<td><tt class="docutils literal">__pow__</tt></td>
+<td>Power</td>
+</tr>
+<tr><td><tt class="docutils literal">round(num)</tt></td>
+<td><tt class="docutils literal">__round__</tt></td>
+<td>Round</td>
+</tr>
+<tr><td><tt class="docutils literal">num.__sizeof__()</tt></td>
+<td><tt class="docutils literal">__sizeof__</tt></td>
+<td>Bytes for internal representation</td>
+</tr>
+<tr><td><tt class="docutils literal">str(num)</tt></td>
+<td><tt class="docutils literal">__str__</tt></td>
+<td>String conversion</td>
+</tr>
+<tr><td><tt class="docutils literal">num - num2</tt></td>
+<td><tt class="docutils literal">__sub__</tt></td>
+<td>Subtraction</td>
+</tr>
+<tr><td><tt class="docutils literal">num / num2</tt></td>
+<td><tt class="docutils literal">__truediv__</tt></td>
+<td>Float division</td>
+</tr>
+<tr><td><tt class="docutils literal">math.trunc(num)</tt></td>
+<td><tt class="docutils literal">__trunc__</tt></td>
+<td>Truncation</td>
+</tr>
+</tbody>
+</table>
+<!-- longtable: format: {p{.3\textwidth} l >{\raggedright\arraybackslash}p{.3\textwidth}} -->
+<table border="1" class="docutils">
+<caption>Integer specific methods and operations</caption>
+<colgroup>
+<col width="27%" />
+<col width="24%" />
+<col width="49%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Operation</th>
+<th class="head">Provided By</th>
+<th class="head">Result</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">num &amp; num2</tt></td>
+<td><tt class="docutils literal">__and__</tt></td>
+<td>Bitwise and</td>
+</tr>
+<tr><td><tt class="docutils literal">math.ceil(num)</tt></td>
+<td><tt class="docutils literal">__ceil__</tt></td>
+<td>Ceiling</td>
+</tr>
+<tr><td><tt class="docutils literal">math.floor(num)</tt></td>
+<td><tt class="docutils literal">__floor__</tt></td>
+<td>Floor</td>
+</tr>
+<tr><td><tt class="docutils literal">~num</tt></td>
+<td><tt class="docutils literal">__invert__</tt></td>
+<td>Bitwise inverse</td>
+</tr>
+<tr><td><tt class="docutils literal">num &lt;&lt; num2</tt></td>
+<td><tt class="docutils literal">__lshift__</tt></td>
+<td>Left shift</td>
+</tr>
+<tr><td><tt class="docutils literal">num | num2</tt></td>
+<td><tt class="docutils literal">__or__</tt></td>
+<td>Bitwise or</td>
+</tr>
+<tr><td><tt class="docutils literal">num &gt;&gt; num2</tt></td>
+<td><tt class="docutils literal">__rshift__</tt></td>
+<td>Right shift</td>
+</tr>
+<tr><td><tt class="docutils literal">num ^ num2</tt></td>
+<td><tt class="docutils literal">__xor__</tt></td>
+<td>Bitwise xor</td>
+</tr>
+<tr><td><tt class="docutils literal">num.bit_length()</tt></td>
+<td><tt class="docutils literal">bit_length</tt></td>
+<td>Number of bits necessary</td>
+</tr>
+</tbody>
+</table>
+<!-- longtable: format: {p{.4\textwidth} p{.5\textwidth}} -->
+<table border="1" class="docutils">
+<caption>Float specific methods and operations</caption>
+<colgroup>
+<col width="59%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Operation</th>
+<th class="head">Result</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">f.as_integer_ratio()</tt></td>
+<td>Returns num, denom tuple</td>
+</tr>
+<tr><td><tt class="docutils literal">f.is_integer()</tt></td>
+<td>Boolean if whole number</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="strings">
+<h3><a class="toc-backref" href="#id22">Strings</a></h3>
+<p>Python 3 strings hold unicode data. Python has a few ways to represent strings. There is also a bytes type (PEP 3137):</p>
+<!-- longtable: format: {r l} -->
+<table border="1" class="docutils">
+<caption>String types</caption>
+<colgroup>
+<col width="37%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Type</th>
+<th class="head">Example</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>String</td>
+<td><tt class="docutils literal">&quot;hello\tthere&quot;</tt></td>
+</tr>
+<tr><td>String</td>
+<td><tt class="docutils literal">'hello'</tt></td>
+</tr>
+<tr><td>String</td>
+<td><tt class="docutils literal"><span class="pre">'''He</span> said, <span class="pre">&quot;hello&quot;'''</span></tt></td>
+</tr>
+<tr><td>Raw string</td>
+<td><tt class="docutils literal">r'hello\tthere'</tt></td>
+</tr>
+<tr><td>Byte string</td>
+<td><tt class="docutils literal">b'hello'</tt></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<caption>Escape Characters (unicode escapes must be in unicode string)</caption>
+<colgroup>
+<col width="29%" />
+<col width="71%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Escape Sequence</th>
+<th class="head">Output</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">\</tt> newline</td>
+<td>Ignore trailing newline in triple quoted string</td>
+</tr>
+<tr><td><tt class="docutils literal">\\</tt></td>
+<td>Backslash</td>
+</tr>
+<tr><td><tt class="docutils literal">\'</tt></td>
+<td>Single quote</td>
+</tr>
+<tr><td><tt class="docutils literal">\&quot;</tt></td>
+<td>Double quote</td>
+</tr>
+<tr><td><tt class="docutils literal">\a</tt></td>
+<td>ASCII Bell</td>
+</tr>
+<tr><td><tt class="docutils literal">\b</tt></td>
+<td>ASCII Backspace</td>
+</tr>
+<tr><td><tt class="docutils literal">\n</tt></td>
+<td>Newline</td>
+</tr>
+<tr><td><tt class="docutils literal">\r</tt></td>
+<td>ASCII carriage return</td>
+</tr>
+<tr><td><tt class="docutils literal">\t</tt></td>
+<td>Tab</td>
+</tr>
+<tr><td><tt class="docutils literal">\u12af</tt></td>
+<td>Unicode 16 bit</td>
+</tr>
+<tr><td><tt class="docutils literal">\U12af89bc</tt></td>
+<td>Unicode 32 bit</td>
+</tr>
+<tr><td><tt class="docutils literal">\N{BLACK STAR}</tt></td>
+<td>Unicode name</td>
+</tr>
+<tr><td><tt class="docutils literal">\o84</tt></td>
+<td>Octal character</td>
+</tr>
+<tr><td><tt class="docutils literal">\xFF</tt></td>
+<td>Hex character</td>
+</tr>
+</tbody>
+</table>
+<!-- longtable: format: {p{.3\textwidth} l >{\raggedright\arraybackslash}p{.3\textwidth}} -->
+<!-- longtable: format: {>{\hangindent=1em\hangafter=1\raggedright\arraybackslash }p{.3\textwidth} l >{\hangindent=1em\hangafter=1\raggedright\arraybackslash }p{.3\textwidth}} -->
+<table border="1" class="docutils">
+<caption>String operations</caption>
+<colgroup>
+<col width="26%" />
+<col width="22%" />
+<col width="52%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Operation</th>
+<th class="head">Provided By</th>
+<th class="head">Result</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">s + s2</tt></td>
+<td><tt class="docutils literal">__add__</tt></td>
+<td>String concatenation</td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;foo&quot; in s</tt></td>
+<td><tt class="docutils literal">__contains__</tt></td>
+<td>Membership</td>
+</tr>
+<tr><td><tt class="docutils literal">s == s2</tt></td>
+<td><tt class="docutils literal">__eq__</tt></td>
+<td>Equality</td>
+</tr>
+<tr><td><tt class="docutils literal">s &gt;= s2</tt></td>
+<td><tt class="docutils literal">__ge__</tt></td>
+<td>Greater or equal</td>
+</tr>
+<tr><td><tt class="docutils literal">s[0]</tt></td>
+<td><tt class="docutils literal">__getitem__</tt></td>
+<td>Index operation</td>
+</tr>
+<tr><td><tt class="docutils literal">s &gt; s2</tt></td>
+<td><tt class="docutils literal">__gt__</tt></td>
+<td>Greater</td>
+</tr>
+<tr><td><tt class="docutils literal">s &lt;= s2</tt></td>
+<td><tt class="docutils literal">__le__</tt></td>
+<td>Less than or equal</td>
+</tr>
+<tr><td><tt class="docutils literal">len(s)</tt></td>
+<td><tt class="docutils literal">__len__</tt></td>
+<td>Length</td>
+</tr>
+<tr><td><tt class="docutils literal">s &lt; s2</tt></td>
+<td><tt class="docutils literal">__lt__</tt></td>
+<td>Less than</td>
+</tr>
+<tr><td><tt class="docutils literal">s % (1, 'foo')</tt></td>
+<td><tt class="docutils literal">__mod__</tt></td>
+<td>Formatting</td>
+</tr>
+<tr><td><tt class="docutils literal">s * 3</tt></td>
+<td><tt class="docutils literal">__mul__</tt></td>
+<td>Repetition</td>
+</tr>
+<tr><td><tt class="docutils literal">s != s2</tt></td>
+<td><tt class="docutils literal">__ne__</tt></td>
+<td>Not equal</td>
+</tr>
+<tr><td><tt class="docutils literal">repr(s)</tt></td>
+<td><tt class="docutils literal">__repr__</tt></td>
+<td>Programmer friendly string</td>
+</tr>
+<tr><td><tt class="docutils literal">s.__sizeof__()</tt></td>
+<td><tt class="docutils literal">__sizeof__</tt></td>
+<td>Bytes for internal representation</td>
+</tr>
+<tr><td><tt class="docutils literal">str(s)</tt></td>
+<td><tt class="docutils literal">__str__</tt></td>
+<td>User friendly string</td>
+</tr>
+</tbody>
+</table>
+<!-- longtable: format: {>{\hangindent=1em\hangafter=1 }p{.35\textwidth} p{.55\textwidth}} -->
+<!-- prevent header at bottom of page -->
+<!-- longtable: format: {>{\hangindent=1em\hangafter=1\raggedright\arraybackslash }p{.3\textwidth} >{\hangindent=1em\hangafter=1\raggedright\arraybackslash }p{.6\textwidth}} -->
+<table border="1" class="docutils">
+<caption>String methods</caption>
+<colgroup>
+<col width="41%" />
+<col width="59%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Operation</th>
+<th class="head">Result</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">s.capitalize()</tt></td>
+<td>Capitalizes a string</td>
+</tr>
+<tr><td><tt class="docutils literal">s.casefold()</tt></td>
+<td>Lowercase in a unicode compliant manner</td>
+</tr>
+<tr><td><tt class="docutils literal">s.center(w, [char])</tt></td>
+<td>Center a string in <tt class="docutils literal">w</tt> spaces with <tt class="docutils literal">char</tt> (default <tt class="docutils literal">&quot; &quot;</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">s.count(sub, [start, <span class="pre">[end]])</span></tt></td>
+<td>Count <tt class="docutils literal">sub</tt> in <tt class="docutils literal">s</tt> between <tt class="docutils literal">start</tt> and <tt class="docutils literal">end</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">s.encode(encoding, errors= 'strict')</tt></td>
+<td>Encode a string into bytes</td>
+</tr>
+<tr><td><tt class="docutils literal">s.endswith(sub)</tt></td>
+<td>Check for a suffix</td>
+</tr>
+<tr><td><tt class="docutils literal">s.expandtabs( tabsize=8)</tt></td>
+<td>Replaces tabs with spaces</td>
+</tr>
+<tr><td><tt class="docutils literal">s.find(sub, [start, <span class="pre">[end]])</span></tt></td>
+<td>Find substring or return <tt class="docutils literal"><span class="pre">-1</span></tt></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">s.format(*args,</span> **kw)</tt></td>
+<td>Format string</td>
+</tr>
+<tr><td><tt class="docutils literal">s.format_map( mapping)</tt></td>
+<td>Format strings with a mapping</td>
+</tr>
+<tr><td><tt class="docutils literal">s.index(sub, [start, <span class="pre">[end]])</span></tt></td>
+<td>Find substring or raise <tt class="docutils literal">ValueError</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">s.isalnum()</tt></td>
+<td>Boolean if alphanumeric</td>
+</tr>
+<tr><td><tt class="docutils literal">s.isalpha()</tt></td>
+<td>Boolean if alphabetic</td>
+</tr>
+<tr><td><tt class="docutils literal">s.isdecimal()</tt></td>
+<td>Boolean if decimal</td>
+</tr>
+<tr><td><tt class="docutils literal">s.isdigit()</tt></td>
+<td>Boolean if digit</td>
+</tr>
+<tr><td><tt class="docutils literal">s.isidentifier()</tt></td>
+<td>Boolean if valid identifier</td>
+</tr>
+<tr><td><tt class="docutils literal">s.islower()</tt></td>
+<td>Boolean if lowercase</td>
+</tr>
+<tr><td><tt class="docutils literal">s.isnumeric()</tt></td>
+<td>Boolean if numeric</td>
+</tr>
+<tr><td><tt class="docutils literal">s.isprintable()</tt></td>
+<td>Boolean if printable</td>
+</tr>
+<tr><td><tt class="docutils literal">s.isspace()</tt></td>
+<td>Boolean if whitespace</td>
+</tr>
+<tr><td><tt class="docutils literal">s.istitle()</tt></td>
+<td>Boolean if titlecased</td>
+</tr>
+<tr><td><tt class="docutils literal">s.isupper()</tt></td>
+<td>Boolean if uppercased</td>
+</tr>
+<tr><td><tt class="docutils literal">s.join(iterable)</tt></td>
+<td>Return a string inserted between sequence</td>
+</tr>
+<tr><td><tt class="docutils literal">s.ljust(w, [char])</tt></td>
+<td>Left justify in <tt class="docutils literal">w</tt> spaces with <tt class="docutils literal">char</tt> (default <tt class="docutils literal">' '</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">s.lower()</tt></td>
+<td>Lowercase</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">s.lstrip([chars])</span></tt></td>
+<td>Left strip <tt class="docutils literal">chars</tt> (default spacing).</td>
+</tr>
+<tr><td><tt class="docutils literal">s.partition(sub)</tt></td>
+<td>Split string at first occurrence of substring, return <tt class="docutils literal">(before, sub, after)</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">s.replace(old, new, [count])</tt></td>
+<td>Replace substring with new string</td>
+</tr>
+<tr><td><tt class="docutils literal">s.rfind(sub, [start, <span class="pre">[end]])</span></tt></td>
+<td>Find rightmost substring or return <tt class="docutils literal"><span class="pre">-1</span></tt></td>
+</tr>
+<tr><td><tt class="docutils literal">s.rindex(sub, [start, <span class="pre">[end]])</span></tt></td>
+<td>Find rightmost substring or raise <tt class="docutils literal">ValueError</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">s.rjust(w, [char)</tt></td>
+<td>Right justify in w spaces with char (default <tt class="docutils literal">&quot; &quot;</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">s.rpartition(sub)</tt></td>
+<td>Rightmost partition</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">s.rsplit([sep,</span> <span class="pre">[maxsplit=-1])</span></tt></td>
+<td>Rightmost split by <tt class="docutils literal">sep</tt> (defaults to whitespace)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">s.rstrip([chars])</span></tt></td>
+<td>Right strip</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">s.split([sep,</span> <span class="pre">[maxsplit=-1]])</span></tt></td>
+<td>Split a string into sequence around substring</td>
+</tr>
+<tr><td><tt class="docutils literal">s.splitlines( keepends=False)</tt></td>
+<td>Break string at line boundaries</td>
+</tr>
+<tr><td><tt class="docutils literal">s.startswith( prefix, [start, <span class="pre">[end]])</span></tt></td>
+<td>Check for prefix</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">s.strip([chars])</span></tt></td>
+<td>Remove leading and trailing whitespace (default) or <tt class="docutils literal">chars</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">s.swapcase()</tt></td>
+<td>Swap casing of string</td>
+</tr>
+<tr><td><tt class="docutils literal">s.title()</tt></td>
+<td>Titlecase string</td>
+</tr>
+<tr><td><tt class="docutils literal">s.translate(table)</tt></td>
+<td>Use a translation table to replace strings</td>
+</tr>
+<tr><td><tt class="docutils literal">s.upper()</tt></td>
+<td>Uppercase</td>
+</tr>
+<tr><td><tt class="docutils literal">s.zfill(width)</tt></td>
+<td>Left fill with <tt class="docutils literal">0</tt> so string fills <tt class="docutils literal">width</tt> (no truncation)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="lists">
+<h3><a class="toc-backref" href="#id23">Lists</a></h3>
+<p>Lists are ordered mutable sequences:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; people = ['Paul', 'John', 'George']
+&gt;&gt;&gt; people.append('Ringo')
+</pre>
+<p>The <tt class="docutils literal">in</tt> operator is useful for checking membership on sequences:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; 'Yoko' in people
+False
+</pre>
+<p>If we need the index number during iteration, the <tt class="docutils literal">enumerate</tt> function gives us a tuple of index, item pairs:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; for i, name in enumerate(people, 1):
+...     print('{} - {}'.format(i, name))
+1 - Paul
+2 - John
+3 - George
+4 - Ringo
+</pre>
+<p>We can do index operations on most sequences:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; people[0]
+'Paul'
+&gt;&gt;&gt; people[-1]  # len(people) - 1
+'Ringo'
+</pre>
+<p>We can also do <em>slicing</em> operations on most sequences:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; people[1:2]
+['John']
+&gt;&gt;&gt; people[:1]   # Implicit start at 0
+['Paul']
+&gt;&gt;&gt; people[1:]   # Implicit end at len(people)
+['John', 'George', 'Ringo']
+&gt;&gt;&gt; people[::2]  # Take every other item
+['Paul', 'George']
+&gt;&gt;&gt; people[::-1] # Reverse sequence
+['Ringo', 'George', 'John', 'Paul']
+</pre>
+<!-- longtable: format: {p{.25\textwidth} l >{\raggedright\arraybackslash}p{.35\textwidth}} -->
+<!-- longtable: format: {>{\hangindent=1em\hangafter=1 }p{.25\textwidth} l >{\hangindent=1em\hangafter=1 }p{.35\textwidth}} -->
+<table border="1" class="docutils">
+<caption>List Operations</caption>
+<colgroup>
+<col width="29%" />
+<col width="21%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Operation</th>
+<th class="head">Provided By</th>
+<th class="head">Result</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">l + l2</tt></td>
+<td><tt class="docutils literal">__add__</tt></td>
+<td>List concatenation (see <tt class="docutils literal">.extend</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;name&quot; in l</tt></td>
+<td><tt class="docutils literal">__contains__</tt></td>
+<td>Membership</td>
+</tr>
+<tr><td><tt class="docutils literal">del l[idx]</tt></td>
+<td><tt class="docutils literal">__del__</tt></td>
+<td>Remove item at index <tt class="docutils literal">idx</tt> (see <tt class="docutils literal">.pop</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">l == l2</tt></td>
+<td><tt class="docutils literal">__eq__</tt></td>
+<td>Equality</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">&quot;{}&quot;.format(l)</span></tt></td>
+<td><tt class="docutils literal">__format__</tt></td>
+<td>String format of list</td>
+</tr>
+<tr><td><tt class="docutils literal">l &gt;= l2</tt></td>
+<td><tt class="docutils literal">__ge__</tt></td>
+<td>Greater or equal. Compares items in lists from left</td>
+</tr>
+<tr><td><tt class="docutils literal">l[idx]</tt></td>
+<td><tt class="docutils literal">__getitem__</tt></td>
+<td>Index operation</td>
+</tr>
+<tr><td><tt class="docutils literal">l &gt; l2</tt></td>
+<td><tt class="docutils literal">__gt__</tt></td>
+<td>Greater. Compares items in lists from left</td>
+</tr>
+<tr><td>No hash</td>
+<td><tt class="docutils literal">__hash__</tt></td>
+<td>Set to <tt class="docutils literal">None</tt> to ensure you can't insert in dictionary</td>
+</tr>
+<tr><td><tt class="docutils literal">l += l2</tt></td>
+<td><tt class="docutils literal">__iadd__</tt></td>
+<td>Augmented (mutates <tt class="docutils literal">l</tt>) concatenation</td>
+</tr>
+<tr><td><tt class="docutils literal">l *= 3</tt></td>
+<td><tt class="docutils literal">__imul__</tt></td>
+<td>Augmented (mutates <tt class="docutils literal">l</tt>) repetition</td>
+</tr>
+<tr><td><tt class="docutils literal">for thing in l:</tt></td>
+<td><tt class="docutils literal">__iter__</tt></td>
+<td>Iteration</td>
+</tr>
+<tr><td><tt class="docutils literal">l &lt;= l2</tt></td>
+<td><tt class="docutils literal">__le__</tt></td>
+<td>Less than or equal. Compares items in lists from left</td>
+</tr>
+<tr><td><tt class="docutils literal">len(l)</tt></td>
+<td><tt class="docutils literal">__len__</tt></td>
+<td>Length</td>
+</tr>
+<tr><td><tt class="docutils literal">l &lt; l2</tt></td>
+<td><tt class="docutils literal">__lt__</tt></td>
+<td>Less than. Compares items in lists from left</td>
+</tr>
+<tr><td><tt class="docutils literal">l * 2</tt></td>
+<td><tt class="docutils literal">__mul__</tt></td>
+<td>Repetition</td>
+</tr>
+<tr><td><tt class="docutils literal">l != l2</tt></td>
+<td><tt class="docutils literal">__ne__</tt></td>
+<td>Not equal</td>
+</tr>
+<tr><td><tt class="docutils literal">repr(l)</tt></td>
+<td><tt class="docutils literal">__repr__</tt></td>
+<td>Programmer friendly string</td>
+</tr>
+<tr><td><tt class="docutils literal">reversed(l)</tt></td>
+<td><tt class="docutils literal">__reversed__</tt></td>
+<td>Reverse</td>
+</tr>
+<tr><td><tt class="docutils literal">foo * l</tt></td>
+<td><tt class="docutils literal">__rmul__</tt></td>
+<td>Called if <tt class="docutils literal">foo</tt> doesn't implement <tt class="docutils literal">__mul__</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">l[idx] = 'bar'</tt></td>
+<td><tt class="docutils literal">__setitem__</tt></td>
+<td>Index operation to set value</td>
+</tr>
+<tr><td><tt class="docutils literal">l.__sizeof__()</tt></td>
+<td><tt class="docutils literal">__sizeof__</tt></td>
+<td>Bytes for internal representation</td>
+</tr>
+<tr><td><tt class="docutils literal">str(l)</tt></td>
+<td><tt class="docutils literal">__str__</tt></td>
+<td>User friendly string</td>
+</tr>
+</tbody>
+</table>
+<!-- longtable: format: {p{.4\textwidth} p{.55\textwidth}} -->
+<!-- longtable: format: {>{\hangindent=1em\hangafter=1 }p{.4\textwidth} >{\hangindent=1em\hangafter=1 }p{.55\textwidth}} -->
+<table border="1" class="docutils">
+<caption>List Methods</caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Operation</th>
+<th class="head">Result</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">l.append(item)</tt></td>
+<td>Append <tt class="docutils literal">item</tt> to end</td>
+</tr>
+<tr><td><tt class="docutils literal">l.clear()</tt></td>
+<td>Empty list (mutates <tt class="docutils literal">l</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">l.copy()</tt></td>
+<td>Shallow copy</td>
+</tr>
+<tr><td><tt class="docutils literal">l.count(thing)</tt></td>
+<td>Number of occurrences of <tt class="docutils literal">thing</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">l.extend(l2)</tt></td>
+<td>List concatenation (mutates <tt class="docutils literal">l</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">l.index(thing)</tt></td>
+<td>Index of <tt class="docutils literal">thing</tt> else <tt class="docutils literal">ValueError</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">l.insert(idx, bar)</tt></td>
+<td>Insert <tt class="docutils literal">bar</tt> at index <tt class="docutils literal">idx</tt></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">l.pop([idx])</span></tt></td>
+<td>Remove last item or item at <tt class="docutils literal">idx</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">l.remove(bar)</tt></td>
+<td>Remove first instance of <tt class="docutils literal">bar</tt> else <tt class="docutils literal">ValueError</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">l.reverse()</tt></td>
+<td>Reverse (mutates <tt class="docutils literal">l</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">l.sort([key=],</span> reverse=False)</tt></td>
+<td>In-place sort, by optional <tt class="docutils literal">key</tt> function (mutates <tt class="docutils literal">l</tt>)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="dictionaries">
+<h3><a class="toc-backref" href="#id24">Dictionaries</a></h3>
+<p>Dictionaries are mutable mappings of keys to values. Keys
+must be hashable, but values can be any object:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; instruments = {'Paul': 'Bass',
+...                'John': 'Guitar'}
+
+&gt;&gt;&gt; instruments['George'] = 'Guitar'
+&gt;&gt;&gt; 'Ringo' in instruments
+False
+
+&gt;&gt;&gt; for name in instruments:
+...     print('{} - {}'.format(name,
+...           instruments[name]))
+Paul - Bass
+John - Guitar
+George - Guitar
+</pre>
+<!-- longtable: format: {p{.25\textwidth} l >{\raggedright\arraybackslash}p{.35\textwidth}} -->
+<!-- longtable: format: {>{\hangindent=1em\hangafter=1\raggedright\arraybackslash }p{.25\textwidth} l >{\hangindent=1em\hangafter=1\raggedright\arraybackslash }p{.35\textwidth}} -->
+<table border="1" class="docutils">
+<caption>Magic Dictionary Methods</caption>
+<colgroup>
+<col width="31%" />
+<col width="20%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Operation</th>
+<th class="head">Provided By</th>
+<th class="head">Result</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">key in d</tt></td>
+<td><tt class="docutils literal">__contains__</tt></td>
+<td>Membership</td>
+</tr>
+<tr><td><tt class="docutils literal">del d[key]</tt></td>
+<td><tt class="docutils literal">__delitem__</tt></td>
+<td>Delete key</td>
+</tr>
+<tr><td><tt class="docutils literal">d == d2</tt></td>
+<td><tt class="docutils literal">__eq__</tt></td>
+<td>Equality. Dicts are equal or not equal</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">&quot;{}&quot;.format(d)</span></tt></td>
+<td><tt class="docutils literal">__format__</tt></td>
+<td>String format of dict</td>
+</tr>
+<tr><td><tt class="docutils literal">d[key]</tt></td>
+<td><tt class="docutils literal">__getitem__</tt></td>
+<td>Get value for <tt class="docutils literal">key</tt> (see <tt class="docutils literal">.get</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">for key in d:</tt></td>
+<td><tt class="docutils literal">__iter__</tt></td>
+<td>Iteration over keys</td>
+</tr>
+<tr><td><tt class="docutils literal">len(d)</tt></td>
+<td><tt class="docutils literal">__len__</tt></td>
+<td>Length</td>
+</tr>
+<tr><td><tt class="docutils literal">d != d2</tt></td>
+<td><tt class="docutils literal">__ne__</tt></td>
+<td>Not equal</td>
+</tr>
+<tr><td><tt class="docutils literal">repr(d)</tt></td>
+<td><tt class="docutils literal">__repr__</tt></td>
+<td>Programmer friendly string</td>
+</tr>
+<tr><td><tt class="docutils literal">d[key] = value</tt></td>
+<td><tt class="docutils literal">__setitem__</tt></td>
+<td>Set <tt class="docutils literal">value</tt> for <tt class="docutils literal">key</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">d.__sizeof__()</tt></td>
+<td><tt class="docutils literal">__sizeof__</tt></td>
+<td>Bytes for internal representation</td>
+</tr>
+</tbody>
+</table>
+<!-- longtable: format: {p{.3\textwidth}  >{\raggedright\arraybackslash}p{.6\textwidth}} -->
+<!-- longtable: format: {>{\hangindent=1em\hangafter=1 }p{.3\textwidth} >{\hangindent=1em\hangafter=1 }p{.6\textwidth}} -->
+<table border="1" class="docutils">
+<caption>Dictionary Methods</caption>
+<colgroup>
+<col width="45%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Operation</th>
+<th class="head">Result</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">d.clear()</tt></td>
+<td>Remove all items (mutates <tt class="docutils literal">d</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">d.copy()</tt></td>
+<td>Shallow copy</td>
+</tr>
+<tr><td><tt class="docutils literal">d.fromkeys(iter, value=None)</tt></td>
+<td>Create dict from iterable with values set to value</td>
+</tr>
+<tr><td><tt class="docutils literal">d.get(key, [default])</tt></td>
+<td>Get value for <tt class="docutils literal">key</tt> or return default (<tt class="docutils literal">None</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">d.items()</tt></td>
+<td>View of (key, value) pairs</td>
+</tr>
+<tr><td><tt class="docutils literal">d.keys()</tt></td>
+<td>View of keys</td>
+</tr>
+<tr><td><tt class="docutils literal">d.pop(key, [default])</tt></td>
+<td>Return value for key or default (<tt class="docutils literal">KeyError</tt> if not set)</td>
+</tr>
+<tr><td><tt class="docutils literal">d.popitem()</tt></td>
+<td>Return arbitrary (key, value) tuple. <tt class="docutils literal">KeyError</tt> if empty</td>
+</tr>
+<tr><td><tt class="docutils literal">d.setdefault(k,&nbsp;&nbsp; [default])</tt></td>
+<td>Does <tt class="docutils literal">d.get(k, default)</tt>. If <tt class="docutils literal">k</tt> missing, sets to default</td>
+</tr>
+<tr><td><tt class="docutils literal">d.update(d2)</tt></td>
+<td>Mutate <tt class="docutils literal">d</tt> with values of <tt class="docutils literal">d2</tt> (dictionary or iterable of (key, value) pairs)</td>
+</tr>
+<tr><td><tt class="docutils literal">d.values()</tt></td>
+<td>View of values</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="tuples">
+<h3><a class="toc-backref" href="#id25">Tuples</a></h3>
+<p>Tuples are immutable sequences. Typically they are used to store
+<em>record</em> type data:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; member = ('Paul', 'Bass', 1942)
+&gt;&gt;&gt; member2 = ('Ringo', 'Drums', 1940)
+</pre>
+<p>Note that parentheses aren't usually required:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; row = 1, 'Fred'     # 2 item tuple
+&gt;&gt;&gt; row2 = (2, 'Bob')   # 2 item tuple
+&gt;&gt;&gt; row3 = ('Bill')     # String!
+&gt;&gt;&gt; row4 = ('Bill',)    # 1 item tuple
+&gt;&gt;&gt; row5 = 'Bill',      # 1 item tuple
+&gt;&gt;&gt; row6 = ()           # Empty tuple
+</pre>
+<p>Named tuples can be used in place of normal tuples and allow context (or names)
+to be added to positional members. The syntax for creating them is a little
+different because we are dynamically creating a class first (hence the
+capitalized variable):</p>
+<pre class="literal-block">
+&gt;&gt;&gt; from collections import namedtuple
+&gt;&gt;&gt; Member = namedtuple('Member',
+...     'name, instrument, birth_year')
+&gt;&gt;&gt; member3 = Member('George', 'Guitar', 1943)
+</pre>
+<p>We can access members by position or name (name allows us to be more explicit):</p>
+<pre class="literal-block">
+&gt;&gt;&gt; member3[0]
+'George'
+
+&gt;&gt;&gt; member3.name
+'George'
+</pre>
+<!-- longtable: format: {p{.3\textwidth} l >{\raggedright\arraybackslash}p{.3\textwidth}} -->
+<!-- longtable: format: {>{\hangindent=1em\hangafter=1\raggedright\arraybackslash }p{.3\textwidth} l >{\hangindent=1em\hangafter=1\raggedright\arraybackslash }p{.3\textwidth}} -->
+<table border="1" class="docutils">
+<caption>Tuple Operations</caption>
+<colgroup>
+<col width="29%" />
+<col width="21%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Operation</th>
+<th class="head">Provided</th>
+<th class="head">Result</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">t + t2</tt></td>
+<td><tt class="docutils literal">__add__</tt></td>
+<td>Tuple concatenation</td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;name&quot; in t</tt></td>
+<td><tt class="docutils literal">__contains__</tt></td>
+<td>Membership</td>
+</tr>
+<tr><td><tt class="docutils literal">t == t2</tt></td>
+<td><tt class="docutils literal">__eq__</tt></td>
+<td>Equality</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">&quot;{}&quot;.format(t)</span></tt></td>
+<td><tt class="docutils literal">__format__</tt></td>
+<td>String format of tuple</td>
+</tr>
+<tr><td><tt class="docutils literal">t &gt;= t2</tt></td>
+<td><tt class="docutils literal">__ge__</tt></td>
+<td>Greater or equal. Compares items in tuple from left</td>
+</tr>
+<tr><td><tt class="docutils literal">t[idx]</tt></td>
+<td><tt class="docutils literal">__getitem__</tt></td>
+<td>Index operation</td>
+</tr>
+<tr><td><tt class="docutils literal">t &gt; t2</tt></td>
+<td><tt class="docutils literal">__gt__</tt></td>
+<td>Greater. Compares items in tuple from left</td>
+</tr>
+<tr><td><tt class="docutils literal">hash(t)</tt></td>
+<td><tt class="docutils literal">__hash__</tt></td>
+<td>For set/dict insertion</td>
+</tr>
+<tr><td><tt class="docutils literal">for thing in t:</tt></td>
+<td><tt class="docutils literal">__iter__</tt></td>
+<td>Iteration</td>
+</tr>
+<tr><td><tt class="docutils literal">t &lt;= t2</tt></td>
+<td><tt class="docutils literal">__le__</tt></td>
+<td>Less than or equal. Compares items in tuple from left</td>
+</tr>
+<tr><td><tt class="docutils literal">len(t)</tt></td>
+<td><tt class="docutils literal">__len__</tt></td>
+<td>Length</td>
+</tr>
+<tr><td><tt class="docutils literal">t &lt; t2</tt></td>
+<td><tt class="docutils literal">__lt__</tt></td>
+<td>Less than. Compares items in tuple from left</td>
+</tr>
+<tr><td><tt class="docutils literal">t * 2</tt></td>
+<td><tt class="docutils literal">__mul__</tt></td>
+<td>Repetition</td>
+</tr>
+<tr><td><tt class="docutils literal">t != t2</tt></td>
+<td><tt class="docutils literal">__ne__</tt></td>
+<td>Not equal</td>
+</tr>
+<tr><td><tt class="docutils literal">repr(t)</tt></td>
+<td><tt class="docutils literal">__repr__</tt></td>
+<td>Programmer friendly string</td>
+</tr>
+<tr><td><tt class="docutils literal">foo * t</tt></td>
+<td><tt class="docutils literal">__rmul__</tt></td>
+<td>Called if <tt class="docutils literal">foo</tt> doesn't implement <tt class="docutils literal">__mul__</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">t.__sizeof__()</tt></td>
+<td><tt class="docutils literal">__sizeof__</tt></td>
+<td>Bytes for internal representation</td>
+</tr>
+<tr><td><tt class="docutils literal">str(l)</tt></td>
+<td><tt class="docutils literal">__str__</tt></td>
+<td>User friendly string</td>
+</tr>
+</tbody>
+</table>
+<!-- longtable: format: {p{.3\textwidth} p{.6\textwidth}} -->
+<table border="1" class="docutils">
+<caption>Tuple Methods</caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Operation</th>
+<th class="head">Result</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">t.count(item)</tt></td>
+<td>Count of item</td>
+</tr>
+<tr><td><tt class="docutils literal">t.index(thing)</tt></td>
+<td>Index of <tt class="docutils literal">thing</tt> else <tt class="docutils literal">ValueError</tt></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sets">
+<h3><a class="toc-backref" href="#id26">Sets</a></h3>
+<p>A set is a mutable unordered collection that cannot contain duplicates. Sets are used to
+remove duplicates and test for membership:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; digits = [0, 1, 1, 2, 3, 4, 5, 6,
+...     7, 8, 9]
+&gt;&gt;&gt; digit_set = set(digits)   # remove extra 1
+
+&gt;&gt;&gt; 9 in digit_set
+True
+</pre>
+<p>Sets are useful because they provide <em>set operations</em>, such as union
+(<tt class="docutils literal">|</tt>), intersection (<tt class="docutils literal">&amp;</tt>), difference (<tt class="docutils literal">-</tt>), and xor (<tt class="docutils literal">^</tt>):</p>
+<pre class="literal-block">
+&gt;&gt;&gt; odd = {1, 3, 5, 7, 9}
+&gt;&gt;&gt; prime = set([2, 3, 5, 7])
+&gt;&gt;&gt; even = digit_set - odd
+&gt;&gt;&gt; even
+{0, 2, 4, 6, 8}
+
+&gt;&gt;&gt; prime &amp; even  # in intersection
+{2}
+
+&gt;&gt;&gt; odd | even    # in both
+{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+&gt;&gt;&gt; even ^ prime  # not in both
+{0, 3, 4, 5, 6, 7, 8}
+</pre>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>There is no literal syntax for an empty set. You need to use:</p>
+<pre class="last literal-block">
+&gt;&gt;&gt; empty = set()
+</pre>
+</div>
+<!-- longtable: format: {p{.25\textwidth} l >{\raggedright\arraybackslash}p{.35\textwidth}} -->
+<!-- longtable: format: {>{\hangindent=1em\hangafter=1\raggedright\arraybackslash }p{.25\textwidth} l >{\hangindent=1em\hangafter=1\raggedright\arraybackslash }p{.35\textwidth}} -->
+<table border="1" class="docutils">
+<caption>Set Operations</caption>
+<colgroup>
+<col width="29%" />
+<col width="19%" />
+<col width="52%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Operation</th>
+<th class="head">Provided By</th>
+<th class="head">Result</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">s &amp; s2</tt></td>
+<td><tt class="docutils literal">__and__</tt></td>
+<td>Set intersection (see <tt class="docutils literal">.intersection</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;name&quot; in s</tt></td>
+<td><tt class="docutils literal">__contains__</tt></td>
+<td>Membership</td>
+</tr>
+<tr><td><tt class="docutils literal">s == s2</tt></td>
+<td><tt class="docutils literal">__eq__</tt></td>
+<td>Equality. Sets are equal or not equal</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">&quot;{}&quot;.format(s)</span></tt></td>
+<td><tt class="docutils literal">__format__</tt></td>
+<td>String format of set</td>
+</tr>
+<tr><td><tt class="docutils literal">s &gt;= s2</tt></td>
+<td><tt class="docutils literal">__ge__</tt></td>
+<td><tt class="docutils literal">s</tt> in <tt class="docutils literal">s2</tt> (see <tt class="docutils literal">.issuperset</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">s &gt; s2</tt></td>
+<td><tt class="docutils literal">__gt__</tt></td>
+<td>Strict superset (<tt class="docutils literal">s &gt;= s2</tt> but <tt class="docutils literal">s != s2</tt>).</td>
+</tr>
+<tr><td>No hash</td>
+<td><tt class="docutils literal">__hash__</tt></td>
+<td>Set to <tt class="docutils literal">None</tt> to ensure you can't insert in dictionary</td>
+</tr>
+<tr><td><tt class="docutils literal">s &amp;= s2</tt></td>
+<td><tt class="docutils literal">__iand__</tt></td>
+<td>Augmented (mutates <tt class="docutils literal">s</tt>) intersection (see <tt class="docutils literal">.intersection_update</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">s |= s2</tt></td>
+<td><tt class="docutils literal">__ior__</tt></td>
+<td>Augmented (mutates <tt class="docutils literal">s</tt>) union (see <tt class="docutils literal">.update</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">s <span class="pre">-=</span> s2</tt></td>
+<td><tt class="docutils literal">__isub__</tt></td>
+<td>Augmented (mutates <tt class="docutils literal">s</tt>) difference (see <tt class="docutils literal">.difference_update</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">for thing in s:</tt></td>
+<td><tt class="docutils literal">__iter__</tt></td>
+<td>Iteration</td>
+</tr>
+<tr><td><tt class="docutils literal">s ^= s2</tt></td>
+<td><tt class="docutils literal">__ixor__</tt></td>
+<td>Augmented (mutates <tt class="docutils literal">s</tt>) xor (see <tt class="docutils literal">.symmetric_difference_update</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">s &lt;= s2</tt></td>
+<td><tt class="docutils literal">__le__</tt></td>
+<td><tt class="docutils literal">s2</tt> in <tt class="docutils literal">s</tt> (see <tt class="docutils literal">.issubset</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">len(s)</tt></td>
+<td><tt class="docutils literal">__len__</tt></td>
+<td>Length</td>
+</tr>
+<tr><td><tt class="docutils literal">s &lt; s2</tt></td>
+<td><tt class="docutils literal">__lt__</tt></td>
+<td>Strict subset (<tt class="docutils literal">s &lt;= s2</tt> but <tt class="docutils literal">s != s2</tt>).</td>
+</tr>
+<tr><td><tt class="docutils literal">s != s2</tt></td>
+<td><tt class="docutils literal">__ne__</tt></td>
+<td>Not equal</td>
+</tr>
+<tr><td><tt class="docutils literal">s | s2</tt></td>
+<td><tt class="docutils literal">__or__</tt></td>
+<td>Set union (see <tt class="docutils literal">.union</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">foo &amp; s</tt></td>
+<td><tt class="docutils literal">__rand__</tt></td>
+<td>Called if <tt class="docutils literal">foo</tt> doesn't implement <tt class="docutils literal">__and__</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">repr(s)</tt></td>
+<td><tt class="docutils literal">__repr__</tt></td>
+<td>Programmer friendly string</td>
+</tr>
+<tr><td><tt class="docutils literal">foo | s</tt></td>
+<td><tt class="docutils literal">__ror__</tt></td>
+<td>Called if <tt class="docutils literal">foo</tt> doesn't implement <tt class="docutils literal">__or__</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">foo - s</tt></td>
+<td><tt class="docutils literal">__rsub__</tt></td>
+<td>Called if <tt class="docutils literal">foo</tt> doesn't implement <tt class="docutils literal">__sub__</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">foo ^ s</tt></td>
+<td><tt class="docutils literal">__rxor__</tt></td>
+<td>Called if <tt class="docutils literal">foo</tt> doesn't implement <tt class="docutils literal">__xor__</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">s.__sizeof__()</tt></td>
+<td><tt class="docutils literal">__sizeof__</tt></td>
+<td>Bytes for internal representation</td>
+</tr>
+<tr><td><tt class="docutils literal">str(s)</tt></td>
+<td><tt class="docutils literal">__str__</tt></td>
+<td>User friendly string</td>
+</tr>
+<tr><td><tt class="docutils literal">s - s2</tt></td>
+<td><tt class="docutils literal">__sub__</tt></td>
+<td>Set difference (see <tt class="docutils literal">.difference</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">s ^ s2</tt></td>
+<td><tt class="docutils literal">__xor__</tt></td>
+<td>Set xor (see <tt class="docutils literal">.symmetric_difference</tt>)</td>
+</tr>
+</tbody>
+</table>
+<!-- longtable: format: {p{.55\textwidth} p{.35\textwidth}} -->
+<!-- longtable: format: {>{\hangindent=1em\hangafter=1\arraybackslash }p{.6\textwidth}  >{\hangindent=1em\hangafter=1\raggedright\arraybackslash }p{.30\textwidth}} -->
+<table border="1" class="docutils">
+<caption>Set Methods</caption>
+<colgroup>
+<col width="45%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Operation</th>
+<th class="head">Result</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">s.add(item)</tt></td>
+<td>Add <tt class="docutils literal">item</tt> to <tt class="docutils literal">s</tt> (mutates <tt class="docutils literal">s</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">s.clear()</tt></td>
+<td>Remove elements from <tt class="docutils literal">s</tt> (mutates <tt class="docutils literal">s</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">s.copy()</tt></td>
+<td>Shallow copy</td>
+</tr>
+<tr><td><tt class="docutils literal">s.difference(s2)</tt></td>
+<td>Return set with elements from <tt class="docutils literal">s</tt> and not <tt class="docutils literal">s2</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">s.difference_update(s2)</tt></td>
+<td>Remove <tt class="docutils literal">s2</tt> items from <tt class="docutils literal">s</tt> (mutates <tt class="docutils literal">s</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">s.discard(item)</tt></td>
+<td>Remove <tt class="docutils literal">item</tt> from s (mutates <tt class="docutils literal">s</tt>). No error on missing <tt class="docutils literal">item</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">s.intersection(s2)</tt></td>
+<td>Return set with elements from both sets</td>
+</tr>
+<tr><td><tt class="docutils literal">s.intersection_update(s2)</tt></td>
+<td>Update <tt class="docutils literal">s</tt> with members of <tt class="docutils literal">s2</tt> (mutates <tt class="docutils literal">s</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">s.isdisjoint(s2)</tt></td>
+<td><tt class="docutils literal">True</tt> if there is no intersection of these two sets</td>
+</tr>
+<tr><td><tt class="docutils literal">s.issubset(s2)</tt></td>
+<td><tt class="docutils literal">True</tt> if all elements of <tt class="docutils literal">s</tt> are in <tt class="docutils literal">s2</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">s.issuperset(s2)</tt></td>
+<td><tt class="docutils literal">True</tt> if all elements of <tt class="docutils literal">s2</tt> are in <tt class="docutils literal">s</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">s.pop()</tt></td>
+<td>Remove arbitrary item from s (mutates <tt class="docutils literal">s</tt>). <tt class="docutils literal">KeyError</tt> on missing <tt class="docutils literal">item</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">s.remove(item)</tt></td>
+<td>Remove <tt class="docutils literal">item</tt> from s (mutates <tt class="docutils literal">s</tt>). <tt class="docutils literal">KeyError</tt> on missing <tt class="docutils literal">item</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">s.symmetric_difference(s2)</tt></td>
+<td>Return set with elements only in one of the sets</td>
+</tr>
+<tr><td><tt class="docutils literal">s.symmetric_difference_update(s2)</tt></td>
+<td>Update <tt class="docutils literal">s</tt> with elements only in one of the sets (mutates <tt class="docutils literal">s</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">s.union(s2)</tt></td>
+<td>Return all elements of both sets</td>
+</tr>
+<tr><td><tt class="docutils literal">s.update(s2)</tt></td>
+<td>Update <tt class="docutils literal">s</tt> with all elements of both sets (mutates <tt class="docutils literal">s</tt>)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="built-in-functions">
+<h2><a class="toc-backref" href="#id27">Built in Functions</a></h2>
+<p>In the default namespace you have access to various callables:</p>
+<!-- longtable: format: {p{.35\textwidth} p{.55\textwidth}} -->
+<!-- longtable: format: {>{\hangindent=1em\hangafter=1\raggedright\arraybackslash }p{.35\textwidth}  >{\hangindent=1em\hangafter=1\raggedright\arraybackslash }p{.55\textwidth}} -->
+<table border="1" class="docutils">
+<caption>Built in callables</caption>
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Operation</th>
+<th class="head">Result</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">abs(x)</tt></td>
+<td>Absolute value protocol (call <tt class="docutils literal">x.__abs__()</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">all(seq)</tt></td>
+<td>Boolean check if all items in <tt class="docutils literal">seq</tt> are truthy</td>
+</tr>
+<tr><td><tt class="docutils literal">any(seq)</tt></td>
+<td>Boolean check if at least one item in <tt class="docutils literal">seq</tt> is truthy</td>
+</tr>
+<tr><td><tt class="docutils literal">ascii(x)</tt></td>
+<td>ASCII representation of object</td>
+</tr>
+<tr><td><tt class="docutils literal">bin(i)</tt></td>
+<td>String containing binary version of number (<tt class="docutils literal">int(bin(i), 2)</tt> to reverse)</td>
+</tr>
+<tr><td><tt class="docutils literal">bool(x)</tt></td>
+<td>Boolean protocol (call <tt class="docutils literal">x.__bool__()</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">bytearray(x)</tt></td>
+<td>Create a mutable bytearray from iterable of ints, text string, bytes, an integer, or pass nothing for an empty bytearray</td>
+</tr>
+<tr><td><tt class="docutils literal">bytes(x)</tt></td>
+<td>Create an immutable bytes from iterable of ints, text string, bytes, an integer, or pass nothing for an empty bytes</td>
+</tr>
+<tr><td><tt class="docutils literal">callable(x)</tt></td>
+<td>Boolean check if you can do <tt class="docutils literal">x()</tt> (ie <tt class="docutils literal">x.__call__</tt> exists)</td>
+</tr>
+<tr><td><tt class="docutils literal">chr(i)</tt></td>
+<td>Convert integer codepoint to Unicode string (<tt class="docutils literal">ord(chr(i))</tt> to reverse)</td>
+</tr>
+<tr><td><tt class="docutils literal">&#64;classmethod</tt></td>
+<td>Use to decorate a method so you can invoke it on the class</td>
+</tr>
+<tr><td><tt class="docutils literal">compile(source, fname, mode)</tt></td>
+<td>Compile <tt class="docutils literal">source</tt> to code (<tt class="docutils literal">fname</tt> used for error, <tt class="docutils literal">mode</tt> is <tt class="docutils literal">exec</tt>: module, <tt class="docutils literal">single</tt>: statement, <tt class="docutils literal">eval</tt>: expression). Can run <tt class="docutils literal">eval(code)</tt> on expression, <tt class="docutils literal">exec(code)</tt> on statement</td>
+</tr>
+<tr><td><tt class="docutils literal">complex(i, y)</tt></td>
+<td>Create complex number</td>
+</tr>
+<tr><td><tt class="docutils literal">copyright</tt></td>
+<td>Python copyright string</td>
+</tr>
+<tr><td><tt class="docutils literal">credits</tt></td>
+<td>Python credits string</td>
+</tr>
+<tr><td><tt class="docutils literal">delattr(obj, attr)</tt></td>
+<td>Remove attribute from <tt class="docutils literal">obj</tt> (<tt class="docutils literal">del obj.attr</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">dict([x])</span></tt></td>
+<td>Create a dictionary from a mapping, iterable of k,v tuples, named parameters, or pass nothing for an empty dictionary</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">dir([obj])</span></tt></td>
+<td>List attributes of <tt class="docutils literal">obj</tt>, or names in current namespace if no <tt class="docutils literal">obj</tt> provided</td>
+</tr>
+<tr><td><tt class="docutils literal">divmod(num, denom)</tt></td>
+<td>Return tuple pair of <tt class="docutils literal"><span class="pre">num//denom</span></tt> and <tt class="docutils literal">num%denom</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">enumerate(seq, [start])</tt></td>
+<td>Return iterator of index, item tuple pairs. Index begins at <tt class="docutils literal">start</tt> or <tt class="docutils literal">0</tt> (default)</td>
+</tr>
+<tr><td><tt class="docutils literal">eval(source, globals=None, locals=None)</tt></td>
+<td>Run <tt class="docutils literal">source</tt> (expression string or result of <tt class="docutils literal">compile</tt>) with globals and locals</td>
+</tr>
+<tr><td><tt class="docutils literal">exec(source, globals=None, locals=None)</tt></td>
+<td>Run <tt class="docutils literal">source</tt> (statement string or result of <tt class="docutils literal">compile</tt>) with globals and locals</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">exit([code])</span></tt></td>
+<td>Exit Python interpreter and return code (default 0)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">filter([function],</span> seq)</tt></td>
+<td>Return iterator of items where <tt class="docutils literal">function(item)</tt> is truthy (or <tt class="docutils literal">item</tt> is truthy if <tt class="docutils literal">function</tt> is missing)</td>
+</tr>
+<tr><td><tt class="docutils literal">float(x)</tt></td>
+<td>Convert string or number to float (call <tt class="docutils literal">x.__float__()</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">format(obj, fmt)</tt></td>
+<td>Format protocol (call <tt class="docutils literal">obj.__format__(fmt)</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">frozenset([seq])</span></tt></td>
+<td>Create <tt class="docutils literal">frozenset</tt> from <tt class="docutils literal">seq</tt> (empty if missing)</td>
+</tr>
+<tr><td><tt class="docutils literal">getattr(obj, attr)</tt></td>
+<td>Get attribute from <tt class="docutils literal">obj</tt> (<tt class="docutils literal">obj.attr</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">globals()</tt></td>
+<td>Return <em>mutable</em> dictionary with current global variables</td>
+</tr>
+<tr><td><tt class="docutils literal">hasattr(obj, attr)</tt></td>
+<td>Check if attribute on <tt class="docutils literal">obj</tt> (<tt class="docutils literal">obj.attr</tt> doesn't throw <tt class="docutils literal">AttributeError</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">hash(x)</tt></td>
+<td>Hash value protocol for object (call <tt class="docutils literal">x.__hash__()</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">help([x])</span></tt></td>
+<td>Start interactive help (if no <tt class="docutils literal">x</tt>), or print documentation for <tt class="docutils literal">x</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">hex(i)</tt></td>
+<td>String containing hexadecimal version of number (<tt class="docutils literal">int(hex(i), 16)</tt> to reverse)</td>
+</tr>
+<tr><td><tt class="docutils literal">id(x)</tt></td>
+<td>Identity of <tt class="docutils literal">x</tt></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">input([prompt])</span></tt></td>
+<td>Read string from standard input</td>
+</tr>
+<tr><td><tt class="docutils literal">int(x, [base=10])</tt></td>
+<td>Create integer from number or string</td>
+</tr>
+<tr><td><tt class="docutils literal">isinstance(obj, class_or_tuple)</tt></td>
+<td>Boolean check if <tt class="docutils literal">obj</tt> is an instance or subclass of <tt class="docutils literal">class_or_tuple</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">issubclass(cls, class_or_tuple)</tt></td>
+<td>Boolean check if <tt class="docutils literal">cls</tt> is the class or derived from <tt class="docutils literal">class_or_tuple</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">iter(seq)</tt></td>
+<td>Iteration protocol (call <tt class="docutils literal">seq.__iter__()</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">len(seq)</tt></td>
+<td>Number of items in sequence</td>
+</tr>
+<tr><td><tt class="docutils literal">license()</tt></td>
+<td>Display Python licenses</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">list([seq])</span></tt></td>
+<td>Convert <tt class="docutils literal">seq</tt> to list (empty if missing)</td>
+</tr>
+<tr><td><tt class="docutils literal">locals()</tt></td>
+<td>Return dictionary of local attributes (unlike <tt class="docutils literal">globals</tt>, not guaranteed to update namespace when mutated)</td>
+</tr>
+<tr><td><tt class="docutils literal">map(function, *seqs)</tt></td>
+<td>Call <tt class="docutils literal">function(item)</tt> for item in <tt class="docutils literal">seqs</tt> (if single sequence) or <tt class="docutils literal"><span class="pre">function(seqs[0][0],</span> <span class="pre">seqs[1][0]...)</span></tt></td>
+</tr>
+<tr><td><tt class="docutils literal">max(seq, *, [default], [key])</tt></td>
+<td>Return maximum value from <tt class="docutils literal">seq</tt>. <tt class="docutils literal">default</tt> (value if empty <tt class="docutils literal">seq</tt>) and <tt class="docutils literal">key</tt> (function to determine magnitude) are keyword parameters.</td>
+</tr>
+<tr><td><tt class="docutils literal">memoryview(obj)</tt></td>
+<td>Create <tt class="docutils literal">memoryview</tt> from <tt class="docutils literal">obj</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">min(seq, *, [default], [key])</tt></td>
+<td>Return minimum value from <tt class="docutils literal">seq</tt>. <tt class="docutils literal">default</tt> (value if empty <tt class="docutils literal">seq</tt>) and <tt class="docutils literal">key</tt> (function to determine magnitude) are keyword parameters.</td>
+</tr>
+<tr><td><tt class="docutils literal">next(iter, [default])</tt></td>
+<td>Get next item from iteration protocol (call <tt class="docutils literal">iter.__next__()</tt>), if <tt class="docutils literal">default</tt> provide return instead of raising <tt class="docutils literal">StopIteration</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">object</tt></td>
+<td>Root base type</td>
+</tr>
+<tr><td><tt class="docutils literal">oct(i)</tt></td>
+<td>String containing octal version of number (<tt class="docutils literal">int(oct(i), 8)</tt> to reverse)</td>
+</tr>
+<tr><td><tt class="docutils literal">open(filename, [mode], [encoding], [errors])</tt></td>
+<td>Open a file</td>
+</tr>
+<tr><td><tt class="docutils literal">ord(s)</tt></td>
+<td>Convert Unicode string to integer codepoint (<tt class="docutils literal">chr(ord(s))</tt> to reverse)</td>
+</tr>
+<tr><td><tt class="docutils literal">pow(num, exp, [z])</tt></td>
+<td>Power protocol (call <tt class="docutils literal">num.__pow__(exp, z)</tt>) (<tt class="docutils literal">num ** exp</tt> or <tt class="docutils literal">num ** exp % z</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">print(val, [val2 <span class="pre">...],</span> *, sep=' ', <span class="pre">end='\n',</span> file=sys.stdout)</tt></td>
+<td>Print values to <tt class="docutils literal">file</tt>. Print protocol (call <tt class="docutils literal">val.__str__()</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">&#64;property</tt></td>
+<td>Decorator to turn a method into an attribute</td>
+</tr>
+<tr><td><tt class="docutils literal">quit()</tt></td>
+<td>Quit interpreter</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">range([start],</span> stop, [step])</tt></td>
+<td>Return range object that iterates from <tt class="docutils literal">start</tt> (default <tt class="docutils literal">0</tt>) to <tt class="docutils literal">stop - 1</tt>, by <tt class="docutils literal">step</tt> increments (default <tt class="docutils literal">1</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">repr(x)</tt></td>
+<td>Representation protocol (call <tt class="docutils literal">x.__repr__()</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">reversed(seq)</tt></td>
+<td>Reverse iterator</td>
+</tr>
+<tr><td><tt class="docutils literal">round(num, [ndigits=0])</tt></td>
+<td>Round to <tt class="docutils literal">ndigits</tt> protocol (call <tt class="docutils literal">num.__round__()</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">set([seq])</span></tt></td>
+<td>Create <tt class="docutils literal">set</tt> from <tt class="docutils literal">seq</tt> (empty if missing)</td>
+</tr>
+<tr><td><tt class="docutils literal">setattr(obj, attr, val)</tt></td>
+<td>Set attribute on <tt class="docutils literal">obj</tt> (<tt class="docutils literal">obj.attr = val</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">slice([start],</span> stop, [step])</tt></td>
+<td>Create <tt class="docutils literal">slice</tt> object</td>
+</tr>
+<tr><td><tt class="docutils literal">sorted(seq, * [key=None], [reverse=False])</tt></td>
+<td>Sorted list in ascending order (use <tt class="docutils literal">key</tt> function to customize sort property)</td>
+</tr>
+<tr><td><tt class="docutils literal">&#64;staticmethod</tt></td>
+<td>Use to decorate a method so you can invoke it on the class or instance</td>
+</tr>
+<tr><td><tt class="docutils literal">str(obj)</tt></td>
+<td>Create string (call <tt class="docutils literal">obj.__str__()</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">str(bytes, [encoding], [errors])</tt></td>
+<td>Create string from bytes (<tt class="docutils literal">errors</tt> defaults to <tt class="docutils literal">strict</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">sum(seq, [start=0])</tt></td>
+<td>Sum values from <tt class="docutils literal">seq</tt> (use <tt class="docutils literal">start</tt> as initial value)</td>
+</tr>
+<tr><td><tt class="docutils literal">super()</tt></td>
+<td>Get access to superclass</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">tuple([seq])</span></tt></td>
+<td>Convert <tt class="docutils literal">seq</tt> to tuple (empty if missing)</td>
+</tr>
+<tr><td><tt class="docutils literal">type(name, bases, dict)</tt></td>
+<td>Create a new type of <tt class="docutils literal">name</tt>, with base classes <tt class="docutils literal">bases</tt>, and attributes <tt class="docutils literal">dict</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">type(obj)</tt></td>
+<td>Return type of <tt class="docutils literal">obj</tt></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">vars([obj])</span></tt></td>
+<td>Return <tt class="docutils literal">obj.__dict__</tt> or <tt class="docutils literal">locals()</tt> if missing</td>
+</tr>
+<tr><td><tt class="docutils literal">zip(seq1, [seq2, <span class="pre">...])</span></tt></td>
+<td>Return iterable of tuples of <tt class="docutils literal">(seq1[0], seq2[0])</tt>, <tt class="docutils literal">(seq1[1], seq2[1])</tt>, ... until shortest sequence</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="unicode">
+<h2><a class="toc-backref" href="#id28">Unicode</a></h2>
+<p>Python 3 represents strings as Unicode. We can <em>encode</em> strings to a series of
+bytes such as UTF-8. If we have bytes, we can <em>decode</em> them to a Unicode string:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; x_sq = 'x²'
+&gt;&gt;&gt; x_sq.encode('utf-8')
+b'x\xc2\xb2'
+
+&gt;&gt;&gt; utf8_bytes = b'x\xc2\xb2'
+&gt;&gt;&gt; utf8_bytes.decode('utf-8')
+'x²'
+</pre>
+<p>If you have the unicode glyph, you can use that directly. Alternatively, you
+can enter a code point using <tt class="docutils literal">\u</tt> followed by the 16-bit hex value xxxx.
+For larger code points, use <tt class="docutils literal">\U</tt> followed by xxxxxxxx. If you have the
+Unicode name (obtained by consulting tables at unicode.org), you can use
+the <tt class="docutils literal">\N</tt> syntax. The following are equivalent:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; result = 'x²'
+&gt;&gt;&gt; result = 'x\u00b2'
+&gt;&gt;&gt; result = 'x\N{SUPERSCRIPT TWO}'
+</pre>
+<div class="figure">
+<img alt="" src="img/py/uniencode.png" />
+<p class="caption">Image illustrating <em>encoding</em> a Unicode string to a byte representation. In this case,
+we convert to UTF-8. There are other byte encodings for this string. If we have a UTF-8
+byte string, we can <em>decode</em> it into a Unicode string. Note that we should be explicit
+about the decoding as there are potentially other encodings that we could decode to
+that might give the user erroneous data, or <em>mojibake</em>.</p>
+</div>
+</div>
+<div class="section" id="string-formatting">
+<h2><a class="toc-backref" href="#id29">String Formatting</a></h2>
+<p>Most modern Python code uses the <tt class="docutils literal">.format</tt> method (PEP 3101) to create strings from other parts. The format method uses <tt class="docutils literal">{}</tt> as a placeholder.</p>
+<p>Inside of the placeholder we can provide different specifiers:</p>
+<ul class="simple">
+<li><tt class="docutils literal">{0}</tt> - reference first positional argument</li>
+<li><tt class="docutils literal">{}</tt> - reference implicit positional argument</li>
+<li><tt class="docutils literal">{result}</tt> - reference keyword argument</li>
+<li><tt class="docutils literal">{bike.tire}</tt> - reference attribute of argument</li>
+<li><tt class="docutils literal">{names[0]}</tt> - reference first element of argument</li>
+</ul>
+<pre class="literal-block">
+&gt;&gt;&gt; person = {'name': 'Paul',
+...     'instrument': 'Bass'}
+&gt;&gt;&gt; inst = person['instrument']
+
+
+&gt;&gt;&gt; print(&quot;Name: {} plays: {}&quot;.format(
+...     person['name'], inst))
+Name: Paul plays: Bass
+</pre>
+<p>or:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; print(&quot;Name: {name} &quot;
+...       &quot;plays: {inst}&quot;.format(
+...       name=person['name'], inst=inst))
+Name: Paul plays: Bass
+</pre>
+<p>You can also use <em>f-strings</em> in Python 3.6 (see PEP 498):</p>
+<pre class="literal-block">
+&gt;&gt;&gt; print(f'Name: {person[&quot;name&quot;]} plays: {inst}')
+Name: Paul plays: Bass
+</pre>
+<p>F-strings inspect variables that are available and allow you to
+inline methods, or attributes from those variables.</p>
+<div class="section" id="conversion-flags">
+<h3><a class="toc-backref" href="#id30">Conversion Flags</a></h3>
+<p>You can provide a <em>conversion flag</em> inside the placeholder.</p>
+<ul class="simple">
+<li><tt class="docutils literal">!s</tt> - Call <tt class="docutils literal">str()</tt> on argument</li>
+<li><tt class="docutils literal">!r</tt> - Call <tt class="docutils literal">repr()</tt> on argument</li>
+<li><tt class="docutils literal">!a</tt> - Call <tt class="docutils literal">ascii()</tt> on argument</li>
+</ul>
+<pre class="literal-block">
+&gt;&gt;&gt; class Cat:
+...     def __init__(self, name):
+...         self.name = name
+...     def __format__(self, data):
+...         return &quot;Format&quot;
+...     def __str__(self):
+...         return &quot;Str&quot;
+...     def __repr__(self):
+...         return &quot;Repr&quot;
+
+&gt;&gt;&gt; cat = Cat(&quot;Fred&quot;)
+&gt;&gt;&gt; print(&quot;{} {!s} {!a} {!r}&quot;.format(cat, cat, cat,
+...       cat))
+Format Str Repr Repr
+</pre>
+</div>
+<div class="section" id="format-specification">
+<h3><a class="toc-backref" href="#id31">Format Specification</a></h3>
+<p>You can provide a format specification following a colon. The grammar for format specification is as follows:</p>
+<pre class="literal-block">
+[[fill]align][sign][#][0][width][grouping_option]
+[.precision][type]
+</pre>
+<p>The following table lists the field meanings.</p>
+<!-- longtable: format: {>{\hangindent=1em\hangafter=1\raggedright\arraybackslash }r >{\hangindent=1em\hangafter=1\raggedright\arraybackslash}p{.55\textwidth}} -->
+<table border="1" class="docutils">
+<colgroup>
+<col width="37%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Field</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>fill</td>
+<td>Fills in space with <tt class="docutils literal">align</tt></td>
+</tr>
+<tr><td>align</td>
+<td><tt class="docutils literal">&lt;</tt>-left align,
+<tt class="docutils literal">&gt;</tt>-right align,
+<tt class="docutils literal">^</tt>-center align,
+<tt class="docutils literal">=</tt>-put padding after sign</td>
+</tr>
+<tr><td>sign</td>
+<td><tt class="docutils literal">+</tt>-for all number,
+<tt class="docutils literal">-</tt>-only negative,
+<em>space</em>-leading space for
+positive, sign on negative</td>
+</tr>
+<tr><td>#</td>
+<td>Prefix integers. <tt class="docutils literal">Ob</tt>-binary,
+<tt class="docutils literal">0o</tt>-octal, <tt class="docutils literal">0x</tt>-hex</td>
+</tr>
+<tr><td>0</td>
+<td>Enable zero padding</td>
+</tr>
+<tr><td>width</td>
+<td>Minimum field width</td>
+</tr>
+<tr><td>grouping_option</td>
+<td><tt class="docutils literal">,</tt>-Use comma for thousands
+separator, <tt class="docutils literal">_</tt>-Use underscore
+for thousands separator</td>
+</tr>
+<tr><td>.precision</td>
+<td>Digits after period (floats).
+Max string length (non-numerics)</td>
+</tr>
+<tr><td>type</td>
+<td><tt class="docutils literal">s</tt>-string format (default)
+see Integer and Float charts</td>
+</tr>
+</tbody>
+</table>
+<p>The tables below lists the various options we have for formatting integer and floating point numbers.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="37%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Integer Types</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">b</tt></td>
+<td>binary</td>
+</tr>
+<tr><td><tt class="docutils literal">c</tt></td>
+<td>character - convert to unicode
+character</td>
+</tr>
+<tr><td><tt class="docutils literal">d</tt></td>
+<td>decimal (default)</td>
+</tr>
+<tr><td><tt class="docutils literal">n</tt></td>
+<td>decimal with locale specific
+separators</td>
+</tr>
+<tr><td><tt class="docutils literal">o</tt></td>
+<td>octal</td>
+</tr>
+<tr><td><tt class="docutils literal">x</tt></td>
+<td>hex (lower-case)</td>
+</tr>
+<tr><td><tt class="docutils literal">X</tt></td>
+<td>hex (upper-case)</td>
+</tr>
+</tbody>
+</table>
+<!-- longtable: format: {>{\hangindent=1em\hangafter=1\raggedright\arraybackslash }r >{\hangindent=1em\hangafter=1\raggedright\arraybackslash}p{.55\textwidth}} -->
+<table border="1" class="docutils">
+<colgroup>
+<col width="37%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Float Types</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">e</tt>/<tt class="docutils literal">E</tt></td>
+<td>Exponent. Lower/upper-case e</td>
+</tr>
+<tr><td><tt class="docutils literal">f</tt></td>
+<td>Fixed point</td>
+</tr>
+<tr><td><tt class="docutils literal">g</tt>/<tt class="docutils literal">G</tt></td>
+<td>General. Fixed with exponent for
+large,
+and small numbers (<tt class="docutils literal">g</tt> default)</td>
+</tr>
+<tr><td><tt class="docutils literal">n</tt></td>
+<td><tt class="docutils literal">g</tt> with locale specific
+separators</td>
+</tr>
+<tr><td><tt class="docutils literal">%</tt></td>
+<td>Percentage (multiplies by 100)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="some-format-examples">
+<h3><a class="toc-backref" href="#id32">Some <tt class="docutils literal">format</tt> Examples</a></h3>
+<p>Here are a few examples of using <tt class="docutils literal">.format</tt>.
+Let’s format a string in the center of 12 characters surrounded by <tt class="docutils literal">*</tt>.
+<tt class="docutils literal">*</tt> is the <em>fill</em> character, <tt class="docutils literal">^</tt> is the <em>align</em> field, and <tt class="docutils literal">12</tt> is the
+<em>width</em> field:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; &quot;Name: {:*^12}&quot;.format(&quot;Ringo&quot;)
+'Name: ***Ringo****'
+</pre>
+<p>Next, we format a percentage using a width of 10, one decimal place and the
+sign before the width padding. <tt class="docutils literal">=</tt> is the <em>align</em> field, <tt class="docutils literal">10.1</tt> are the <em>width</em>
+and <em>precision</em> fields, and <tt class="docutils literal">%</tt> is the <em>float type</em>, which converts the number
+to a percentage:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; &quot;Percent: {:=10.1%}&quot;.format(-44/100)
+'Percent: -    44.0%'
+</pre>
+<p>Below is a binary and a hex conversion. The <em>integer type</em> field is set to <tt class="docutils literal">b</tt> and <tt class="docutils literal">x</tt> respectively:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; &quot;Binary: {:#b}&quot;.format(12)
+'Binary: 0b1100'
+
+&gt;&gt;&gt; &quot;Hex: {:#x}&quot;.format(12)
+'Hex: 0xc'
+</pre>
+</div>
+</div>
+<div class="section" id="files">
+<h2><a class="toc-backref" href="#id33">Files</a></h2>
+<p>The <tt class="docutils literal">open</tt> function will take a file path and mode as input and return a file
+handle. There are various modes to open a file, depending on the content and
+your needs. If you open the file in binary mode, you will get bytes out. In text
+mode you will get strings back:</p>
+<!-- longtable: format: {r l} -->
+<table border="1" class="docutils">
+<caption>File Modes</caption>
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Mode</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">'r'</tt></td>
+<td>Read text file (default)</td>
+</tr>
+<tr><td><tt class="docutils literal">'w'</tt></td>
+<td>Write text file (truncates if exists)</td>
+</tr>
+<tr><td><tt class="docutils literal">'x'</tt></td>
+<td>Write text file, throw <tt class="docutils literal">FileExistsError</tt> if exists.</td>
+</tr>
+<tr><td><tt class="docutils literal">'a'</tt></td>
+<td>Append to text file (write to end)</td>
+</tr>
+<tr><td><tt class="docutils literal">'rb'</tt></td>
+<td>Read binary file</td>
+</tr>
+<tr><td><tt class="docutils literal">'wb'</tt></td>
+<td>Write binary (truncate)</td>
+</tr>
+<tr><td><tt class="docutils literal">'w+b'</tt></td>
+<td>Open binary file for reading and writing</td>
+</tr>
+<tr><td><tt class="docutils literal">'xb'</tt></td>
+<td>Write binary file, throw <tt class="docutils literal">FileExistsError</tt> if exists.</td>
+</tr>
+<tr><td><tt class="docutils literal">'ab'</tt></td>
+<td>Append to binary file (write to end)</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="writing-files">
+<h3><a class="toc-backref" href="#id34">Writing Files</a></h3>
+<p>We use a context manager with a file to ensure that the file is closed when the context block exits.</p>
+<pre class="literal-block">
+&gt;&gt;&gt; with open('/tmp/names.txt', 'w') as fout:
+...     fout.write('Paul\r\nJohn\n')
+...     fout.writelines(['Ringo\n', 'George\n'])
+</pre>
+</div>
+<div class="section" id="reading-files">
+<h3><a class="toc-backref" href="#id35">Reading Files</a></h3>
+<p>With an opened text file, you can iterate over the lines. This saves memory as the lines are read in as needed:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; with open('/tmp/names.txt') as fin:
+...     for line in fin:
+...         print(repr(line))
+'Paul\n'
+'John\n'
+'Ringo\n'
+'George\n'
+</pre>
+<!-- longtable: format: {p{.25\textwidth} p{.65\textwidth}} -->
+<!-- longtable: format: {>{\hangindent=1em\hangafter=1\raggedright\arraybackslash }p{.25\textwidth}  >{\hangindent=1em\hangafter=1\raggedright\arraybackslash }p{.65\textwidth}} -->
+<table border="1" class="docutils">
+<caption>File Methods</caption>
+<colgroup>
+<col width="32%" />
+<col width="68%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Operation</th>
+<th class="head">Result</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">f.__iter__()</tt></td>
+<td>Support iteration</td>
+</tr>
+<tr><td><tt class="docutils literal">f.__next__()</tt></td>
+<td>Return next item of iteration (line in text)</td>
+</tr>
+<tr><td><tt class="docutils literal">f.__repr__()</tt></td>
+<td>Implementation for <tt class="docutils literal">repr(f)</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">f.buffer</tt></td>
+<td>File buffer</td>
+</tr>
+<tr><td><tt class="docutils literal">f.close()</tt></td>
+<td>Close file</td>
+</tr>
+<tr><td><tt class="docutils literal">f.closed</tt></td>
+<td>Is closed</td>
+</tr>
+<tr><td><tt class="docutils literal">f.detach()</tt></td>
+<td>Detach file buffer from file</td>
+</tr>
+<tr><td><tt class="docutils literal">f.encoding</tt></td>
+<td>The encoding of the file  (default is <tt class="docutils literal">locale.getpreferredencoding()</tt>)</td>
+</tr>
+<tr><td><tt class="docutils literal">f.errors</tt></td>
+<td>Error mode of encoding (<tt class="docutils literal">'strict'</tt> default)</td>
+</tr>
+<tr><td><tt class="docutils literal">f.fileno()</tt></td>
+<td>Return file descriptor</td>
+</tr>
+<tr><td><tt class="docutils literal">f.flush()</tt></td>
+<td>Write file buffer</td>
+</tr>
+<tr><td><tt class="docutils literal">f.isatty()</tt></td>
+<td>Is interactive file</td>
+</tr>
+<tr><td><tt class="docutils literal">f.linebuffering</tt></td>
+<td>Buffered by lines</td>
+</tr>
+<tr><td><tt class="docutils literal">f.name</tt></td>
+<td>Name of file</td>
+</tr>
+<tr><td><tt class="docutils literal">f.newlines</tt></td>
+<td>End of line characters encountered (tuple or string)</td>
+</tr>
+<tr><td><tt class="docutils literal">f.read( <span class="pre">size=-1)</span></tt></td>
+<td>Read <tt class="docutils literal">size</tt> characters (<tt class="docutils literal"><span class="pre">-1</span></tt> is whole file)</td>
+</tr>
+<tr><td><tt class="docutils literal">f.readable()</tt></td>
+<td>Is opened for reading</td>
+</tr>
+<tr><td><tt class="docutils literal">f.readline( <span class="pre">size=-1)</span></tt></td>
+<td>Read <tt class="docutils literal">size</tt> characters from line (<tt class="docutils literal"><span class="pre">-1</span></tt> is whole line)</td>
+</tr>
+<tr><td><tt class="docutils literal">f.readlines( <span class="pre">hint=-1)</span></tt></td>
+<td>Read bytes less than <tt class="docutils literal">hint</tt> characters of lines from file (<tt class="docutils literal"><span class="pre">-1</span></tt> is all file)</td>
+</tr>
+<tr><td><tt class="docutils literal">f.seek(cookie, whence=0)</tt></td>
+<td>Change stream location to <tt class="docutils literal">cookie</tt> bytes (may be negative) offset from <tt class="docutils literal">whence</tt> (<tt class="docutils literal">0</tt> - start, <tt class="docutils literal">1</tt> - current position, <tt class="docutils literal">2</tt> - end).</td>
+</tr>
+<tr><td><tt class="docutils literal">f.seekable()</tt></td>
+<td>File supports random access</td>
+</tr>
+<tr><td><tt class="docutils literal">f.tell()</tt></td>
+<td>Current stream location</td>
+</tr>
+<tr><td><tt class="docutils literal">f.truncate( pos=None)</tt></td>
+<td>Truncate file to <tt class="docutils literal">pos</tt> bytes</td>
+</tr>
+<tr><td><tt class="docutils literal">f.writeable()</tt></td>
+<td>File supports writing</td>
+</tr>
+<tr><td><tt class="docutils literal">f.write(text)</tt></td>
+<td>Write <tt class="docutils literal">text</tt> to file</td>
+</tr>
+<tr><td><tt class="docutils literal">f.writelines( lines)</tt></td>
+<td>Write <tt class="docutils literal">lines</tt> to file (provide newlines if you want them)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="functions">
+<h2><a class="toc-backref" href="#id36">Functions</a></h2>
+<div class="section" id="defining-functions">
+<h3><a class="toc-backref" href="#id37">Defining functions</a></h3>
+<p>Functions may take input, do some processing, and return output. You can
+provide a docstring directly following the name
+and parameters of the function:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; def add_numbers(x, y):
+...     &quot;&quot;&quot; add_numbers sums up x and y
+...
+...     Arguments:
+...     x -- object that supports addition
+...     y -- object that supports addition
+...     &quot;&quot;&quot;
+...     return x + y
+</pre>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We use whitespace to specify a block in Python. We typically indent following a colon. PEP 8 recommends using 4 spaces. Don't mix tabs and spaces.</p>
+</div>
+<p>We can create anonymous functions using the <tt class="docutils literal">lambda</tt> statement. Because they
+only allow an expression following the colon, it is somewhat crippled in functionality.
+They are commonly used as a <tt class="docutils literal">key</tt> argument to <tt class="docutils literal">sorted</tt>, <tt class="docutils literal">min</tt>, or <tt class="docutils literal">max</tt>:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; add = lambda x, y: x + y
+&gt;&gt;&gt; add(4, 5)
+9
+</pre>
+<p>Functions can have <em>default</em> arguments. Be careful with mutable types here,
+as the default is bound to the function when the function is created, not when it is called:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; def add_n(x, n=42):
+...     return x + n
+
+&gt;&gt;&gt; add_n(10)
+52
+&gt;&gt;&gt; add_n(3, -10)
+-7
+</pre>
+<p>Functions can support variable positional arguments:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; def add_many(*args):
+...     result = 0
+...     for arg in args:
+...          result += arg
+...     return result
+
+&gt;&gt;&gt; add_many()
+0
+&gt;&gt;&gt; add_many(1)
+1
+&gt;&gt;&gt; add_many(42, 3.14)
+45.14
+</pre>
+<p>Functions can support variable keyword arguments:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; def add_kwargs(**kwargs):
+...     result = 0
+...     for key in kwargs:
+...         result += kwargs[key]
+...     return result
+
+&gt;&gt;&gt; add_kwargs(x=1, y=2, z=3)
+6
+
+&gt;&gt;&gt; add_kwargs()
+0
+
+&gt;&gt;&gt; add_kwargs(4)
+Traceback (most recent call last):
+  ...
+TypeError: add_kwargs() takes 0 positional arguments
+but 1 was given
+</pre>
+<p>You can indicate the end of positional parameters by using a single <tt class="docutils literal">*</tt>. This gives you <em>keyword only</em> parameters (PEP 3102):</p>
+<pre class="literal-block">
+&gt;&gt;&gt; def add_points(*, x1=0, y1=0, x2=0, y2=0):
+...     return x1 + x2, y1 + y2
+
+&gt;&gt;&gt; add_points(x1=1, y1=1, x2=3, y2=4)
+(4, 5)
+
+&gt;&gt;&gt; add_points(1, 1, 3, 4)
+Traceback (most recent call last):
+  ...
+TypeError: add_points() takes 0 positional arguments
+but 4 were given
+</pre>
+</div>
+<div class="section" id="calling-functions">
+<h3><a class="toc-backref" href="#id38">Calling Functions</a></h3>
+<p>You can also use <tt class="docutils literal">*</tt> and <tt class="docutils literal">**</tt> to <em>unpack</em> sequence and dictionary
+arguments:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; def add_all(*args, **kwargs):
+...     &quot;&quot;&quot;Add all arguments&quot;&quot;&quot;
+...     result = 0
+...     for num in args + tuple(kwargs.values()):
+...         result += num
+...     return result
+
+&gt;&gt;&gt; sizes = (2, 4.5)
+&gt;&gt;&gt; named_sizes = {&quot;this&quot;: 3, &quot;that&quot;: 1}
+</pre>
+<p>The following two examples are the equivalent:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; add_all(*sizes)
+6.5
+
+&gt;&gt;&gt; add_all(sizes[0], sizes[1])
+6.5
+</pre>
+<p>The following two examples are the equivalent:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; add_all(**named_sizes)
+4
+
+&gt;&gt;&gt; add_all(this=3, that=1)
+4
+</pre>
+<p>You can also combine <tt class="docutils literal">*</tt> and <tt class="docutils literal">**</tt> on invocation:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; add_all(*sizes, **named_sizes)
+10.5
+</pre>
+</div>
+<div class="section" id="getting-help">
+<h3><a class="toc-backref" href="#id39">Getting Help</a></h3>
+<p>You can get help on a function that has a docstring by using <tt class="docutils literal">help</tt>:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; help(add_all)
+Help on function add_all in module __main__:
+
+add_all(*args, **kwargs)
+    Add all arguments
+</pre>
+</div>
+</div>
+<div class="section" id="classes">
+<h2><a class="toc-backref" href="#id40">Classes</a></h2>
+<p>Python supports object oriented programming but doesn't require you to create classes. You
+can use the built-in data structures to great effect. Here's a class for a simple bike. The class attribute,
+<tt class="docutils literal">num_passengers</tt>, is shared for all instances of <tt class="docutils literal">Bike</tt>. The instance attributes, <tt class="docutils literal">size</tt> and
+<tt class="docutils literal">ratio</tt>, are unique to each instance:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; class Bike:
+...     ''' Represents a bike '''
+...     num_passengers = 1   # class attribute
+...
+...     def __init__(self, wheel_size,
+...                  gear_ratio):
+...         ''' Create a bike specifying the
+...         wheel size, and gear ratio '''
+...         # instance attributes
+...         self.size = wheel_size
+...         self.ratio = gear_ratio
+...
+...     def gear_inches(self):
+...         return self.ratio * self.size
+</pre>
+<p>We can call the constructor (<tt class="docutils literal">__init__</tt>), by invoking the class name. Note that <tt class="docutils literal">self</tt> is the instance,
+but Python passes that around for us automatically:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; bike = Bike(26, 34/13)
+&gt;&gt;&gt; print(bike.gear_inches())
+68.0
+</pre>
+<p>We can access both class attributes and instance attributes on the instance:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; bike.num_passengers
+1
+
+&gt;&gt;&gt; bike.size
+26
+</pre>
+<p>If an attribute is not found on the instance, Python will then look for it on the class, it will look through
+the parent classes to continue to try and find it. If the lookup is unsuccessful, an <tt class="docutils literal">AttributeError</tt> is raised.</p>
+<div class="section" id="subclasses">
+<h3><a class="toc-backref" href="#id41">Subclasses</a></h3>
+<p>To subclass a class, simply place the parent class name in parentheses following
+the class name in the declaration. We can call the <tt class="docutils literal">super</tt> function to gain access to parent
+methods:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; class Tandem(Bike):
+...     num_passengers = 2
+...
+...     def __init__(self, wheel_size, rings, cogs):
+...         self.rings = rings
+...         self.cogs = cogs
+...         ratio = rings[0] / cogs[0]
+...         super().__init__(wheel_size, ratio)
+...
+...     def shift(self, ring_idx, cog_idx):
+...         self.ratio = self.rings[ring_idx] \
+...              / self.cogs[cog_idx]
+...
+</pre>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In the above example, we used a <tt class="docutils literal">\</tt> to indicate that the
+line continued on the following line. This is usually required
+unless there is an implicit line continuation with an opening
+brace that hasn't been closed
+(<tt class="docutils literal">(</tt>, <tt class="docutils literal">[</tt>, or <tt class="docutils literal">{</tt>).</p>
+</div>
+<p>The instance of the subclass can call methods that are defined on its class or the parent class:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; tan = Tandem(26, [42, 36], [24, 20, 15, 11])
+&gt;&gt;&gt; tan.shift(1, -1)
+&gt;&gt;&gt; tan.gear_inches()
+85.0909090909091
+</pre>
+</div>
+<div class="section" id="class-methods-and-static-methods">
+<h3><a class="toc-backref" href="#id42">Class Methods and Static Methods</a></h3>
+<p>The <tt class="docutils literal">classmethod</tt> decorator is used to create methods that you
+can invoke directly on the
+class. This allows us to create alternate constructors. Note
+that the implicit first argument is the class, commonly
+named <tt class="docutils literal">cls</tt> (as <tt class="docutils literal">class</tt> is a keyword and will error out):</p>
+<pre class="literal-block">
+&gt;&gt;&gt; INCHES_PER_METER = 39.37
+
+&gt;&gt;&gt; class MountainBike(Bike):
+...     &#64;classmethod
+...     def from_metric(cls, size_meters, ratio):
+...          return cls(size_meters *
+...                     INCHES_PER_METER,
+...                     ratio)
+
+
+&gt;&gt;&gt; mtn = MountainBike.from_metric(.559, 38/11)
+&gt;&gt;&gt; mtn.gear_inches()
+76.0270490909091
+</pre>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In the above example, we had an implicit line continuation without a
+backslash, because there was a <tt class="docutils literal">(</tt> on the line.</p>
+</div>
+<p>The <tt class="docutils literal">staticmethod</tt> decorator lets you attach functions to
+a class. (I don't like them, just use a function). Note
+that they don't get an implicit first argument. It can be
+called on the instance or the class:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; class Recumbent(Bike):
+...     &#64;staticmethod
+...     def is_fast():
+...         return True
+
+&gt;&gt;&gt; Recumbent.is_fast()
+True
+
+&gt;&gt;&gt; lawnchair = Recumbent(20, 4)
+&gt;&gt;&gt; lawnchair.is_fast()
+True
+</pre>
+</div>
+<div class="section" id="properties">
+<h3><a class="toc-backref" href="#id43">Properties</a></h3>
+<p>If you want to have actions occur under the covers on attribute access,
+you can use properties to do that:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; class Person:
+...     def __init__(self, name):
+...         self._name = name
+...
+...     &#64;property
+...     def name(self):
+...         if self._name == 'Richard':
+...             return 'Ringo'
+...         return self._name
+...
+...     &#64;name.setter
+...     def name(self, value):
+...         self._name = value
+...
+...     &#64;name.deleter
+...     def name(self):
+...         del self._name
+</pre>
+<p>Rather than calling the <tt class="docutils literal">.name()</tt> method, we access the attribute:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; p = Person('Richard')
+&gt;&gt;&gt; p.name
+'Ringo'
+
+&gt;&gt;&gt; p.name = 'Fred'
+</pre>
+</div>
+</div>
+<div class="section" id="looping">
+<h2><a class="toc-backref" href="#id44">Looping</a></h2>
+<p>You can loop over objects in a sequence:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; names = ['John', 'Paul', 'Ringo']
+&gt;&gt;&gt; for name in names:
+...    print(name)
+John
+Paul
+Ringo
+</pre>
+<p>The <tt class="docutils literal">break</tt> statement will pop you out of a loop:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; for name in names:
+...    if name == 'Paul':
+...        break
+...    print(name)
+John
+</pre>
+<p>The <tt class="docutils literal">continue</tt> statement skips over the body of the loop and <em>continues</em>
+at the next item of iteration:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; for name in names:
+...    if name == 'Paul':
+...        continue
+...    print(name)
+John
+Ringo
+</pre>
+<p>You can use the <tt class="docutils literal">else</tt> statement to indicate that every item was looped
+over, and a <tt class="docutils literal">break</tt> was never encountered:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; for name in names:
+...     if name == 'George':
+...          break
+... else:
+...     raise ValueError(&quot;No Georges&quot;)
+Traceback (most recent call last):
+  ...
+ValueError: No Georges
+</pre>
+<p>Don't loop over index values (<tt class="docutils literal">range(len(names))</tt>). Use <tt class="docutils literal">enumerate</tt>:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; for i, name in enumerate(names, 1):
+...     print(&quot;{}. {}&quot;.format(i, name))
+1. John
+2. Paul
+3. Ringo
+</pre>
+<div class="section" id="while-loops">
+<h3><a class="toc-backref" href="#id45"><tt class="docutils literal">while</tt> Loops</a></h3>
+<p>You can use <tt class="docutils literal">while</tt> loops to create loops as well. If it is an infinite loop,
+you can break out of it:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; done = False
+&gt;&gt;&gt; while not done:
+...     # some work
+...     done = True
+</pre>
+</div>
+<div class="section" id="iteration-protocol">
+<h3><a class="toc-backref" href="#id46">Iteration Protocol</a></h3>
+<p>To make an iterator implement <tt class="docutils literal">__iter__</tt> and  <tt class="docutils literal">__next__</tt>:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; class fib:
+...     def __init__(self, limit=None):
+...         self.val1 = 1
+...         self.val2 = 1
+...         self.limit = limit
+...
+...     def __iter__(self):
+...         return self
+...
+...     def __next__(self):
+...         val = self.val1
+...         self.val1 = self.val2
+...         self.val2 = val + self.val1
+...         if self.limit is not None and \
+...             val &lt; self.limit:
+...             return val
+...         raise StopIteration
+</pre>
+<p>Use the iterator in a loop:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; e = fib(6)
+&gt;&gt;&gt; for val in e:
+...    print(val)
+1
+1
+2
+3
+5
+</pre>
+<p>Unrolling the protocol:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; e = fib(6)
+&gt;&gt;&gt; it = iter(e)  # calls e.__iter__()
+&gt;&gt;&gt; next(it)      # calls it.__next__()
+1
+&gt;&gt;&gt; next(it)
+1
+&gt;&gt;&gt; next(it)
+2
+&gt;&gt;&gt; next(it)
+3
+&gt;&gt;&gt; next(it)
+5
+&gt;&gt;&gt; next(it)
+Traceback (most recent call last):
+  ...
+StopIteration
+</pre>
+</div>
+</div>
+<div class="section" id="conditionals">
+<h2><a class="toc-backref" href="#id47">Conditionals</a></h2>
+<p>Python has an <tt class="docutils literal">if</tt> statement with zero or more <tt class="docutils literal">elif</tt> statements,
+and an optional <tt class="docutils literal">else</tt> statement at the end. In Python, the word <tt class="docutils literal">elif</tt> is Dutch for <em>else if</em>:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; grade = 72
+
+&gt;&gt;&gt; def letter_grade(grade):
+...     if grade &gt; 90:
+...         return 'A'
+...     elif grade &gt; 80:
+...         return 'B'
+...     elif grade &gt; 70:
+...         return 'C'
+...     else:
+...         return 'D'
+
+&gt;&gt;&gt; letter_grade(grade)
+'C'
+</pre>
+<p>Python supports the following tests: <tt class="docutils literal">&gt;</tt>, <tt class="docutils literal">&gt;=</tt>, <tt class="docutils literal">&lt;</tt>, <tt class="docutils literal">&lt;=</tt>, <tt class="docutils literal">==</tt>, and <tt class="docutils literal">!=</tt>. For boolean operators use <tt class="docutils literal">and</tt>, <tt class="docutils literal">or</tt>, and <tt class="docutils literal">not</tt> (<tt class="docutils literal">&amp;</tt>, <tt class="docutils literal">|</tt>, and <tt class="docutils literal">^</tt> are the bitwise operators).</p>
+<p>Note that Python also supports <em>range comparisons</em>:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; x = 4
+&gt;&gt;&gt; if 3 &lt; x &lt; 5:
+...     print(&quot;Four!&quot;)
+Four!
+</pre>
+<p>Python does not have a switch statement, often dictionaries are used to support a similar construct:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; def add(x, y):
+...     return x + y
+
+&gt;&gt;&gt; def sub(x, y):
+...     return x - y
+
+&gt;&gt;&gt; ops = {'+': add, '-': sub}
+
+&gt;&gt;&gt; op = '+'
+&gt;&gt;&gt; a = 2
+&gt;&gt;&gt; b = 3
+&gt;&gt;&gt; ops[op](a, b)
+5
+</pre>
+<div class="section" id="truthiness">
+<h3><a class="toc-backref" href="#id48">Truthiness</a></h3>
+<p>You can define the <tt class="docutils literal">__bool__</tt> method to teach your classes how to act in a boolean context. If that doesn't exists, Python will use <tt class="docutils literal">__len__</tt>, and finally default to <tt class="docutils literal">True</tt>.</p>
+<p>The following table lists <em>truthy</em> and <em>falsey</em> values:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="37%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Truthy</th>
+<th class="head">Falsey</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">True</tt></td>
+<td><tt class="docutils literal">False</tt></td>
+</tr>
+<tr><td>Most objects</td>
+<td><tt class="docutils literal">None</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">1</tt></td>
+<td><tt class="docutils literal">0</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">3.2</tt></td>
+<td><tt class="docutils literal">0.0</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">[1, 2]</tt></td>
+<td><tt class="docutils literal">[]</tt> (empty list)</td>
+</tr>
+<tr><td><tt class="docutils literal">{'a': 1,
+'b': 2}</tt></td>
+<td><tt class="docutils literal">{}</tt> (empty dict)</td>
+</tr>
+<tr><td><tt class="docutils literal">'string'</tt></td>
+<td><tt class="docutils literal">&quot;&quot;</tt> (empty string)</td>
+</tr>
+<tr><td><tt class="docutils literal">'False'</tt></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal">'0'</tt></td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="short-circuiting">
+<h3><a class="toc-backref" href="#id49">Short Circuiting</a></h3>
+<p>The <tt class="docutils literal">and</tt> statement will short circuit if it evaluates to false:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; 0 and 1/0
+0
+</pre>
+<p>Likewise, the <tt class="docutils literal">or</tt> statement will short circuit when something evaluates to true:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; 1 or 1/0
+1
+</pre>
+</div>
+<div class="section" id="ternary-operator">
+<h3><a class="toc-backref" href="#id50">Ternary Operator</a></h3>
+<p>Python has its own ternary operator, called a <em>conditional expression</em> (see PEP 308). These are handy as they can be used in comprehension constructs and <tt class="docutils literal">lambda</tt> functions:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; last = 'Lennon' if band == 'Beatles' else 'Jones'
+</pre>
+<p>Note that this has similar behavior to an <tt class="docutils literal">if</tt> statement, but it is an expression, and not a statement. Python
+distinguishes these two. An easy way to determine between the two, is to remember that an expression follows a <tt class="docutils literal">return</tt> statement. Anything you can <tt class="docutils literal">return</tt> is an expression.</p>
+</div>
+</div>
+<div class="section" id="exceptions">
+<h2><a class="toc-backref" href="#id51">Exceptions</a></h2>
+<p>Python can catch one or more exceptions (PEP 3110). You can provide a chain of different exceptions to catch if you want to react differently.
+A few hints:</p>
+<ul class="simple">
+<li>Try to keep the block of the <tt class="docutils literal">try</tt> statement down to the code that throws exceptions</li>
+<li>Be specific about the exceptions that you catch</li>
+<li>If you want to inspect the exception, use <tt class="docutils literal">as</tt> to create a variable to point to it</li>
+</ul>
+<p>If you use a bare <tt class="docutils literal">raise</tt> inside of an <tt class="docutils literal">except</tt> block, Python's traceback will point back to the
+location of the original exception, rather than where it is raised from.</p>
+<pre class="literal-block">
+&gt;&gt;&gt; def avg(seq):
+...     try:
+...         result = sum(seq) / len(seq)
+...     except ZeroDivisionError as e:
+...         return None
+...     except Exception:
+...         raise
+...     return result
+
+
+&gt;&gt;&gt; avg([1, 2, 4])
+2.3333333333333335
+
+&gt;&gt;&gt; avg([]) is None
+True
+
+&gt;&gt;&gt; avg('matt')
+Traceback (most recent call last):
+  ...
+TypeError: unsupported operand type(s) for +: 'int'
+and 'str'
+</pre>
+<div class="section" id="raising-exceptions">
+<h3><a class="toc-backref" href="#id52">Raising Exceptions</a></h3>
+<p>You can raise an exception using the <tt class="docutils literal">raise</tt> statement (PEP 3109):</p>
+<pre class="literal-block">
+&gt;&gt;&gt; def bad_code(x):
+...     raise ValueError('Bad code')
+
+&gt;&gt;&gt; bad_code(1)
+Traceback (most recent call last):
+  ...
+ValueError: Bad code
+</pre>
+</div>
+</div>
+<div class="section" id="decorators">
+<h2><a class="toc-backref" href="#id53">Decorators</a></h2>
+<p>A decorator (PEP 318) allows us to insert logic before and after a function is called. You can define a decorator with a function that takes a function as input and returns a function as output. Here is the identity decorator:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; def identity(func):
+...     return func
+</pre>
+<p>We can decorate a function with it like this:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; &#64;identity
+... def add(x, y):
+...     return x + y
+</pre>
+<p>A more useful decorator can inject logic before and after calling the original function. To do this we create a function inside of the function and return that:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; import functools
+&gt;&gt;&gt; def verbose(func):
+...     &#64;functools.wraps(func)
+...     def inner(*args, **kwargs):
+...         print(&quot;Calling with:{} {}&quot;.format(args,
+...               kwargs))
+...         res = func(*args, **kwargs)
+...         print(&quot;Result:{}&quot;.format(res))
+...         return res
+...     return inner
+</pre>
+<p>Above, we use print functions to illustrate before/after behavior, otherwise this is very similar to identity decorator.</p>
+<p>There is a special syntax for applying the decorator. We put <tt class="docutils literal">&#64;</tt> before the decorator name and place that on a line directly above the function we wish to decorate. Using the <tt class="docutils literal">&#64;verbose</tt> line before a function declaration is syntactic sugar for re-assigning the variable pointing to the function to the result of calling
+the decorator with the function passed into it:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; &#64;verbose
+... def sub(x, y):
+...     return x - y
+</pre>
+<p>This could also be written as, <tt class="docutils literal">sub = verbose(sub)</tt>. Note that our decorated
+function will still call our original function, but add in some <tt class="docutils literal">print</tt> statements:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; sub(5, 4)
+Calling with:(5, 4) {}
+Result:1
+1
+</pre>
+<div class="section" id="parameterized-decorators">
+<h3><a class="toc-backref" href="#id54">Parameterized Decorators</a></h3>
+<p>Because we can use closures to create functions, we can use closures to create decorators as well.
+This is very similar to our decorator above, but now we make a function that will
+return a decorator. Based on the inputs to that function, we can control (or parameterize)
+the behavior of the decorator:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; def verbose_level(level):
+...     def verbose(func):
+...         &#64;functools.wraps(func)
+...         def inner(*args, **kwargs):
+...             for i in range(level):  # parameterized!
+...                 print(&quot;Calling with:{} {}&quot;.format(
+...                       args, kwargs))
+...             res = func(*args, **kwargs)
+...             print(&quot;Result:{}&quot;.format(res))
+...             return res
+...         return inner
+...     return verbose
+</pre>
+<p>When you decorate with parameterized decorators, the decoration looks differently,
+because we need to invoke the function to create a decorator:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; &#64;verbose_level(2)
+... def div(x, y):
+...     return x/y
+
+&gt;&gt;&gt; div(1, 5)
+Calling with:(1, 5) {}
+Calling with:(1, 5) {}
+Result:0.2
+0.2
+</pre>
+</div>
+</div>
+<div class="section" id="class-decorators-and-metaclasses">
+<h2><a class="toc-backref" href="#id55">Class Decorators and Metaclasses</a></h2>
+<p>Python allows you to dynamically create and modify classes. Class decorators and
+metaclasses are two ways to do this.</p>
+<div class="section" id="class-decorators">
+<h3><a class="toc-backref" href="#id56">Class Decorators</a></h3>
+<p>You can decorate a class definition with a <em>class decorator</em> (PEP 3129). It is a function that takes a class as input and returns a class.</p>
+<pre class="literal-block">
+&gt;&gt;&gt; def add_chirp(cls):
+...     'Class decorator to add speak method'
+...     def chirp(self):
+...         return &quot;CHIRP&quot;
+...     cls.speak = chirp
+...     return cls
+...
+&gt;&gt;&gt; &#64;add_chirp
+... class Bird:
+...     pass
+
+&gt;&gt;&gt; b = Bird()
+&gt;&gt;&gt; print(b.speak())
+CHIRP
+</pre>
+</div>
+<div class="section" id="creating-classes-with-type">
+<h3><a class="toc-backref" href="#id57">Creating Classes with <tt class="docutils literal">type</tt></a></h3>
+<p>You can use <tt class="docutils literal">type</tt> to determine the type of an object, but you can also
+provide the name, parents, and attributes map, and it will return a class.</p>
+<pre class="literal-block">
+&gt;&gt;&gt; def howl(self):
+...     return &quot;HOWL&quot;
+
+&gt;&gt;&gt; parents = ()
+&gt;&gt;&gt; attrs_map = {'speak': howl}
+&gt;&gt;&gt; F = type('F', parents, attrs_map)
+
+&gt;&gt;&gt; f = F()
+&gt;&gt;&gt; print(f.speak())
+HOWL
+</pre>
+</div>
+<div class="section" id="metaclasses-with-functions">
+<h3><a class="toc-backref" href="#id58">Metaclasses with Functions</a></h3>
+<p>In the class definition you can specify a metaclass (PEP 3115), which can be a
+function or a class. Here is an example of a function that can
+alter the class.</p>
+<pre class="literal-block">
+&gt;&gt;&gt; def meta(name, parents, attrs_map):
+...     def bark(self):
+...         return &quot;WOOF!&quot;
+...     attrs_map['speak'] = bark
+...     return type(name, parents, attrs_map)
+
+&gt;&gt;&gt; class Dog(metaclass=meta):
+...     pass
+
+&gt;&gt;&gt; d = Dog()
+&gt;&gt;&gt; print(d.speak())
+WOOF!
+</pre>
+</div>
+<div class="section" id="metaclasses-with-classes">
+<h3><a class="toc-backref" href="#id59">Metaclasses with Classes</a></h3>
+<p>You can define a class decorator and use either <tt class="docutils literal">__new__</tt> or
+<tt class="docutils literal">__init__</tt>. Typically most use <tt class="docutils literal">__new__</tt> as it can alter
+attributes like <tt class="docutils literal">__slots__</tt>.</p>
+<pre class="literal-block">
+&gt;&gt;&gt; class CatMeta(type): # Needs to subclass type
+...     def __new__(cls, name, parents, attrs_map):
+...         # cls is CatMeta
+...         # res is the class we are creating
+...         res = super().__new__(cls, name,
+...             parents, attrs_map)
+...         def meow(self):
+...             return &quot;MEOW&quot;
+...         res.speak = meow
+...         return res
+...
+...     def __init__(cls, name, parents, attrs_map):
+...         super().__init__(name, parents, attrs_map)
+
+&gt;&gt;&gt; class Cat(metaclass=CatMeta):
+...     pass
+
+&gt;&gt;&gt; c = Cat()
+&gt;&gt;&gt; print(c.speak())
+MEOW
+</pre>
+</div>
+</div>
+<div class="section" id="generators">
+<h2><a class="toc-backref" href="#id60">Generators</a></h2>
+<p>Generators (PEP 255) are functions that suspend their state as you iterate over the results
+of them. Each <tt class="docutils literal">yield</tt> statement returns the next item of iteration and then
+<em>freezes</em> the state of the function. When iteration is resumed, the function
+continues from the point it was frozen. Note, that the result of calling the
+function is a generator:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; def fib_gen():
+...     val1, val2 = 1, 1
+...     while 1:
+...         yield val1
+...         val1, val2 = val2, (val1+val2)
+</pre>
+<p>We can simulate iteration by using the iteration protocol:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; gen = fib_gen()
+&gt;&gt;&gt; gen_iter = iter(gen)
+&gt;&gt;&gt; next(gen_iter)
+1
+&gt;&gt;&gt; next(gen_iter)
+1
+&gt;&gt;&gt; next(gen_iter)
+2
+&gt;&gt;&gt; next(gen_iter)
+3
+</pre>
+</div>
+<div class="section" id="coroutines">
+<h2><a class="toc-backref" href="#id61">Coroutines</a></h2>
+<p>The <tt class="docutils literal">asyncio</tt> library (PEP 3153) provides asynchronous I/O in Python 3. We use <tt class="docutils literal">async def</tt> to define a <em>coroutine function</em> (see PEP 492). The result of calling this is a <em>coroutine object</em>. Inside a coroutine we can use <tt class="docutils literal">var = await future</tt> to suspend the coroutine and wait for <tt class="docutils literal">future</tt> to return. We can also await another coroutine. A coroutine object may be created but isn't run until an event loop is running:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; import asyncio
+&gt;&gt;&gt; async def greeting():
+...    print(&quot;Here they are!&quot;)
+
+&gt;&gt;&gt; co = greeting()
+&gt;&gt;&gt; co  # Not running
+&lt;coroutine object greeting at 0x1087dcba0&gt;
+
+&gt;&gt;&gt; loop = asyncio.get_event_loop()
+&gt;&gt;&gt; loop.run_until_complete(co)
+Here they are!
+&gt;&gt;&gt; loop.close()
+</pre>
+<p>To return an object, use an <tt class="docutils literal">asyncio.Future</tt>:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; async def compute(future):
+...     print(&quot;Starting...&quot;)
+...     # Simulate IO...
+...     res = await answer()
+...     future.set_result(res)
+
+
+&gt;&gt;&gt; async def answer():
+...     await asyncio.sleep(1)
+...     return 42
+
+&gt;&gt;&gt; f = asyncio.Future()
+&gt;&gt;&gt; loop = asyncio.get_event_loop()
+&gt;&gt;&gt; loop.run_until_complete(compute(f))
+&gt;&gt;&gt; loop.close()
+&gt;&gt;&gt; f.result()
+42
+</pre>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><tt class="docutils literal">await</tt> and <tt class="docutils literal">async</tt> are <em>soft keywords</em> in Python 3.6. You will get a warning if you use them for variable names. In Python 3.7, they will be reserved keywords.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>For backwards compatibility in Python 3.4:</p>
+<ul class="last simple">
+<li><tt class="docutils literal">await</tt> can be replaced with <tt class="docutils literal">yield from</tt></li>
+<li><tt class="docutils literal">async def</tt> can be replaced with a function
+decorated with <tt class="docutils literal">&#64;asyncio.coroutine</tt></li>
+</ul>
+</div>
+<div class="section" id="asynchronous-generators">
+<h3><a class="toc-backref" href="#id62">Asynchronous Generators</a></h3>
+<p>Python 3.6 adds asynchronous generators (PEP 525). You can use the <tt class="docutils literal">yield</tt>
+statement in an <tt class="docutils literal">async def</tt> function:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; async def fib():
+...     v1, v2 = 1, 1
+...     while True:
+...          # similate io
+...          await asyncio.sleep(1)
+...          yield v1
+...          v1, v2 = v2, v1+v2
+...          if v1 &gt; 5:
+...              break
+
+&gt;&gt;&gt; async def get_results():
+...    async for num in fib():
+...        print(num)
+
+&gt;&gt;&gt; loop = asyncio.get_event_loop()
+&gt;&gt;&gt; loop.run_until_complete(get_results())
+1  # sleeps for 1 sec before each print
+1
+2
+3
+5
+&gt;&gt;&gt; loop.close()
+</pre>
+</div>
+</div>
+<div class="section" id="comprehensions">
+<h2><a class="toc-backref" href="#id63">Comprehensions</a></h2>
+<p>Comprehension constructs allow us to combine the functional ideas behind map and filter into an
+easy to read, single line of code. When you see code that is aggregating into a list (or dict, set, or
+generator), you
+can replace it with a list comprehension (or dict, set comprehension, or generator expression). Here
+is an example of the code smell:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; nums = range(10)
+&gt;&gt;&gt; result = []
+&gt;&gt;&gt; for num in nums:
+...     if num % 2 == 0:  # filter
+...         result.append(num*num)  # map
+</pre>
+<p>This can be specified with a list comprehension (PEP 202):</p>
+<pre class="literal-block">
+&gt;&gt;&gt; result = [num*num for num in nums
+...           if num % 2 == 0]
+</pre>
+<p>To construct a list comprehension:</p>
+<ul>
+<li><p class="first">Assign the result (<tt class="docutils literal">result</tt>) to brackets. The brackets signal to the
+reader of the code that a list will be returned:</p>
+<pre class="literal-block">
+result = [ ]
+</pre>
+</li>
+<li><p class="first">Place the <em>for</em> loop construct inside the brackets. No colons are
+necessary:</p>
+<pre class="literal-block">
+result = [for num in nums]
+</pre>
+</li>
+<li><p class="first">Insert any operations that filter the accumulation after the for
+loop:</p>
+<pre class="literal-block">
+result = [for num in nums if num % 2 == 0]
+</pre>
+</li>
+<li><p class="first">Insert the accumulated object (<tt class="docutils literal">num*num</tt>) at the front directly
+following the left bracket. Insert parentheses around the object if
+it is a tuple:</p>
+<pre class="literal-block">
+result = [num*num for num in nums
+          if num % 2 == 0]
+</pre>
+</li>
+</ul>
+<div class="section" id="set-comprehensions">
+<h3><a class="toc-backref" href="#id64">Set Comprehensions</a></h3>
+<p>If you replace the <tt class="docutils literal">[</tt> with <tt class="docutils literal">{</tt>, you will get a set comprehension (PEP 274) instead of a list comprehension:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; {num*num for num in nums if num % 2 == 0}
+{0, 64, 4, 36, 16}
+</pre>
+</div>
+<div class="section" id="dict-comprehensions">
+<h3><a class="toc-backref" href="#id65">Dict Comprehensions</a></h3>
+<p>If you replace the <tt class="docutils literal">[</tt> with <tt class="docutils literal">{</tt>, and separate the key and value with a colon,
+you will get a dictionary comprehension (PEP 274):</p>
+<pre class="literal-block">
+&gt;&gt;&gt; {num:num*num for num in nums if num % 2 == 0}
+{0: 0, 2: 4, 4: 16, 6: 36, 8: 64}
+</pre>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In Python 3.6, dictionaries are now ordered by key entry. Hence the ordering above.</p>
+</div>
+</div>
+<div class="section" id="generator-expressions">
+<h3><a class="toc-backref" href="#id66">Generator Expressions</a></h3>
+<p>If you replace the <tt class="docutils literal">[</tt> with <tt class="docutils literal">(</tt>, you will get a generator instead of a list. This is called a <em>generator expression</em> (PEP 289):</p>
+<pre class="literal-block">
+&gt;&gt;&gt; (num*num for num in nums if num % 2 == 0)
+&lt;generator object &lt;genexpr&gt; at 0x10a6f8780&gt;
+</pre>
+</div>
+<div class="section" id="asynchronous-comprehensions">
+<h3><a class="toc-backref" href="#id67">Asynchronous Comprehensions</a></h3>
+<p>Python 3.6 (PEP 530) gives us <em>asynchronous comprehensions</em>. You can add <tt class="docutils literal">async</tt> following what you are collecting to make it asynchronous. If you had the following code:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; async def process(aiter):
+...     result = []
+...     async for num in aiter:
+...         if num % 2 == 0:  # filter
+...             result.append(num*num)  # map
+</pre>
+<p>You could replace it with:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; async def process(aiter):
+...     result = [num*num async for num in aiter
+...               if num % 2 == 0]
+</pre>
+</div>
+</div>
+<div class="section" id="context-managers">
+<h2><a class="toc-backref" href="#id68">Context Managers</a></h2>
+<p>If you find code where you need to make sure something happens before <em>and</em> after a block,
+a context manager (PEP 343) is a convenient way to enforce that. Another code smell that indicates
+you could be using a context manager is a <tt class="docutils literal">try</tt>/<tt class="docutils literal">finally</tt> block.</p>
+<p>Context managers can be created with functions or classes.</p>
+<p>If we were writing a Python module to write TeX, we might do something like this to ensure that
+the environments are closed properly:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; def start(env):
+...     return '\\begin{{{}}}'.format(env)
+
+&gt;&gt;&gt; def end(env):
+...      return '\\end{{{}}}'.format(env)
+
+&gt;&gt;&gt; def may_error():
+...     import random
+...     if random.random() &lt; .5:
+...         return 'content'
+...     raise ValueError('Problem')
+
+
+&gt;&gt;&gt; out = []
+&gt;&gt;&gt; out.append(start('center'))
+
+&gt;&gt;&gt; try:
+...     out.append(may_error())
+... except ValueError:
+...     pass
+... finally:
+...     out.append(end('center'))
+</pre>
+<p>This code can use a context manager to be a little cleaner.</p>
+<div class="section" id="function-based-context-managers">
+<h3><a class="toc-backref" href="#id69">Function Based Context Managers</a></h3>
+<p>To create a context manager with a function, decorate with
+<tt class="docutils literal">contextlib.contextmanager</tt>, and yield where you want to insert your block:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; import contextlib
+&gt;&gt;&gt; &#64;contextlib.contextmanager
+... def env(name, content):
+...     content.append('\\begin{{{}}}'.format(name))
+...     try:
+...         yield
+...     except ValueError:
+...         pass
+...     finally:
+...         content.append('\\end{{{}}}'.format(name))
+</pre>
+<p>Our code looks better now, and there will always be a closing tag:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; out = []
+&gt;&gt;&gt; with env('center', out):
+...     out.append(may_error())
+
+&gt;&gt;&gt; out
+['\\begin{center}', 'content', '\\end{center}']
+</pre>
+</div>
+<div class="section" id="class-based-context-managers">
+<h3><a class="toc-backref" href="#id70">Class Based Context Managers</a></h3>
+<p>To create a class based context manager, implement the <tt class="docutils literal">__enter__</tt> and <tt class="docutils literal">__exit__</tt> methods:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; class env:
+...     def __init__(self, name, content):
+...         self.name = name
+...         self.content = content
+...
+...     def __enter__(self):
+...         self.content.append('\\begin{{{}}}'.format(
+...             self.name))
+...
+...     def __exit__(self, type, value, tb):
+...         # if error in block, t, v, &amp; tb
+...         # have non None values
+...         # return True to hide exception
+...         self.content.append('\\end{{{}}}'.format(
+...             self.name))
+...         return True
+</pre>
+<p>The code looks the same as using the function based context manager:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; out = []
+&gt;&gt;&gt; with env('center', out):
+...     out.append(may_error())
+
+&gt;&gt;&gt; out  # may_error had an issue
+['\\begin{center}', '\\end{center}']
+</pre>
+</div>
+<div class="section" id="context-objects">
+<h3><a class="toc-backref" href="#id71">Context objects</a></h3>
+<p>Some context managers create objects that we can use while inside of the context.
+The <tt class="docutils literal">open</tt> context manager returns a file object:</p>
+<pre class="literal-block">
+with open('/tmp/test.txt') as fin:
+    # muck around with fin
+</pre>
+<p>To create an object in a function based context manager, simply <tt class="docutils literal">yield</tt> the object.
+In a class based context manager, return the object in the <tt class="docutils literal">__enter__</tt> method.</p>
+</div>
+</div>
+<div class="section" id="type-annotations">
+<h2><a class="toc-backref" href="#id72">Type Annotations</a></h2>
+<p>Python 3.6 (PEP 483 and 484) allows you to provide types for
+input and output of functions. They can be used to:</p>
+<ul class="simple">
+<li>Allow 3rd party libraries such as mypy <a class="footnote-reference" href="#id4" id="id3">[2]</a> to run static typing</li>
+<li>Assist editors with type inference</li>
+<li>Aid developers in understanding code</li>
+</ul>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[2]</a></td><td><a class="reference external" href="http://mypy-lang.org/">http://mypy-lang.org/</a></td></tr>
+</tbody>
+</table>
+<p>Types can be expressed as:</p>
+<blockquote>
+<ul class="simple">
+<li>Built-in classes</li>
+<li>Third party classes</li>
+<li>Abstract Base Classes</li>
+<li>Types found in the <tt class="docutils literal">types</tt> module</li>
+<li>User-defined classes</li>
+</ul>
+</blockquote>
+<p>A basic example:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; def add(x: int, y: int) -&gt; float:
+...     return x + y
+
+&gt;&gt;&gt; add(2, 3)
+5
+</pre>
+<p>Note that Python does not do type checking, you need to use something like mypy:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; add(&quot;foo&quot;, &quot;bar&quot;)
+'foobar'
+</pre>
+<p>You can also specify the types of variables with a comment:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; from typing import Dict
+&gt;&gt;&gt; ages = {}  # type: Dict[str, int]
+</pre>
+<div class="section" id="the-typing-module">
+<h3><a class="toc-backref" href="#id73">The <tt class="docutils literal">typing</tt> Module</a></h3>
+<p>This module allows you to provide hints for:</p>
+<ul class="simple">
+<li>Callback functions</li>
+<li>Generic containers</li>
+<li>The <tt class="docutils literal">Any</tt> type</li>
+</ul>
+<p>To designate a class or function to not type check its annotations, use the <tt class="docutils literal">&#64;typing.no_type_check</tt> decorator.</p>
+</div>
+<div class="section" id="type-checking">
+<h3><a class="toc-backref" href="#id74">Type Checking</a></h3>
+<p>Python 3.6 provides no support for type checking. You will need to install a tool like <tt class="docutils literal">mypy</tt>:</p>
+<pre class="literal-block">
+$ pip install mypy
+$ python3 -m mypy script.py
+</pre>
+</div>
+</div>
+<div class="section" id="scripts-packages-and-modules">
+<h2><a class="toc-backref" href="#id75">Scripts, Packages, and Modules</a></h2>
+<div class="section" id="scripts">
+<h3><a class="toc-backref" href="#id76">Scripts</a></h3>
+<p>A script is a Python file that you invoke <tt class="docutils literal">python</tt> on. Typically there is a line near
+the bottom that looks like this:</p>
+<pre class="literal-block">
+if __name__ == '__main__':
+    # execute something
+</pre>
+<p>This test allows you to change the code path when you execute the code versus when you import the code.
+The <tt class="docutils literal">__name__</tt> attribute of a module is set to <tt class="docutils literal">'__main__'</tt> when you execute that module. Otherwise,
+if you import the module, it will be the name of the module (without <tt class="docutils literal">.py</tt>).</p>
+</div>
+<div class="section" id="modules">
+<h3><a class="toc-backref" href="#id77">Modules</a></h3>
+<p>Modules are files that end in <tt class="docutils literal">.py</tt>. According to PEP 8, we lowercase the
+module name and don't put underscores between the words in them. Any
+module found in the <tt class="docutils literal">PYTHONPATH</tt> environment variable or the <tt class="docutils literal">sys.path</tt>
+list, can be imported.</p>
+</div>
+<div class="section" id="packages">
+<h3><a class="toc-backref" href="#id78">Packages</a></h3>
+<p>A directory that has a file named <tt class="docutils literal">__init__.py</tt> in it is a <em>package</em>. A package can
+have modules in it as well as sub packages. The package should be found in
+<tt class="docutils literal">PYTHONPATH</tt> or <tt class="docutils literal">sys.path</tt> to be imported. An example might look like this:</p>
+<pre class="literal-block">
+packagename/
+  __init__.py
+  module1.py
+  module2.py
+  subpackage/
+    __init__.py
+</pre>
+<p>The <tt class="docutils literal">__init__.py</tt> module can be empty or can import code from other modules in the
+package to remove nesting in import statements.</p>
+</div>
+<div class="section" id="importing">
+<h3><a class="toc-backref" href="#id79">Importing</a></h3>
+<p>You can import a package or a module:</p>
+<pre class="literal-block">
+import packagename
+import packagename.module1
+</pre>
+<p>Assume there is a <tt class="docutils literal">fib</tt> function in <tt class="docutils literal">module1</tt>. You have access to everything in the namespace of the module you imported. To use this function you will need to use the fully qualified name, <tt class="docutils literal">packagename.module1.fib</tt>:</p>
+<pre class="literal-block">
+import packagename.module1
+
+packagename.module1.fib()
+</pre>
+<p>If you only want to import the <tt class="docutils literal">fib</tt> function, use the <tt class="docutils literal">from</tt> variant:</p>
+<pre class="literal-block">
+from packagename.module1 import fib
+
+fib()
+</pre>
+<p>You can also rename imports using <tt class="docutils literal">as</tt>:</p>
+<pre class="literal-block">
+from packagename.module1 import fib as package_fib
+
+package_fib()
+</pre>
+</div>
+</div>
+<div class="section" id="environments">
+<h2><a class="toc-backref" href="#id80">Environments</a></h2>
+<p>Python 3 includes the <tt class="docutils literal">venv</tt> module for creating a sandbox for your project or a <em>virtual environment</em>.</p>
+<p>To create an environment on Unix systems, run:</p>
+<pre class="literal-block">
+$ python3 -m venv /path/to/env
+</pre>
+<p>On Windows, run:</p>
+<pre class="literal-block">
+c:\&gt;c:\Python36\python -m venv c:\path\to\env
+</pre>
+<p>To enter or <em>activate</em> the environment on Unix, run:</p>
+<pre class="literal-block">
+$ source /path/to/env/bin/activate
+</pre>
+<p>On Windows, run:</p>
+<pre class="literal-block">
+c:\&gt;c:\path\to\env\Scripts\activate.bat
+</pre>
+<p>Your prompt should have the name of the active virtual environment in parentheses.
+To <em>deactivate</em> an environment on both platforms, just run the following:</p>
+<pre class="literal-block">
+(env) $ deactivate
+</pre>
+<div class="section" id="installing-packages">
+<h3><a class="toc-backref" href="#id81">Installing Packages</a></h3>
+<p>You should now have a <tt class="docutils literal">pip</tt> executable, that will install a package from PyPI <a class="footnote-reference" href="#id6" id="id5">[3]</a>  into your virtual environment:</p>
+<pre class="literal-block">
+(env) $ pip install django
+</pre>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[3]</a></td><td><a class="reference external" href="https://pypi.python.org/pypi">https://pypi.python.org/pypi</a></td></tr>
+</tbody>
+</table>
+<p>To uninstall a package run:</p>
+<pre class="literal-block">
+(env) $ pip uninstall django
+</pre>
+<p>If you are having issues installing a package, you might want to look into alternative Python distributions such as Anaconda <a class="footnote-reference" href="#id8" id="id7">[4]</a> that have prepackaged many harder to install packages.</p>
+<table class="docutils footnote" frame="void" id="id8" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id7">[4]</a></td><td><a class="reference external" href="https://docs.continuum.io/anaconda/">https://docs.continuum.io/anaconda/</a></td></tr>
+</tbody>
+</table>
+<p>Install from directory:</p>
+<pre class="literal-block">
+pip install -e .
+</pre>
+</div>
+</div>
+
+  </div><!-- /.entry-content -->
+</section>
+
+          <ul class="tags-footer">
+              <li style="font-size: 100.0%;"><a href="/tag/arm.html">arm</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/bread.html">bread</a></li>
+              <li style="font-size: 139.6%;"><a href="/tag/iot.html">iot</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/linux.html">linux</a></li>
+              <li style="font-size: 139.6%;"><a href="/tag/lorawan.html">lorawan</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/misc.html">misc</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/network.html">network</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/notes.html">notes</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/obd.html">obd</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/pelican.html">pelican</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/pi.html">pi</a></li>
+              <li style="font-size: 158.0%;"><a href="/tag/python.html">python</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/raspberry-pi.html">raspberry-pi</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/reverse_beacon.html">reverse_beacon</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/tools.html">tools</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/vim.html">vim</a></li>
+          </ul>
+
+        <section id="extras" class="body">
+
+
+
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
+
+        </div>
+        </section>
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
+
+ </div><!-- /.wrapper -->
+
+
+<script>var _gaq=[['_setAccount','UA-155970867-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+<script>
+  // Insert scripts
+  var scriptSrc = ["/theme/js/main.js",];
+  for (var i_2 = 0; i_2 < scriptSrc.length; i_2++) {
+    var index = scriptSrc[i_2];
+    var script = document.body.appendChild(document.createElement('script'));
+    script.async = false;
+    script.src = index;
+  }
+
+    //Get the button:
+    mybutton = document.getElementById("upBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function goUp() {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    } 
+
+
+  // Handle site search
+  $(document).ready(function() {
+    // Search handler
+     $('#tipue_search_input').tipuesearch({
+          'mode': 'json',
+          'contentLocation': 'tipuesearch_content.json'
+     });
+
+    $('.nav-toggle').click(function(e){
+        e.preventDefault();
+        $('.nav-toggle').toggleClass('active');
+        $('.nav-menu').toggleClass('active');
+        $('.nav-overlay').toggleClass('active');
+    })
+    $('.nav-overlay').click(function(e){
+        e.preventDefault();
+        $('.nav-toggle').toggleClass('active');
+        $('.nav-menu').toggleClass('active');
+        $('.nav-overlay').toggleClass('active');
+    })
+
+  });
+
+</script>
+</body>
+</html>
