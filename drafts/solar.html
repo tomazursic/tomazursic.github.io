@@ -2,9 +2,17 @@
 <html lang="en" class="inverted">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Web Logs - tomazursic.github.io</title>
+    <title>Web Logs - tomazursic.github.io - Solar</title>
   <meta charset="utf-8" />
   <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Web Logs - tomazursic.github.io Full Atom Feed" />
+  <link href="/feeds/blog.atom.xml" type="application/atom+xml" rel="alternate" title="Web Logs - tomazursic.github.io Categories Atom Feed" />
+
+
+
+
+    <meta name="tags" content="lorrawan" />
+    <meta name="tags" content="iot" />
+
 
   <link rel="apple-touch-icon" sizes="180x180" href="/theme/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/theme/favicons/favicon-32x32.png">
@@ -32,7 +40,7 @@
     </div>
     <ul class="nav-menu">
 
-          <li><a href="/category/blog.html">blog</a></li>
+          <li class="active"><a href="/category/blog.html">blog</a></li>
           <li><a href="/category/projects.html">projects</a></li>
           <li><a href="/pages/contact.html">Contact</a></li>
     </ul>
@@ -51,61 +59,130 @@
         <button onclick="goUp()" id="upBtn" title="Go to top"><i class="ion-ios-arrow-up"></i></button> 
 
 
-          <div id="search" >
 
-            <form action="/">
-           <div class="search tipue_search_right">
-              <input type="text" class="searchTerm" placeholder="Search by keywords.."  aria-hidden="true" data-choice="active"
-                          type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required>
-              
-              <button type="submit" class="searchButton">
-               <i class="ion-ios-search"></i>
-             </button>
-           </div>
-            </form>
-
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="/drafts/solar.html" rel="bookmark"
+         title="Permalink to Solar">Solar</a></h2>
  
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2019-10-20T13:29:00+02:00">
+      <b>Published</b>: Sun 20 October 2019
+    </time>
+    <br>
+    <div class="category">
+        <b>Category</b>: <a href="/category/blog.html">blog</a>
+    </div>
+    <div class="tags">
+        <b>Tags</b>:
+            <a href="/tag/lorrawan.html">lorrawan</a>
+            <a href="/tag/iot.html">iot</a>
+    </div>
+  </footer><!-- /.post-info -->
 
-            <div id="tipue_search_content" style="margin: 2rem 0rem; padding: 1rem; border-bottom: 1px solid;"></div>
+  <div class="entry-content">
+    <div class="section" id="components">
+<h2>Components</h2>
+<pre class="code literal-block">
+Devices (Load)
+Battery
+Charge Controller
+Solar Panel(s)
+Wires and connectors
+</pre>
+</div>
+<div class="section" id="determine-power-requirements">
+<h2>Determine power requirements</h2>
+<pre class="code literal-block">
+Power (watts)= Voltage (volts) X Current (amps)
 
-          </div>
+Energy (watt-hrs)= Power (watts) X Time (hrs)
 
-<section id="content">
-<h2>All articles</h2>
+Use a INA219+Arduino, 2 Multimeters, or a Watts-Up to determine power consumption and energy usage
+</pre>
+</div>
+<div class="section" id="example">
+<h2>Example:</h2>
+<pre class="code literal-block">
+Load Voltage:      12.21 V
+Current:               82.30 mA
 
-<ol id="post-list">
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="/setup-pelican.html" rel="bookmark" title="Permalink to Setup Pelican">Setup Pelican</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2017-05-03T07:10:56+02:00"> Wed 03 May 2017 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="/author/tomaz.html">Tomaz</a>
-                    </address>
-                    <div>
-                    Tags: 
-                        <a class="url fn" href="/tag/python.html">python</a>
-                        <a class="url fn" href="/tag/pelican.html">pelican</a>
-                    </div>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <p>Let play with static site generator to reorder mess of memories</p> </div><!-- /.entry-content -->
-        </article></li>
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="/liftoff.html" rel="bookmark" title="Permalink to Liftoff">Liftoff</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2017-05-03T06:14:30+02:00"> Wed 03 May 2017 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="/author/tomazursic.html">tomazursic</a>
-                    </address>
-                    <div>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <p>hello world</p> </div><!-- /.entry-content -->
-        </article></li>
-</ol><!-- /#posts-list -->
-<p class="paginator">
-        <a href="/index2.html">&laquo;</a>
-    Page 3 / 3
-</p>
-</section><!-- /#content -->
+Power consumption of TP-Link 703N:
+1.0049W = 12.21V * .08230A
+
+Daily energy usage of a TP-Link 703N running 24/7:
+24.12Wh = 1.0049W * 24h
+</pre>
+</div>
+<div class="section" id="battery">
+<h2>Battery</h2>
+<p>To maximize your battery lifespan, you should plan to use less than 50%
+of your battery capacity.</p>
+<p>So your battery should be at least 2x your daily consumption, even if
+you live in the sunniest place on the planet.</p>
+</div>
+<div class="section" id="backups">
+<h2>Backups</h2>
+<p>How many days in a row without sun could you have? Multiply that by your
+average daily energy usage. Now double that to prevent &gt;50% battery
+utilization!</p>
+<pre class="code literal-block">
+24.12Wh* 2 days without sun= 48Wh
+
+So you would want a 96+ Wh battery
+
+96Wh battery = 12V 8Ah battery
+</pre>
+</div>
+<div class="section" id="required-every-generation">
+<h2>Required every generation</h2>
+<p>Goal: Enough panel capacity to charge the battery from 50% to 100% AND
+power your device in one day of winter sun.</p>
+<pre class="code literal-block">
+24.12 Wh to power the 703N for a day +
+48 Wh to charge the battery from 50% to full
+= We want 72Wh of energy generation per day from our panel.
+</pre>
+</div>
+<div class="section" id="select-charge-controler">
+<h2>Select charge controler</h2>
+<p>$10 ones are fine (AGPTek or similar)</p>
+<p>Maximum Power Point Tracking is more efficient, worth it for larger
+systems.</p>
+<p>Prevent overcharging battery Protects against over voltage of battery
+Protects against under voltage of load</p>
+</div>
+<div class="section" id="determine-worst-case-sun">
+<h2>Determine worst-case sun</h2>
+<p>Depends on your location, time of year, the path of the sun, and
+obstacles.</p>
+<p>Gather elevation and azimuth information of objects around your site
+from the perspective of your panel and plot them on an elevation/azimuth
+Sun Chart.</p>
+<pre class="code literal-block">
+https://rimstar.org/efficiency_conservation/index.htm
+
+http://solardat.uoregon.edu/SunChartProgram.php
+http://solardat.uoregon.edu/AboutSunCharts.html
+http://tinyurl.com/chartSun
+</pre>
+</div>
+<div class="section" id="determine-solar-panel-size">
+<h2>Determine solar panel size</h2>
+<p>To generate 72Wh per day (assuming 80% charging efficiency) :</p>
+<pre class="code literal-block">
+10W panel with ~9 hours of sun
+30W panel with ~3 hours of sun
+90W panel with &lt;1 hour of sun
+</pre>
+<p><a class="reference external" href="http://www.solardirect.com/outdoor-lighting/solar/street/area-light/solar-insolation-map.html">http://www.solardirect.com/outdoor-lighting/solar/street/area-light/solar-insolation-map.html</a>
+<a class="reference external" href="http://www.bitwizard.nl/wiki/Reducing_power_consumption_of_a_raspberry_Pi">http://www.bitwizard.nl/wiki/Reducing_power_consumption_of_a_raspberry_Pi</a></p>
+</div>
+
+  </div><!-- /.entry-content -->
+</section>
 
           <ul class="tags-footer">
               <li style="font-size: 100.0%;"><a href="/tag/arm.html">arm</a></li>

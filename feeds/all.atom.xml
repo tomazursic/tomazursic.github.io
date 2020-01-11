@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Web Logs - tomazursic.github.io</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2020-01-10T00:00:00+01:00</updated><entry><title>MicroPython and Lopy</title><link href="/micropython-lopy.html" rel="alternate"></link><published>2019-10-27T01:04:00+02:00</published><updated>2019-10-27T01:04:00+02:00</updated><author><name>Tomaz Ursic</name></author><id>tag:None,2019-10-27:/micropython-lopy.html</id><summary type="html">&lt;p class="first last"&gt;How to setup and use lorawan device, using MicroPython and Lopy
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Web Logs - tomazursic.github.io</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2020-01-10T00:00:00+01:00</updated><entry><title>MicroPython and Lopy</title><link href="/micropython-lopy.html" rel="alternate"></link><published>2019-10-27T01:04:00+02:00</published><updated>2019-10-27T01:04:00+02:00</updated><author><name>tomazursic</name></author><id>tag:None,2019-10-27:/micropython-lopy.html</id><summary type="html">&lt;p class="first last"&gt;How to setup and use lorawan device, using MicroPython and Lopy
 (ESP-32) module&lt;/p&gt;
 </summary><content type="html">&lt;div class="section" id="micropython-and-lopy"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id2"&gt;Micropython and Lopy&lt;/a&gt;&lt;/h2&gt;
@@ -416,7 +416,7 @@ verbosity.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="projects"></category><category term="iot"></category><category term="python"></category><category term="lorawan"></category></entry><entry><title>Setup Raspberry Pi</title><link href="/setup-raspberry-pi.html" rel="alternate"></link><published>2019-10-21T14:29:00+02:00</published><updated>2019-10-21T14:29:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2019-10-21:/setup-raspberry-pi.html</id><summary type="html">&lt;p&gt;Use rpi-utils repo for bring bare metal into life&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Advice is use TMUX! Run all commands in tmux session to prevent catastrophic consequences&lt;/strong&gt;&lt;/p&gt;
+</content><category term="projects"></category><category term="iot"></category><category term="python"></category><category term="lorawan"></category></entry><entry><title>Setup Raspberry Pi</title><link href="/setup-raspberry-pi.html" rel="alternate"></link><published>2019-10-21T14:29:00+02:00</published><updated>2019-10-21T14:29:00+02:00</updated><author><name>tomazursic</name></author><id>tag:None,2019-10-21:/setup-raspberry-pi.html</id><summary type="html">&lt;p&gt;Use rpi-utils repo for bring bare metal into life&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Advice is use TMUX! Run all commands in tmux session to prevent catastrophic consequences&lt;/strong&gt;&lt;/p&gt;
 &lt;h2&gt;Setup&lt;/h2&gt;
 &lt;h3&gt;Step 1: Flash Operating System&lt;/h3&gt;
 &lt;p&gt;You need to flash a micro SD image with an operating system.&lt;/p&gt;
@@ -649,7 +649,7 @@ enabled in sudo raspi-config&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://www.raspberryconnect.com/projects/65-raspberrypi-hotspot-accesspoints/158-raspberry-pi-auto-wifi-hotspot-switch-direct-connection"&gt;raspberry-pi-auto-wifi-hotspot-switch-direct-connection&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/lhelontra/tensorflow-on-arm/releases"&gt;Tensorflow ARM&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands"&gt;UFW Firewall&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="blog"></category><category term="pi"></category><category term="arm"></category><category term="linux"></category></entry><entry><title>Exploring OBDII</title><link href="/exploring-obdii.html" rel="alternate"></link><published>2019-03-04T11:09:02+01:00</published><updated>2019-03-04T11:09:02+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2019-03-04:/exploring-obdii.html</id><summary type="html">&lt;p&gt;To satisfy the curiosity for reading car on-board diagnostics using&lt;/p&gt;</summary><content type="html">&lt;p&gt;Raspberry PI with build in Bluetooth and ODBII Bluetooth adapter.&lt;/p&gt;
+&lt;/ul&gt;</content><category term="blog"></category><category term="pi"></category><category term="arm"></category><category term="linux"></category></entry><entry><title>Exploring OBDII</title><link href="/exploring-obdii.html" rel="alternate"></link><published>2019-03-04T11:09:02+01:00</published><updated>2019-03-04T11:09:02+01:00</updated><author><name>tomazursic</name></author><id>tag:None,2019-03-04:/exploring-obdii.html</id><summary type="html">&lt;p&gt;To satisfy the curiosity for reading car on-board diagnostics using&lt;/p&gt;</summary><content type="html">&lt;p&gt;Raspberry PI with build in Bluetooth and ODBII Bluetooth adapter.&lt;/p&gt;
 &lt;p&gt;Turn on the car engine after attaching the adapter.&lt;/p&gt;
 &lt;h2&gt;Setup:&lt;/h2&gt;
 &lt;p&gt;Example target device MAC address&lt;/p&gt;
@@ -1741,7 +1741,7 @@ This acronym is just a dark fun invented by us, back somewhere in time.&lt;/p&gt
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="blog"></category><category term="vim"></category><category term="tools"></category></entry><entry><title>LoRaWAN Network</title><link href="/lorawan-network.html" rel="alternate"></link><published>2018-09-04T13:48:16+02:00</published><updated>2020-01-10T00:00:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-09-04:/lorawan-network.html</id><summary type="html">About LoraWAN Network</summary><content type="html">&lt;div class="section" id="lorawan-network"&gt;
+</content><category term="blog"></category><category term="vim"></category><category term="tools"></category></entry><entry><title>LoRaWAN Network</title><link href="/lorawan-network.html" rel="alternate"></link><published>2018-09-04T13:48:16+02:00</published><updated>2020-01-10T00:00:00+01:00</updated><author><name>tomazursic</name></author><id>tag:None,2018-09-04:/lorawan-network.html</id><summary type="html">About LoraWAN Network</summary><content type="html">&lt;div class="section" id="lorawan-network"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;LoRaWAN Network&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="contents topic" id="table-of-contents"&gt;
 &lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
@@ -2299,7 +2299,7 @@ metron, &amp;quot;measure&amp;quot;. source: &lt;a class="reference external" hr
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="blog"></category><category term="lorawan"></category><category term="iot"></category><category term="network"></category></entry><entry><title>LoraWAN Reverse Beacon</title><link href="/lorawan-reverse-beacon.html" rel="alternate"></link><published>2018-05-27T00:00:00+02:00</published><updated>2018-05-27T00:00:00+02:00</updated><author><name>Tomaz Ursic</name></author><id>tag:None,2018-05-27:/lorawan-reverse-beacon.html</id><summary type="html">&lt;p class="first last"&gt;Exploring LoraWAN coverage with drop node deployed higher than the receivers&lt;/p&gt;
+</content><category term="blog"></category><category term="lorawan"></category><category term="iot"></category><category term="network"></category></entry><entry><title>LoraWAN Reverse Beacon</title><link href="/lorawan-reverse-beacon.html" rel="alternate"></link><published>2018-05-27T00:00:00+02:00</published><updated>2018-05-27T00:00:00+02:00</updated><author><name>tomazursic</name></author><id>tag:None,2018-05-27:/lorawan-reverse-beacon.html</id><summary type="html">&lt;p class="first last"&gt;Exploring LoraWAN coverage with drop node deployed higher than the receivers&lt;/p&gt;
 </summary><content type="html">&lt;div class="section" id="reverse-beacon"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;Reverse-Beacon&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="contents topic" id="table-of-contents"&gt;
@@ -2814,7 +2814,7 @@ alarming scenario!&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="projects"></category><category term="iot"></category><category term="python"></category><category term="lorawan"></category><category term="reverse_beacon"></category></entry><entry><title>The Bread Code Branch</title><link href="/the-bread-code-branch.html" rel="alternate"></link><published>2018-05-03T06:14:30+02:00</published><updated>2018-05-03T06:14:30+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-05-03:/the-bread-code-branch.html</id><summary type="html">The art of making bread</summary><content type="html">&lt;div class="section" id="baking-bread"&gt;
+</content><category term="projects"></category><category term="iot"></category><category term="python"></category><category term="lorawan"></category><category term="reverse_beacon"></category></entry><entry><title>The Bread Code Branch</title><link href="/the-bread-code-branch.html" rel="alternate"></link><published>2018-05-03T06:14:30+02:00</published><updated>2018-05-03T06:14:30+02:00</updated><author><name>tomazursic</name></author><id>tag:None,2018-05-03:/the-bread-code-branch.html</id><summary type="html">The art of making bread</summary><content type="html">&lt;div class="section" id="baking-bread"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id2"&gt;Baking Bread&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="contents topic" id="table-of-contents"&gt;
 &lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
@@ -2940,7 +2940,7 @@ alarming scenario!&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="projects"></category><category term="bread"></category><category term="misc"></category></entry><entry><title>Python Notes</title><link href="/python.html" rel="alternate"></link><published>2018-04-20T22:51:00+02:00</published><updated>2020-01-10T00:00:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-04-20:/python.html</id><summary type="html">Notes and references for Python</summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
+</content><category term="projects"></category><category term="bread"></category><category term="misc"></category></entry><entry><title>Python Notes</title><link href="/python.html" rel="alternate"></link><published>2018-04-20T22:51:00+02:00</published><updated>2020-01-10T00:00:00+01:00</updated><author><name>tomazursic</name></author><id>tag:None,2018-04-20:/python.html</id><summary type="html">Notes and references for Python</summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
 &lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#introduction" id="id9"&gt;Introduction&lt;/a&gt;&lt;/li&gt;
@@ -6411,7 +6411,7 @@ many harder to install packages.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="blog"></category><category term="python"></category><category term="notes"></category></entry><entry><title>Python Cheatsheet</title><link href="/python-cheatsheet.html" rel="alternate"></link><published>2017-11-05T00:00:00+01:00</published><updated>2020-01-04T00:00:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-11-05:/python-cheatsheet.html</id><summary type="html">Code snippets/cheatsheet</summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
+</content><category term="blog"></category><category term="python"></category><category term="notes"></category></entry><entry><title>Python Cheatsheet</title><link href="/python-cheatsheet.html" rel="alternate"></link><published>2017-11-05T00:00:00+01:00</published><updated>2020-01-04T00:00:00+01:00</updated><author><name>tomazursic</name></author><id>tag:None,2017-11-05:/python-cheatsheet.html</id><summary type="html">Code snippets/cheatsheet</summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
 &lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#python-cheatsheet" id="id1"&gt;Python Cheatsheet&lt;/a&gt;&lt;ul&gt;
@@ -7019,7 +7019,7 @@ $ git push origin content
 &lt;p&gt;Generate style file and add to &lt;code&gt;base.html&lt;/code&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; $ &lt;span class="nb"&gt;cd&lt;/span&gt; thems/&amp;lt;theme-name&amp;gt;/css
  $ pygmentize -S monokai -f html -a .highlight &amp;gt; pygments_vim.css
-&lt;/pre&gt;&lt;/div&gt;</content><category term="blog"></category><category term="python"></category><category term="pelican"></category></entry><entry><title>Liftoff</title><link href="/liftoff.html" rel="alternate"></link><published>2017-05-03T06:14:30+02:00</published><updated>2017-05-03T06:14:30+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-05-03:/liftoff.html</id><summary type="html">&lt;p&gt;hello world&lt;/p&gt;</summary><content type="html">&lt;h2&gt;First Post&lt;/h2&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="blog"></category><category term="python"></category><category term="pelican"></category></entry><entry><title>Liftoff</title><link href="/liftoff.html" rel="alternate"></link><published>2017-05-03T06:14:30+02:00</published><updated>2017-05-03T06:14:30+02:00</updated><author><name>tomazursic</name></author><id>tag:None,2017-05-03:/liftoff.html</id><summary type="html">&lt;p&gt;hello world&lt;/p&gt;</summary><content type="html">&lt;h2&gt;First Post&lt;/h2&gt;
 &lt;p&gt;World, hello again! This very first paragraph of the post will be used as
 excerpt in archives and feeds.&lt;/p&gt;
 &lt;p&gt;This post is consequence of merging old blog and accumulated notes.&lt;/p&gt;
