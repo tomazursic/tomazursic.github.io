@@ -416,7 +416,7 @@ verbosity.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="projects"></category><category term="iot"></category><category term="python"></category><category term="lorawan"></category></entry><entry><title>Setup LoRaWAN gateway</title><link href="/setup-lorawan-gateway.html" rel="alternate"></link><published>2018-10-27T01:04:00+02:00</published><updated>2018-10-27T01:04:00+02:00</updated><author><name>Tomaz Ursic</name></author><id>tag:None,2018-10-27:/setup-lorawan-gateway.html</id><summary type="html">Notes for assembling LoraWAN gateway</summary><content type="html">&lt;div class="section" id="setup-ic880a"&gt;
+</content><category term="projects"></category><category term="iot"></category><category term="python"></category><category term="lorawan"></category></entry><entry><title>Setup LoRaWAN gateway</title><link href="/setup-lorawan-gateway.html" rel="alternate"></link><published>2018-10-27T01:04:00+02:00</published><updated>2018-10-27T01:04:00+02:00</updated><author><name>tomazursic</name></author><id>tag:None,2018-10-27:/setup-lorawan-gateway.html</id><summary type="html">Notes for assembling LoraWAN gateway</summary><content type="html">&lt;div class="section" id="setup-ic880a"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;Setup ic880a&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="contents topic" id="table-of-contents"&gt;
 &lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
