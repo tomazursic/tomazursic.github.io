@@ -87,36 +87,38 @@
   <div class="entry-content">
     <div class="section" id="micropython-and-lopy">
 <h2><a class="toc-backref" href="#id2">Micropython and Lopy</a></h2>
-<p>About ruining Python on bare metal, using <a class="reference external" href="https://pycom.io/">Pycom</a> Lopy and <a class="reference external" href="https://micropython.org/">Micropython</a></p>
+<p>About ruining Python on bare metal, using <a class="reference external" href="https://pycom.io/">Pycom</a> Lopy and <a class="reference external" href="https://micropython.org/">Micropython</a>.
+This content is quick reference for new users.</p>
 <div class="contents topic" id="table-of-contents">
 <p class="topic-title first">Table of Contents</p>
 <ul class="simple">
 <li><a class="reference internal" href="#micropython-and-lopy" id="id2">Micropython and Lopy</a><ul>
-<li><a class="reference internal" href="#lopy" id="id3">Lopy</a><ul>
-<li><a class="reference internal" href="#ftp" id="id4">FTP</a></li>
-<li><a class="reference internal" href="#telnet" id="id5">Telnet</a></li>
-<li><a class="reference internal" href="#serial" id="id6">Serial</a></li>
+<li><a class="reference internal" href="#lopy" id="id3">Lopy</a></li>
+<li><a class="reference internal" href="#start" id="id4">Start</a><ul>
+<li><a class="reference internal" href="#ftp" id="id5">FTP</a></li>
+<li><a class="reference internal" href="#telnet" id="id6">Telnet</a></li>
+<li><a class="reference internal" href="#serial" id="id7">Serial</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#code-example" id="id7">Code example</a><ul>
-<li><a class="reference internal" href="#config-file" id="id8">Config file</a></li>
-<li><a class="reference internal" href="#boot-file" id="id9">Boot file</a></li>
-<li><a class="reference internal" href="#main-file" id="id10">Main file</a></li>
+<li><a class="reference internal" href="#code-example" id="id8">Code example</a><ul>
+<li><a class="reference internal" href="#config-file" id="id9">Config file</a></li>
+<li><a class="reference internal" href="#boot-file" id="id10">Boot file</a></li>
+<li><a class="reference internal" href="#main-file" id="id11">Main file</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#building-a-firmware-image" id="id11">Building a firmware image</a><ul>
-<li><a class="reference internal" href="#requirements" id="id12">Requirements</a></li>
-<li><a class="reference internal" href="#debian-ubuntu" id="id13">Debian/Ubuntu</a></li>
-<li><a class="reference internal" href="#build-environment" id="id14">Build environment</a></li>
-<li><a class="reference internal" href="#source-code" id="id15">Source code</a></li>
-<li><a class="reference internal" href="#xtensa" id="id16">Xtensa</a></li>
-<li><a class="reference internal" href="#esp-idf" id="id17">ESP-IDF</a></li>
-<li><a class="reference internal" href="#build-process" id="id18">Build process</a></li>
-<li><a class="reference internal" href="#rebuild-process" id="id19">Rebuild process</a></li>
+<li><a class="reference internal" href="#building-a-firmware-image" id="id12">Building a firmware image</a><ul>
+<li><a class="reference internal" href="#requirements" id="id13">Requirements</a></li>
+<li><a class="reference internal" href="#debian-ubuntu" id="id14">Debian/Ubuntu</a></li>
+<li><a class="reference internal" href="#build-environment" id="id15">Build environment</a></li>
+<li><a class="reference internal" href="#source-code" id="id16">Source code</a></li>
+<li><a class="reference internal" href="#xtensa" id="id17">Xtensa</a></li>
+<li><a class="reference internal" href="#esp-idf" id="id18">ESP-IDF</a></li>
+<li><a class="reference internal" href="#build-process" id="id19">Build process</a></li>
+<li><a class="reference internal" href="#rebuild-process" id="id20">Rebuild process</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#encryption" id="id20">Encryption</a><ul>
-<li><a class="reference internal" href="#reference" id="id21">Reference</a></li>
+<li><a class="reference internal" href="#encryption" id="id21">Encryption</a><ul>
+<li><a class="reference internal" href="#reference" id="id22">Reference</a></li>
 </ul>
 </li>
 </ul>
@@ -133,20 +135,28 @@
 <div class="figure">
 <img alt="Lopy Module Image" src="images/device/lopy.jpg" />
 </div>
+</div>
+<div class="section" id="start">
+<h3><a class="toc-backref" href="#id4">Start</a></h3>
+<ul class="simple">
+<li>5V</li>
+<li>Micro USB cable</li>
+<li>Lopy and board (Expansion, Pysense, Pytrack..)</li>
+</ul>
 <div class="section" id="ftp">
-<h4><a class="toc-backref" href="#id4">FTP</a></h4>
+<h4><a class="toc-backref" href="#id5">FTP</a></h4>
 <p>Connect to access point with name <cite>lopy-[random characters]</cite> and credentials:</p>
 <div class="highlight"><pre><span></span>u: admin
 p: www.pycom.io
 </pre></div>
 </div>
 <div class="section" id="telnet">
-<h4><a class="toc-backref" href="#id5">Telnet</a></h4>
+<h4><a class="toc-backref" href="#id6">Telnet</a></h4>
 <div class="highlight"><pre><span></span>$ telent <span class="m">192</span>.168.4.1
 </pre></div>
 </div>
 <div class="section" id="serial">
-<h4><a class="toc-backref" href="#id6">Serial</a></h4>
+<h4><a class="toc-backref" href="#id7">Serial</a></h4>
 <p>Connecting to UART we can use any program rshell or minicom, screen..</p>
 <p>Get information about ports:</p>
 <div class="highlight"><pre><span></span>dmesg <span class="p">|</span> egrep --color <span class="s1">&#39;serial|ttyS&#39;</span>
@@ -179,7 +189,7 @@ content
 </div>
 </div>
 <div class="section" id="code-example">
-<h3><a class="toc-backref" href="#id7">Code example</a></h3>
+<h3><a class="toc-backref" href="#id8">Code example</a></h3>
 <p>Project structure</p>
 <div class="highlight"><pre><span></span>project/
 ├── lib/       &lt;--- Place for sensors drivers
@@ -188,7 +198,7 @@ content
 └── main.py    &lt;--- Executed after boot
 </pre></div>
 <div class="section" id="config-file">
-<h4><a class="toc-backref" href="#id8">Config file</a></h4>
+<h4><a class="toc-backref" href="#id9">Config file</a></h4>
 <div class="highlight"><pre><span></span><span class="c1"># config.py</span>
 
 <span class="n">DEV_ID</span> <span class="o">=</span> <span class="s2">&quot;&lt;DEV_ID_REGISTERED_ON_LORA_SERVER&quot;</span>
@@ -226,7 +236,7 @@ content
 </pre></div>
 </div>
 <div class="section" id="boot-file">
-<h4><a class="toc-backref" href="#id9">Boot file</a></h4>
+<h4><a class="toc-backref" href="#id10">Boot file</a></h4>
 <div class="highlight"><pre><span></span><span class="c1"># boot.py -- run on boot-up</span>
 
 <span class="kn">import</span> <span class="nn">os</span>
@@ -241,7 +251,7 @@ content
 </pre></div>
 </div>
 <div class="section" id="main-file">
-<h4><a class="toc-backref" href="#id10">Main file</a></h4>
+<h4><a class="toc-backref" href="#id11">Main file</a></h4>
 <div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Basic LoRa example based on OTAA (Over The Air Authentication)</span>
 <span class="sd">&quot;&quot;&quot;</span>
@@ -318,12 +328,12 @@ content
 </div>
 </div>
 <div class="section" id="building-a-firmware-image">
-<h3><a class="toc-backref" href="#id11">Building a firmware image</a></h3>
+<h3><a class="toc-backref" href="#id12">Building a firmware image</a></h3>
 <div class="figure align-center">
 <img alt="Output console image" src="./images/iot/pycom-build.png" />
 </div>
 <div class="section" id="requirements">
-<h4><a class="toc-backref" href="#id12">Requirements</a></h4>
+<h4><a class="toc-backref" href="#id13">Requirements</a></h4>
 <ul class="simple">
 <li>Pycom MicroPython source code</li>
 <li>Xtensa gcc compiler</li>
@@ -331,19 +341,19 @@ content
 </ul>
 </div>
 <div class="section" id="debian-ubuntu">
-<h4><a class="toc-backref" href="#id13">Debian/Ubuntu</a></h4>
+<h4><a class="toc-backref" href="#id14">Debian/Ubuntu</a></h4>
 <div class="highlight"><pre><span></span>sudo apt-get install gcc git wget make libncurses-dev flex bison gperf
 python python-serial
 </pre></div>
 </div>
 <div class="section" id="build-environment">
-<h4><a class="toc-backref" href="#id14">Build environment</a></h4>
+<h4><a class="toc-backref" href="#id15">Build environment</a></h4>
 <p>Make build project directory</p>
 <div class="highlight"><pre><span></span>$ <span class="nb">cd</span> <span class="nv">$HOME</span> <span class="o">&amp;&amp;</span> mkdir pycom-build
 </pre></div>
 </div>
 <div class="section" id="source-code">
-<h4><a class="toc-backref" href="#id15">Source code</a></h4>
+<h4><a class="toc-backref" href="#id16">Source code</a></h4>
 <p>Get Pycom MicroPython source code</p>
 <div class="highlight"><pre><span></span>$ git clone https://github.com/pycom/pycom-micropython-sigfox
 </pre></div>
@@ -371,7 +381,7 @@ $ git checkout v1.18.0.r1
 </pre></div>
 </div>
 <div class="section" id="xtensa">
-<h4><a class="toc-backref" href="#id16">Xtensa</a></h4>
+<h4><a class="toc-backref" href="#id17">Xtensa</a></h4>
 <p>Install xtensa gcc compiler</p>
 <div class="highlight"><pre><span></span>$ <span class="nb">cd</span> <span class="nv">$HOME</span>/pycom-build
 $ wget https://dl.espressif.com/dl/xtensa-esp32-elf-linux64-1.22.0-80-g6c4433a-5.2.0.tar.gz
@@ -388,7 +398,7 @@ $ <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</
 export command!</p>
 </div>
 <div class="section" id="esp-idf">
-<h4><a class="toc-backref" href="#id17">ESP-IDF</a></h4>
+<h4><a class="toc-backref" href="#id18">ESP-IDF</a></h4>
 <p>Install ESP-IDF tools</p>
 <div class="highlight"><pre><span></span>$ <span class="nb">cd</span> <span class="nv">$HOME</span>/pycom-build
 $ git clone https://github.com/pycom/pycom-esp-idf.git
@@ -405,7 +415,7 @@ $ <span class="nb">export</span> <span class="nv">IDF_PATH</span><span class="o"
 </ul>
 </div>
 <div class="section" id="build-process">
-<h4><a class="toc-backref" href="#id18">Build process</a></h4>
+<h4><a class="toc-backref" href="#id19">Build process</a></h4>
 <p>Read this first: <a class="reference external" href="https://github.com/pycom/pycom-micropython-sigfox">https://github.com/pycom/pycom-micropython-sigfox</a></p>
 <ul class="simple">
 <li><ol class="first arabic">
@@ -465,7 +475,7 @@ $ make <span class="nv">ESPPORT</span><span class="o">=</span>/dev/tty.usbserial
 </pre></div>
 </div>
 <div class="section" id="rebuild-process">
-<h4><a class="toc-backref" href="#id19">Rebuild process</a></h4>
+<h4><a class="toc-backref" href="#id20">Rebuild process</a></h4>
 <p>Making rebuild looks like this:</p>
 <div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HOME</span>/pycom-build/xtensa-esp32-elf/bin
 <span class="nb">export</span> <span class="nv">IDF_PATH</span><span class="o">=</span><span class="nv">$HOME</span>/pycom-build/pycom-esp-idf
@@ -477,13 +487,13 @@ make <span class="nv">BOARD</span><span class="o">=</span>LOPY4 -j5 <span class=
 </div>
 </div>
 <div class="section" id="encryption">
-<h3><a class="toc-backref" href="#id20">Encryption</a></h3>
+<h3><a class="toc-backref" href="#id21">Encryption</a></h3>
 <p>Use make SECURE=on [optionally SECURE_KEY ?= secure_boot_signing_key.pem] to
 enable Secure Boot and Flash Encryption mechanisms.</p>
 <p>Use make V=1 or set BUILD_VERBOSE in your environment to increase build
 verbosity.</p>
 <div class="section" id="reference">
-<h4><a class="toc-backref" href="#id21">Reference</a></h4>
+<h4><a class="toc-backref" href="#id22">Reference</a></h4>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/pycom/pycom-micropython-sigfox#the-esp32-version">pycom micropython</a></li>
 </ul>

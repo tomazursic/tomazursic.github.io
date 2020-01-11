@@ -3,36 +3,38 @@
 (ESP-32) module&lt;/p&gt;
 </summary><content type="html">&lt;div class="section" id="micropython-and-lopy"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id2"&gt;Micropython and Lopy&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;About ruining Python on bare metal, using &lt;a class="reference external" href="https://pycom.io/"&gt;Pycom&lt;/a&gt; Lopy and &lt;a class="reference external" href="https://micropython.org/"&gt;Micropython&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;About ruining Python on bare metal, using &lt;a class="reference external" href="https://pycom.io/"&gt;Pycom&lt;/a&gt; Lopy and &lt;a class="reference external" href="https://micropython.org/"&gt;Micropython&lt;/a&gt;.
+This content is quick reference for new users.&lt;/p&gt;
 &lt;div class="contents topic" id="table-of-contents"&gt;
 &lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#micropython-and-lopy" id="id2"&gt;Micropython and Lopy&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#lopy" id="id3"&gt;Lopy&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#ftp" id="id4"&gt;FTP&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#telnet" id="id5"&gt;Telnet&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#serial" id="id6"&gt;Serial&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#lopy" id="id3"&gt;Lopy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#start" id="id4"&gt;Start&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#ftp" id="id5"&gt;FTP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#telnet" id="id6"&gt;Telnet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#serial" id="id7"&gt;Serial&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#code-example" id="id7"&gt;Code example&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#config-file" id="id8"&gt;Config file&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#boot-file" id="id9"&gt;Boot file&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#main-file" id="id10"&gt;Main file&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#code-example" id="id8"&gt;Code example&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#config-file" id="id9"&gt;Config file&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#boot-file" id="id10"&gt;Boot file&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#main-file" id="id11"&gt;Main file&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#building-a-firmware-image" id="id11"&gt;Building a firmware image&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#requirements" id="id12"&gt;Requirements&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#debian-ubuntu" id="id13"&gt;Debian/Ubuntu&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#build-environment" id="id14"&gt;Build environment&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#source-code" id="id15"&gt;Source code&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#xtensa" id="id16"&gt;Xtensa&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#esp-idf" id="id17"&gt;ESP-IDF&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#build-process" id="id18"&gt;Build process&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#rebuild-process" id="id19"&gt;Rebuild process&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#building-a-firmware-image" id="id12"&gt;Building a firmware image&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#requirements" id="id13"&gt;Requirements&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#debian-ubuntu" id="id14"&gt;Debian/Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#build-environment" id="id15"&gt;Build environment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#source-code" id="id16"&gt;Source code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#xtensa" id="id17"&gt;Xtensa&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#esp-idf" id="id18"&gt;ESP-IDF&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#build-process" id="id19"&gt;Build process&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#rebuild-process" id="id20"&gt;Rebuild process&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#encryption" id="id20"&gt;Encryption&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#reference" id="id21"&gt;Reference&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#encryption" id="id21"&gt;Encryption&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#reference" id="id22"&gt;Reference&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -49,20 +51,28 @@
 &lt;div class="figure"&gt;
 &lt;img alt="Lopy Module Image" src="images/device/lopy.jpg" /&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="start"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id4"&gt;Start&lt;/a&gt;&lt;/h3&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;5V&lt;/li&gt;
+&lt;li&gt;Micro USB cable&lt;/li&gt;
+&lt;li&gt;Lopy and board (Expansion, Pysense, Pytrack..)&lt;/li&gt;
+&lt;/ul&gt;
 &lt;div class="section" id="ftp"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id4"&gt;FTP&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id5"&gt;FTP&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;Connect to access point with name &lt;cite&gt;lopy-[random characters]&lt;/cite&gt; and credentials:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;u: admin
 p: www.pycom.io
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="telnet"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id5"&gt;Telnet&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id6"&gt;Telnet&lt;/a&gt;&lt;/h4&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ telent &lt;span class="m"&gt;192&lt;/span&gt;.168.4.1
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="serial"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id6"&gt;Serial&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id7"&gt;Serial&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;Connecting to UART we can use any program rshell or minicom, screen..&lt;/p&gt;
 &lt;p&gt;Get information about ports:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dmesg &lt;span class="p"&gt;|&lt;/span&gt; egrep --color &lt;span class="s1"&gt;&amp;#39;serial|ttyS&amp;#39;&lt;/span&gt;
@@ -95,7 +105,7 @@ content
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="code-example"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id7"&gt;Code example&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id8"&gt;Code example&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Project structure&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;project/
 ├── lib/       &amp;lt;--- Place for sensors drivers
@@ -104,7 +114,7 @@ content
 └── main.py    &amp;lt;--- Executed after boot
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="config-file"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id8"&gt;Config file&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id9"&gt;Config file&lt;/a&gt;&lt;/h4&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# config.py&lt;/span&gt;
 
 &lt;span class="n"&gt;DEV_ID&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;lt;DEV_ID_REGISTERED_ON_LORA_SERVER&amp;quot;&lt;/span&gt;
@@ -142,7 +152,7 @@ content
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="boot-file"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id9"&gt;Boot file&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id10"&gt;Boot file&lt;/a&gt;&lt;/h4&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# boot.py -- run on boot-up&lt;/span&gt;
 
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
@@ -157,7 +167,7 @@ content
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="main-file"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id10"&gt;Main file&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id11"&gt;Main file&lt;/a&gt;&lt;/h4&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
 &lt;span class="sd"&gt;Basic LoRa example based on OTAA (Over The Air Authentication)&lt;/span&gt;
 &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
@@ -234,12 +244,12 @@ content
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="building-a-firmware-image"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;Building a firmware image&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id12"&gt;Building a firmware image&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="figure align-center"&gt;
 &lt;img alt="Output console image" src="./images/iot/pycom-build.png" /&gt;
 &lt;/div&gt;
 &lt;div class="section" id="requirements"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id12"&gt;Requirements&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id13"&gt;Requirements&lt;/a&gt;&lt;/h4&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;Pycom MicroPython source code&lt;/li&gt;
 &lt;li&gt;Xtensa gcc compiler&lt;/li&gt;
@@ -247,19 +257,19 @@ content
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="debian-ubuntu"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id13"&gt;Debian/Ubuntu&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id14"&gt;Debian/Ubuntu&lt;/a&gt;&lt;/h4&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install gcc git wget make libncurses-dev flex bison gperf
 python python-serial
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="build-environment"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id14"&gt;Build environment&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id15"&gt;Build environment&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;Make build project directory&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; mkdir pycom-build
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="source-code"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id15"&gt;Source code&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id16"&gt;Source code&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;Get Pycom MicroPython source code&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git clone https://github.com/pycom/pycom-micropython-sigfox
 &lt;/pre&gt;&lt;/div&gt;
@@ -287,7 +297,7 @@ $ git checkout v1.18.0.r1
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="xtensa"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id16"&gt;Xtensa&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id17"&gt;Xtensa&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;Install xtensa gcc compiler&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build
 $ wget https://dl.espressif.com/dl/xtensa-esp32-elf-linux64-1.22.0-80-g6c4433a-5.2.0.tar.gz
@@ -304,7 +314,7 @@ $ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/spa
 export command!&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="esp-idf"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id17"&gt;ESP-IDF&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id18"&gt;ESP-IDF&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;Install ESP-IDF tools&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build
 $ git clone https://github.com/pycom/pycom-esp-idf.git
@@ -321,7 +331,7 @@ $ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;IDF_PATH&lt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="build-process"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id18"&gt;Build process&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id19"&gt;Build process&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;Read this first: &lt;a class="reference external" href="https://github.com/pycom/pycom-micropython-sigfox"&gt;https://github.com/pycom/pycom-micropython-sigfox&lt;/a&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;ol class="first arabic"&gt;
@@ -381,7 +391,7 @@ $ make &lt;span class="nv"&gt;ESPPORT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/sp
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="rebuild-process"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id19"&gt;Rebuild process&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id20"&gt;Rebuild process&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;Making rebuild looks like this:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$PATH&lt;/span&gt;:&lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/xtensa-esp32-elf/bin
 &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;IDF_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/pycom-esp-idf
@@ -393,13 +403,13 @@ make &lt;span class="nv"&gt;BOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&g
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="encryption"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id20"&gt;Encryption&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id21"&gt;Encryption&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Use make SECURE=on [optionally SECURE_KEY ?= secure_boot_signing_key.pem] to
 enable Secure Boot and Flash Encryption mechanisms.&lt;/p&gt;
 &lt;p&gt;Use make V=1 or set BUILD_VERBOSE in your environment to increase build
 verbosity.&lt;/p&gt;
 &lt;div class="section" id="reference"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id21"&gt;Reference&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id22"&gt;Reference&lt;/a&gt;&lt;/h4&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://github.com/pycom/pycom-micropython-sigfox#the-esp32-version"&gt;pycom micropython&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
