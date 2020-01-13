@@ -3,8 +3,7 @@
 (ESP-32) module&lt;/p&gt;
 </summary><content type="html">&lt;div class="section" id="micropython-and-lopy"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id2"&gt;Micropython and Lopy&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;About ruining Python on bare metal, using &lt;a class="reference external" href="https://pycom.io/"&gt;Pycom&lt;/a&gt; Lopy and &lt;a class="reference external" href="https://micropython.org/"&gt;Micropython&lt;/a&gt;.
-This content is quick reference for new users.&lt;/p&gt;
+&lt;p&gt;About ruining Python on bare metal, using &lt;a class="reference external" href="https://pycom.io/"&gt;Pycom&lt;/a&gt; Lopy and &lt;a class="reference external" href="https://micropython.org/"&gt;Micropython&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="contents topic" id="table-of-contents"&gt;
 &lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
