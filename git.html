@@ -5,7 +5,7 @@
     <title>Web Logs - tomazursic.github.io - Git Notes</title>
   <meta charset="utf-8" />
   <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Web Logs - tomazursic.github.io Full Atom Feed" />
-  <link href="/feeds/notes.atom.xml" type="application/atom+xml" rel="alternate" title="Web Logs - tomazursic.github.io Categories Atom Feed" />
+  <link href="/feeds/blog.atom.xml" type="application/atom+xml" rel="alternate" title="Web Logs - tomazursic.github.io Categories Atom Feed" />
 
 
 
@@ -40,7 +40,7 @@
     </div>
     <ul class="nav-menu">
 
-          <li><a href="/category/blog.html">blog</a></li>
+          <li class="active"><a href="/category/blog.html">blog</a></li>
           <li><a href="/category/projects.html">projects</a></li>
           <li><a href="/pages/contact.html">Contact</a></li>
     </ul>
@@ -63,17 +63,17 @@
 <section id="content" class="body">
   <header>
     <h2 class="entry-title">
-      <a href="/drafts/git.html" rel="bookmark"
+      <a href="/git.html" rel="bookmark"
          title="Permalink to Git Notes">Git Notes</a></h2>
  
   </header>
   <footer class="post-info">
-    <time class="published" datetime="2019-12-23T00:00:00+01:00">
-      <b>Published</b>: Mon 23 December 2019
+    <time class="published" datetime="2017-07-08T00:00:00+02:00">
+      <b>Published</b>: Sat 08 July 2017
     </time>
     <br>
     <div class="category">
-        <b>Category</b>: <a href="/category/notes.html">notes</a>
+        <b>Category</b>: <a href="/category/blog.html">blog</a>
     </div>
     <div class="tags">
         <b>Tags</b>:
@@ -87,51 +87,41 @@
 <h2>Git Tips</h2>
 <div class="section" id="contribute">
 <h3>Contribute</h3>
-<ol class="arabic">
-<li><p class="first">Make Fork on webpage</p>
-</li>
-<li><p class="first">Create local clone</p>
-</li>
-<li><p class="first">Add remote upstrem to original repo</p>
-<blockquote>
-<p>$ git remote add upstream <a class="reference external" href="https://github.com/octocat/Spoon-Knife.git">https://github.com/octocat/Spoon-Knife.git</a></p>
-</blockquote>
-</li>
-<li><p class="first">View remote</p>
-<blockquote>
-<p>$ git remote -v</p>
-</blockquote>
-</li>
-<li><p class="first">Sync a fork</p>
-<blockquote>
-<p>$ git fetch upstream</p>
-</blockquote>
-</li>
-<li><p class="first">Branch set to track upsream master</p>
-<blockquote>
-<p>$ git branch --set-upstream-to=upstream/master master</p>
-</blockquote>
-</li>
-<li><p class="first">Create new brnch for working on</p>
-<blockquote>
-<p>$ git checkout -b &lt;branch-name&gt;</p>
-</blockquote>
-</li>
-<li><p class="first">Create changes, commit and push to origin remote</p>
-<blockquote>
-<p>$ git push -u origin &lt;branch-name&gt;</p>
-</blockquote>
-</li>
-<li><p class="first">Create Pull Request in GUI</p>
-</li>
+<ol class="arabic simple">
+<li>Make Fork on webpage</li>
+<li>Create local clone</li>
+<li>Add remote upstrem to original repo</li>
 </ol>
-<p>tip:
-My tip</p>
-<div class="section" id="check-out-upstream-branch">
-<h4>Check out upstream branch</h4>
-<blockquote>
-$ git checkout --track origin/&lt;branch&gt;</blockquote>
-</div>
+<div class="highlight"><pre><span></span>$ git remote add upstream https://github.com/octocat/Spoon-Knife.git
+</pre></div>
+<ol class="arabic simple" start="4">
+<li>View remote</li>
+</ol>
+<div class="highlight"><pre><span></span>$ git remote -v
+</pre></div>
+<ol class="arabic simple" start="5">
+<li>Sync a fork</li>
+</ol>
+<div class="highlight"><pre><span></span>$ git fetch upstream
+</pre></div>
+<ol class="arabic simple" start="6">
+<li>Branch set to track upsream master</li>
+</ol>
+<div class="highlight"><pre><span></span>$ git branch --set-upstream-to<span class="o">=</span>upstream/master master
+</pre></div>
+<ol class="arabic simple" start="7">
+<li>Create new brnch for working on</li>
+</ol>
+<div class="highlight"><pre><span></span>$ git checkout -b &lt;branch-name&gt;
+</pre></div>
+<ol class="arabic simple" start="8">
+<li>Create changes, commit and push to origin remote</li>
+</ol>
+<div class="highlight"><pre><span></span>$ git push -u origin &lt;branch-name&gt;
+</pre></div>
+<ol class="arabic simple" start="9">
+<li>Create Pull Request in GUI</li>
+</ol>
 </div>
 </div>
 
@@ -143,8 +133,9 @@ $ git checkout --track origin/&lt;branch&gt;</blockquote>
               <li style="font-size: 100.0%;"><a href="/tag/bread.html">bread</a></li>
               <li style="font-size: 100.0%;"><a href="/tag/cheatsheet.html">cheatsheet</a></li>
               <li style="font-size: 100.0%;"><a href="/tag/gateway.html">gateway</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/git.html">git</a></li>
               <li style="font-size: 150.0%;"><a href="/tag/iot.html">iot</a></li>
-              <li style="font-size: 100.0%;"><a href="/tag/linux.html">linux</a></li>
+              <li style="font-size: 125.0%;"><a href="/tag/linux.html">linux</a></li>
               <li style="font-size: 150.0%;"><a href="/tag/lorawan.html">lorawan</a></li>
               <li style="font-size: 100.0%;"><a href="/tag/misc.html">misc</a></li>
               <li style="font-size: 125.0%;"><a href="/tag/network.html">network</a></li>

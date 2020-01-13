@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/</loc>
-<lastmod>2020-01-11T11:56:19-00:00</lastmod>
+<lastmod>2020-01-13T12:11:01-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/archives.html</loc>
-<lastmod>2020-01-11T11:56:19-00:00</lastmod>
+<lastmod>2020-01-13T12:11:01-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/tags.html</loc>
-<lastmod>2020-01-11T11:56:19-00:00</lastmod>
+<lastmod>2020-01-13T12:11:01-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/categories.html</loc>
-<lastmod>2020-01-11T11:56:19-00:00</lastmod>
+<lastmod>2020-01-13T12:11:01-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -104,6 +104,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>/python-cheatsheet.html</loc>
 <lastmod>2020-01-04T00:00:00+01:00</lastmod>
+<changefreq>always</changefreq>
+<priority>1</priority>
+</url>
+
+<url>
+<loc>/git.html</loc>
+<lastmod>2017-07-08T00:00:00+02:00</lastmod>
 <changefreq>always</changefreq>
 <priority>1</priority>
 </url>
@@ -251,6 +258,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>/tag/cheatsheet.html</loc>
 <lastmod>2020-01-04T00:00:00+01:22</lastmod>
+<changefreq>hourly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/tag/git.html</loc>
+<lastmod>2017-07-08T00:00:00+01:22</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>

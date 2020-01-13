@@ -207,6 +207,18 @@
 <li><a class="reference internal" href="#installing-packages" id="id86">Installing Packages</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#regular-expresions" id="id87">Regular Expresions</a><ul>
+<li><a class="reference internal" href="#meta-character" id="id88">Meta-Character</a></li>
+<li><a class="reference internal" href="#repeating" id="id89">Repeating</a></li>
+<li><a class="reference internal" href="#usage-pattern-object" id="id90">Usage - Pattern object</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#python-internals" id="id91">Python Internals</a><ul>
+<li><a class="reference internal" href="#execution" id="id92">Execution</a></li>
+<li><a class="reference internal" href="#gil" id="id93">GIL</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#terminology" id="id94">Terminology</a></li>
 </ul>
 </div>
 <div class="section" id="introduction">
@@ -483,7 +495,7 @@ most editors with Python support can comment out a region.</p>
 </div>
 <p>The figure that follows illustrates how everything is an object in Python and variables just point to them.</p>
 <div class="figure">
-<img alt="" src="img/py/rebind.png" />
+<img alt="" src="images/py/rebind.png" />
 <p class="caption">Illustration of reusing the same variable</p>
 </div>
 </div>
@@ -1999,7 +2011,7 @@ the <tt class="docutils literal">\N</tt> syntax. The following are equivalent</p
 <span class="o">&gt;&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;x</span><span class="se">\N{SUPERSCRIPT TWO}</span><span class="s1">&#39;</span>
 </pre></div>
 <div class="figure">
-<img alt="" src="img/py/uniencode.png" />
+<img alt="" src="images/py/uniencode.png" />
 <p class="caption">Image illustrating <em>encoding</em> a Unicode string to a byte representation. In this case,
 we convert to UTF-8. There are other byte encodings for this string. If we have a UTF-8
 byte string, we can <em>decode</em> it into a Unicode string. Note that we should be explicit
@@ -3557,6 +3569,253 @@ many harder to install packages.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="regular-expresions">
+<h2><a class="toc-backref" href="#id87">Regular Expresions</a></h2>
+<div class="section" id="meta-character">
+<h3><a class="toc-backref" href="#id88">Meta-Character</a></h3>
+<table border="1" class="docutils">
+<caption>Meta-Character</caption>
+<colgroup>
+<col width="24%" />
+<col width="76%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Operator</th>
+<th class="head">Match</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal"><span class="pre">[a-c],</span> [abc]</tt></td>
+<td>a, b, c</td>
+</tr>
+<tr><td><tt class="docutils literal">[^5]</tt></td>
+<td>all chars except 5</td>
+</tr>
+<tr><td><tt class="docutils literal">\d</tt></td>
+<td>[0-9] decimal digit</td>
+</tr>
+<tr><td><tt class="docutils literal">\D</tt></td>
+<td>[^0-9] non-digit chars</td>
+</tr>
+<tr><td><tt class="docutils literal">\s</tt></td>
+<td>[ tnrfv] whitespace chars</td>
+</tr>
+<tr><td><tt class="docutils literal">\S</tt></td>
+<td>[^ tnrfv] non-whitespace chars</td>
+</tr>
+<tr><td><tt class="docutils literal">\w</tt></td>
+<td>[<tt class="docutils literal"><span class="pre">a-zA-Z0-9_</span></tt>] alphanumeric chars</td>
+</tr>
+<tr><td><tt class="docutils literal">\W</tt></td>
+<td>[<tt class="docutils literal"><span class="pre">^a-zA-Z0-9_</span></tt>] non-alphanumeric chars</td>
+</tr>
+<tr><td><tt class="docutils literal">^</tt></td>
+<td>beginning of line</td>
+</tr>
+<tr><td><tt class="docutils literal">\A</tt></td>
+<td>beginning of string (differ from ^ for multi-line string)</td>
+</tr>
+<tr><td><tt class="docutils literal">$</tt></td>
+<td>end of line</td>
+</tr>
+<tr><td><tt class="docutils literal">\Z</tt></td>
+<td>end of string (differ from ^ for multi-line string)</td>
+</tr>
+<tr><td><tt class="docutils literal">\b</tt></td>
+<td>word boundary</td>
+</tr>
+<tr><td><tt class="docutils literal">\B</tt></td>
+<td>non-word boundary</td>
+</tr>
+<tr><td><tt class="docutils literal">()</tt></td>
+<td>group e.g. (ab)+ match ab, abab, ababab, ...</td>
+</tr>
+<tr><td><tt class="docutils literal">\1, \2, ...</tt></td>
+<td>reference to group 1, group 2, ...</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">(?P&lt;name&gt;...)</span></tt></td>
+<td>grouped name, e.g. (?P&lt;word&gt;bw+b) : matched group (bw+b) will be named word</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="repeating">
+<h3><a class="toc-backref" href="#id89">Repeating</a></h3>
+<table border="1" class="docutils">
+<caption>Repeating</caption>
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Character</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">*</tt></td>
+<td>0+ repeating (greedy repeating : get as much as it could)</td>
+</tr>
+<tr><td><tt class="docutils literal">+</tt></td>
+<td>1+ repeating (greedy repeating : get as much as it could)</td>
+</tr>
+<tr><td><tt class="docutils literal">?</tt></td>
+<td>0..1 repeating = {0,1} (greedy repeating : get as much as it could)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">*?,</span> <span class="pre">+?,</span> <span class="pre">??</span></tt></td>
+<td>same as above but non-greedy repeating</td>
+</tr>
+<tr><td><tt class="docutils literal">{m}</tt></td>
+<td>exactly repeating m times</td>
+</tr>
+<tr><td><tt class="docutils literal">{m,n}</tt></td>
+<td>m..n repeating</td>
+</tr>
+<tr><td><tt class="docutils literal">{,n}</tt></td>
+<td>0..n repeating</td>
+</tr>
+<tr><td><tt class="docutils literal">{m,}</tt></td>
+<td>m.. repeating</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="usage-pattern-object">
+<h3><a class="toc-backref" href="#id90">Usage - Pattern object</a></h3>
+<table border="1" class="docutils">
+<caption>Pattern object</caption>
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Methods</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">compile()</tt></td>
+<td>compile pattern string to Pattern object</td>
+</tr>
+<tr><td><tt class="docutils literal">match()</tt></td>
+<td>matches at the beginning of the string, return Match object or None if not match</td>
+</tr>
+<tr><td><tt class="docutils literal">search()</tt></td>
+<td>matches at any location of the string, return Match object or None if not match</td>
+</tr>
+<tr><td><tt class="docutils literal">findall()</tt></td>
+<td>return all matched substrings as a list</td>
+</tr>
+<tr><td><tt class="docutils literal">finditer()</tt></td>
+<td>return all matched substrings as an iterator</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<caption>Module level</caption>
+<colgroup>
+<col width="71%" />
+<col width="29%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Methods</th>
+<th class="head">Options</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal"><span class="pre">re.match(&lt;regex</span> string&gt;, &lt;target string&gt;)</tt></td>
+<td>re.search(...)
+re.findall(...)
+re.finditer(...)</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<caption>Match object</caption>
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Methods</th>
+<th class="head">Returns</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>group()</td>
+<td>return matched string</td>
+</tr>
+<tr><td>start()</td>
+<td>return starting position (0-indexed)</td>
+</tr>
+<tr><td>end()</td>
+<td>return ending position (0-indexed, excluded)</td>
+</tr>
+<tr><td>span()</td>
+<td>return tuple of (start, end) positions</td>
+</tr>
+</tbody>
+</table>
+<p>Examples</p>
+<div class="highlight"><pre><span></span><span class="n">match</span> <span class="n">length</span> <span class="o">=</span> <span class="n">end</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="python-internals">
+<h2><a class="toc-backref" href="#id91">Python Internals</a></h2>
+<div class="section" id="execution">
+<h3><a class="toc-backref" href="#id92">Execution</a></h3>
+<div class="highlight"><pre><span></span>Source Code --&gt; [lexing, parsing and type checking] --&gt; Byte Code --&gt; PVM (Virtual Machine)
+</pre></div>
+<p>In Python, the source is compiled into a much simpler form called bytecode.
+These are instructions similar in spirit to CPU instructions, but instead of
+being executed by the CPU, they are executed by a software called a virtual
+machine. (These are not VM’s that emulate entire operating systems, just a
+simplified CPU execution environment.) .This is a similar approach to the one
+taken by Java. There is even a way of translating Python programs into Java
+byte code for the Java Virtual Machine (JVM). This can be achieved with Jython.</p>
+</div>
+<div class="section" id="gil">
+<h3><a class="toc-backref" href="#id93">GIL</a></h3>
+<p>One thread runs Python, while N others sleep or await I/O.&quot; Python threads can
+also wait for a threading.Lock or other synchronization object from the
+threading module; consider threads in that state to be &quot;sleeping,&quot; too.</p>
+<p>When do threads switch? Whenever a thread begins sleeping or awaiting network
+I/O, there is a chance for another thread to take the GIL and execute Python
+code. This is cooperative multitasking. CPython also has preemptive
+multitasking: If a thread runs uninterrupted for 1000 bytecode instructions in
+Python 2, or runs 15 milliseconds in Python 3, then it gives up the GIL and
+another thread may run. Think of this like time slicing in the olden days when
+we had many threads but one CPU. I will discuss these two kinds of multitasking
+in detail.</p>
+<p>Read more: <a class="reference external" href="https://opensource.com/article/17/4/grok-gil">gork-gill</a></p>
+</div>
+</div>
+<div class="section" id="terminology">
+<h2><a class="toc-backref" href="#id94">Terminology</a></h2>
+<ul>
+<li><p class="first"><strong>Bytecode</strong></p>
+<p>Bytecode is also binary representation executed by virtual machine (not by
+CPU directly). The virtual machine (which is written different for different
+machines) converts binary instruction into a specific machine instruction.</p>
+</li>
+<li><p class="first"><strong>Compiler</strong></p>
+<p>A compiler is a computer program that transforms (translates) source
+code of a programming language (the source language) into another computer
+language (the target language). In most cases compilers are used to transform
+source code into executable program, i.e. they translate code from high-level
+programming languages into low (or lower) level languages, mostly assembly or
+machine code.</p>
+</li>
+<li><p class="first"><strong>Interpreter</strong></p>
+<p>The interpreter is an alternative for implementing a programming
+language and does the same work as a compiler. Interpreter performs lexing,
+parsing and type checking similar to a compiler. But interpreter processes
+syntax tree directly to access expressions and execute statement rather than
+generating code from the syntax tree.</p>
+</li>
+</ul>
+</div>
 
   </div><!-- /.entry-content -->
 </section>
@@ -3566,8 +3825,9 @@ many harder to install packages.</p>
               <li style="font-size: 100.0%;"><a href="/tag/bread.html">bread</a></li>
               <li style="font-size: 100.0%;"><a href="/tag/cheatsheet.html">cheatsheet</a></li>
               <li style="font-size: 100.0%;"><a href="/tag/gateway.html">gateway</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/git.html">git</a></li>
               <li style="font-size: 150.0%;"><a href="/tag/iot.html">iot</a></li>
-              <li style="font-size: 100.0%;"><a href="/tag/linux.html">linux</a></li>
+              <li style="font-size: 125.0%;"><a href="/tag/linux.html">linux</a></li>
               <li style="font-size: 150.0%;"><a href="/tag/lorawan.html">lorawan</a></li>
               <li style="font-size: 100.0%;"><a href="/tag/misc.html">misc</a></li>
               <li style="font-size: 125.0%;"><a href="/tag/network.html">network</a></li>

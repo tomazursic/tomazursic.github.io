@@ -106,23 +106,25 @@ This content is quick reference for new users.</p>
 <li><a class="reference internal" href="#main-file" id="id11">Main file</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#building-a-firmware-image" id="id12">Building a firmware image</a><ul>
-<li><a class="reference internal" href="#requirements" id="id13">Requirements</a></li>
-<li><a class="reference internal" href="#debian-ubuntu" id="id14">Debian/Ubuntu</a></li>
-<li><a class="reference internal" href="#build-environment" id="id15">Build environment</a></li>
-<li><a class="reference internal" href="#source-code" id="id16">Source code</a></li>
-<li><a class="reference internal" href="#xtensa" id="id17">Xtensa</a></li>
-<li><a class="reference internal" href="#esp-idf" id="id18">ESP-IDF</a></li>
-<li><a class="reference internal" href="#build-process" id="id19">Build process</a></li>
-<li><a class="reference internal" href="#rebuild-process" id="id20">Rebuild process</a></li>
+<li><a class="reference internal" href="#code-snippets" id="id12">Code snippets</a></li>
+<li><a class="reference internal" href="#building-a-firmware-image" id="id13">Building a firmware image</a><ul>
+<li><a class="reference internal" href="#requirements" id="id14">Requirements</a></li>
+<li><a class="reference internal" href="#debian-ubuntu" id="id15">Debian/Ubuntu</a></li>
+<li><a class="reference internal" href="#build-environment" id="id16">Build environment</a></li>
+<li><a class="reference internal" href="#source-code" id="id17">Source code</a></li>
+<li><a class="reference internal" href="#xtensa" id="id18">Xtensa</a></li>
+<li><a class="reference internal" href="#esp-idf" id="id19">ESP-IDF</a></li>
+<li><a class="reference internal" href="#build-process" id="id20">Build process</a></li>
+<li><a class="reference internal" href="#rebuild-process" id="id21">Rebuild process</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#encryption" id="id21">Encryption</a><ul>
-<li><a class="reference internal" href="#reference" id="id22">Reference</a></li>
+<li><a class="reference internal" href="#encryption" id="id22">Encryption</a><ul>
+<li><a class="reference internal" href="#reference" id="id23">Reference</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li><a class="reference internal" href="#firmware-update" id="id24">Firmware Update</a></li>
 </ul>
 </div>
 <div class="section" id="lopy">
@@ -132,9 +134,6 @@ This content is quick reference for new users.</p>
 <li><a class="reference external" href="https://docs.pycom.io/gitbook/assets/lopy4-pinout.pdf">Pinout</a></li>
 <li><a class="reference external" href="https://docs.pycom.io/pytrackpysense/installation/firmware/">Frmware</a></li>
 </ul>
-<div class="figure">
-<img alt="Lopy Module Image" src="images/device/lopy.jpg" />
-</div>
 </div>
 <div class="section" id="start">
 <h3><a class="toc-backref" href="#id4">Start</a></h3>
@@ -215,6 +214,9 @@ content
 <span class="c1"># LoRa setup</span>
 <span class="n">LORA_FREQUENCY</span> <span class="o">=</span> <span class="mi">868100000</span>
 
+<span class="c1"># Activate confirmation message</span>
+<span class="n">LORA_STATUS</span> <span class="o">=</span> <span class="kc">True</span>
+
 <span class="c1"># Data Rate (0 - 7)</span>
 <span class="n">LORA_DR</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># DR_5</span>
 
@@ -275,31 +277,64 @@ content
 <span class="n">app_eui</span> <span class="o">=</span> <span class="n">binascii</span><span class="o">.</span><span class="n">unhexlify</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">APP_EUI</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
 <span class="n">app_key</span> <span class="o">=</span> <span class="n">binascii</span><span class="o">.</span><span class="n">unhexlify</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">APP_KEY</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
 
-<span class="c1"># Join a network using OTAA</span>
-<span class="n">lora</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">activation</span><span class="o">=</span><span class="n">LoRa</span><span class="o">.</span><span class="n">OTAA</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="n">dev_eui</span><span class="p">,</span> <span class="n">app_eui</span><span class="p">,</span> <span class="n">app_key</span><span class="p">),</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">machine</span><span class="o">.</span><span class="n">reset_cause</span><span class="p">()</span> <span class="o">!=</span> <span class="n">machine</span><span class="o">.</span><span class="n">DEEPSLEEP_RESET</span><span class="p">:</span>
+    <span class="n">lora</span><span class="o">.</span><span class="n">nvram_erase</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[i] Lora nvram erased!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">lora</span><span class="o">.</span><span class="n">nvram_restore</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[i] Lora nvram restored!&quot;</span><span class="p">)</span>
 
-<span class="c1"># Wait until the module has joined the network</span>
-<span class="k">while</span> <span class="ow">not</span> <span class="n">lora</span><span class="o">.</span><span class="n">has_joined</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">DEBUG_CON</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Not joined yet...&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">DEBUG_LED</span><span class="p">:</span>
-        <span class="n">pycom</span><span class="o">.</span><span class="n">rgbled</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">RED</span><span class="p">)</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
-        <span class="n">pycom</span><span class="o">.</span><span class="n">rgbled</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">LED_OFF</span><span class="p">)</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">lora</span><span class="o">.</span><span class="n">has_joined</span><span class="p">():</span>
+    <span class="c1"># Join a network using OTAA</span>
+    <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[i] Joining LoRa network&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Join a network using OTAA</span>
+    <span class="n">lora</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">activation</span><span class="o">=</span><span class="n">LoRa</span><span class="o">.</span><span class="n">OTAA</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="n">dev_eui</span><span class="p">,</span> <span class="n">app_eui</span><span class="p">,</span> <span class="n">app_key</span><span class="p">),</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># Wait until the module has joined the network</span>
+    <span class="n">fails</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">lora</span><span class="o">.</span><span class="n">has_joined</span><span class="p">():</span>
+        <span class="n">fails</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[w] Not joined yet... </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fails</span><span class="p">))</span>
+            <span class="n">blinker</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">LED_RED</span><span class="p">)</span>
+        <span class="c1"># Time between joins</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">2.5</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">fails</span> <span class="o">&gt;=</span> <span class="n">c</span><span class="o">.</span><span class="n">JOIN_FAILS</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span>
+                <span class="n">blinker</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">LED_RED</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+            <span class="n">fails</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">machine</span><span class="o">.</span><span class="n">idle</span><span class="p">()</span>
 
 <span class="c1"># Create a LoRa socket</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_LORA</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_RAW</span><span class="p">)</span>
+<span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_LORA</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_RAW</span><span class="p">)</span>
 
 <span class="c1"># Set the LoRaWAN data rate</span>
-<span class="n">s</span><span class="o">.</span><span class="n">setsockopt</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">SOL_LORA</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SO_DR</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">LORA_DR</span><span class="p">)</span>
+<span class="n">sock</span><span class="o">.</span><span class="n">setsockopt</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">SOL_LORA</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SO_DR</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">LORA_DR</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">LORA_STATUS</span><span class="p">:</span>
+    <span class="c1"># Selecting confirmed type of messages</span>
+    <span class="n">sock</span><span class="o">.</span><span class="n">setsockopt</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">SOL_LORA</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SO_CONFIRMED</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Bind to port used then on ttn application inside payload switch</span>
+<span class="n">sock</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">SOCK_PORT</span><span class="p">)</span>
 
 <span class="c1"># Make the socket blocking</span>
-<span class="n">s</span><span class="o">.</span><span class="n">setblocking</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">sock</span><span class="o">.</span><span class="n">setblocking</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 
-<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">5.0</span><span class="p">)</span>
+<span class="c1"># To make connection available wait 5 seconds</span>
+<span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">:</span>
+    <span class="n">blinker</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">LED_BLUE</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[i] Joined!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">5.0</span><span class="p">)</span>
 
 <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1"># Example loop</span>
+<span class="c1"># Terminate in CTRL-C</span>
+<span class="c1"># See threading example</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="c1"># Prepare the packet</span>
     <span class="c1"># send &#39;hi&#39; as raw byte data (hex format)</span>
@@ -327,13 +362,21 @@ content
 </pre></div>
 </div>
 </div>
+<div class="section" id="code-snippets">
+<h3><a class="toc-backref" href="#id12">Code snippets</a></h3>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">work_handler</span><span class="p">(</span><span class="n">alarm</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Do some work here...&quot;</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">machine</span><span class="o">.</span><span class="n">Timer</span><span class="o">.</span><span class="n">Alarm</span><span class="p">(</span><span class="n">work_handler</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="p">(</span><span class="mi">60</span><span class="p">),</span> <span class="n">periodic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
 <div class="section" id="building-a-firmware-image">
-<h3><a class="toc-backref" href="#id12">Building a firmware image</a></h3>
+<h3><a class="toc-backref" href="#id13">Building a firmware image</a></h3>
 <div class="figure align-center">
 <img alt="Output console image" src="./images/iot/pycom-build.png" />
 </div>
 <div class="section" id="requirements">
-<h4><a class="toc-backref" href="#id13">Requirements</a></h4>
+<h4><a class="toc-backref" href="#id14">Requirements</a></h4>
 <ul class="simple">
 <li>Pycom MicroPython source code</li>
 <li>Xtensa gcc compiler</li>
@@ -341,19 +384,19 @@ content
 </ul>
 </div>
 <div class="section" id="debian-ubuntu">
-<h4><a class="toc-backref" href="#id14">Debian/Ubuntu</a></h4>
+<h4><a class="toc-backref" href="#id15">Debian/Ubuntu</a></h4>
 <div class="highlight"><pre><span></span>sudo apt-get install gcc git wget make libncurses-dev flex bison gperf
 python python-serial
 </pre></div>
 </div>
 <div class="section" id="build-environment">
-<h4><a class="toc-backref" href="#id15">Build environment</a></h4>
+<h4><a class="toc-backref" href="#id16">Build environment</a></h4>
 <p>Make build project directory</p>
 <div class="highlight"><pre><span></span>$ <span class="nb">cd</span> <span class="nv">$HOME</span> <span class="o">&amp;&amp;</span> mkdir pycom-build
 </pre></div>
 </div>
 <div class="section" id="source-code">
-<h4><a class="toc-backref" href="#id16">Source code</a></h4>
+<h4><a class="toc-backref" href="#id17">Source code</a></h4>
 <p>Get Pycom MicroPython source code</p>
 <div class="highlight"><pre><span></span>$ git clone https://github.com/pycom/pycom-micropython-sigfox
 </pre></div>
@@ -381,7 +424,7 @@ $ git checkout v1.18.0.r1
 </pre></div>
 </div>
 <div class="section" id="xtensa">
-<h4><a class="toc-backref" href="#id17">Xtensa</a></h4>
+<h4><a class="toc-backref" href="#id18">Xtensa</a></h4>
 <p>Install xtensa gcc compiler</p>
 <div class="highlight"><pre><span></span>$ <span class="nb">cd</span> <span class="nv">$HOME</span>/pycom-build
 $ wget https://dl.espressif.com/dl/xtensa-esp32-elf-linux64-1.22.0-80-g6c4433a-5.2.0.tar.gz
@@ -398,7 +441,7 @@ $ <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</
 export command!</p>
 </div>
 <div class="section" id="esp-idf">
-<h4><a class="toc-backref" href="#id18">ESP-IDF</a></h4>
+<h4><a class="toc-backref" href="#id19">ESP-IDF</a></h4>
 <p>Install ESP-IDF tools</p>
 <div class="highlight"><pre><span></span>$ <span class="nb">cd</span> <span class="nv">$HOME</span>/pycom-build
 $ git clone https://github.com/pycom/pycom-esp-idf.git
@@ -415,7 +458,7 @@ $ <span class="nb">export</span> <span class="nv">IDF_PATH</span><span class="o"
 </ul>
 </div>
 <div class="section" id="build-process">
-<h4><a class="toc-backref" href="#id19">Build process</a></h4>
+<h4><a class="toc-backref" href="#id20">Build process</a></h4>
 <p>Read this first: <a class="reference external" href="https://github.com/pycom/pycom-micropython-sigfox">https://github.com/pycom/pycom-micropython-sigfox</a></p>
 <ul class="simple">
 <li><ol class="first arabic">
@@ -475,7 +518,7 @@ $ make <span class="nv">ESPPORT</span><span class="o">=</span>/dev/tty.usbserial
 </pre></div>
 </div>
 <div class="section" id="rebuild-process">
-<h4><a class="toc-backref" href="#id20">Rebuild process</a></h4>
+<h4><a class="toc-backref" href="#id21">Rebuild process</a></h4>
 <p>Making rebuild looks like this:</p>
 <div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HOME</span>/pycom-build/xtensa-esp32-elf/bin
 <span class="nb">export</span> <span class="nv">IDF_PATH</span><span class="o">=</span><span class="nv">$HOME</span>/pycom-build/pycom-esp-idf
@@ -487,17 +530,51 @@ make <span class="nv">BOARD</span><span class="o">=</span>LOPY4 -j5 <span class=
 </div>
 </div>
 <div class="section" id="encryption">
-<h3><a class="toc-backref" href="#id21">Encryption</a></h3>
+<h3><a class="toc-backref" href="#id22">Encryption</a></h3>
 <p>Use make SECURE=on [optionally SECURE_KEY ?= secure_boot_signing_key.pem] to
 enable Secure Boot and Flash Encryption mechanisms.</p>
 <p>Use make V=1 or set BUILD_VERBOSE in your environment to increase build
 verbosity.</p>
 <div class="section" id="reference">
-<h4><a class="toc-backref" href="#id22">Reference</a></h4>
+<h4><a class="toc-backref" href="#id23">Reference</a></h4>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/pycom/pycom-micropython-sigfox#the-esp32-version">pycom micropython</a></li>
 </ul>
 </div>
+</div>
+</div>
+<div class="section" id="firmware-update">
+<h2><a class="toc-backref" href="#id24">Firmware Update</a></h2>
+<table border="1" class="docutils">
+<caption>Programming Modes</caption>
+<colgroup>
+<col width="14%" />
+<col width="14%" />
+<col width="71%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Pin</th>
+<th class="head">Pin</th>
+<th class="head">Case</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>G23</td>
+<td>GND</td>
+<td>Expansion Board</td>
+</tr>
+<tr><td>P2</td>
+<td>GND</td>
+<td>Lopy</td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<div class="figure">
+<img alt="Lopy Module Image" src="images/components/lopy-progmode.jpg" />
 </div>
 </div>
 
@@ -509,8 +586,9 @@ verbosity.</p>
               <li style="font-size: 100.0%;"><a href="/tag/bread.html">bread</a></li>
               <li style="font-size: 100.0%;"><a href="/tag/cheatsheet.html">cheatsheet</a></li>
               <li style="font-size: 100.0%;"><a href="/tag/gateway.html">gateway</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/git.html">git</a></li>
               <li style="font-size: 150.0%;"><a href="/tag/iot.html">iot</a></li>
-              <li style="font-size: 100.0%;"><a href="/tag/linux.html">linux</a></li>
+              <li style="font-size: 125.0%;"><a href="/tag/linux.html">linux</a></li>
               <li style="font-size: 150.0%;"><a href="/tag/lorawan.html">lorawan</a></li>
               <li style="font-size: 100.0%;"><a href="/tag/misc.html">misc</a></li>
               <li style="font-size: 125.0%;"><a href="/tag/network.html">network</a></li>

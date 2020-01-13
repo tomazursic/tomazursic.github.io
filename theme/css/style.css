@@ -332,7 +332,8 @@ html.inverted #banner h1 a {
   position: relative;
 }
 #content {
-  padding-bottom: 100px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid;
   /* Height of the footer element */
 }
 footer#contentinfo {
@@ -688,4 +689,12 @@ p.topic-title {
   margin-top: 35px;
   font-size: 1.4rem;
   line-height: 1;
+}
+
+.paginator {
+  text-align: center;
+}
+
+.tags-footer {
+  padding-bottom: 100px;
 }
