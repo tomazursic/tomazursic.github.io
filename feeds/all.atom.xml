@@ -6663,7 +6663,171 @@ speedometer. It was true I could follow the stars in the general direction of
 Helium, but without knowing the exact location of the city or the speed at
 which I was traveling my chances for finding it were slim.&lt;/p&gt;
 &lt;p&gt;-- &lt;cite&gt; Moby-Dick - Novel by Herman Melville &lt;/cite&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</content><category term="blog"></category></entry><entry><title>MicroPython and Lopy</title><link href="/micropython-lopy.html" rel="alternate"></link><published>2017-03-17T00:31:00+01:00</published><updated>2019-05-05T21:07:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-03-17:/micropython-lopy.html</id><summary type="html">&lt;p class="first last"&gt;How to setup and use lorawan device, using MicroPython and Lopy
+&lt;/blockquote&gt;</content><category term="blog"></category></entry><entry><title>Smart Agriculture Prototype</title><link href="/vinode.html" rel="alternate"></link><published>2017-03-28T21:48:00+02:00</published><updated>2019-09-05T20:38:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-03-28:/vinode.html</id><summary type="html">&lt;p class="first last"&gt;DIY - device for taking micro climate measurements&lt;/p&gt;
+</summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
+&lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#vinode" id="id1"&gt;Vinode&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#issue" id="id2"&gt;Issue&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#solution" id="id3"&gt;Solution&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#changlelog" id="id4"&gt;Changlelog&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#prototype" id="id5"&gt;Prototype&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#version-1-0" id="id6"&gt;Version 1.0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#stand-version-1-0" id="id7"&gt;Stand Version 1.0&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;Prototype for monitor the micro-climate conditions in agriculture.
+Collecting data from orchard/vineyards with purpose to support/help/extends the
+decisions in deals with pests/diseases.&lt;/p&gt;
+&lt;div class="section" id="vinode"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;Vinode&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Live data:&lt;/strong&gt; &lt;a class="reference external" href="https://lepavida.iot.novagorica.eu/d/BfjRxSpWz/vinode?orgId=1&amp;amp;refresh=30s&amp;amp;from=now-30d&amp;amp;to=now"&gt;https://lepavida.iot.novagorica.eu&lt;/a&gt;&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;a class="reference external image-reference" href="https://lepavida.iot.novagorica.eu/d/BfjRxSpWz/vinode?orgId=1&amp;amp;refresh=30s&amp;amp;from=now-30d&amp;amp;to=now"&gt;&lt;img alt="Vinode" src="images/device/vinode/vinode.jpg" /&gt;&lt;/a&gt;
+&lt;p class="caption"&gt;Vinode&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="issue"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id2"&gt;Issue&lt;/a&gt;&lt;/h3&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Fight the danger of downy mildew that in recent years has created serious
+damage across vineyards&lt;/li&gt;
+&lt;li&gt;Adopt a scientific instrument to support
+decisions in order to carry out targeted interventions in the vineyard&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="solution"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id3"&gt;Solution&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;IoT (Internet of Things) system which consists of interconnected devices that
+operate and automatically communicate over long distances thanks to the use of
+the LoRaWAN technology.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;LoRaWAN device with sensors&lt;/strong&gt;: that measure, in real time, the
+micro-climatic conditions in the vineyard (responsible for fungal diseases
+such as downy mildew) and the physio-pathological status of the plant&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LoRaWAN Gateway&lt;/strong&gt;: collection and transmission of data detected by the
+wireless sensors&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The LoRa technology makes it possible to overcome the problem of distance and
+“physical interference”, two common conditions when you consider the nature of
+the Colio viticultural land, very often characterized by slopes, wild
+vegetation and hilly landscapes.&lt;/p&gt;
+&lt;p&gt;Monitor the vineyard in real time and continuously, as well as the storage of
+the historic data, which will be crucial for the organization and management of
+the vineyard, not only of the current season but also of those to come.&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="/lorawan-network.html"&gt;Read more about LoraWAN&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Project example with  MicroPython on esp-32 (lopy) to collect data (weather, soil, leafs..) on
+micro-locations.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="changlelog"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;Changlelog&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Current position&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Vinode" src="images/device/vinode/changelog/20191002_082511.jpg" /&gt;
+&lt;p class="caption"&gt;Vinode v2.1&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="vinode &amp;amp; deploy tools" src="images/device/vinode/20190828_151605.jpg" /&gt;
+&lt;p class="caption"&gt;vinode v2.0 &amp;amp; deploy tools&lt;/p&gt;
+&lt;/div&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="26%" /&gt;
+&lt;col width="35%" /&gt;
+&lt;col width="38%" /&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Version&lt;/th&gt;
+&lt;th class="head"&gt;Date&lt;/th&gt;
+&lt;th class="head"&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;v001&lt;/td&gt;
+&lt;td&gt;06.21.2017&lt;/td&gt;
+&lt;td&gt;Prototype&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;v002&lt;/td&gt;
+&lt;td&gt;28.08.2017&lt;/td&gt;
+&lt;td&gt;Prototype&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;v003&lt;/td&gt;
+&lt;td&gt;21.09.2017&lt;/td&gt;
+&lt;td&gt;Prototype&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;v1.0&lt;/td&gt;
+&lt;td&gt;26.11.2017&lt;/td&gt;
+&lt;td&gt;Alpha&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;v1.0&lt;/td&gt;
+&lt;td&gt;30.01.2018&lt;/td&gt;
+&lt;td&gt;Beta&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;v1.0&lt;/td&gt;
+&lt;td&gt;21.02.2018&lt;/td&gt;
+&lt;td&gt;RC&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class="section" id="prototype"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id5"&gt;Prototype&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="v001" src="images/device/vinode/changelog/vinode001.jpg" /&gt;
+&lt;p class="caption"&gt;Release - vinode001&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="v002" src="images/device/vinode/changelog/vinode002.jpg" /&gt;
+&lt;p class="caption"&gt;Release - vinode002&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="v002" src="images/device/vinode/changelog/vinode003.jpg" /&gt;
+&lt;p class="caption"&gt;Release - vinode003&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="version-1-0"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id6"&gt;Version 1.0&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="v1.0.0-alpha" src="images/device/vinode/changelog/vinode-v1.0.0-alpha.jpg" /&gt;
+&lt;p class="caption"&gt;Release - vinode-v1.0.0-alpha&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="v1.0.0-alpha" src="images/device/vinode/changelog/vinode-v1.0.0-alpha-all.jpg" /&gt;
+&lt;p class="caption"&gt;Release - vinode-v1.0.0-alpha with sensors&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="v1.0.0-beta" src="images/device/vinode/changelog/vinode-v1.0.0-beta.png" /&gt;
+&lt;p class="caption"&gt;Release - vinode-v1.0.0-beta&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="v1.0.0-beta-assemble" src="images/device/vinode/changelog/vinode-v1.0.0-beta-assemble.png" /&gt;
+&lt;p class="caption"&gt;Release - vinode-v1.0.0-beta assemble&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="v1.0.0-rc" src="images/device/vinode/changelog/vinode-v1.0.0-rc.jpg" /&gt;
+&lt;p class="caption"&gt;Release - vinode-v1.0.0-rc&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="v1.0.0-rc1" src="images/device/vinode/changelog/vinode-v1.0.0-rc1.jpg" /&gt;
+&lt;p class="caption"&gt;Release - vinode-v1.0.0-rc1&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="v1.0.0" src="images/device/vinode/changelog/vinode-v1.0.0.jpg" /&gt;
+&lt;p class="caption"&gt;Release - vinode-v1.0.0&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="stand-version-1-0"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id7"&gt;Stand Version 1.0&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="stand v1.0" src="images/device/vinode/changelog/vinode-stand-v1.0.0.jpg" /&gt;
+&lt;p class="caption"&gt;Release - vinode-stand-v1.0.0&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="projects"></category><category term="lorawan"></category><category term="iot"></category><category term="python"></category><category term="micropython"></category></entry><entry><title>MicroPython and Lopy</title><link href="/micropython-lopy.html" rel="alternate"></link><published>2017-03-17T00:31:00+01:00</published><updated>2019-05-05T21:07:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-03-17:/micropython-lopy.html</id><summary type="html">&lt;p class="first last"&gt;How to setup and use lorawan device, using MicroPython and Lopy
 (ESP-32) module&lt;/p&gt;
 </summary><content type="html">&lt;div class="section" id="micropython-and-lopy"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id2"&gt;Micropython and Lopy&lt;/a&gt;&lt;/h2&gt;
