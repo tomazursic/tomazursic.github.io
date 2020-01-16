@@ -5,35 +5,54 @@
 &lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#vim-usage" id="id1"&gt;Vim Usage&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#operator-pending-mode" id="id2"&gt;Operator pending mode&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#text-objects" id="id3"&gt;Text objects&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#bounded" id="id4"&gt;Bounded&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#delimited" id="id5"&gt;Delimited&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#operators-text-objects" id="id6"&gt;Operators + text objects&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#natural-language-text-editor" id="id7"&gt;Natural language text editor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#history" id="id2"&gt;History&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#terminology" id="id3"&gt;Terminology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#operator-pending-mode" id="id4"&gt;Operator pending mode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#text-objects" id="id5"&gt;Text objects&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#bounded" id="id6"&gt;Bounded&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#delimited" id="id7"&gt;Delimited&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#operators-text-objects" id="id8"&gt;Operators + text objects&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#natural-language-text-editor" id="id9"&gt;Natural language text editor&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#normal-mode" id="id8"&gt;Normal mode&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#insert-mode" id="id9"&gt;Insert mode&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#visual-mode" id="id10"&gt;Visual mode&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#command-line-mode" id="id11"&gt;Command line mode&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#tips" id="id12"&gt;TIPS&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#scrolling" id="id13"&gt;Scrolling&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#history" id="id14"&gt;History&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#terminology" id="id15"&gt;Terminology&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#vud" id="id16"&gt;VUD&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#normal-mode" id="id10"&gt;Normal mode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#insert-mode" id="id11"&gt;Insert mode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#visual-mode" id="id12"&gt;Visual mode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#command-line-mode" id="id13"&gt;Command line mode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#tips" id="id14"&gt;TIPS&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#scrolling" id="id15"&gt;Scrolling&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;VUD&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Vim User Disorder&lt;/strong&gt; syndrom: The vim editor which is always in use, so
+much that you start smashing into alien editors with vim commands.
+If you find somewhere in documents random characters &amp;quot;jjjkk&amp;quot; or any characters
+of &amp;quot;jklh&amp;quot; there was a vim user in this file trying to escape.
+This acronym is just a dark fun invented by us, back somewhere in time.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="section" id="history"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id2"&gt;History&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The Evolution:&lt;/p&gt;
+&lt;pre class="code text literal-block"&gt;
+ed &amp;gt;&amp;gt; em &amp;gt;&amp;gt; ex &amp;gt;&amp;gt; vi &amp;gt;&amp;gt; vim
+&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;The Ex Editor&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Ex is a ‘line editor’ Vim is a ‘screen editor’ Ex is sub-editor within
+Vim. Amen.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="terminology"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id3"&gt;Terminology&lt;/a&gt;&lt;/h3&gt;
+&lt;/div&gt;
 &lt;div class="section" id="operator-pending-mode"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id2"&gt;Operator pending mode&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id4"&gt;Operator pending mode&lt;/a&gt;&lt;/h3&gt;
 &lt;pre class="code text literal-block"&gt;
 g~ Swap case
 gu Make lowercase
@@ -41,9 +60,9 @@ gU Make uppercase
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="section" id="text-objects"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id3"&gt;Text objects&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id5"&gt;Text objects&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="section" id="bounded"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id4"&gt;Bounded&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id6"&gt;Bounded&lt;/a&gt;&lt;/h4&gt;
 &lt;pre class="code text literal-block"&gt;
 iw current word
 aw current word + space
@@ -59,7 +78,7 @@ ap current paragraph + space
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="section" id="delimited"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id5"&gt;Delimited&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id7"&gt;Delimited&lt;/a&gt;&lt;/h4&gt;
 &lt;pre class="code text literal-block"&gt;
 ab par of ()
 ib inside ()
@@ -77,7 +96,7 @@ at par of &amp;lt;xmltags&amp;gt;
 it inside &amp;lt;xmltags&amp;gt;
 &lt;/pre&gt;
 &lt;div class="section" id="operators-text-objects"&gt;
-&lt;h5&gt;&lt;a class="toc-backref" href="#id6"&gt;Operators + text objects&lt;/a&gt;&lt;/h5&gt;
+&lt;h5&gt;&lt;a class="toc-backref" href="#id8"&gt;Operators + text objects&lt;/a&gt;&lt;/h5&gt;
 &lt;pre class="code text literal-block"&gt;
 d {motion} aw, as, ap
 
@@ -94,7 +113,7 @@ g {U, u, ~} aw, ap, it
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="section" id="natural-language-text-editor"&gt;
-&lt;h5&gt;&lt;a class="toc-backref" href="#id7"&gt;Natural language text editor&lt;/a&gt;&lt;/h5&gt;
+&lt;h5&gt;&lt;a class="toc-backref" href="#id9"&gt;Natural language text editor&lt;/a&gt;&lt;/h5&gt;
 &lt;pre class="code text literal-block"&gt;
 VERBS   MOTIONS OBJECTS
 [cdyv=] [iatf]   [w{&amp;quot;pt)sB]
@@ -109,7 +128,7 @@ cip hna asr nia gd ee
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="normal-mode"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id8"&gt;Normal mode&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id10"&gt;Normal mode&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;This is Vim’s default mode. Typing a letter here doesn’t insert text,
 but rather lets you navigate and manipulate text in various ways.&lt;/p&gt;
 &lt;pre class="code text literal-block"&gt;
@@ -379,7 +398,7 @@ spell checking
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="section" id="insert-mode"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id9"&gt;Insert mode&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;Insert mode&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;This is where you actually insert text. You can type i to get into
 insert mode. Keep in mind that while the commands below are handy, Vim
 works best when you stay out of insert mode as much as possible. In
@@ -426,7 +445,7 @@ leaving
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="section" id="visual-mode"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id10"&gt;Visual mode&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id12"&gt;Visual mode&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;This mode lets you make visual selections of text.&lt;/p&gt;
 &lt;pre class="code text literal-block"&gt;
 v - start selecting
@@ -457,7 +476,7 @@ visual block mode
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="section" id="command-line-mode"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;Command line mode&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id13"&gt;Command line mode&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Typing a colon gives you access to many commands.&lt;/p&gt;
 &lt;pre class="code text literal-block"&gt;
 Ctrl-b - beginning of command line
@@ -646,9 +665,9 @@ Using: fzf
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="section" id="tips"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id12"&gt;TIPS&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id14"&gt;TIPS&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="section" id="scrolling"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id13"&gt;Scrolling&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id15"&gt;Scrolling&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;For scrolling avoid &lt;tt class="docutils literal"&gt;j&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;k&lt;/tt&gt;.&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;If you need to scroll, it’s better to use ;&lt;/li&gt;
@@ -668,27 +687,6 @@ Ctrl-d and Ctrl-u.
 &lt;pre class="code text literal-block"&gt;
 Ctrl-f or Ctrl-b.
 &lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="history"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id14"&gt;History&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;The Evolution:&lt;/p&gt;
-&lt;pre class="code text literal-block"&gt;
-ed &amp;gt;&amp;gt; em &amp;gt;&amp;gt; ex &amp;gt;&amp;gt; vi &amp;gt;&amp;gt; vim
-&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;The Ex Editor&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Ex is a ‘line editor’ Vim is a ‘screen editor’ Ex is sub-editor within
-Vim. Amen.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="terminology"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id15"&gt;Terminology&lt;/a&gt;&lt;/h3&gt;
-&lt;div class="section" id="vud"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id16"&gt;VUD&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;Vim User Disorder&lt;/strong&gt; syndrom: The vim editor which is always in use, so
-much that you start smashing into alien editors with vim commands.
-If you find somewhere in documents random characters &amp;quot;jjjkk&amp;quot; or any characters
-of &amp;quot;jklh&amp;quot; there was a vim user in this file trying to escape.
-This acronym is just a dark fun invented by us, back somewhere in time.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
