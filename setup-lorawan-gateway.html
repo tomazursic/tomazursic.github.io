@@ -14,6 +14,7 @@
     <meta name="tags" content="lorawan" />
     <meta name="tags" content="gateway" />
     <meta name="tags" content="network" />
+    <meta name="tags" content="ic880a" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/theme/favicons/apple-touch-icon.png">
@@ -70,10 +71,13 @@
  
   </header>
   <footer class="post-info">
-    <time class="published" datetime="2018-10-27T01:04:00+02:00">
-      <b>Published</b>: Sat 27 October 2018
+    <time class="published" datetime="2017-09-03T22:46:00+02:00">
+      <b>Published</b>: Sun 03 September 2017
     </time>
     <br>
+    <time class="modified" datetime="2018-10-27T01:04:00+02:00">
+      <b>Modified</b>: Sat 27 October 2018
+    </time>
     <div class="category">
         <b>Category</b>: <a href="/category/projects.html">projects</a>
     </div>
@@ -83,16 +87,15 @@
             <a href="/tag/lorawan.html">lorawan</a>
             <a href="/tag/gateway.html">gateway</a>
             <a href="/tag/network.html">network</a>
+            <a href="/tag/ic880a.html">ic880a</a>
     </div>
   </footer><!-- /.post-info -->
 
   <div class="entry-content">
-    <div class="section" id="setup-ic880a">
-<h2><a class="toc-backref" href="#id1">Setup ic880a</a></h2>
-<div class="contents topic" id="table-of-contents">
+    <div class="contents topic" id="table-of-contents">
 <p class="topic-title first">Table of Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#setup-ic880a" id="id1">Setup ic880a</a><ul>
+<li><a class="reference internal" href="#setup-lorawan-gateway" id="id1">Setup LoRaWAN gateway</a><ul>
 <li><a class="reference internal" href="#datasheet" id="id2">Datasheet</a></li>
 <li><a class="reference internal" href="#overview" id="id3">Overview</a></li>
 <li><a class="reference internal" href="#assemble" id="id4">Assemble</a><ul>
@@ -106,20 +109,18 @@
 <li><a class="reference internal" href="#pins-definition" id="id10">Pins definition</a></li>
 <li><a class="reference internal" href="#setting-up-softwarewre" id="id11">Setting up softwarewre</a><ul>
 <li><a class="reference internal" href="#raspery-pi-setup" id="id12">Raspery PI setup</a></li>
-<li><a class="reference internal" href="#install-packet-forwarder" id="id13">Install packet forwarder</a><ul>
-<li><a class="reference internal" href="#semtech" id="id14">Semtech</a></li>
-<li><a class="reference internal" href="#kersing-version" id="id15">Kersing version</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#setup-packet-forwarder" id="id13">Setup packet forwarder</a></li>
+<li><a class="reference internal" href="#references" id="id14">References</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#references" id="id16">References</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#hardware-components" id="id17">Hardware components</a></li>
-<li><a class="reference internal" href="#hardware-components-mobile" id="id18">Hardware components mobile</a></li>
+<li><a class="reference internal" href="#hardware-components" id="id15">Hardware components</a></li>
+<li><a class="reference internal" href="#hardware-components-mobile" id="id16">Hardware components mobile</a></li>
 </ul>
 </div>
+<div class="section" id="setup-lorawan-gateway">
+<h2><a class="toc-backref" href="#id1">Setup LoRaWAN gateway</a></h2>
 <p>The document describe assembling and setup the LoRaWAN packet forwarder
 with IMST ic800a backplate and Raspberry pi.</p>
 <div class="section" id="datasheet">
@@ -273,37 +274,18 @@ with IMST ic800a backplate and Raspberry pi.</p>
 <li>Setup vpn</li>
 </ul>
 </div>
-<div class="section" id="install-packet-forwarder">
-<h4><a class="toc-backref" href="#id13">Install packet forwarder</a></h4>
-<div class="section" id="semtech">
-<h5><a class="toc-backref" href="#id14">Semtech</a></h5>
-<!-- .. todo:: -->
-<!-- Rewrite install process for Semtech pktfwd - https://github.com/Lora-net/packet_forwarder -->
 </div>
-<div class="section" id="kersing-version">
-<h5><a class="toc-backref" href="#id15">Kersing version</a></h5>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">This pktfwd is substituted with Semtech version of pktfwd</p>
-</div>
-<p>STEP 1:</p>
-<p>Make copy of <cite>example-config.json</cite> and set MQTT</p>
-<p>STEP 2:</p>
-<p>Edit <cite>mppktfwd_config/local_conf.json</cite> and set server block</p>
-<p>STEP 3:</p>
-<p>Run setup script</p>
-<div class="highlight"><pre><span></span><span class="nb">cd</span> ttn-gw/ <span class="o">&amp;&amp;</span> ./setup build <span class="o">&amp;&amp;</span> ./setup install
-</pre></div>
-</div>
-</div>
+<div class="section" id="setup-packet-forwarder">
+<h3><a class="toc-backref" href="#id13">Setup packet forwarder</a></h3>
+<p><a class="reference external" href="https://github.com/tomazursic/LoraGW-Setup">https://github.com/tomazursic/LoraGW-Setup</a></p>
 </div>
 <div class="section" id="references">
-<h3><a class="toc-backref" href="#id16">References</a></h3>
+<h3><a class="toc-backref" href="#id14">References</a></h3>
 <p>Example setup - <a class="reference external" href="https://github.com/ttn-zh/ic880a-gateway/wiki">https://github.com/ttn-zh/ic880a-gateway/wiki</a></p>
 </div>
 </div>
 <div class="section" id="hardware-components">
-<h2><a class="toc-backref" href="#id17">Hardware components</a></h2>
+<h2><a class="toc-backref" href="#id15">Hardware components</a></h2>
 <table border="1" class="docutils">
 <colgroup>
 <col width="5%" />
@@ -393,7 +375,7 @@ with IMST ic800a backplate and Raspberry pi.</p>
 </table>
 </div>
 <div class="section" id="hardware-components-mobile">
-<h2><a class="toc-backref" href="#id18">Hardware components mobile</a></h2>
+<h2><a class="toc-backref" href="#id16">Hardware components mobile</a></h2>
 <table border="1" class="docutils">
 <colgroup>
 <col width="6%" />
@@ -422,21 +404,26 @@ with IMST ic800a backplate and Raspberry pi.</p>
               <li style="font-size: 100.0%;"><a href="/tag/arm.html">arm</a></li>
               <li style="font-size: 100.0%;"><a href="/tag/bread.html">bread</a></li>
               <li style="font-size: 100.0%;"><a href="/tag/cheatsheet.html">cheatsheet</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/esp32.html">esp32</a></li>
               <li style="font-size: 100.0%;"><a href="/tag/gateway.html">gateway</a></li>
               <li style="font-size: 100.0%;"><a href="/tag/git.html">git</a></li>
-              <li style="font-size: 150.0%;"><a href="/tag/iot.html">iot</a></li>
-              <li style="font-size: 125.0%;"><a href="/tag/linux.html">linux</a></li>
-              <li style="font-size: 150.0%;"><a href="/tag/lorawan.html">lorawan</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/ic880a.html">ic880a</a></li>
+              <li style="font-size: 158.0%;"><a href="/tag/iot.html">iot</a></li>
+              <li style="font-size: 139.6%;"><a href="/tag/linux.html">linux</a></li>
+              <li style="font-size: 158.0%;"><a href="/tag/lorawan.html">lorawan</a></li>
+              <li style="font-size: 125.0%;"><a href="/tag/micropython.html">micropython</a></li>
               <li style="font-size: 100.0%;"><a href="/tag/misc.html">misc</a></li>
               <li style="font-size: 125.0%;"><a href="/tag/network.html">network</a></li>
               <li style="font-size: 125.0%;"><a href="/tag/notes.html">notes</a></li>
               <li style="font-size: 100.0%;"><a href="/tag/obd.html">obd</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/os.html">os</a></li>
               <li style="font-size: 100.0%;"><a href="/tag/pelican.html">pelican</a></li>
               <li style="font-size: 100.0%;"><a href="/tag/pi.html">pi</a></li>
-              <li style="font-size: 164.6%;"><a href="/tag/python.html">python</a></li>
+              <li style="font-size: 170.2%;"><a href="/tag/python.html">python</a></li>
               <li style="font-size: 100.0%;"><a href="/tag/raspberry-pi.html">raspberry-pi</a></li>
               <li style="font-size: 100.0%;"><a href="/tag/reverse_beacon.html">reverse_beacon</a></li>
               <li style="font-size: 100.0%;"><a href="/tag/tools.html">tools</a></li>
+              <li style="font-size: 100.0%;"><a href="/tag/unix.html">unix</a></li>
               <li style="font-size: 100.0%;"><a href="/tag/vim.html">vim</a></li>
           </ul>
 

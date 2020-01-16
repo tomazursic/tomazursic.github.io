@@ -1,1130 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Web Logs - tomazursic.github.io</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2020-01-10T00:00:00+01:00</updated><entry><title>MicroPython and Lopy</title><link href="/micropython-lopy.html" rel="alternate"></link><published>2019-10-27T01:04:00+02:00</published><updated>2019-10-27T01:04:00+02:00</updated><author><name>tomazursic</name></author><id>tag:None,2019-10-27:/micropython-lopy.html</id><summary type="html">&lt;p class="first last"&gt;How to setup and use lorawan device, using MicroPython and Lopy
-(ESP-32) module&lt;/p&gt;
-</summary><content type="html">&lt;div class="section" id="micropython-and-lopy"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id2"&gt;Micropython and Lopy&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;About ruining Python on bare metal, using &lt;a class="reference external" href="https://pycom.io/"&gt;Pycom&lt;/a&gt; Lopy and &lt;a class="reference external" href="https://micropython.org/"&gt;Micropython&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="contents topic" id="table-of-contents"&gt;
-&lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#micropython-and-lopy" id="id2"&gt;Micropython and Lopy&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#lopy" id="id3"&gt;Lopy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#start" id="id4"&gt;Start&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#ftp" id="id5"&gt;FTP&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#telnet" id="id6"&gt;Telnet&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#serial" id="id7"&gt;Serial&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#code-example" id="id8"&gt;Code example&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#config-file" id="id9"&gt;Config file&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#boot-file" id="id10"&gt;Boot file&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#main-file" id="id11"&gt;Main file&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#code-snippets" id="id12"&gt;Code snippets&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#building-a-firmware-image" id="id13"&gt;Building a firmware image&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#requirements" id="id14"&gt;Requirements&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#debian-ubuntu" id="id15"&gt;Debian/Ubuntu&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#build-environment" id="id16"&gt;Build environment&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#source-code" id="id17"&gt;Source code&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#xtensa" id="id18"&gt;Xtensa&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#esp-idf" id="id19"&gt;ESP-IDF&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#build-process" id="id20"&gt;Build process&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#rebuild-process" id="id21"&gt;Rebuild process&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#encryption" id="id22"&gt;Encryption&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#reference" id="id23"&gt;Reference&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#firmware-update" id="id24"&gt;Firmware Update&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="lopy"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id3"&gt;Lopy&lt;/a&gt;&lt;/h3&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://docs.pycom.io/"&gt;Official documentation&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://docs.pycom.io/gitbook/assets/lopy4-pinout.pdf"&gt;Pinout&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://docs.pycom.io/pytrackpysense/installation/firmware/"&gt;Frmware&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="start"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id4"&gt;Start&lt;/a&gt;&lt;/h3&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;5V&lt;/li&gt;
-&lt;li&gt;Micro USB cable&lt;/li&gt;
-&lt;li&gt;Lopy and board (Expansion, Pysense, Pytrack..)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="section" id="ftp"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id5"&gt;FTP&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;Connect to access point with name &lt;cite&gt;lopy-[random characters]&lt;/cite&gt; and credentials:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;u: admin
-p: www.pycom.io
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="telnet"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id6"&gt;Telnet&lt;/a&gt;&lt;/h4&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ telent &lt;span class="m"&gt;192&lt;/span&gt;.168.4.1
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="serial"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id7"&gt;Serial&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;Connecting to UART we can use any program rshell or minicom, screen..&lt;/p&gt;
-&lt;p&gt;Get information about ports:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dmesg &lt;span class="p"&gt;|&lt;/span&gt; egrep --color &lt;span class="s1"&gt;&amp;#39;serial|ttyS&amp;#39;&lt;/span&gt;
-
-
-content
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Connect to device with &lt;cite&gt;rshell&lt;/cite&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install rshell
-&lt;/pre&gt;&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rshell -p /dev/ttyUSB0 --buffer-size&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rshell -p /dev/ttyACM0 --buffer-size&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Copy file to device&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cp &amp;lt;file-name&amp;gt; /flash/
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Copy directory&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cp -r &amp;lt;directory-name&amp;gt; /flash/&amp;lt;directory-name&amp;gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Rsync project&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rsync -mv &amp;lt;directory-name&amp;gt;/ /flash/
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;After connecting to device over serial enter in REPL mode&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ repl
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Exit REPL&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;cite&gt;CTRL - X&lt;/cite&gt;&lt;/blockquote&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="code-example"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id8"&gt;Code example&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Project structure&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;project/
-├── lib/       &amp;lt;--- Place for sensors drivers
-├── boot.py    &amp;lt;--- First file to be executed on start up
-├── config.py  &amp;lt;--- Global variables
-└── main.py    &amp;lt;--- Executed after boot
-&lt;/pre&gt;&lt;/div&gt;
-&lt;div class="section" id="config-file"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id9"&gt;Config file&lt;/a&gt;&lt;/h4&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# config.py&lt;/span&gt;
-
-&lt;span class="n"&gt;DEV_ID&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;lt;DEV_ID_REGISTERED_ON_LORA_SERVER&amp;quot;&lt;/span&gt;
-
-&lt;span class="c1"&gt;# TTN Registered Device IDs&lt;/span&gt;
-&lt;span class="n"&gt;DEV_EUI&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;lt;DEVICE-EUI&amp;gt;&amp;#39;&lt;/span&gt;
-&lt;span class="n"&gt;APP_EUI&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;lt;APPLICATION-EUI&amp;gt;&amp;#39;&lt;/span&gt;
-&lt;span class="n"&gt;APP_KEY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;lt;APPLICATION-KEY&amp;gt;&amp;#39;&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Debug&lt;/span&gt;
-&lt;span class="n"&gt;DEBUG_LED&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;
-&lt;span class="n"&gt;DEBUG_CON&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;
-
-&lt;span class="c1"&gt;# LoRa setup&lt;/span&gt;
-&lt;span class="n"&gt;LORA_FREQUENCY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;868100000&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Activate confirmation message&lt;/span&gt;
-&lt;span class="n"&gt;LORA_STATUS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Data Rate (0 - 7)&lt;/span&gt;
-&lt;span class="n"&gt;LORA_DR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="c1"&gt;# DR_5&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Bind socket to port&lt;/span&gt;
-&lt;span class="n"&gt;SOCK_PORT&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Sleep time in packet send&lt;/span&gt;
-&lt;span class="n"&gt;SLEEP_MAIN&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;300&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Low Energy config&lt;/span&gt;
-&lt;span class="n"&gt;HEARTBEAT&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;
-
-&lt;span class="c1"&gt;# LED color&lt;/span&gt;
-&lt;span class="n"&gt;LED_OFF&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mh"&gt;0x000000&lt;/span&gt;
-&lt;span class="n"&gt;GREEN&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mh"&gt;0x007f00&lt;/span&gt;
-&lt;span class="n"&gt;YELLOW&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mh"&gt;0x7f7f00&lt;/span&gt;
-&lt;span class="n"&gt;RED&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mh"&gt;0x7f0000&lt;/span&gt;
-&lt;span class="n"&gt;BLUE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mh"&gt;0x00007f&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="boot-file"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id10"&gt;Boot file&lt;/a&gt;&lt;/h4&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# boot.py -- run on boot-up&lt;/span&gt;
-
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;machine&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Enable REPL duplication on UART0&lt;/span&gt;
-&lt;span class="n"&gt;uart&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;machine&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;UART&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;115200&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dupterm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;uart&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Run main module&lt;/span&gt;
-&lt;span class="n"&gt;machine&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;main.py&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="main-file"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id11"&gt;Main file&lt;/a&gt;&lt;/h4&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
-&lt;span class="sd"&gt;Basic LoRa example based on OTAA (Over The Air Authentication)&lt;/span&gt;
-&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
-
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;network&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;LoRa&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;network&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;WLAN&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;binascii&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pycom&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;socket&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;time&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;config&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;c&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Set heartbeat&lt;/span&gt;
-&lt;span class="n"&gt;pycom&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;heartbeat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;HEARTBEAT&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Initialize LoRa in LORAWAN mode.&lt;/span&gt;
-&lt;span class="n"&gt;lora&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;LoRa&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mode&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;LoRa&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LORAWAN&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="c1"&gt;# create an OTA authentication params&lt;/span&gt;
-&lt;span class="n"&gt;dev_eui&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;binascii&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;unhexlify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEV_EUI&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;span class="n"&gt;app_eui&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;binascii&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;unhexlify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;APP_EUI&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;span class="n"&gt;app_key&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;binascii&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;unhexlify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;APP_KEY&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;machine&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reset_cause&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="n"&gt;machine&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEEPSLEEP_RESET&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;lora&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nvram_erase&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEBUG&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;[i] Lora nvram erased!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;lora&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nvram_restore&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-    &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;[i] Lora nvram restored!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;lora&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;has_joined&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="c1"&gt;# Join a network using OTAA&lt;/span&gt;
-    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEBUG&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;[i] Joining LoRa network&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-    &lt;span class="c1"&gt;# Join a network using OTAA&lt;/span&gt;
-    &lt;span class="n"&gt;lora&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;activation&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;LoRa&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;OTAA&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;auth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dev_eui&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;app_eui&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;app_key&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;timeout&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-    &lt;span class="c1"&gt;# Wait until the module has joined the network&lt;/span&gt;
-    &lt;span class="n"&gt;fails&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-    &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;lora&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;has_joined&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-        &lt;span class="n"&gt;fails&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEBUG&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-            &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;[w] Not joined yet... &lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fails&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-            &lt;span class="n"&gt;blinker&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LED_RED&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="c1"&gt;# Time between joins&lt;/span&gt;
-        &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;2.5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;fails&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;JOIN_FAILS&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEBUG&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-                &lt;span class="n"&gt;blinker&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LED_RED&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-            &lt;span class="n"&gt;fails&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-            &lt;span class="n"&gt;machine&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;idle&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Create a LoRa socket&lt;/span&gt;
-&lt;span class="n"&gt;sock&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;socket&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;socket&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;socket&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;AF_LORA&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;socket&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SOCK_RAW&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Set the LoRaWAN data rate&lt;/span&gt;
-&lt;span class="n"&gt;sock&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setsockopt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;socket&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SOL_LORA&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;socket&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SO_DR&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LORA_DR&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LORA_STATUS&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="c1"&gt;# Selecting confirmed type of messages&lt;/span&gt;
-    &lt;span class="n"&gt;sock&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setsockopt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;socket&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SOL_LORA&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;socket&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SO_CONFIRMED&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Bind to port used then on ttn application inside payload switch&lt;/span&gt;
-&lt;span class="n"&gt;sock&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bind&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SOCK_PORT&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Make the socket blocking&lt;/span&gt;
-&lt;span class="n"&gt;sock&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setblocking&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="c1"&gt;# To make connection available wait 5 seconds&lt;/span&gt;
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEBUG&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;blinker&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LED_BLUE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;[i] Joined!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;5.0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-&lt;span class="c1"&gt;# Example loop&lt;/span&gt;
-&lt;span class="c1"&gt;# Terminate in CTRL-C&lt;/span&gt;
-&lt;span class="c1"&gt;# See threading example&lt;/span&gt;
-&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="c1"&gt;# Prepare the packet&lt;/span&gt;
-    &lt;span class="c1"&gt;# send &amp;#39;hi&amp;#39; as raw byte data (hex format)&lt;/span&gt;
-    &lt;span class="n"&gt;pkt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mh"&gt;0x68&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mh"&gt;0x69&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-
-    &lt;span class="c1"&gt;# Send it&lt;/span&gt;
-    &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;send&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pkt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEBUG_CON&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;send &amp;gt;&amp;gt; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;pkt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEBUG_LED&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="n"&gt;pycom&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rgbled&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;GREEN&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="n"&gt;pycom&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rgbled&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LED_OFF&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="c1"&gt;# Wait to receive packet&lt;/span&gt;
-    &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;rx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;recv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;256&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;rx&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEBUG_CON&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="n"&gt;pycom&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rgbled&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;BLUE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="n"&gt;pycom&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rgbled&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LED_OFF&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;receive &amp;lt;&amp;lt; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rx&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="c1"&gt;# Sleep 10 min&lt;/span&gt;
-    &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SLEEP_MAIN&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="code-snippets"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id12"&gt;Code snippets&lt;/a&gt;&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;work_handler&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;alarm&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-        &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Do some work here...&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;machine&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Timer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Alarm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;work_handler&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;periodic&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="building-a-firmware-image"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id13"&gt;Building a firmware image&lt;/a&gt;&lt;/h3&gt;
-&lt;div class="figure align-center"&gt;
-&lt;img alt="Output console image" src="./images/iot/pycom-build.png" /&gt;
-&lt;/div&gt;
-&lt;div class="section" id="requirements"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id14"&gt;Requirements&lt;/a&gt;&lt;/h4&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Pycom MicroPython source code&lt;/li&gt;
-&lt;li&gt;Xtensa gcc compiler&lt;/li&gt;
-&lt;li&gt;Espressif IoT Development Framework&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="debian-ubuntu"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id15"&gt;Debian/Ubuntu&lt;/a&gt;&lt;/h4&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install gcc git wget make libncurses-dev flex bison gperf
-python python-serial
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="build-environment"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id16"&gt;Build environment&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;Make build project directory&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; mkdir pycom-build
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="source-code"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id17"&gt;Source code&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;Get Pycom MicroPython source code&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git clone https://github.com/pycom/pycom-micropython-sigfox
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Check out to latest stable version (output on date 2018-07-23)&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git tags
-
-    &lt;span class="m"&gt;1&lt;/span&gt;.11.0.b1
-    &lt;span class="m"&gt;1&lt;/span&gt;.12.0.b1
-    &lt;span class="m"&gt;1&lt;/span&gt;.13.0.b1
-    &lt;span class="m"&gt;1&lt;/span&gt;.6.13.b1
-    v1.14.0.b1
-    v1.15.0.b1
-    v1.16.0.b1
-    v1.17.0.b1
-    v1.17.2.b1
-    v1.17.3.b1
-    v1.18.0
-    v1.18.0.r1    &amp;lt;--- Check out tag
-    v1.18.0.r1-0.
-    v1.19.0.b2
-    v1.19.0.b3
-    v1.19.0.b4
-
-$ git checkout v1.18.0.r1
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="xtensa"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id18"&gt;Xtensa&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;Install xtensa gcc compiler&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build
-$ wget https://dl.espressif.com/dl/xtensa-esp32-elf-linux64-1.22.0-80-g6c4433a-5.2.0.tar.gz
-$ tar -xzf xtensa-esp32-elf-linux64-1.22.0-80-g6c4433a-5.2.0.tar.gz
-$ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$PATH&lt;/span&gt;:&lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/xtensa-esp32-elf/bin
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Verify content of $PATH variables:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$PATH&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Verify toolchain installation:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ xtensa-esp32-elf-gcc -v
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;If command returns &lt;cite&gt;xtensa-esp32-elf-gcc: Command not found&lt;/cite&gt; recheck the the
-export command!&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="esp-idf"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id19"&gt;ESP-IDF&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;Install ESP-IDF tools&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build
-$ git clone https://github.com/pycom/pycom-esp-idf.git
-$ &lt;span class="nb"&gt;cd&lt;/span&gt; pycom-esp-idf
-$ git submodule update --init
-$ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;IDF_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/pycom-esp-idf
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;More details:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/pycom/pycom-esp-idf"&gt;pycom-esp&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://esp-idf.readthedocs.io/en/latest/get-started/linux-setup.html"&gt;esp-idf&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/pycom/pycom-micropython-sigfox"&gt;pycom-micropython-sigfox&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://docs.espressif.com/projects/esp-idf/en/release-v3.0/get-started/linux-setup.html"&gt;espressif&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="build-process"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id20"&gt;Build process&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;Read this first: &lt;a class="reference external" href="https://github.com/pycom/pycom-micropython-sigfox"&gt;https://github.com/pycom/pycom-micropython-sigfox&lt;/a&gt;&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;ol class="first arabic"&gt;
-&lt;li&gt;Build mpy-cross&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/pycom-micropython-sigfox
-$ &lt;span class="nb"&gt;cd&lt;/span&gt; mpy-cross &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; make clean &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; make &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;cd&lt;/span&gt; ..
-&lt;/pre&gt;&lt;/div&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;ol class="first arabic" start="2"&gt;
-&lt;li&gt;Frozen modules (OPTIONAL)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Add custom python modules to include in the firmware in following directory:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/pycom-micropython-sigfox/esp32/frozen/Custom
-&lt;/pre&gt;&lt;/div&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;ol class="first arabic" start="3"&gt;
-&lt;li&gt;Board build&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Currently support for the following BOARD types:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;WIPY LOPY SIPY GPY FIPY LOPY4
-&lt;/pre&gt;&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/pycom-micropython-sigfoxesp32/esp32
-$ make &lt;span class="nv"&gt;BOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;LOPY clean
-$ make &lt;span class="nv"&gt;BOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;LOPY -j5 &lt;span class="nv"&gt;TARGET&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;boot
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;For LoRa need to specify the &lt;cite&gt;LORA_BAND&lt;/cite&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# LORA_BAND=USE_BAND_868&lt;/span&gt;
-&lt;span class="c1"&gt;# LORA_BAND=USE_BAND_915&lt;/span&gt;
-
-$ make &lt;span class="nv"&gt;BOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;LOPY -j5 &lt;span class="nv"&gt;LORA_BAND&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;USE_BAND_868 &lt;span class="nv"&gt;TARGET&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;app
-&lt;/pre&gt;&lt;/div&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;ol class="first arabic" start="4"&gt;
-&lt;li&gt;Flash the image on board&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Pysense board&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;The pysense board enter automatic in programming mode&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# On linux&lt;/span&gt;
-$ make &lt;span class="nv"&gt;BOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;LOPY -j5 &lt;span class="nv"&gt;ESPPORT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/ttyACM0 flash
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;Extension board&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Put in programming mode connect GND to P23&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# On linux&lt;/span&gt;
-$ make &lt;span class="nv"&gt;BOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;LOPY -j5 &lt;span class="nv"&gt;ESPPORT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/ttyUSB1 flash
-
-&lt;span class="c1"&gt;# On MacOSX&lt;/span&gt;
-$ make &lt;span class="nv"&gt;ESPPORT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/tty.usbserial-DQ008HQY flash
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="rebuild-process"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id21"&gt;Rebuild process&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;Making rebuild looks like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$PATH&lt;/span&gt;:&lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/xtensa-esp32-elf/bin
-&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;IDF_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/pycom-esp-idf
-&lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/pycom-micropython-sigfox/esp32/
-make &lt;span class="nv"&gt;BOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;LOPY4 clean
-make &lt;span class="nv"&gt;BOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;LOPY4 release
-make &lt;span class="nv"&gt;BOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;LOPY4 -j5 &lt;span class="nv"&gt;ESPPORT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/ttyACM3 flash
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="encryption"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;Encryption&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Use make SECURE=on [optionally SECURE_KEY ?= secure_boot_signing_key.pem] to
-enable Secure Boot and Flash Encryption mechanisms.&lt;/p&gt;
-&lt;p&gt;Use make V=1 or set BUILD_VERBOSE in your environment to increase build
-verbosity.&lt;/p&gt;
-&lt;div class="section" id="reference"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id23"&gt;Reference&lt;/a&gt;&lt;/h4&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/pycom/pycom-micropython-sigfox#the-esp32-version"&gt;pycom micropython&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="firmware-update"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id24"&gt;Firmware Update&lt;/a&gt;&lt;/h2&gt;
-&lt;table border="1" class="docutils"&gt;
-&lt;caption&gt;Programming Modes&lt;/caption&gt;
-&lt;colgroup&gt;
-&lt;col width="14%" /&gt;
-&lt;col width="14%" /&gt;
-&lt;col width="71%" /&gt;
-&lt;/colgroup&gt;
-&lt;thead valign="bottom"&gt;
-&lt;tr&gt;&lt;th class="head"&gt;Pin&lt;/th&gt;
-&lt;th class="head"&gt;Pin&lt;/th&gt;
-&lt;th class="head"&gt;Case&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody valign="top"&gt;
-&lt;tr&gt;&lt;td&gt;G23&lt;/td&gt;
-&lt;td&gt;GND&lt;/td&gt;
-&lt;td&gt;Expansion Board&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;P2&lt;/td&gt;
-&lt;td&gt;GND&lt;/td&gt;
-&lt;td&gt;Lopy&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;div class="line-block"&gt;
-&lt;div class="line"&gt;&lt;br /&gt;&lt;/div&gt;
-&lt;div class="line"&gt;&lt;br /&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="figure"&gt;
-&lt;img alt="Lopy Module Image" src="images/components/lopy-progmode.jpg" /&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</content><category term="projects"></category><category term="iot"></category><category term="python"></category><category term="lorawan"></category></entry><entry><title>Setup Raspberry Pi</title><link href="/setup-raspberry-pi.html" rel="alternate"></link><published>2019-10-21T14:29:00+02:00</published><updated>2019-10-21T14:29:00+02:00</updated><author><name>tomazursic</name></author><id>tag:None,2019-10-21:/setup-raspberry-pi.html</id><summary type="html">&lt;p&gt;Use rpi-utils repo for bring bare metal into life&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Advice is use TMUX! Run all commands in tmux session to prevent catastrophic consequences&lt;/strong&gt;&lt;/p&gt;
-&lt;h2&gt;Setup&lt;/h2&gt;
-&lt;h3&gt;Step 1: Flash Operating System&lt;/h3&gt;
-&lt;p&gt;You need to flash a micro SD image with an operating system.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Download Raspian Lite&lt;span class="o"&gt;(&lt;/span&gt;Stretch&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;352MB&lt;span class="o"&gt;)&lt;/span&gt;.
-    Follow OS specific guides here.
-    Leave micro SD card in your machine and edit/create some files as below:
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Get the image:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    https://www.raspberrypi.org/downloads/raspbian/
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Latest image: &lt;code&gt;raspbian_lite-2019-09-30/2019-09-26-raspbian-buster-lite.zip&lt;/code&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    wget https://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2019-09-30/2019-09-26-raspbian-buster-lite.zip
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;bring img on sd card&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo pv -tpreb name.img &lt;span class="p"&gt;|&lt;/span&gt; sudo dd &lt;span class="nv"&gt;of&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/sdX &lt;span class="nv"&gt;bs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;4M
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;create image from sd card&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo pv -tpreb /dev/sdX &lt;span class="p"&gt;|&lt;/span&gt; sudo dd &lt;span class="nv"&gt;of&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;name.img &lt;span class="nv"&gt;bs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;4M
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;Step 2: Setup the WiFi for first boot&lt;/h3&gt;
-&lt;p&gt;We can create a special file which will be used to login to wifi on first boot. More reading here, but we will walk you through it.&lt;/p&gt;
-&lt;p&gt;On Windows, with your memory card image burned and memory disc still inserted, you should see two drives, which are actually two partitions on the mem disc. One is labeled boot. On Mac and Linux, you should also have access to the boot partition of the mem disc. This is formatted with the common FAT type and is where we will edit some files to help it find and log-on to your wifi on its first boot.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Note: If boot is not visible right away, try unplugging and re-inserting the memory card reader.
-
-    Start a text editor: gedit on Linux. Notepad++ on Windows. TextEdit on a Mac.
-    Paste and edit this contents to match your wifi:
-
-    &lt;span class="nv"&gt;country&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;US
-    &lt;span class="nv"&gt;ctrl_interface&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;DIR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/var/run/wpa_supplicant &lt;span class="nv"&gt;GROUP&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;netdev
-    &lt;span class="nv"&gt;update_config&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
-
-    &lt;span class="nv"&gt;network&lt;/span&gt;&lt;span class="o"&gt;={&lt;/span&gt;
-        &lt;span class="nv"&gt;ssid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;lt;your network name&amp;gt;&amp;quot;&lt;/span&gt;
-        &lt;span class="nv"&gt;psk&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;lt;your password&amp;gt;&amp;quot;&lt;/span&gt;
-    &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Replace &lt;your network name&gt; with the ID of your network. Leave the quotes. I've seen problems when the network name contained an apostrophe, like "Joe's iPhone". Replace &lt;your password&gt; with your password, leaving it surrounded by quotes. If it bothers you to leave your password unencrypted, you may change the contents later once you've gotten the pi to boot and log-in.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Save this file to the root of boot partition with the filename wpa_supplicant.conf. On first boot, this file will be moved to /etc/wpa_supplicant/wpa_supplicant.conf where it may be edited later. If you are using Notepad on Windows, make sure it doesn&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;t have a .txt at the end.
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;Step 3: Setup Pi's Hostname&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Note: This step only possible on a linux host pc. Otherwise you can &lt;span class="nb"&gt;set&lt;/span&gt; it up later in raspi-config after logging in to your pi.
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;We can also setup the hostname so that your Pi easier to find once on the network. If yours is the only Pi on the network, then you can find it with&lt;/p&gt;
-&lt;p&gt;ping raspberrypi.local&lt;/p&gt;
-&lt;p&gt;once it's booted. If there are many other Pi's on the network, then this will have problems. If you are on a Linux machine, or are able to edit the UUID partition, then you can edit the /etc/hostname and /etc/hosts files now to make finding your pi on the network easier after boot. Edit those to replace raspberrypi with a name of your choosing. Use all lower case, no special characters, no hyphens, yes underscores _.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo vi /media/userID/UUID/etc/hostname
-    sudo vi /media/userID/UUID/etc/hosts
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;Step 4: Enable SSH on Boot&lt;/h3&gt;
-&lt;p&gt;Put a file named ssh in the root of your boot partition.&lt;/p&gt;
-&lt;p&gt;Now your SD card is ready. Eject it from your computer, put it in the Pi and plug in the Pi.&lt;/p&gt;
-&lt;h3&gt;Step 5: Connecting to the Pi&lt;/h3&gt;
-&lt;p&gt;If you followed the above instructions to add wifi access, your Pi should now be connected to your wifi network. Now you need to find its IP address so you can connect to it via SSH.&lt;/p&gt;
-&lt;p&gt;The easiest way (on Ubuntu) is to use the findcar donkey command. You can try ping raspberrypi.local. If you've modified the hostname, then you should try:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    ping &amp;lt;your hostname&amp;gt;.local
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;This will fail on a windows machine. Windows users will need the full IP address (unless using cygwin).&lt;/p&gt;
-&lt;p&gt;If you are having troubles locating your Pi on the network, you will want to plug in an HDMI monitor and USB keyboard into the Pi. Boot it. Login with:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Username: pi
-    Password: raspberry
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Then try the command:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    ifconfig wlan0
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;If this has a valid IPv4 address, 4 groups of numbers separated by dots, then you can try that with your SSH command. If you don't see anything like that, then your wifi config might have a mistake. You can try to fix with&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;If you don't have a HDMI monitor and keyboard, you can plug-in the Pi with a CAT5 cable to a router with DHCP. If that router is on the same network as your PC, you can try:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    ping raspberrypi.local
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Hopefully, one of those methods worked and you are now ready to SSH into your Pi. On Mac and Linux, you can open Terminal. On Windows you can install Putty, one of the alternatives, or on Windows 10 you may have ssh via the command prompt.&lt;/p&gt;
-&lt;p&gt;If you have a command prompt, you can try:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    ssh pi@raspberrypi.local
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;or&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    ssh pi@&amp;lt;your pi ip address&amp;gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;or via Putty.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Username: pi
-    Password: raspberry
-    Hostname:&amp;lt;your pi IP address&amp;gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;Step 6: Update and Upgrade&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo apt-get update
-    sudo apt-get upgrade
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;Step 7: Raspi-config&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo raspi-config
-
-    change default password &lt;span class="k"&gt;for&lt;/span&gt; pi
-    change hostname
-    &lt;span class="nb"&gt;enable&lt;/span&gt; Interfacing Options &lt;span class="p"&gt;|&lt;/span&gt; I2C
-    &lt;span class="nb"&gt;enable&lt;/span&gt; Interfacing Options &lt;span class="p"&gt;|&lt;/span&gt; Camera
-    Advanced Options &lt;span class="p"&gt;|&lt;/span&gt; Exapand Filesystem
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Choose and hit enter.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Note: Reboot after changing these settings. Should happen &lt;span class="k"&gt;if&lt;/span&gt; you say yes.
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;Step 8: Install Dependencies&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install &lt;span class="se"&gt;\&lt;/span&gt;
-         build-essential python3 python3-dev python3-pip &lt;span class="se"&gt;\&lt;/span&gt;
-         python3-virtualenv python3-numpy python3-picamera python3-pandas &lt;span class="se"&gt;\&lt;/span&gt;
-         python3-rpi.gpio i2c-tools avahi-utils joystick libopenjp2-7-dev libtiff5-dev &lt;span class="se"&gt;\&lt;/span&gt;
-         gfortran libatlas-base-dev libopenblas-dev libhdf5-serial-dev git ntp
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;Step 9: Install Optional OpenCV Dependencies&lt;/h3&gt;
-&lt;p&gt;If you are going for a minimal install, you can get by without these. But it can be handy to have OpenCV.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo apt-get install libilmbase-dev libopenexr-dev libgstreamer1.0-dev &lt;span class="se"&gt;\&lt;/span&gt;
-    libjasper-dev libwebp-dev libatlas-base-dev libavcodec-dev libavformat-dev &lt;span class="se"&gt;\&lt;/span&gt;
-    libswscale-dev libqtgui4 libqt4-test
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;Step 10: Setup Virtual Env&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    python3 -m virtualenv -p python3 env --system-site-packages
-    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;source env/bin/activate&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bashrc
-    &lt;span class="nb"&gt;source&lt;/span&gt; ~/.bashrc
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Modifying your .bashrc in this way will automatically enable this environment
-each time you login. To return to the system python you can type deactivate.&lt;/p&gt;
-&lt;h3&gt;Step 11: Install Donkeycar Python Code&lt;/h3&gt;
-&lt;p&gt;Change to a dir you would like to use as the head of your projects.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    mkdir projects
-    &lt;span class="nb"&gt;cd&lt;/span&gt; projects
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;Fix the LC_errors&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    etc/envirmonet
-    &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games&amp;quot;&lt;/span&gt;
-    &lt;span class="nv"&gt;LC_ALL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;en_GB.UTF-8
-    &lt;span class="nv"&gt;LANG&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;en_GB.UTF-8
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;Install Open CV&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo apt install python3-opencv
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Setup I2C&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo usermod -aG i2c &amp;lt;username&amp;gt;
-    sudo reboot
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;After a reboot, then try:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo i2cdetect -r -y &lt;span class="m"&gt;1&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Raspberry Pi:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo apt-get install i2c-tools
-    sudo i2cdetect -y &lt;span class="m"&gt;1&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;This should show you a grid of addresses like:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;         &lt;span class="m"&gt;0&lt;/span&gt;  &lt;span class="m"&gt;1&lt;/span&gt;  &lt;span class="m"&gt;2&lt;/span&gt;  &lt;span class="m"&gt;3&lt;/span&gt;  &lt;span class="m"&gt;4&lt;/span&gt;  &lt;span class="m"&gt;5&lt;/span&gt;  &lt;span class="m"&gt;6&lt;/span&gt;  &lt;span class="m"&gt;7&lt;/span&gt;  &lt;span class="m"&gt;8&lt;/span&gt;  &lt;span class="m"&gt;9&lt;/span&gt;  a  b  c  d  e  f
-    &lt;span class="m"&gt;00&lt;/span&gt;:          -- -- -- -- -- -- -- -- -- -- -- -- --
-    &lt;span class="m"&gt;10&lt;/span&gt;: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-    &lt;span class="m"&gt;20&lt;/span&gt;: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-    &lt;span class="m"&gt;30&lt;/span&gt;: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-    &lt;span class="m"&gt;40&lt;/span&gt;: &lt;span class="m"&gt;40&lt;/span&gt; -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-    &lt;span class="m"&gt;50&lt;/span&gt;: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-    &lt;span class="m"&gt;60&lt;/span&gt;: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-    &lt;span class="m"&gt;70&lt;/span&gt;: &lt;span class="m"&gt;70&lt;/span&gt; -- -- -- -- -- -- --
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;In this case, the 40 shows up as the address of our PCA9685 board. If this does
-not show up, then check your wiring to the board. On a pi, ensure I2C is
-enabled in sudo raspi-config&lt;/p&gt;
-&lt;h2&gt;Nodejs&lt;/h2&gt;
-&lt;p&gt;use of nvm&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    https://github.com/nvm-sh/nvm
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh &lt;span class="p"&gt;|&lt;/span&gt; bash
-    &lt;span class="nb"&gt;source&lt;/span&gt; ~/.bashrc
-    nvm --version
-    nvm install node
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Links&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://www.raspberryconnect.com/projects/65-raspberrypi-hotspot-accesspoints/158-raspberry-pi-auto-wifi-hotspot-switch-direct-connection"&gt;raspberry-pi-auto-wifi-hotspot-switch-direct-connection&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/lhelontra/tensorflow-on-arm/releases"&gt;Tensorflow ARM&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands"&gt;UFW Firewall&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="blog"></category><category term="pi"></category><category term="arm"></category><category term="linux"></category></entry><entry><title>Exploring OBDII</title><link href="/exploring-obdii.html" rel="alternate"></link><published>2019-03-04T11:09:02+01:00</published><updated>2019-03-04T11:09:02+01:00</updated><author><name>tomazursic</name></author><id>tag:None,2019-03-04:/exploring-obdii.html</id><summary type="html">&lt;p&gt;To satisfy the curiosity for reading car on-board diagnostics using&lt;/p&gt;</summary><content type="html">&lt;p&gt;Raspberry PI with build in Bluetooth and ODBII Bluetooth adapter.&lt;/p&gt;
-&lt;p&gt;Turn on the car engine after attaching the adapter.&lt;/p&gt;
-&lt;h2&gt;Setup:&lt;/h2&gt;
-&lt;p&gt;Example target device MAC address&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;00:19:5D:FE:9A:8F OBDII
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;Terminal 1:&lt;/h3&gt;
-&lt;p&gt;Turn on the bluetoot and scan for adapter address&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo bluetoothctl
-    power on
-    agent on
-    default-agent
-    scan on
-    pair &lt;span class="m"&gt;00&lt;/span&gt;:19:5D:FE:9A:8F
-    trust &lt;span class="m"&gt;00&lt;/span&gt;:19:5D:FE:9A:8F
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;Terminal 2&lt;/h3&gt;
-&lt;p&gt;rfcomm associates the paired device ID with a serial device name&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo rfcomm &lt;span class="nb"&gt;bind&lt;/span&gt; rfcomm0 &lt;span class="m"&gt;00&lt;/span&gt;:19:5D:FE:9A:8F
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;Read output with pyobd&lt;/h3&gt;
-&lt;p&gt;http://brendan-w.com/python-obd&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;obd&lt;/span&gt;
-&lt;span class="n"&gt;connection&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;obd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;OBD&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/dev/rfcomm0&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;cmd&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;obd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;commands&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;RPM&lt;/span&gt;
-&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;connection&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;query&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cmd&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;
-&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Example output:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="OBDII Output" src="/images/obdII_output.jpg"&gt;&lt;/p&gt;
-&lt;h2&gt;Unpairing a Bluetooth device&lt;/h2&gt;
-&lt;p&gt;Start the Bluetooth utility.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;bluetoothctl
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Unpair the Bluetooth device if required.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;remove &amp;lt;dev&amp;gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Make sure the agent is stopped for the Bluetooth device.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;agent off
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Make sure the Bluetooth device is powered down.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;power off
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Exit the Bluetooth utility.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;quit
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Release serail&lt;/h2&gt;
-&lt;p&gt;To remove the serial device do the following if required.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rfcomm release &lt;span class="m"&gt;00&lt;/span&gt;:19:5D:FE:9A:8F
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Shouldn't need this command, force rfdevices to stop.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rfkill list
-&lt;/pre&gt;&lt;/div&gt;</content><category term="blog"></category><category term="python"></category><category term="raspberry-pi"></category><category term="obd"></category></entry><entry><title>Setup LoRaWAN gateway</title><link href="/setup-lorawan-gateway.html" rel="alternate"></link><published>2018-10-27T01:04:00+02:00</published><updated>2018-10-27T01:04:00+02:00</updated><author><name>tomazursic</name></author><id>tag:None,2018-10-27:/setup-lorawan-gateway.html</id><summary type="html">Notes for assembling LoraWAN gateway</summary><content type="html">&lt;div class="section" id="setup-ic880a"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;Setup ic880a&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="contents topic" id="table-of-contents"&gt;
-&lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#setup-ic880a" id="id1"&gt;Setup ic880a&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#datasheet" id="id2"&gt;Datasheet&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#overview" id="id3"&gt;Overview&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#assemble" id="id4"&gt;Assemble&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#solder-headers-on-backplate" id="id5"&gt;1. Solder headers on backplate&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#assemble-concentrator-plate-and-adapter" id="id6"&gt;2. Assemble concentrator plate and adapter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#assemble-raspberry-pi-and-concentrator" id="id7"&gt;3. Assemble Raspberry Pi and concentrator&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#wiring-ubec-and-passive-poe" id="id8"&gt;3. Wiring UBEC and passive PoE&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#connect-antena-on-concentrator" id="id9"&gt;4. Connect antena on concentrator&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#pins-definition" id="id10"&gt;Pins definition&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#setting-up-softwarewre" id="id11"&gt;Setting up softwarewre&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#raspery-pi-setup" id="id12"&gt;Raspery PI setup&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#install-packet-forwarder" id="id13"&gt;Install packet forwarder&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#semtech" id="id14"&gt;Semtech&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#kersing-version" id="id15"&gt;Kersing version&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#references" id="id16"&gt;References&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#hardware-components" id="id17"&gt;Hardware components&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#hardware-components-mobile" id="id18"&gt;Hardware components mobile&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;p&gt;The document describe assembling and setup the LoRaWAN packet forwarder
-with IMST ic800a backplate and Raspberry pi.&lt;/p&gt;
-&lt;div class="section" id="datasheet"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id2"&gt;Datasheet&lt;/a&gt;&lt;/h3&gt;
-&lt;!-- :download:`iC880A-SPI_QuickStartGuide &lt;datasheets/iC880A-SPI_QuickStartGuide.pdf&gt;` --&gt;
-&lt;/div&gt;
-&lt;div class="section" id="overview"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id3"&gt;Overview&lt;/a&gt;&lt;/h3&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Solder headers on backplate ic880a adapter&lt;/li&gt;
-&lt;li&gt;Assemble ic880a concentrator plate and adapter&lt;/li&gt;
-&lt;li&gt;Assemble ic880a concentrator and Raspberry pi (use of stendoffs only for Rpi3 combination)&lt;/li&gt;
-&lt;li&gt;Wiring UBEC and passive PoE&lt;/li&gt;
-&lt;li&gt;Connect UBEC between Rasberry and ic880a concentrator plate&lt;/li&gt;
-&lt;li&gt;Connect antena on ic880a concentrator&lt;/li&gt;
-&lt;li&gt;Setting up softwarewre&lt;/li&gt;
-&lt;li&gt;Install inside enclosure&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="assemble"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id4"&gt;Assemble&lt;/a&gt;&lt;/h3&gt;
-&lt;div class="section" id="solder-headers-on-backplate"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id5"&gt;1. Solder headers on backplate&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;On top of the plate solder headers for concentrator&lt;/p&gt;
-&lt;div class="align-center figure"&gt;
-&lt;img alt="Backplate top" src="../images/setup-ic880a/backplate-ic880a-top.png" style="width: 400px;" /&gt;
-&lt;p class="caption"&gt;Backplate top face&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;On bottom of the plate solder headers for Raspberry PI&lt;/p&gt;
-&lt;div class="align-center figure"&gt;
-&lt;img alt="Backplate bottom" src="../images/setup-ic880a/backplate-ic880a-bottom.png" style="width: 400px;" /&gt;
-&lt;p class="caption"&gt;Backplate bottom face&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;Reference images for ic880a&lt;/p&gt;
-&lt;div class="align-center figure"&gt;
-&lt;img alt="Concentrator top" src="../images/setup-ic880a/concentrator-ic880a-top.jpg" style="width: 400px;" /&gt;
-&lt;p class="caption"&gt;Concetrator plate top&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="align-center figure"&gt;
-&lt;img alt="Concentrator bottom" src="../images/setup-ic880a/concentrator-ic880a-bottom.jpg" style="width: 400px;" /&gt;
-&lt;p class="caption"&gt;Concetrator plate bottom&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="assemble-concentrator-plate-and-adapter"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id6"&gt;2. Assemble concentrator plate and adapter&lt;/a&gt;&lt;/h4&gt;
-&lt;div class="align-center figure"&gt;
-&lt;img alt="concentrator plate assemble" src="../images/setup-ic880a/concentrator-plate-assemble.jpg" style="width: 400px;" /&gt;
-&lt;p class="caption"&gt;Mouned concentrator on back plate&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="assemble-raspberry-pi-and-concentrator"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id7"&gt;3. Assemble Raspberry Pi and concentrator&lt;/a&gt;&lt;/h4&gt;
-&lt;div class="align-center figure"&gt;
-&lt;img alt="pi concentrator top" src="../images/setup-ic880a/pi-and-concentrator_1.jpg" style="width: 400px;" /&gt;
-&lt;p class="caption"&gt;pi and concentrator top view&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="align-center figure"&gt;
-&lt;img alt="pi concentrator side" src="../images/setup-ic880a/pi-and-concentrator_2.jpg" style="width: 400px;" /&gt;
-&lt;p class="caption"&gt;pi and concentrator side view&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="align-center figure"&gt;
-&lt;img alt="pi3 concentrator side 2" src="../images/setup-ic880a/pi-and-concentrator_3.jpg" style="width: 400px;" /&gt;
-&lt;p class="caption"&gt;pi3 and concentrator side view&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="wiring-ubec-and-passive-poe"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id8"&gt;3. Wiring UBEC and passive PoE&lt;/a&gt;&lt;/h4&gt;
-&lt;div class="align-center figure"&gt;
-&lt;img alt="UBEC top" src="../images/setup-ic880a/ubec-top.jpg" style="width: 400px;" /&gt;
-&lt;p class="caption"&gt;UBEC top&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="align-center figure"&gt;
-&lt;img alt="UBEC bottom" src="../images/setup-ic880a/ubec-bottom.jpg" style="width: 400px;" /&gt;
-&lt;p class="caption"&gt;UBEC bottom&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="align-center figure"&gt;
-&lt;img alt="UBEC wiring" src="../images/setup-ic880a/ubec-poe-wiring.jpg" style="width: 400px;" /&gt;
-&lt;p class="caption"&gt;UBEC wiring with passive PoE&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="connect-antena-on-concentrator"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id9"&gt;4. Connect antena on concentrator&lt;/a&gt;&lt;/h4&gt;
-&lt;div class="align-center figure"&gt;
-&lt;img alt="antenna connect to concentrator" src="../images/setup-ic880a/concentrator-ic880a-antenna.jpg" style="width: 400px;" /&gt;
-&lt;p class="caption"&gt;Antenna connect to concentrator&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="pins-definition"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id10"&gt;Pins definition&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Reference for pin definition on ic880a and Raspberry Pi&lt;/p&gt;
-&lt;table border="1" class="docutils"&gt;
-&lt;colgroup&gt;
-&lt;col width="28%" /&gt;
-&lt;col width="30%" /&gt;
-&lt;col width="42%" /&gt;
-&lt;/colgroup&gt;
-&lt;thead valign="bottom"&gt;
-&lt;tr&gt;&lt;th class="head"&gt;iC880a pin&lt;/th&gt;
-&lt;th class="head"&gt;Description&lt;/th&gt;
-&lt;th class="head"&gt;RPi physical pin&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody valign="top"&gt;
-&lt;tr&gt;&lt;td&gt;21&lt;/td&gt;
-&lt;td&gt;Supply 5V&lt;/td&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;22&lt;/td&gt;
-&lt;td&gt;GND&lt;/td&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;13&lt;/td&gt;
-&lt;td&gt;Reset&lt;/td&gt;
-&lt;td&gt;22&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;14&lt;/td&gt;
-&lt;td&gt;SPI CLK&lt;/td&gt;
-&lt;td&gt;23&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;15&lt;/td&gt;
-&lt;td&gt;MISO&lt;/td&gt;
-&lt;td&gt;21&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;16&lt;/td&gt;
-&lt;td&gt;MOSI&lt;/td&gt;
-&lt;td&gt;19&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;17&lt;/td&gt;
-&lt;td&gt;NSS&lt;/td&gt;
-&lt;td&gt;24&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;div class="section" id="setting-up-softwarewre"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;Setting up softwarewre&lt;/a&gt;&lt;/h3&gt;
-&lt;div class="section" id="raspery-pi-setup"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id12"&gt;Raspery PI setup&lt;/a&gt;&lt;/h4&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Enable SPI&lt;/li&gt;
-&lt;li&gt;Set time&lt;/li&gt;
-&lt;li&gt;New sudo user&lt;/li&gt;
-&lt;li&gt;Setup ssh key olny access&lt;/li&gt;
-&lt;li&gt;Delete pi user&lt;/li&gt;
-&lt;li&gt;Firewall&lt;/li&gt;
-&lt;li&gt;Auto install security updates (yes/No)&lt;/li&gt;
-&lt;li&gt;Fail2Ban&lt;/li&gt;
-&lt;li&gt;Install common tools&lt;/li&gt;
-&lt;li&gt;Upgrade&lt;/li&gt;
-&lt;li&gt;Setup vpn&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="install-packet-forwarder"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id13"&gt;Install packet forwarder&lt;/a&gt;&lt;/h4&gt;
-&lt;div class="section" id="semtech"&gt;
-&lt;h5&gt;&lt;a class="toc-backref" href="#id14"&gt;Semtech&lt;/a&gt;&lt;/h5&gt;
-&lt;!-- .. todo:: --&gt;
-&lt;!-- Rewrite install process for Semtech pktfwd - https://github.com/Lora-net/packet_forwarder --&gt;
-&lt;/div&gt;
-&lt;div class="section" id="kersing-version"&gt;
-&lt;h5&gt;&lt;a class="toc-backref" href="#id15"&gt;Kersing version&lt;/a&gt;&lt;/h5&gt;
-&lt;div class="admonition warning"&gt;
-&lt;p class="first admonition-title"&gt;Warning&lt;/p&gt;
-&lt;p class="last"&gt;This pktfwd is substituted with Semtech version of pktfwd&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;STEP 1:&lt;/p&gt;
-&lt;p&gt;Make copy of &lt;cite&gt;example-config.json&lt;/cite&gt; and set MQTT&lt;/p&gt;
-&lt;p&gt;STEP 2:&lt;/p&gt;
-&lt;p&gt;Edit &lt;cite&gt;mppktfwd_config/local_conf.json&lt;/cite&gt; and set server block&lt;/p&gt;
-&lt;p&gt;STEP 3:&lt;/p&gt;
-&lt;p&gt;Run setup script&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ttn-gw/ &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; ./setup build &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; ./setup install
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="references"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id16"&gt;References&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Example setup - &lt;a class="reference external" href="https://github.com/ttn-zh/ic880a-gateway/wiki"&gt;https://github.com/ttn-zh/ic880a-gateway/wiki&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="hardware-components"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;Hardware components&lt;/a&gt;&lt;/h2&gt;
-&lt;table border="1" class="docutils"&gt;
-&lt;colgroup&gt;
-&lt;col width="5%" /&gt;
-&lt;col width="33%" /&gt;
-&lt;col width="61%" /&gt;
-&lt;/colgroup&gt;
-&lt;thead valign="bottom"&gt;
-&lt;tr&gt;&lt;th class="head"&gt;Qty&lt;/th&gt;
-&lt;th class="head"&gt;Name&lt;/th&gt;
-&lt;th class="head"&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody valign="top"&gt;
-&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;&lt;a class="reference external" href="http://shop.imst.de/wireless-modules/lora-products/8/ic880a-spi-lorawan-concentrator-868-mhz?c=11"&gt;iC880a&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Concentrator board&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;&lt;a class="reference external" href="http://shop.imst.de/wireless-modules/accessories/19/sma-antenna-for-ic880a-spi-wsa01-im880b-and-lite-gateway"&gt;SMA Antenna&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;SMA Antenna for iC880A-SPI, WSA01-iM880B and Lite Gateway&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;&lt;a class="reference external" href="http://shop.imst.de/wireless-modules/accessories/20/u.fl-to-sma-pigtail-cable-for-ic880a-spi"&gt;Pigtail&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;u.fl to SMA Pigtail cable for iC880A-SPI&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;&lt;a class="reference external" href="https://www.tindie.com/products/gnz/imst-ic880a-lorawan-backplane-kit/?pt=ac_prod_search"&gt;iC880a interface&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;RPi adapter plate&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;&lt;a class="reference external" href="https://www.amazon.de/RF-Elements-StationBox-ALU-StationBox/dp/B00FJY5FD4"&gt;Enclosure 1&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;RF Elements StationBox® ALU StationBox&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;&lt;a class="reference external" href="http://www.nv-networks.com/en/rf-elements-stationboxr-classic-5-ghz-20-dbi.html"&gt;Enclosure 2&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;RF Elements - StationBox® Classic&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;&lt;a class="reference external" href="http://google.com"&gt;PoE Adapter&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&amp;nbsp;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;&lt;a class="reference external" href="http://google.com"&gt;Rpi&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Raspberry Pi (v3)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;&lt;a class="reference external" href="http://google.com"&gt;SD Card&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;MicroSD Card (16Gb)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;&lt;a class="reference external" href="https://shop.technofix.uk/sdr/usb-rtl-sdr-sticks/super-stable-1ppm-tcxo-r820t2-tuner-rtl2832u-rtl-sdr-usb-stick-version-3"&gt;RTL-SDR&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;USB dongle&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;Belden H155 PE&lt;/td&gt;
-&lt;td&gt;Coax cable antenna&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;N Male H155&lt;/td&gt;
-&lt;td&gt;&amp;nbsp;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;N FeMale panel 4L&lt;/td&gt;
-&lt;td&gt;&amp;nbsp;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;U Objenka Antenna&lt;/td&gt;
-&lt;td&gt;&amp;nbsp;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;External RJ45 PE&lt;/td&gt;
-&lt;td&gt;ETH&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;PoE usmernik DC 15V / 0.8A&lt;/td&gt;
-&lt;td&gt;&amp;nbsp;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;5V 3A UBEC Step-Down Converter&lt;/td&gt;
-&lt;td&gt;&amp;nbsp;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;Standoff screw&lt;/td&gt;
-&lt;td&gt;Keep parts separated for 11mm&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;div class="section" id="hardware-components-mobile"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id18"&gt;Hardware components mobile&lt;/a&gt;&lt;/h2&gt;
-&lt;table border="1" class="docutils"&gt;
-&lt;colgroup&gt;
-&lt;col width="6%" /&gt;
-&lt;col width="25%" /&gt;
-&lt;col width="69%" /&gt;
-&lt;/colgroup&gt;
-&lt;thead valign="bottom"&gt;
-&lt;tr&gt;&lt;th class="head"&gt;Qty&lt;/th&gt;
-&lt;th class="head"&gt;Name&lt;/th&gt;
-&lt;th class="head"&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody valign="top"&gt;
-&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;&lt;a class="reference external" href="https://eu.mouser.com/ProductDetail/SparkFun/DEV-14277?qs=sGAEpiMZZMuqBwn8WqcFUj2aNd7i9W7ukD5zwS1Hdc5ehym0zfrfkg%3d%3d"&gt;Rpi_zero&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Raspberry Pi Zero&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-</content><category term="projects"></category><category term="iot"></category><category term="lorawan"></category><category term="gateway"></category><category term="network"></category></entry><entry><title>Vim User Disorder</title><link href="/vim-user-disorder.html" rel="alternate"></link><published>2018-09-07T13:48:16+02:00</published><updated>2018-09-07T13:48:16+02:00</updated><author><name>tomazursic</name></author><id>tag:None,2018-09-07:/vim-user-disorder.html</id><summary type="html">Cheatsheet and notes for vim test editor</summary><content type="html">&lt;div class="section" id="vim-usage"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Web Logs - tomazursic.github.io</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2020-01-10T00:00:00+01:00</updated><entry><title>Vim User Disorder</title><link href="/vim-user-disorder.html" rel="alternate"></link><published>2018-09-07T13:48:16+02:00</published><updated>2018-09-07T13:48:16+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-09-07:/vim-user-disorder.html</id><summary type="html">Cheatsheet and notes for vim test editor</summary><content type="html">&lt;div class="section" id="vim-usage"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;Vim Usage&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="contents topic" id="table-of-contents"&gt;
 &lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
@@ -1817,7 +692,7 @@ This acronym is just a dark fun invented by us, back somewhere in time.&lt;/p&gt
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="blog"></category><category term="vim"></category><category term="tools"></category></entry><entry><title>LoRaWAN Network</title><link href="/lorawan-network.html" rel="alternate"></link><published>2018-09-04T13:48:16+02:00</published><updated>2020-01-10T00:00:00+01:00</updated><author><name>tomazursic</name></author><id>tag:None,2018-09-04:/lorawan-network.html</id><summary type="html">About LoraWAN Network</summary><content type="html">&lt;div class="section" id="lorawan-network"&gt;
+</content><category term="blog"></category><category term="vim"></category><category term="tools"></category></entry><entry><title>LoRaWAN Network</title><link href="/lorawan-network.html" rel="alternate"></link><published>2018-09-04T13:48:16+02:00</published><updated>2020-01-10T00:00:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-09-04:/lorawan-network.html</id><summary type="html">About LoraWAN Network</summary><content type="html">&lt;div class="section" id="lorawan-network"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;LoRaWAN Network&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="contents topic" id="table-of-contents"&gt;
 &lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
@@ -2375,7 +1250,7 @@ metron, &amp;quot;measure&amp;quot;. source: &lt;a class="reference external" hr
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="blog"></category><category term="lorawan"></category><category term="iot"></category><category term="network"></category></entry><entry><title>LoraWAN Reverse Beacon</title><link href="/lorawan-reverse-beacon.html" rel="alternate"></link><published>2018-05-27T00:00:00+02:00</published><updated>2018-05-27T00:00:00+02:00</updated><author><name>tomazursic</name></author><id>tag:None,2018-05-27:/lorawan-reverse-beacon.html</id><summary type="html">&lt;p class="first last"&gt;Exploring LoraWAN coverage with drop node deployed higher than the receivers&lt;/p&gt;
+</content><category term="blog"></category><category term="lorawan"></category><category term="iot"></category><category term="network"></category></entry><entry><title>LoraWAN Reverse Beacon</title><link href="/lorawan-reverse-beacon.html" rel="alternate"></link><published>2018-05-27T00:00:00+02:00</published><updated>2018-05-27T00:00:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-05-27:/lorawan-reverse-beacon.html</id><summary type="html">&lt;p class="first last"&gt;Exploring LoraWAN coverage with drop node deployed higher than the receivers&lt;/p&gt;
 </summary><content type="html">&lt;div class="section" id="reverse-beacon"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;Reverse-Beacon&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="contents topic" id="table-of-contents"&gt;
@@ -2890,7 +1765,7 @@ alarming scenario!&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="projects"></category><category term="iot"></category><category term="python"></category><category term="lorawan"></category><category term="reverse_beacon"></category></entry><entry><title>The Bread Code Branch</title><link href="/the-bread-code-branch.html" rel="alternate"></link><published>2018-05-03T06:14:30+02:00</published><updated>2018-05-03T06:14:30+02:00</updated><author><name>tomazursic</name></author><id>tag:None,2018-05-03:/the-bread-code-branch.html</id><summary type="html">The art of making bread</summary><content type="html">&lt;div class="section" id="baking-bread"&gt;
+</content><category term="projects"></category><category term="iot"></category><category term="python"></category><category term="lorawan"></category><category term="reverse_beacon"></category></entry><entry><title>The Bread Code Branch</title><link href="/the-bread-code-branch.html" rel="alternate"></link><published>2018-05-03T06:14:30+02:00</published><updated>2018-05-03T06:14:30+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-05-03:/the-bread-code-branch.html</id><summary type="html">The art of making bread</summary><content type="html">&lt;div class="section" id="baking-bread"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id2"&gt;Baking Bread&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="contents topic" id="table-of-contents"&gt;
 &lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
@@ -3016,7 +1891,7 @@ alarming scenario!&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="projects"></category><category term="bread"></category><category term="misc"></category></entry><entry><title>Python Notes</title><link href="/python.html" rel="alternate"></link><published>2018-04-20T22:51:00+02:00</published><updated>2020-01-10T00:00:00+01:00</updated><author><name>tomazursic</name></author><id>tag:None,2018-04-20:/python.html</id><summary type="html">Notes and references for Python</summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
+</content><category term="projects"></category><category term="bread"></category><category term="misc"></category></entry><entry><title>Python Notes</title><link href="/python.html" rel="alternate"></link><published>2018-04-20T22:51:00+02:00</published><updated>2020-01-10T00:00:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-04-20:/python.html</id><summary type="html">Notes and references for Python</summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
 &lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#introduction" id="id9"&gt;Introduction&lt;/a&gt;&lt;/li&gt;
@@ -6746,7 +5621,79 @@ generating code from the syntax tree.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-</content><category term="blog"></category><category term="python"></category><category term="notes"></category></entry><entry><title>Python Cheatsheet</title><link href="/python-cheatsheet.html" rel="alternate"></link><published>2017-11-05T00:00:00+01:00</published><updated>2020-01-04T00:00:00+01:00</updated><author><name>tomazursic</name></author><id>tag:None,2017-11-05:/python-cheatsheet.html</id><summary type="html">Code snippets/cheatsheet</summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
+</content><category term="blog"></category><category term="python"></category><category term="notes"></category></entry><entry><title>Exploring OBDII</title><link href="/exploring-obdii.html" rel="alternate"></link><published>2018-03-04T11:09:02+01:00</published><updated>2018-03-04T11:09:02+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-03-04:/exploring-obdii.html</id><summary type="html">&lt;p&gt;To satisfy the curiosity for reading car on-board diagnostics using&lt;/p&gt;</summary><content type="html">&lt;p&gt;Raspberry PI with build in Bluetooth and ODBII Bluetooth adapter.&lt;/p&gt;
+&lt;p&gt;Turn on the car engine after attaching the adapter.&lt;/p&gt;
+&lt;h2&gt;Setup:&lt;/h2&gt;
+&lt;p&gt;Example target device MAC address&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;00:19:5D:FE:9A:8F OBDII
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Terminal 1:&lt;/h3&gt;
+&lt;p&gt;Turn on the bluetoot and scan for adapter address&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo bluetoothctl
+    power on
+    agent on
+    default-agent
+    scan on
+    pair &lt;span class="m"&gt;00&lt;/span&gt;:19:5D:FE:9A:8F
+    trust &lt;span class="m"&gt;00&lt;/span&gt;:19:5D:FE:9A:8F
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Terminal 2&lt;/h3&gt;
+&lt;p&gt;rfcomm associates the paired device ID with a serial device name&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo rfcomm &lt;span class="nb"&gt;bind&lt;/span&gt; rfcomm0 &lt;span class="m"&gt;00&lt;/span&gt;:19:5D:FE:9A:8F
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Read output with pyobd&lt;/h3&gt;
+&lt;p&gt;http://brendan-w.com/python-obd&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;obd&lt;/span&gt;
+&lt;span class="n"&gt;connection&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;obd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;OBD&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/dev/rfcomm0&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;cmd&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;obd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;commands&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;RPM&lt;/span&gt;
+&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;connection&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;query&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cmd&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Example output:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="OBDII Output" src="/images/obdII_output.jpg"&gt;&lt;/p&gt;
+&lt;h2&gt;Unpairing a Bluetooth device&lt;/h2&gt;
+&lt;p&gt;Start the Bluetooth utility.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;bluetoothctl
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Unpair the Bluetooth device if required.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;remove &amp;lt;dev&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Make sure the agent is stopped for the Bluetooth device.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;agent off
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Make sure the Bluetooth device is powered down.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;power off
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Exit the Bluetooth utility.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;quit
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Release serail&lt;/h2&gt;
+&lt;p&gt;To remove the serial device do the following if required.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rfcomm release &lt;span class="m"&gt;00&lt;/span&gt;:19:5D:FE:9A:8F
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Shouldn't need this command, force rfdevices to stop.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rfkill list
+&lt;/pre&gt;&lt;/div&gt;</content><category term="blog"></category><category term="python"></category><category term="raspberry-pi"></category><category term="obd"></category></entry><entry><title>Python Cheatsheet</title><link href="/python-cheatsheet.html" rel="alternate"></link><published>2017-11-05T00:00:00+01:00</published><updated>2020-01-04T00:00:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-11-05:/python-cheatsheet.html</id><summary type="html">Code snippets/cheatsheet</summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
 &lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#python-cheatsheet" id="id1"&gt;Python Cheatsheet&lt;/a&gt;&lt;ul&gt;
@@ -7252,7 +6199,311 @@ python -m smtpd -n -c DebuggingServer localhost:25
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="blog"></category><category term="python"></category><category term="notes"></category><category term="cheatsheet"></category></entry><entry><title>Git Notes</title><link href="/git.html" rel="alternate"></link><published>2017-07-08T00:00:00+02:00</published><updated>2017-07-08T00:00:00+02:00</updated><author><name>tomazursic</name></author><id>tag:None,2017-07-08:/git.html</id><summary type="html">&lt;p class="first last"&gt;Notes using git&lt;/p&gt;
+</content><category term="blog"></category><category term="python"></category><category term="notes"></category><category term="cheatsheet"></category></entry><entry><title>Setup LoRaWAN gateway</title><link href="/setup-lorawan-gateway.html" rel="alternate"></link><published>2017-09-03T22:46:00+02:00</published><updated>2018-10-27T01:04:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-09-03:/setup-lorawan-gateway.html</id><summary type="html">Notes for assembling LoraWAN gateway</summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
+&lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#setup-lorawan-gateway" id="id1"&gt;Setup LoRaWAN gateway&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#datasheet" id="id2"&gt;Datasheet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#overview" id="id3"&gt;Overview&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#assemble" id="id4"&gt;Assemble&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#solder-headers-on-backplate" id="id5"&gt;1. Solder headers on backplate&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#assemble-concentrator-plate-and-adapter" id="id6"&gt;2. Assemble concentrator plate and adapter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#assemble-raspberry-pi-and-concentrator" id="id7"&gt;3. Assemble Raspberry Pi and concentrator&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#wiring-ubec-and-passive-poe" id="id8"&gt;3. Wiring UBEC and passive PoE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#connect-antena-on-concentrator" id="id9"&gt;4. Connect antena on concentrator&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#pins-definition" id="id10"&gt;Pins definition&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#setting-up-softwarewre" id="id11"&gt;Setting up softwarewre&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#raspery-pi-setup" id="id12"&gt;Raspery PI setup&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#setup-packet-forwarder" id="id13"&gt;Setup packet forwarder&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#references" id="id14"&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#hardware-components" id="id15"&gt;Hardware components&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#hardware-components-mobile" id="id16"&gt;Hardware components mobile&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="setup-lorawan-gateway"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;Setup LoRaWAN gateway&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The document describe assembling and setup the LoRaWAN packet forwarder
+with IMST ic800a backplate and Raspberry pi.&lt;/p&gt;
+&lt;div class="section" id="datasheet"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id2"&gt;Datasheet&lt;/a&gt;&lt;/h3&gt;
+&lt;!-- :download:`iC880A-SPI_QuickStartGuide &lt;datasheets/iC880A-SPI_QuickStartGuide.pdf&gt;` --&gt;
+&lt;/div&gt;
+&lt;div class="section" id="overview"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id3"&gt;Overview&lt;/a&gt;&lt;/h3&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Solder headers on backplate ic880a adapter&lt;/li&gt;
+&lt;li&gt;Assemble ic880a concentrator plate and adapter&lt;/li&gt;
+&lt;li&gt;Assemble ic880a concentrator and Raspberry pi (use of stendoffs only for Rpi3 combination)&lt;/li&gt;
+&lt;li&gt;Wiring UBEC and passive PoE&lt;/li&gt;
+&lt;li&gt;Connect UBEC between Rasberry and ic880a concentrator plate&lt;/li&gt;
+&lt;li&gt;Connect antena on ic880a concentrator&lt;/li&gt;
+&lt;li&gt;Setting up softwarewre&lt;/li&gt;
+&lt;li&gt;Install inside enclosure&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="assemble"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id4"&gt;Assemble&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="solder-headers-on-backplate"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id5"&gt;1. Solder headers on backplate&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;On top of the plate solder headers for concentrator&lt;/p&gt;
+&lt;div class="align-center figure"&gt;
+&lt;img alt="Backplate top" src="../images/setup-ic880a/backplate-ic880a-top.png" style="width: 400px;" /&gt;
+&lt;p class="caption"&gt;Backplate top face&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;On bottom of the plate solder headers for Raspberry PI&lt;/p&gt;
+&lt;div class="align-center figure"&gt;
+&lt;img alt="Backplate bottom" src="../images/setup-ic880a/backplate-ic880a-bottom.png" style="width: 400px;" /&gt;
+&lt;p class="caption"&gt;Backplate bottom face&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Reference images for ic880a&lt;/p&gt;
+&lt;div class="align-center figure"&gt;
+&lt;img alt="Concentrator top" src="../images/setup-ic880a/concentrator-ic880a-top.jpg" style="width: 400px;" /&gt;
+&lt;p class="caption"&gt;Concetrator plate top&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="align-center figure"&gt;
+&lt;img alt="Concentrator bottom" src="../images/setup-ic880a/concentrator-ic880a-bottom.jpg" style="width: 400px;" /&gt;
+&lt;p class="caption"&gt;Concetrator plate bottom&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="assemble-concentrator-plate-and-adapter"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id6"&gt;2. Assemble concentrator plate and adapter&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="align-center figure"&gt;
+&lt;img alt="concentrator plate assemble" src="../images/setup-ic880a/concentrator-plate-assemble.jpg" style="width: 400px;" /&gt;
+&lt;p class="caption"&gt;Mouned concentrator on back plate&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="assemble-raspberry-pi-and-concentrator"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id7"&gt;3. Assemble Raspberry Pi and concentrator&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="align-center figure"&gt;
+&lt;img alt="pi concentrator top" src="../images/setup-ic880a/pi-and-concentrator_1.jpg" style="width: 400px;" /&gt;
+&lt;p class="caption"&gt;pi and concentrator top view&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="align-center figure"&gt;
+&lt;img alt="pi concentrator side" src="../images/setup-ic880a/pi-and-concentrator_2.jpg" style="width: 400px;" /&gt;
+&lt;p class="caption"&gt;pi and concentrator side view&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="align-center figure"&gt;
+&lt;img alt="pi3 concentrator side 2" src="../images/setup-ic880a/pi-and-concentrator_3.jpg" style="width: 400px;" /&gt;
+&lt;p class="caption"&gt;pi3 and concentrator side view&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="wiring-ubec-and-passive-poe"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id8"&gt;3. Wiring UBEC and passive PoE&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="align-center figure"&gt;
+&lt;img alt="UBEC top" src="../images/setup-ic880a/ubec-top.jpg" style="width: 400px;" /&gt;
+&lt;p class="caption"&gt;UBEC top&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="align-center figure"&gt;
+&lt;img alt="UBEC bottom" src="../images/setup-ic880a/ubec-bottom.jpg" style="width: 400px;" /&gt;
+&lt;p class="caption"&gt;UBEC bottom&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="align-center figure"&gt;
+&lt;img alt="UBEC wiring" src="../images/setup-ic880a/ubec-poe-wiring.jpg" style="width: 400px;" /&gt;
+&lt;p class="caption"&gt;UBEC wiring with passive PoE&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="connect-antena-on-concentrator"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id9"&gt;4. Connect antena on concentrator&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="align-center figure"&gt;
+&lt;img alt="antenna connect to concentrator" src="../images/setup-ic880a/concentrator-ic880a-antenna.jpg" style="width: 400px;" /&gt;
+&lt;p class="caption"&gt;Antenna connect to concentrator&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="pins-definition"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id10"&gt;Pins definition&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Reference for pin definition on ic880a and Raspberry Pi&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="28%" /&gt;
+&lt;col width="30%" /&gt;
+&lt;col width="42%" /&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;iC880a pin&lt;/th&gt;
+&lt;th class="head"&gt;Description&lt;/th&gt;
+&lt;th class="head"&gt;RPi physical pin&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;21&lt;/td&gt;
+&lt;td&gt;Supply 5V&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;22&lt;/td&gt;
+&lt;td&gt;GND&lt;/td&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;13&lt;/td&gt;
+&lt;td&gt;Reset&lt;/td&gt;
+&lt;td&gt;22&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;14&lt;/td&gt;
+&lt;td&gt;SPI CLK&lt;/td&gt;
+&lt;td&gt;23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;15&lt;/td&gt;
+&lt;td&gt;MISO&lt;/td&gt;
+&lt;td&gt;21&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;16&lt;/td&gt;
+&lt;td&gt;MOSI&lt;/td&gt;
+&lt;td&gt;19&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;17&lt;/td&gt;
+&lt;td&gt;NSS&lt;/td&gt;
+&lt;td&gt;24&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class="section" id="setting-up-softwarewre"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;Setting up softwarewre&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="raspery-pi-setup"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id12"&gt;Raspery PI setup&lt;/a&gt;&lt;/h4&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Enable SPI&lt;/li&gt;
+&lt;li&gt;Set time&lt;/li&gt;
+&lt;li&gt;New sudo user&lt;/li&gt;
+&lt;li&gt;Setup ssh key olny access&lt;/li&gt;
+&lt;li&gt;Delete pi user&lt;/li&gt;
+&lt;li&gt;Firewall&lt;/li&gt;
+&lt;li&gt;Auto install security updates (yes/No)&lt;/li&gt;
+&lt;li&gt;Fail2Ban&lt;/li&gt;
+&lt;li&gt;Install common tools&lt;/li&gt;
+&lt;li&gt;Upgrade&lt;/li&gt;
+&lt;li&gt;Setup vpn&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="setup-packet-forwarder"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id13"&gt;Setup packet forwarder&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://github.com/tomazursic/LoraGW-Setup"&gt;https://github.com/tomazursic/LoraGW-Setup&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="references"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id14"&gt;References&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Example setup - &lt;a class="reference external" href="https://github.com/ttn-zh/ic880a-gateway/wiki"&gt;https://github.com/ttn-zh/ic880a-gateway/wiki&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="hardware-components"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;Hardware components&lt;/a&gt;&lt;/h2&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="5%" /&gt;
+&lt;col width="33%" /&gt;
+&lt;col width="61%" /&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Qty&lt;/th&gt;
+&lt;th class="head"&gt;Name&lt;/th&gt;
+&lt;th class="head"&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;&lt;a class="reference external" href="http://shop.imst.de/wireless-modules/lora-products/8/ic880a-spi-lorawan-concentrator-868-mhz?c=11"&gt;iC880a&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Concentrator board&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;&lt;a class="reference external" href="http://shop.imst.de/wireless-modules/accessories/19/sma-antenna-for-ic880a-spi-wsa01-im880b-and-lite-gateway"&gt;SMA Antenna&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;SMA Antenna for iC880A-SPI, WSA01-iM880B and Lite Gateway&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;&lt;a class="reference external" href="http://shop.imst.de/wireless-modules/accessories/20/u.fl-to-sma-pigtail-cable-for-ic880a-spi"&gt;Pigtail&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;u.fl to SMA Pigtail cable for iC880A-SPI&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;&lt;a class="reference external" href="https://www.tindie.com/products/gnz/imst-ic880a-lorawan-backplane-kit/?pt=ac_prod_search"&gt;iC880a interface&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;RPi adapter plate&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;&lt;a class="reference external" href="https://www.amazon.de/RF-Elements-StationBox-ALU-StationBox/dp/B00FJY5FD4"&gt;Enclosure 1&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;RF Elements StationBox® ALU StationBox&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;&lt;a class="reference external" href="http://www.nv-networks.com/en/rf-elements-stationboxr-classic-5-ghz-20-dbi.html"&gt;Enclosure 2&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;RF Elements - StationBox® Classic&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;&lt;a class="reference external" href="http://google.com"&gt;PoE Adapter&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;&lt;a class="reference external" href="http://google.com"&gt;Rpi&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Raspberry Pi (v3)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;&lt;a class="reference external" href="http://google.com"&gt;SD Card&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;MicroSD Card (16Gb)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;&lt;a class="reference external" href="https://shop.technofix.uk/sdr/usb-rtl-sdr-sticks/super-stable-1ppm-tcxo-r820t2-tuner-rtl2832u-rtl-sdr-usb-stick-version-3"&gt;RTL-SDR&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;USB dongle&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;Belden H155 PE&lt;/td&gt;
+&lt;td&gt;Coax cable antenna&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;N Male H155&lt;/td&gt;
+&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;N FeMale panel 4L&lt;/td&gt;
+&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;U Objenka Antenna&lt;/td&gt;
+&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;External RJ45 PE&lt;/td&gt;
+&lt;td&gt;ETH&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;PoE usmernik DC 15V / 0.8A&lt;/td&gt;
+&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;5V 3A UBEC Step-Down Converter&lt;/td&gt;
+&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;Standoff screw&lt;/td&gt;
+&lt;td&gt;Keep parts separated for 11mm&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class="section" id="hardware-components-mobile"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id16"&gt;Hardware components mobile&lt;/a&gt;&lt;/h2&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="6%" /&gt;
+&lt;col width="25%" /&gt;
+&lt;col width="69%" /&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Qty&lt;/th&gt;
+&lt;th class="head"&gt;Name&lt;/th&gt;
+&lt;th class="head"&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;&lt;a class="reference external" href="https://eu.mouser.com/ProductDetail/SparkFun/DEV-14277?qs=sGAEpiMZZMuqBwn8WqcFUj2aNd7i9W7ukD5zwS1Hdc5ehym0zfrfkg%3d%3d"&gt;Rpi_zero&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Raspberry Pi Zero&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+</content><category term="projects"></category><category term="iot"></category><category term="lorawan"></category><category term="gateway"></category><category term="network"></category><category term="ic880a"></category></entry><entry><title>Git Notes</title><link href="/git.html" rel="alternate"></link><published>2017-07-08T00:00:00+02:00</published><updated>2017-07-08T00:00:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-07-08:/git.html</id><summary type="html">&lt;p class="first last"&gt;Notes using git&lt;/p&gt;
 </summary><content type="html">&lt;div class="section" id="git-tips"&gt;
 &lt;h2&gt;Git Tips&lt;/h2&gt;
 &lt;div class="section" id="contribute"&gt;
@@ -7294,7 +6545,7 @@ python -m smtpd -n -c DebuggingServer localhost:25
 &lt;/ol&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="blog"></category><category term="git"></category><category term="linux"></category></entry><entry><title>Setup Pelican</title><link href="/setup-pelican.html" rel="alternate"></link><published>2017-05-03T07:10:56+02:00</published><updated>2017-05-03T07:10:56+02:00</updated><author><name>tomazursic</name></author><id>tag:None,2017-05-03:/setup-pelican.html</id><summary type="html">&lt;p&gt;Let play with static site generator to reorder mess of memories&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Install Pelican&lt;/h3&gt;
+</content><category term="blog"></category><category term="git"></category><category term="linux"></category></entry><entry><title>Setup Pelican</title><link href="/setup-pelican.html" rel="alternate"></link><published>2017-05-03T07:10:56+02:00</published><updated>2017-05-03T07:10:56+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-05-03:/setup-pelican.html</id><summary type="html">&lt;p&gt;Let play with static site generator to reorder mess of memories&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Install Pelican&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install pelican ghp-import Markdown
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -7396,7 +6647,7 @@ $ git push origin content
 &lt;p&gt;Generate style file and add to &lt;code&gt;base.html&lt;/code&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; $ &lt;span class="nb"&gt;cd&lt;/span&gt; thems/&amp;lt;theme-name&amp;gt;/css
  $ pygmentize -S monokai -f html -a .highlight &amp;gt; pygments_vim.css
-&lt;/pre&gt;&lt;/div&gt;</content><category term="blog"></category><category term="python"></category><category term="pelican"></category></entry><entry><title>Liftoff</title><link href="/liftoff.html" rel="alternate"></link><published>2017-05-03T06:14:30+02:00</published><updated>2017-05-03T06:14:30+02:00</updated><author><name>tomazursic</name></author><id>tag:None,2017-05-03:/liftoff.html</id><summary type="html">&lt;p&gt;hello world&lt;/p&gt;</summary><content type="html">&lt;h2&gt;First Post&lt;/h2&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="blog"></category><category term="python"></category><category term="pelican"></category></entry><entry><title>Liftoff</title><link href="/liftoff.html" rel="alternate"></link><published>2017-05-03T06:14:30+02:00</published><updated>2017-05-03T06:14:30+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-05-03:/liftoff.html</id><summary type="html">&lt;p&gt;hello world&lt;/p&gt;</summary><content type="html">&lt;h2&gt;First Post&lt;/h2&gt;
 &lt;p&gt;World, hello again! This very first paragraph of the post will be used as
 excerpt in archives and feeds.&lt;/p&gt;
 &lt;p&gt;This post is consequence of merging old blog and accumulated notes.&lt;/p&gt;
@@ -7411,4 +6662,818 @@ speedometer. It was true I could follow the stars in the general direction of
 Helium, but without knowing the exact location of the city or the speed at
 which I was traveling my chances for finding it were slim.&lt;/p&gt;
 &lt;p&gt;-- &lt;cite&gt; Moby-Dick - Novel by Herman Melville &lt;/cite&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</content><category term="blog"></category></entry></feed>
+&lt;/blockquote&gt;</content><category term="blog"></category></entry><entry><title>Smart Agriculture Prototyping</title><link href="/vinode.html" rel="alternate"></link><published>2017-03-28T21:48:00+02:00</published><updated>2019-09-05T20:38:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-03-28:/vinode.html</id><summary type="html">&lt;p class="first last"&gt;DIY - device for taking micro climate measurements&lt;/p&gt;
+</summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
+&lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#vinode" id="id1"&gt;Vinode&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#issue" id="id2"&gt;Issue&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#solution" id="id3"&gt;Solution&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;Prototype for monitor the micro-climate conditions in agriculture.
+Collecting data from orchard/vineyards with purpose to support/help/extends the
+decisions in deals with pests/diseases.&lt;/p&gt;
+&lt;div class="section" id="vinode"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;Vinode&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Live data:&lt;/strong&gt; &lt;a class="reference external" href="https://lepavida.iot.novagorica.eu/d/BfjRxSpWz/vinode?orgId=1&amp;amp;refresh=30s&amp;amp;from=now-30d&amp;amp;to=now"&gt;https://lepavida.iot.novagorica.eu&lt;/a&gt;&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;a class="reference external image-reference" href="https://lepavida.iot.novagorica.eu/d/BfjRxSpWz/vinode?orgId=1&amp;amp;refresh=30s&amp;amp;from=now-30d&amp;amp;to=now"&gt;&lt;img alt="Vinode &amp;amp; Deploy Tools" src="images/device/vinode/20190828_151605.jpg" /&gt;&lt;/a&gt;
+&lt;p class="caption"&gt;Vinode v2.0 &amp;amp; Deploy Tools&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Current position&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Vinode2.0" src="images/device/vinode/20191002_082511.jpg" /&gt;
+&lt;/div&gt;
+&lt;div class="section" id="issue"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id2"&gt;Issue&lt;/a&gt;&lt;/h3&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Fight the danger of downy mildew that in recent years has created serious
+damage across the land of Colio * Adopt a scientific instrument to support
+decisions in order to carry out targeted interventions in the vineyard&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="solution"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id3"&gt;Solution&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;IoT (Internet of Things) system which consists of interconnected devices that
+operate and automatically communicate over long distances thanks to the use of
+the LoRaWAN technology.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;LoRaWAN device with sensors&lt;/strong&gt;: that measure, in real time, the
+micro-climatic conditions in the vineyard (responsible for fungal diseases
+such as downy mildew) and the physio-pathological status of the plant&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LoRaWAN Gateway&lt;/strong&gt;: collection and transmission of data detected by the
+wireless sensors&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The LoRa technology makes it possible to overcome the problem of distance and
+“physical interference”, two common conditions when you consider the nature of
+the Colio viticultural land, very often characterized by slopes, wild
+vegetation and hilly landscapes.&lt;/p&gt;
+&lt;p&gt;Monitor the vineyard in real time and continuously, as well as the storage of
+the historic data, which will be crucial for the organization and management of
+the vineyard, not only of the current season but also of those to come.&lt;/p&gt;
+&lt;p&gt;Project example with  MicroPython on esp-32 (lopy) to collect data (weather, soil, leafs..) on
+micro-locations.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="projects"></category><category term="lorawan"></category><category term="iot"></category><category term="python"></category><category term="micropython"></category></entry><entry><title>MicroPython and Lopy</title><link href="/micropython-lopy.html" rel="alternate"></link><published>2017-03-17T00:31:00+01:00</published><updated>2019-05-05T21:07:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-03-17:/micropython-lopy.html</id><summary type="html">&lt;p class="first last"&gt;How to setup and use lorawan device, using MicroPython and Lopy
+(ESP-32) module&lt;/p&gt;
+</summary><content type="html">&lt;div class="section" id="micropython-and-lopy"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id2"&gt;Micropython and Lopy&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;About ruining Python on bare metal, using &lt;a class="reference external" href="https://pycom.io/"&gt;Pycom&lt;/a&gt; Lopy and &lt;a class="reference external" href="https://micropython.org/"&gt;Micropython&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="contents topic" id="table-of-contents"&gt;
+&lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#micropython-and-lopy" id="id2"&gt;Micropython and Lopy&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#lopy" id="id3"&gt;Lopy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#start" id="id4"&gt;Start&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#ftp" id="id5"&gt;FTP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#telnet" id="id6"&gt;Telnet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#serial" id="id7"&gt;Serial&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#code-example" id="id8"&gt;Code example&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#config-file" id="id9"&gt;Config file&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#boot-file" id="id10"&gt;Boot file&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#main-file" id="id11"&gt;Main file&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#code-snippets" id="id12"&gt;Code snippets&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#building-a-firmware-image" id="id13"&gt;Building a firmware image&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#requirements" id="id14"&gt;Requirements&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#debian-ubuntu" id="id15"&gt;Debian/Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#build-environment" id="id16"&gt;Build environment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#source-code" id="id17"&gt;Source code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#xtensa" id="id18"&gt;Xtensa&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#esp-idf" id="id19"&gt;ESP-IDF&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#build-process" id="id20"&gt;Build process&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#rebuild-process" id="id21"&gt;Rebuild process&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#encryption" id="id22"&gt;Encryption&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#reference" id="id23"&gt;Reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#firmware-update" id="id24"&gt;Firmware Update&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="lopy"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id3"&gt;Lopy&lt;/a&gt;&lt;/h3&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://docs.pycom.io/"&gt;Official documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://docs.pycom.io/gitbook/assets/lopy4-pinout.pdf"&gt;Pinout&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://docs.pycom.io/pytrackpysense/installation/firmware/"&gt;Frmware&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="start"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id4"&gt;Start&lt;/a&gt;&lt;/h3&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;5V&lt;/li&gt;
+&lt;li&gt;Micro USB cable&lt;/li&gt;
+&lt;li&gt;Lopy and board (Expansion, Pysense, Pytrack..)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="section" id="ftp"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id5"&gt;FTP&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Connect to access point with name &lt;cite&gt;lopy-[random characters]&lt;/cite&gt; and credentials:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;u: admin
+p: www.pycom.io
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="telnet"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id6"&gt;Telnet&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ telent &lt;span class="m"&gt;192&lt;/span&gt;.168.4.1
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="serial"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id7"&gt;Serial&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Connecting to UART we can use any program rshell or minicom, screen..&lt;/p&gt;
+&lt;p&gt;Get information about ports:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dmesg &lt;span class="p"&gt;|&lt;/span&gt; egrep --color &lt;span class="s1"&gt;&amp;#39;serial|ttyS&amp;#39;&lt;/span&gt;
+
+
+content
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Connect to device with &lt;cite&gt;rshell&lt;/cite&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install rshell
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rshell -p /dev/ttyUSB0 --buffer-size&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rshell -p /dev/ttyACM0 --buffer-size&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Copy file to device&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cp &amp;lt;file-name&amp;gt; /flash/
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Copy directory&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cp -r &amp;lt;directory-name&amp;gt; /flash/&amp;lt;directory-name&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Rsync project&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rsync -mv &amp;lt;directory-name&amp;gt;/ /flash/
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;After connecting to device over serial enter in REPL mode&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ repl
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Exit REPL&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;cite&gt;CTRL - X&lt;/cite&gt;&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="code-example"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id8"&gt;Code example&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Project structure&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;project/
+├── lib/       &amp;lt;--- Place for sensors drivers
+├── boot.py    &amp;lt;--- First file to be executed on start up
+├── config.py  &amp;lt;--- Global variables
+└── main.py    &amp;lt;--- Executed after boot
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="section" id="config-file"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id9"&gt;Config file&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# config.py&lt;/span&gt;
+
+&lt;span class="n"&gt;DEV_ID&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;lt;DEV_ID_REGISTERED_ON_LORA_SERVER&amp;quot;&lt;/span&gt;
+
+&lt;span class="c1"&gt;# TTN Registered Device IDs&lt;/span&gt;
+&lt;span class="n"&gt;DEV_EUI&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;lt;DEVICE-EUI&amp;gt;&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;APP_EUI&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;lt;APPLICATION-EUI&amp;gt;&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;APP_KEY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;lt;APPLICATION-KEY&amp;gt;&amp;#39;&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Debug&lt;/span&gt;
+&lt;span class="n"&gt;DEBUG_LED&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;
+&lt;span class="n"&gt;DEBUG_CON&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;
+
+&lt;span class="c1"&gt;# LoRa setup&lt;/span&gt;
+&lt;span class="n"&gt;LORA_FREQUENCY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;868100000&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Activate confirmation message&lt;/span&gt;
+&lt;span class="n"&gt;LORA_STATUS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Data Rate (0 - 7)&lt;/span&gt;
+&lt;span class="n"&gt;LORA_DR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="c1"&gt;# DR_5&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Bind socket to port&lt;/span&gt;
+&lt;span class="n"&gt;SOCK_PORT&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Sleep time in packet send&lt;/span&gt;
+&lt;span class="n"&gt;SLEEP_MAIN&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;300&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Low Energy config&lt;/span&gt;
+&lt;span class="n"&gt;HEARTBEAT&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;
+
+&lt;span class="c1"&gt;# LED color&lt;/span&gt;
+&lt;span class="n"&gt;LED_OFF&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mh"&gt;0x000000&lt;/span&gt;
+&lt;span class="n"&gt;GREEN&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mh"&gt;0x007f00&lt;/span&gt;
+&lt;span class="n"&gt;YELLOW&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mh"&gt;0x7f7f00&lt;/span&gt;
+&lt;span class="n"&gt;RED&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mh"&gt;0x7f0000&lt;/span&gt;
+&lt;span class="n"&gt;BLUE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mh"&gt;0x00007f&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="boot-file"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id10"&gt;Boot file&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# boot.py -- run on boot-up&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;machine&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Enable REPL duplication on UART0&lt;/span&gt;
+&lt;span class="n"&gt;uart&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;machine&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;UART&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;115200&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dupterm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;uart&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Run main module&lt;/span&gt;
+&lt;span class="n"&gt;machine&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;main.py&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="main-file"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id11"&gt;Main file&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="sd"&gt;Basic LoRa example based on OTAA (Over The Air Authentication)&lt;/span&gt;
+&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;network&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;LoRa&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;network&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;WLAN&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;binascii&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pycom&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;socket&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;time&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;config&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;c&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Set heartbeat&lt;/span&gt;
+&lt;span class="n"&gt;pycom&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;heartbeat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;HEARTBEAT&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Initialize LoRa in LORAWAN mode.&lt;/span&gt;
+&lt;span class="n"&gt;lora&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;LoRa&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mode&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;LoRa&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LORAWAN&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# create an OTA authentication params&lt;/span&gt;
+&lt;span class="n"&gt;dev_eui&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;binascii&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;unhexlify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEV_EUI&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;app_eui&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;binascii&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;unhexlify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;APP_EUI&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;app_key&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;binascii&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;unhexlify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;APP_KEY&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;machine&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reset_cause&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="n"&gt;machine&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEEPSLEEP_RESET&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;lora&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nvram_erase&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEBUG&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;[i] Lora nvram erased!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;lora&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nvram_restore&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;[i] Lora nvram restored!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;lora&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;has_joined&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="c1"&gt;# Join a network using OTAA&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEBUG&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;[i] Joining LoRa network&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# Join a network using OTAA&lt;/span&gt;
+    &lt;span class="n"&gt;lora&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;activation&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;LoRa&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;OTAA&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;auth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dev_eui&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;app_eui&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;app_key&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;timeout&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# Wait until the module has joined the network&lt;/span&gt;
+    &lt;span class="n"&gt;fails&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+    &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;lora&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;has_joined&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+        &lt;span class="n"&gt;fails&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEBUG&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;[w] Not joined yet... &lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fails&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+            &lt;span class="n"&gt;blinker&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LED_RED&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="c1"&gt;# Time between joins&lt;/span&gt;
+        &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;2.5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;fails&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;JOIN_FAILS&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEBUG&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                &lt;span class="n"&gt;blinker&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LED_RED&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;fails&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+            &lt;span class="n"&gt;machine&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;idle&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Create a LoRa socket&lt;/span&gt;
+&lt;span class="n"&gt;sock&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;socket&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;socket&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;socket&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;AF_LORA&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;socket&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SOCK_RAW&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Set the LoRaWAN data rate&lt;/span&gt;
+&lt;span class="n"&gt;sock&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setsockopt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;socket&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SOL_LORA&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;socket&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SO_DR&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LORA_DR&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LORA_STATUS&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="c1"&gt;# Selecting confirmed type of messages&lt;/span&gt;
+    &lt;span class="n"&gt;sock&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setsockopt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;socket&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SOL_LORA&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;socket&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SO_CONFIRMED&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Bind to port used then on ttn application inside payload switch&lt;/span&gt;
+&lt;span class="n"&gt;sock&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bind&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SOCK_PORT&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Make the socket blocking&lt;/span&gt;
+&lt;span class="n"&gt;sock&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setblocking&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# To make connection available wait 5 seconds&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEBUG&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;blinker&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LED_BLUE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;[i] Joined!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;5.0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="c1"&gt;# Example loop&lt;/span&gt;
+&lt;span class="c1"&gt;# Terminate in CTRL-C&lt;/span&gt;
+&lt;span class="c1"&gt;# See threading example&lt;/span&gt;
+&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="c1"&gt;# Prepare the packet&lt;/span&gt;
+    &lt;span class="c1"&gt;# send &amp;#39;hi&amp;#39; as raw byte data (hex format)&lt;/span&gt;
+    &lt;span class="n"&gt;pkt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mh"&gt;0x68&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mh"&gt;0x69&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# Send it&lt;/span&gt;
+    &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;send&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pkt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEBUG_CON&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;send &amp;gt;&amp;gt; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;pkt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEBUG_LED&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;pycom&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rgbled&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;GREEN&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;pycom&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rgbled&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LED_OFF&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="c1"&gt;# Wait to receive packet&lt;/span&gt;
+    &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;rx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;recv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;256&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;rx&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DEBUG_CON&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;pycom&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rgbled&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;BLUE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;pycom&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rgbled&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LED_OFF&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;receive &amp;lt;&amp;lt; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rx&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="c1"&gt;# Sleep 10 min&lt;/span&gt;
+    &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SLEEP_MAIN&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="code-snippets"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id12"&gt;Code snippets&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;work_handler&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;alarm&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Do some work here...&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;machine&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Timer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Alarm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;work_handler&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;periodic&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="building-a-firmware-image"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id13"&gt;Building a firmware image&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="Output console image" src="./images/iot/pycom-build.png" /&gt;
+&lt;/div&gt;
+&lt;div class="section" id="requirements"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id14"&gt;Requirements&lt;/a&gt;&lt;/h4&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Pycom MicroPython source code&lt;/li&gt;
+&lt;li&gt;Xtensa gcc compiler&lt;/li&gt;
+&lt;li&gt;Espressif IoT Development Framework&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="debian-ubuntu"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id15"&gt;Debian/Ubuntu&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install gcc git wget make libncurses-dev flex bison gperf
+python python-serial
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="build-environment"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id16"&gt;Build environment&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Make build project directory&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; mkdir pycom-build
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="source-code"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id17"&gt;Source code&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Get Pycom MicroPython source code&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git clone https://github.com/pycom/pycom-micropython-sigfox
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Check out to latest stable version (output on date 2018-07-23)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git tags
+
+    &lt;span class="m"&gt;1&lt;/span&gt;.11.0.b1
+    &lt;span class="m"&gt;1&lt;/span&gt;.12.0.b1
+    &lt;span class="m"&gt;1&lt;/span&gt;.13.0.b1
+    &lt;span class="m"&gt;1&lt;/span&gt;.6.13.b1
+    v1.14.0.b1
+    v1.15.0.b1
+    v1.16.0.b1
+    v1.17.0.b1
+    v1.17.2.b1
+    v1.17.3.b1
+    v1.18.0
+    v1.18.0.r1    &amp;lt;--- Check out tag
+    v1.18.0.r1-0.
+    v1.19.0.b2
+    v1.19.0.b3
+    v1.19.0.b4
+
+$ git checkout v1.18.0.r1
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="xtensa"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id18"&gt;Xtensa&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Install xtensa gcc compiler&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build
+$ wget https://dl.espressif.com/dl/xtensa-esp32-elf-linux64-1.22.0-80-g6c4433a-5.2.0.tar.gz
+$ tar -xzf xtensa-esp32-elf-linux64-1.22.0-80-g6c4433a-5.2.0.tar.gz
+$ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$PATH&lt;/span&gt;:&lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/xtensa-esp32-elf/bin
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Verify content of $PATH variables:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$PATH&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Verify toolchain installation:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ xtensa-esp32-elf-gcc -v
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If command returns &lt;cite&gt;xtensa-esp32-elf-gcc: Command not found&lt;/cite&gt; recheck the the
+export command!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="esp-idf"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id19"&gt;ESP-IDF&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Install ESP-IDF tools&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build
+$ git clone https://github.com/pycom/pycom-esp-idf.git
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; pycom-esp-idf
+$ git submodule update --init
+$ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;IDF_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/pycom-esp-idf
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;More details:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/pycom/pycom-esp-idf"&gt;pycom-esp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://esp-idf.readthedocs.io/en/latest/get-started/linux-setup.html"&gt;esp-idf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/pycom/pycom-micropython-sigfox"&gt;pycom-micropython-sigfox&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://docs.espressif.com/projects/esp-idf/en/release-v3.0/get-started/linux-setup.html"&gt;espressif&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="build-process"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id20"&gt;Build process&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Read this first: &lt;a class="reference external" href="https://github.com/pycom/pycom-micropython-sigfox"&gt;https://github.com/pycom/pycom-micropython-sigfox&lt;/a&gt;&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;ol class="first arabic"&gt;
+&lt;li&gt;Build mpy-cross&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/pycom-micropython-sigfox
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; mpy-cross &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; make clean &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; make &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;cd&lt;/span&gt; ..
+&lt;/pre&gt;&lt;/div&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;ol class="first arabic" start="2"&gt;
+&lt;li&gt;Frozen modules (OPTIONAL)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Add custom python modules to include in the firmware in following directory:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/pycom-micropython-sigfox/esp32/frozen/Custom
+&lt;/pre&gt;&lt;/div&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;ol class="first arabic" start="3"&gt;
+&lt;li&gt;Board build&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Currently support for the following BOARD types:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;WIPY LOPY SIPY GPY FIPY LOPY4
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/pycom-micropython-sigfoxesp32/esp32
+$ make &lt;span class="nv"&gt;BOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;LOPY clean
+$ make &lt;span class="nv"&gt;BOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;LOPY -j5 &lt;span class="nv"&gt;TARGET&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;boot
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;For LoRa need to specify the &lt;cite&gt;LORA_BAND&lt;/cite&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# LORA_BAND=USE_BAND_868&lt;/span&gt;
+&lt;span class="c1"&gt;# LORA_BAND=USE_BAND_915&lt;/span&gt;
+
+$ make &lt;span class="nv"&gt;BOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;LOPY -j5 &lt;span class="nv"&gt;LORA_BAND&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;USE_BAND_868 &lt;span class="nv"&gt;TARGET&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;app
+&lt;/pre&gt;&lt;/div&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;ol class="first arabic" start="4"&gt;
+&lt;li&gt;Flash the image on board&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Pysense board&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The pysense board enter automatic in programming mode&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# On linux&lt;/span&gt;
+$ make &lt;span class="nv"&gt;BOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;LOPY -j5 &lt;span class="nv"&gt;ESPPORT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/ttyACM0 flash
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Extension board&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Put in programming mode connect GND to P23&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# On linux&lt;/span&gt;
+$ make &lt;span class="nv"&gt;BOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;LOPY -j5 &lt;span class="nv"&gt;ESPPORT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/ttyUSB1 flash
+
+&lt;span class="c1"&gt;# On MacOSX&lt;/span&gt;
+$ make &lt;span class="nv"&gt;ESPPORT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/tty.usbserial-DQ008HQY flash
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="rebuild-process"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id21"&gt;Rebuild process&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Making rebuild looks like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$PATH&lt;/span&gt;:&lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/xtensa-esp32-elf/bin
+&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;IDF_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/pycom-esp-idf
+&lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/pycom-micropython-sigfox/esp32/
+make &lt;span class="nv"&gt;BOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;LOPY4 clean
+make &lt;span class="nv"&gt;BOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;LOPY4 release
+make &lt;span class="nv"&gt;BOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;LOPY4 -j5 &lt;span class="nv"&gt;ESPPORT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/ttyACM3 flash
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="encryption"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;Encryption&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Use make SECURE=on [optionally SECURE_KEY ?= secure_boot_signing_key.pem] to
+enable Secure Boot and Flash Encryption mechanisms.&lt;/p&gt;
+&lt;p&gt;Use make V=1 or set BUILD_VERBOSE in your environment to increase build
+verbosity.&lt;/p&gt;
+&lt;div class="section" id="reference"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id23"&gt;Reference&lt;/a&gt;&lt;/h4&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/pycom/pycom-micropython-sigfox#the-esp32-version"&gt;pycom micropython&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="firmware-update"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id24"&gt;Firmware Update&lt;/a&gt;&lt;/h2&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;caption&gt;Programming Modes&lt;/caption&gt;
+&lt;colgroup&gt;
+&lt;col width="14%" /&gt;
+&lt;col width="14%" /&gt;
+&lt;col width="71%" /&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Pin&lt;/th&gt;
+&lt;th class="head"&gt;Pin&lt;/th&gt;
+&lt;th class="head"&gt;Case&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;G23&lt;/td&gt;
+&lt;td&gt;GND&lt;/td&gt;
+&lt;td&gt;Expansion Board&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;P2&lt;/td&gt;
+&lt;td&gt;GND&lt;/td&gt;
+&lt;td&gt;Lopy&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br /&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;br /&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Lopy Module Image" src="images/components/lopy-progmode.jpg" /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="projects"></category><category term="iot"></category><category term="python"></category><category term="lorawan"></category><category term="micropython"></category><category term="esp32"></category></entry><entry><title>Using Raspberry Pi</title><link href="/using-raspberry-pi.html" rel="alternate"></link><published>2017-02-10T14:29:00+01:00</published><updated>2017-02-10T14:29:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-02-10:/using-raspberry-pi.html</id><summary type="html">&lt;p&gt;Use rpi-utils repo for bring bare metal into life&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Advice is use TMUX! Run all commands in tmux session to prevent catastrophic consequences&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;Setup&lt;/h2&gt;
+&lt;h3&gt;Step 1: Flash Operating System&lt;/h3&gt;
+&lt;p&gt;You need to flash a micro SD image with an operating system.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Download Raspian Lite&lt;span class="o"&gt;(&lt;/span&gt;Stretch&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;352MB&lt;span class="o"&gt;)&lt;/span&gt;.
+    Follow OS specific guides here.
+    Leave micro SD card in your machine and edit/create some files as below:
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Get the image:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    https://www.raspberrypi.org/downloads/raspbian/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Latest image: &lt;code&gt;raspbian_lite-2019-09-30/2019-09-26-raspbian-buster-lite.zip&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    wget https://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2019-09-30/2019-09-26-raspbian-buster-lite.zip
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;bring img on sd card&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo pv -tpreb name.img &lt;span class="p"&gt;|&lt;/span&gt; sudo dd &lt;span class="nv"&gt;of&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/sdX &lt;span class="nv"&gt;bs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;4M
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;create image from sd card&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo pv -tpreb /dev/sdX &lt;span class="p"&gt;|&lt;/span&gt; sudo dd &lt;span class="nv"&gt;of&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;name.img &lt;span class="nv"&gt;bs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;4M
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 2: Setup the WiFi for first boot&lt;/h3&gt;
+&lt;p&gt;We can create a special file which will be used to login to wifi on first boot. More reading here, but we will walk you through it.&lt;/p&gt;
+&lt;p&gt;On Windows, with your memory card image burned and memory disc still inserted, you should see two drives, which are actually two partitions on the mem disc. One is labeled boot. On Mac and Linux, you should also have access to the boot partition of the mem disc. This is formatted with the common FAT type and is where we will edit some files to help it find and log-on to your wifi on its first boot.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Note: If boot is not visible right away, try unplugging and re-inserting the memory card reader.
+
+    Start a text editor: gedit on Linux. Notepad++ on Windows. TextEdit on a Mac.
+    Paste and edit this contents to match your wifi:
+
+    &lt;span class="nv"&gt;country&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;US
+    &lt;span class="nv"&gt;ctrl_interface&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;DIR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/var/run/wpa_supplicant &lt;span class="nv"&gt;GROUP&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;netdev
+    &lt;span class="nv"&gt;update_config&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
+
+    &lt;span class="nv"&gt;network&lt;/span&gt;&lt;span class="o"&gt;={&lt;/span&gt;
+        &lt;span class="nv"&gt;ssid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;lt;your network name&amp;gt;&amp;quot;&lt;/span&gt;
+        &lt;span class="nv"&gt;psk&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;lt;your password&amp;gt;&amp;quot;&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Replace &lt;your network name&gt; with the ID of your network. Leave the quotes. I've seen problems when the network name contained an apostrophe, like "Joe's iPhone". Replace &lt;your password&gt; with your password, leaving it surrounded by quotes. If it bothers you to leave your password unencrypted, you may change the contents later once you've gotten the pi to boot and log-in.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Save this file to the root of boot partition with the filename wpa_supplicant.conf. On first boot, this file will be moved to /etc/wpa_supplicant/wpa_supplicant.conf where it may be edited later. If you are using Notepad on Windows, make sure it doesn&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;t have a .txt at the end.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 3: Setup Pi's Hostname&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Note: This step only possible on a linux host pc. Otherwise you can &lt;span class="nb"&gt;set&lt;/span&gt; it up later in raspi-config after logging in to your pi.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We can also setup the hostname so that your Pi easier to find once on the network. If yours is the only Pi on the network, then you can find it with&lt;/p&gt;
+&lt;p&gt;ping raspberrypi.local&lt;/p&gt;
+&lt;p&gt;once it's booted. If there are many other Pi's on the network, then this will have problems. If you are on a Linux machine, or are able to edit the UUID partition, then you can edit the /etc/hostname and /etc/hosts files now to make finding your pi on the network easier after boot. Edit those to replace raspberrypi with a name of your choosing. Use all lower case, no special characters, no hyphens, yes underscores _.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo vi /media/userID/UUID/etc/hostname
+    sudo vi /media/userID/UUID/etc/hosts
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 4: Enable SSH on Boot&lt;/h3&gt;
+&lt;p&gt;Put a file named ssh in the root of your boot partition.&lt;/p&gt;
+&lt;p&gt;Now your SD card is ready. Eject it from your computer, put it in the Pi and plug in the Pi.&lt;/p&gt;
+&lt;h3&gt;Step 5: Connecting to the Pi&lt;/h3&gt;
+&lt;p&gt;If you followed the above instructions to add wifi access, your Pi should now be connected to your wifi network. Now you need to find its IP address so you can connect to it via SSH.&lt;/p&gt;
+&lt;p&gt;The easiest way (on Ubuntu) is to use the findcar donkey command. You can try ping raspberrypi.local. If you've modified the hostname, then you should try:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    ping &amp;lt;your hostname&amp;gt;.local
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will fail on a windows machine. Windows users will need the full IP address (unless using cygwin).&lt;/p&gt;
+&lt;p&gt;If you are having troubles locating your Pi on the network, you will want to plug in an HDMI monitor and USB keyboard into the Pi. Boot it. Login with:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Username: pi
+    Password: raspberry
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then try the command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    ifconfig wlan0
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If this has a valid IPv4 address, 4 groups of numbers separated by dots, then you can try that with your SSH command. If you don't see anything like that, then your wifi config might have a mistake. You can try to fix with&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you don't have a HDMI monitor and keyboard, you can plug-in the Pi with a CAT5 cable to a router with DHCP. If that router is on the same network as your PC, you can try:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    ping raspberrypi.local
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Hopefully, one of those methods worked and you are now ready to SSH into your Pi. On Mac and Linux, you can open Terminal. On Windows you can install Putty, one of the alternatives, or on Windows 10 you may have ssh via the command prompt.&lt;/p&gt;
+&lt;p&gt;If you have a command prompt, you can try:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    ssh pi@raspberrypi.local
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;or&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    ssh pi@&amp;lt;your pi ip address&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;or via Putty.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Username: pi
+    Password: raspberry
+    Hostname:&amp;lt;your pi IP address&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 6: Update and Upgrade&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo apt-get update
+    sudo apt-get upgrade
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 7: Raspi-config&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo raspi-config
+
+    change default password &lt;span class="k"&gt;for&lt;/span&gt; pi
+    change hostname
+    &lt;span class="nb"&gt;enable&lt;/span&gt; Interfacing Options &lt;span class="p"&gt;|&lt;/span&gt; I2C
+    &lt;span class="nb"&gt;enable&lt;/span&gt; Interfacing Options &lt;span class="p"&gt;|&lt;/span&gt; Camera
+    Advanced Options &lt;span class="p"&gt;|&lt;/span&gt; Exapand Filesystem
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Choose and hit enter.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    Note: Reboot after changing these settings. Should happen &lt;span class="k"&gt;if&lt;/span&gt; you say yes.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 8: Install Dependencies&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install &lt;span class="se"&gt;\&lt;/span&gt;
+         build-essential python3 python3-dev python3-pip &lt;span class="se"&gt;\&lt;/span&gt;
+         python3-virtualenv python3-numpy python3-picamera python3-pandas &lt;span class="se"&gt;\&lt;/span&gt;
+         python3-rpi.gpio i2c-tools avahi-utils joystick libopenjp2-7-dev libtiff5-dev &lt;span class="se"&gt;\&lt;/span&gt;
+         gfortran libatlas-base-dev libopenblas-dev libhdf5-serial-dev git ntp
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 9: Install Optional OpenCV Dependencies&lt;/h3&gt;
+&lt;p&gt;If you are going for a minimal install, you can get by without these. But it can be handy to have OpenCV.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo apt-get install libilmbase-dev libopenexr-dev libgstreamer1.0-dev &lt;span class="se"&gt;\&lt;/span&gt;
+    libjasper-dev libwebp-dev libatlas-base-dev libavcodec-dev libavformat-dev &lt;span class="se"&gt;\&lt;/span&gt;
+    libswscale-dev libqtgui4 libqt4-test
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 10: Setup Virtual Env&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    python3 -m virtualenv -p python3 env --system-site-packages
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;source env/bin/activate&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bashrc
+    &lt;span class="nb"&gt;source&lt;/span&gt; ~/.bashrc
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Modifying your .bashrc in this way will automatically enable this environment
+each time you login. To return to the system python you can type deactivate.&lt;/p&gt;
+&lt;h3&gt;Step 11: Install Donkeycar Python Code&lt;/h3&gt;
+&lt;p&gt;Change to a dir you would like to use as the head of your projects.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    mkdir projects
+    &lt;span class="nb"&gt;cd&lt;/span&gt; projects
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Fix the LC_errors&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    etc/envirmonet
+    &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games&amp;quot;&lt;/span&gt;
+    &lt;span class="nv"&gt;LC_ALL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;en_GB.UTF-8
+    &lt;span class="nv"&gt;LANG&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;en_GB.UTF-8
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Install Open CV&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo apt install python3-opencv
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Setup I2C&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo usermod -aG i2c &amp;lt;username&amp;gt;
+    sudo reboot
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;After a reboot, then try:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo i2cdetect -r -y &lt;span class="m"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Raspberry Pi:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    sudo apt-get install i2c-tools
+    sudo i2cdetect -y &lt;span class="m"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This should show you a grid of addresses like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;         &lt;span class="m"&gt;0&lt;/span&gt;  &lt;span class="m"&gt;1&lt;/span&gt;  &lt;span class="m"&gt;2&lt;/span&gt;  &lt;span class="m"&gt;3&lt;/span&gt;  &lt;span class="m"&gt;4&lt;/span&gt;  &lt;span class="m"&gt;5&lt;/span&gt;  &lt;span class="m"&gt;6&lt;/span&gt;  &lt;span class="m"&gt;7&lt;/span&gt;  &lt;span class="m"&gt;8&lt;/span&gt;  &lt;span class="m"&gt;9&lt;/span&gt;  a  b  c  d  e  f
+    &lt;span class="m"&gt;00&lt;/span&gt;:          -- -- -- -- -- -- -- -- -- -- -- -- --
+    &lt;span class="m"&gt;10&lt;/span&gt;: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    &lt;span class="m"&gt;20&lt;/span&gt;: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    &lt;span class="m"&gt;30&lt;/span&gt;: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    &lt;span class="m"&gt;40&lt;/span&gt;: &lt;span class="m"&gt;40&lt;/span&gt; -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    &lt;span class="m"&gt;50&lt;/span&gt;: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    &lt;span class="m"&gt;60&lt;/span&gt;: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    &lt;span class="m"&gt;70&lt;/span&gt;: &lt;span class="m"&gt;70&lt;/span&gt; -- -- -- -- -- -- --
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In this case, the 40 shows up as the address of our PCA9685 board. If this does
+not show up, then check your wiring to the board. On a pi, ensure I2C is
+enabled in sudo raspi-config&lt;/p&gt;
+&lt;h2&gt;Nodejs&lt;/h2&gt;
+&lt;p&gt;use of nvm&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    https://github.com/nvm-sh/nvm
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh &lt;span class="p"&gt;|&lt;/span&gt; bash
+    &lt;span class="nb"&gt;source&lt;/span&gt; ~/.bashrc
+    nvm --version
+    nvm install node
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.raspberryconnect.com/projects/65-raspberrypi-hotspot-accesspoints/158-raspberry-pi-auto-wifi-hotspot-switch-direct-connection"&gt;raspberry-pi-auto-wifi-hotspot-switch-direct-connection&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/lhelontra/tensorflow-on-arm/releases"&gt;Tensorflow ARM&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands"&gt;UFW Firewall&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="blog"></category><category term="pi"></category><category term="arm"></category><category term="linux"></category></entry><entry><title>Linux</title><link href="/linux.html" rel="alternate"></link><published>2017-02-07T07:26:00+01:00</published><updated>2020-01-10T00:00:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-02-07:/linux.html</id><summary type="html">My notes on Linux</summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
+&lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#linux" id="id1"&gt;Linux&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#history" id="id2"&gt;History&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#conclusion" id="id3"&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="linux"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;Linux&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="section" id="history"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id2"&gt;History&lt;/a&gt;&lt;/h3&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Linus first &lt;a class="reference external" href="https://groups.google.com/forum/#!msg/comp.os.minix/dlNtH7RRrGA/SwRavCzVE7gJ"&gt;mail&lt;/a&gt; about Linux!&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://lkml.iu.edu/hypermail/linux/kernel/1801.2/04628.html"&gt;In this times&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Perspective:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Matsuo_Bash%C5%8D"&gt;Do not seek the path the wise took; instead, seek what they sought.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="conclusion"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id3"&gt;Conclusion&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Keep always this three points in mind.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#1) Respect the privacy of others.
+#2) Think before you type.
+#3) With great power comes great responsibility.
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="blog"></category><category term="linux"></category><category term="unix"></category><category term="os"></category></entry></feed>

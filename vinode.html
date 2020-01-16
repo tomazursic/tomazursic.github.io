@@ -2,9 +2,19 @@
 <html lang="en" class="inverted">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Web Logs - tomazursic.github.io</title>
+    <title>Web Logs - tomazursic.github.io - Smart Agriculture Prototyping</title>
   <meta charset="utf-8" />
   <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Web Logs - tomazursic.github.io Full Atom Feed" />
+  <link href="/feeds/projects.atom.xml" type="application/atom+xml" rel="alternate" title="Web Logs - tomazursic.github.io Categories Atom Feed" />
+
+
+
+
+    <meta name="tags" content="lorawan" />
+    <meta name="tags" content="iot" />
+    <meta name="tags" content="python" />
+    <meta name="tags" content="micropython" />
+
 
   <link rel="apple-touch-icon" sizes="180x180" href="/theme/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/theme/favicons/favicon-32x32.png">
@@ -33,7 +43,7 @@
     <ul class="nav-menu">
 
           <li><a href="/category/blog.html">blog</a></li>
-          <li><a href="/category/projects.html">projects</a></li>
+          <li class="active"><a href="/category/projects.html">projects</a></li>
           <li><a href="/pages/contact.html">Contact</a></li>
     </ul>
     <div class="nav-toggle">
@@ -51,28 +61,93 @@
         <button onclick="goUp()" id="upBtn" title="Go to top"><i class="ion-ios-arrow-up"></i></button> 
 
 
-          <div id="search" >
 
-            <form action="/">
-           <div class="search tipue_search_right">
-              <input type="text" class="searchTerm" placeholder="Search by keywords.."  aria-hidden="true" data-choice="active"
-                          type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required>
-              
-              <button type="submit" class="searchButton">
-               <i class="ion-ios-search"></i>
-             </button>
-           </div>
-            </form>
-
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="/vinode.html" rel="bookmark"
+         title="Permalink to Smart Agriculture Prototyping">Smart Agriculture Prototyping</a></h2>
  
-
-            <div id="tipue_search_content" style="margin: 2rem 0rem; padding: 1rem; border-bottom: 1px solid;"></div>
-
-          </div>
-
-    <div class="span8 offset2">
-        <div id="tipue_search_content"><div id="tipue_search_loading"></div></div>
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2017-03-28T21:48:00+02:00">
+      <b>Published</b>: Tue 28 March 2017
+    </time>
+    <br>
+    <time class="modified" datetime="2019-09-05T20:38:00+02:00">
+      <b>Modified</b>: Thu 05 September 2019
+    </time>
+    <div class="category">
+        <b>Category</b>: <a href="/category/projects.html">projects</a>
     </div>
+    <div class="tags">
+        <b>Tags</b>:
+            <a href="/tag/lorawan.html">lorawan</a>
+            <a href="/tag/iot.html">iot</a>
+            <a href="/tag/python.html">python</a>
+            <a href="/tag/micropython.html">micropython</a>
+    </div>
+  </footer><!-- /.post-info -->
+
+  <div class="entry-content">
+    <div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#vinode" id="id1">Vinode</a><ul>
+<li><a class="reference internal" href="#issue" id="id2">Issue</a></li>
+<li><a class="reference internal" href="#solution" id="id3">Solution</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Prototype for monitor the micro-climate conditions in agriculture.
+Collecting data from orchard/vineyards with purpose to support/help/extends the
+decisions in deals with pests/diseases.</p>
+<div class="section" id="vinode">
+<h2><a class="toc-backref" href="#id1">Vinode</a></h2>
+<p><strong>Live data:</strong> <a class="reference external" href="https://lepavida.iot.novagorica.eu/d/BfjRxSpWz/vinode?orgId=1&amp;refresh=30s&amp;from=now-30d&amp;to=now">https://lepavida.iot.novagorica.eu</a></p>
+<div class="figure">
+<a class="reference external image-reference" href="https://lepavida.iot.novagorica.eu/d/BfjRxSpWz/vinode?orgId=1&amp;refresh=30s&amp;from=now-30d&amp;to=now"><img alt="Vinode &amp; Deploy Tools" src="images/device/vinode/20190828_151605.jpg" /></a>
+<p class="caption">Vinode v2.0 &amp; Deploy Tools</p>
+</div>
+<p>Current position</p>
+<div class="figure">
+<img alt="Vinode2.0" src="images/device/vinode/20191002_082511.jpg" />
+</div>
+<div class="section" id="issue">
+<h3><a class="toc-backref" href="#id2">Issue</a></h3>
+<ul class="simple">
+<li>Fight the danger of downy mildew that in recent years has created serious
+damage across the land of Colio * Adopt a scientific instrument to support
+decisions in order to carry out targeted interventions in the vineyard</li>
+</ul>
+</div>
+<div class="section" id="solution">
+<h3><a class="toc-backref" href="#id3">Solution</a></h3>
+<p>IoT (Internet of Things) system which consists of interconnected devices that
+operate and automatically communicate over long distances thanks to the use of
+the LoRaWAN technology.</p>
+<ul class="simple">
+<li><strong>LoRaWAN device with sensors</strong>: that measure, in real time, the
+micro-climatic conditions in the vineyard (responsible for fungal diseases
+such as downy mildew) and the physio-pathological status of the plant</li>
+<li><strong>LoRaWAN Gateway</strong>: collection and transmission of data detected by the
+wireless sensors</li>
+</ul>
+<p>The LoRa technology makes it possible to overcome the problem of distance and
+“physical interference”, two common conditions when you consider the nature of
+the Colio viticultural land, very often characterized by slopes, wild
+vegetation and hilly landscapes.</p>
+<p>Monitor the vineyard in real time and continuously, as well as the storage of
+the historic data, which will be crucial for the organization and management of
+the vineyard, not only of the current season but also of those to come.</p>
+<p>Project example with  MicroPython on esp-32 (lopy) to collect data (weather, soil, leafs..) on
+micro-locations.</p>
+</div>
+</div>
+
+  </div><!-- /.entry-content -->
+</section>
 
           <ul class="tags-footer">
               <li style="font-size: 100.0%;"><a href="/tag/arm.html">arm</a></li>
