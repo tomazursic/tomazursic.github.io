@@ -996,11 +996,10 @@ measurement of how well a receiver can “hear” a signal from a sender.&lt;/p&
 &lt;ul class="simple"&gt;
 &lt;li&gt;Typical LoRa RSSI values are:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class="literal-block"&gt;
-RSSI minimum = -120 dBm.
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;RSSI minimum = -120 dBm.
 If RSSI=-30dBm: signal is strong.
 If RSSI=-120dBm: signal is weak.
-&lt;/pre&gt;
+&lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="snr"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;SNR&lt;/a&gt;&lt;/h3&gt;
@@ -1009,9 +1008,8 @@ If RSSI=-120dBm: signal is weak.
 &lt;li&gt;The noise floor is an area of all unwanted interfering signal sources which can corrupt the transmitted signal and therefore re-transmissions will occur&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Typical LoRa SNR values are between:&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
--20dB and +10dB
-&lt;/pre&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;-20dB and +10dB
+&lt;/pre&gt;&lt;/div&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;A value closer to +10dB means the received signal is less corrupted.&lt;/li&gt;
 &lt;li&gt;LoRa can demodulate signals which are -7.5 dB to -20 dB below the noise floor.&lt;/li&gt;
