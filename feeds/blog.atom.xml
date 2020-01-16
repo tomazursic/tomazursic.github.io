@@ -867,8 +867,13 @@ the following:&lt;/p&gt;
 &lt;p&gt;Devices -&amp;gt; LoRa radio -&amp;gt; Gateway -&amp;gt; 3G/Ethernet -&amp;gt; Network Server -&amp;gt;
 Application&lt;/p&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="LoRaWAN arhitecture" src="%7Bstatic%7D/images/lorawan/lorawan_architecture.jpg" /&gt;
-&lt;p class="caption"&gt;LoRaWAN arhitecture&lt;/p&gt;
+&lt;img alt="LoRaWAN arhitecture" src="images/lorawan/lorawan_architecture.jpg" /&gt;
+&lt;p class="caption"&gt;Node Device --(LoRa RF)--&amp;gt; Gateway --(LoRaWAN TCP/IP)--&amp;gt; Network Server ---&amp;gt; Application Server&lt;/p&gt;
+&lt;div class="legend"&gt;
+&lt;p&gt;#---------- MAC Layer Communication (Network Session Key) -------------#&lt;/p&gt;
+&lt;p&gt;#------------------- Application Layer Communication (Application Session Key) ---------------#&lt;/p&gt;
+&lt;p&gt;LoRaWAN arhitecture&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;For upstream messages, for example a sensor that sends information to an
 application, the flow is from left to right. The sensor value (payload)
