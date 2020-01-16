@@ -93,43 +93,43 @@
 <p class="topic-title first">Table of Contents</p>
 <ul class="simple">
 <li><a class="reference internal" href="#reverse-beacon" id="id14">Reverse-Beacon</a><ul>
-<li><a class="reference internal" href="#parts" id="id15">Parts</a></li>
-<li><a class="reference internal" href="#sensors" id="id16">Sensors</a><ul>
-<li><a class="reference internal" href="#sht10" id="id17">SHT10</a></li>
+<li><a class="reference internal" href="#location" id="id15">Location</a></li>
+<li><a class="reference internal" href="#internals" id="id16">Internals</a></li>
+<li><a class="reference internal" href="#summary" id="id17">Summary</a></li>
+<li><a class="reference internal" href="#parts" id="id18">Parts</a></li>
+<li><a class="reference internal" href="#sensors" id="id19">Sensors</a><ul>
+<li><a class="reference internal" href="#sht10" id="id20">SHT10</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#internal-sensors" id="id18">Internal sensors</a><ul>
-<li><a class="reference internal" href="#mpl3115a2" id="id19">MPL3115A2</a></li>
-<li><a class="reference internal" href="#si7006a20" id="id20">SI7006A20</a></li>
-<li><a class="reference internal" href="#current-voltage" id="id21">Current Voltage</a></li>
+<li><a class="reference internal" href="#internal-sensors" id="id21">Internal sensors</a><ul>
+<li><a class="reference internal" href="#mpl3115a2" id="id22">MPL3115A2</a></li>
+<li><a class="reference internal" href="#si7006a20" id="id23">SI7006A20</a></li>
+<li><a class="reference internal" href="#current-voltage" id="id24">Current Voltage</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#components" id="id22">Components</a><ul>
-<li><a class="reference internal" href="#milvent" id="id23">Milvent</a></li>
-<li><a class="reference internal" href="#li-po-battery" id="id24">Li-Po Battery</a></li>
+<li><a class="reference internal" href="#components" id="id25">Components</a><ul>
+<li><a class="reference internal" href="#milvent" id="id26">Milvent</a></li>
+<li><a class="reference internal" href="#li-po-battery" id="id27">Li-Po Battery</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#module" id="id25">Module</a><ul>
-<li><a class="reference internal" href="#lopy" id="id26">LoPy</a></li>
-<li><a class="reference internal" href="#pysense" id="id27">Pysense</a></li>
-<li><a class="reference internal" href="#antenna" id="id28">Antenna</a></li>
+<li><a class="reference internal" href="#module" id="id28">Module</a><ul>
+<li><a class="reference internal" href="#lopy" id="id29">LoPy</a></li>
+<li><a class="reference internal" href="#pysense" id="id30">Pysense</a></li>
+<li><a class="reference internal" href="#antenna" id="id31">Antenna</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#connectors" id="id29">Connectors</a><ul>
-<li><a class="reference internal" href="#i2c-hub" id="id30">I2C Hub</a></li>
-<li><a class="reference internal" href="#cables" id="id31">Cables</a></li>
-<li><a class="reference internal" href="#i2c-cable" id="id32">I2C Cable</a></li>
-<li><a class="reference internal" href="#i2c-jump-cable" id="id33">I2C Jump Cable</a></li>
+<li><a class="reference internal" href="#connectors" id="id32">Connectors</a><ul>
+<li><a class="reference internal" href="#i2c-hub" id="id33">I2C Hub</a></li>
+<li><a class="reference internal" href="#cables" id="id34">Cables</a></li>
+<li><a class="reference internal" href="#i2c-cable" id="id35">I2C Cable</a></li>
+<li><a class="reference internal" href="#i2c-jump-cable" id="id36">I2C Jump Cable</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#enclosure" id="id34">Enclosure</a><ul>
-<li><a class="reference internal" href="#spacers-screws" id="id35">Spacers Screws</a></li>
-<li><a class="reference internal" href="#o-ring-seal" id="id36">O Ring Seal</a></li>
+<li><a class="reference internal" href="#enclosure" id="id37">Enclosure</a><ul>
+<li><a class="reference internal" href="#spacers-screws" id="id38">Spacers Screws</a></li>
+<li><a class="reference internal" href="#o-ring-seal" id="id39">O Ring Seal</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#location" id="id37">Location</a></li>
-<li><a class="reference internal" href="#internals" id="id38">Internals</a></li>
-<li><a class="reference internal" href="#summary" id="id39">Summary</a></li>
 </ul>
 </li>
 </ul>
@@ -156,8 +156,51 @@ reporting what stations they hear, when and how well.</p>
 <li>Device internal (temperature, humidity and current voltage)</li>
 </ul>
 <p>Link to public archived data: <a class="reference external" href="https://lepavida.iot.novagorica.eu/d/000000012/sabotin01-archive">sabotin01</a></p>
+<div class="section" id="location">
+<h3><a class="toc-backref" href="#id15">Location</a></h3>
+<p>Sabotin (top)
+Geo location: 45.9883, 13.63469</p>
+<div class="figure">
+<img alt="Device location on map" src="../images/device/sabotin01/sabotin01-elab-arcc.jpg" />
+<p class="caption">Device geo location</p>
+</div>
+<div class="figure">
+<img alt="The LoraWAN bush" src="../images/device/sabotin01/sabotin01_01.jpg" />
+<p class="caption">The LoraWAN bush</p>
+</div>
+<div class="figure">
+<img alt="Device bush installation" src="../images/device/sabotin01/sabotin01_02.jpg" />
+<p class="caption">Device bush installation</p>
+</div>
+<div class="figure">
+<img alt="Look at the bush from another angle" src="../images/device/sabotin01/sabotin01_03.jpg" />
+<p class="caption">Look at the bush from another angle</p>
+</div>
+<div class="figure">
+<img alt="#1 View from the location of the device" src="../images/device/sabotin01/sabotin01_04.jpg" />
+<p class="caption">#1 View from the location of the device</p>
+</div>
+<div class="figure">
+<img alt="#2 View from the location of the device" src="../images/device/sabotin01/sabotin01_05.jpg" />
+<p class="caption">#2 View from the location of the device</p>
+</div>
+</div>
+<div class="section" id="internals">
+<h3><a class="toc-backref" href="#id16">Internals</a></h3>
+<div class="figure">
+<img alt="Device internals" src="../images/device/sabotin01/sabotin01_internals_01.jpg" />
+<p class="caption">Device internals</p>
+</div>
+</div>
+<div class="section" id="summary">
+<h3><a class="toc-backref" href="#id17">Summary</a></h3>
+<p>To be aware, dispose of the device/node in nature with any LiPo/Li-Ion battery it can
+be a dangerous think, from fire ignition perspectives. The purpose of this
+experiment was show case for monitoring the temperature of undergrowth in fire
+alarming scenario!</p>
+</div>
 <div class="section" id="parts">
-<h3><a class="toc-backref" href="#id15">Parts</a></h3>
+<h3><a class="toc-backref" href="#id18">Parts</a></h3>
 <p>Table of all hardware components included in device</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -248,9 +291,9 @@ reporting what stations they hear, when and how well.</p>
 </table>
 </div>
 <div class="section" id="sensors">
-<h3><a class="toc-backref" href="#id16">Sensors</a></h3>
+<h3><a class="toc-backref" href="#id19">Sensors</a></h3>
 <div class="section" id="sht10">
-<h4><a class="toc-backref" href="#id17">SHT10</a></h4>
+<h4><a class="toc-backref" href="#id20">SHT10</a></h4>
 <div class="figure">
 <img alt="SHT10" src="../images/components/sabotin01/sht10.jpg" />
 </div>
@@ -292,9 +335,9 @@ reporting what stations they hear, when and how well.</p>
 </div>
 </div>
 <div class="section" id="internal-sensors">
-<h3><a class="toc-backref" href="#id18">Internal sensors</a></h3>
+<h3><a class="toc-backref" href="#id21">Internal sensors</a></h3>
 <div class="section" id="mpl3115a2">
-<h4><a class="toc-backref" href="#id19">MPL3115A2</a></h4>
+<h4><a class="toc-backref" href="#id22">MPL3115A2</a></h4>
 <p>Barometric Pressure Sensor with Altimeter (MPL3115A2)</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -304,7 +347,7 @@ For more information see <a class="reference external" href="https://docs.pycom.
 <p>Monitor measurements inside device enclosure</p>
 </div>
 <div class="section" id="si7006a20">
-<h4><a class="toc-backref" href="#id20">SI7006A20</a></h4>
+<h4><a class="toc-backref" href="#id23">SI7006A20</a></h4>
 <p>Humidity and Temperature Sensor (SI7006A20)</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -312,15 +355,15 @@ For more information see <a class="reference external" href="https://docs.pycom.
 </div>
 </div>
 <div class="section" id="current-voltage">
-<h4><a class="toc-backref" href="#id21">Current Voltage</a></h4>
+<h4><a class="toc-backref" href="#id24">Current Voltage</a></h4>
 <p>Monitor power supply current voltage</p>
 <p>Using on module Analog to Digital Conversion</p>
 </div>
 </div>
 <div class="section" id="components">
-<h3><a class="toc-backref" href="#id22">Components</a></h3>
+<h3><a class="toc-backref" href="#id25">Components</a></h3>
 <div class="section" id="milvent">
-<h4><a class="toc-backref" href="#id23">Milvent</a></h4>
+<h4><a class="toc-backref" href="#id26">Milvent</a></h4>
 <p>Protective vents pressure balance valve</p>
 <ul class="simple">
 <li>M12*1.5</li>
@@ -333,7 +376,7 @@ For more information see <a class="reference external" href="https://docs.pycom.
 </div>
 </div>
 <div class="section" id="li-po-battery">
-<h4><a class="toc-backref" href="#id24">Li-Po Battery</a></h4>
+<h4><a class="toc-backref" href="#id27">Li-Po Battery</a></h4>
 <p>LI-PO 3.7V 2200mAH Polymer Lithium Ion</p>
 <p>Features:</p>
 <ul class="simple">
@@ -352,9 +395,9 @@ For more information see <a class="reference external" href="https://docs.pycom.
 </div>
 </div>
 <div class="section" id="module">
-<h3><a class="toc-backref" href="#id25">Module</a></h3>
+<h3><a class="toc-backref" href="#id28">Module</a></h3>
 <div class="section" id="lopy">
-<h4><a class="toc-backref" href="#id26">LoPy</a></h4>
+<h4><a class="toc-backref" href="#id29">LoPy</a></h4>
 <p>MicroPython enabled microcontroller</p>
 <p>LoPy Features:</p>
 <ul class="simple">
@@ -442,7 +485,7 @@ For more information see <a class="reference external" href="https://docs.pycom.
 </div>
 </div>
 <div class="section" id="pysense">
-<h4><a class="toc-backref" href="#id27">Pysense</a></h4>
+<h4><a class="toc-backref" href="#id30">Pysense</a></h4>
 <p>Features</p>
 <ul class="simple">
 <li>Ambient light sensor</li>
@@ -462,7 +505,7 @@ For more information see <a class="reference external" href="https://docs.pycom.
 </div>
 </div>
 <div class="section" id="antenna">
-<h4><a class="toc-backref" href="#id28">Antenna</a></h4>
+<h4><a class="toc-backref" href="#id31">Antenna</a></h4>
 <p>LoRa (868MHz/915MHz)</p>
 <ul class="simple">
 <li>External antenna.</li>
@@ -472,9 +515,9 @@ For more information see <a class="reference external" href="https://docs.pycom.
 </div>
 </div>
 <div class="section" id="connectors">
-<h3><a class="toc-backref" href="#id29">Connectors</a></h3>
+<h3><a class="toc-backref" href="#id32">Connectors</a></h3>
 <div class="section" id="i2c-hub">
-<h4><a class="toc-backref" href="#id30">I2C Hub</a></h4>
+<h4><a class="toc-backref" href="#id33">I2C Hub</a></h4>
 <p>I2C Hub Grove is an extension Grove module for connecting multiply I2C devices</p>
 <ul class="simple">
 <li>Use with cable:  Universal 4 Pin to X2 4 Pin cable</li>
@@ -515,7 +558,7 @@ For more information see <a class="reference external" href="https://docs.pycom.
 </ul>
 </div>
 <div class="section" id="cables">
-<h4><a class="toc-backref" href="#id31">Cables</a></h4>
+<h4><a class="toc-backref" href="#id34">Cables</a></h4>
 <ul class="simple">
 <li>20cm - 4 Pin Grove I2C cable with connector</li>
 <li>5cm - 4 Pin Grove I2C cable with connector</li>
@@ -523,13 +566,13 @@ For more information see <a class="reference external" href="https://docs.pycom.
 </ul>
 </div>
 <div class="section" id="i2c-cable">
-<h4><a class="toc-backref" href="#id32">I2C Cable</a></h4>
+<h4><a class="toc-backref" href="#id35">I2C Cable</a></h4>
 <div class="figure">
 <img alt="I2C cable 10cm" src="../images/components/i2c_cable_10cm.jpg" />
 </div>
 </div>
 <div class="section" id="i2c-jump-cable">
-<h4><a class="toc-backref" href="#id33">I2C Jump Cable</a></h4>
+<h4><a class="toc-backref" href="#id36">I2C Jump Cable</a></h4>
 <p>Jumper Wires</p>
 <div class="figure">
 <img alt="I2C cable 5cm" src="../images/components/i2c_cable_5cm.jpg" />
@@ -537,68 +580,25 @@ For more information see <a class="reference external" href="https://docs.pycom.
 </div>
 </div>
 <div class="section" id="enclosure">
-<h3><a class="toc-backref" href="#id34">Enclosure</a></h3>
+<h3><a class="toc-backref" href="#id37">Enclosure</a></h3>
 <ul class="simple">
 <li>Dimensions: 8.8 x 14.6 x 3.3 cm</li>
 </ul>
 <div class="section" id="spacers-screws">
-<h4><a class="toc-backref" href="#id35">Spacers Screws</a></h4>
+<h4><a class="toc-backref" href="#id38">Spacers Screws</a></h4>
 <p>Screws for mounting internals</p>
 <p>Type: M2</p>
 </div>
 <div class="section" id="o-ring-seal">
-<h4><a class="toc-backref" href="#id36">O Ring Seal</a></h4>
+<h4><a class="toc-backref" href="#id39">O Ring Seal</a></h4>
 <p>Flexible Rubber O Ring Seal Washer Gasket Black</p>
 <ul class="simple">
 <li>Dimensions: OD 16mm x CS 2mm</li>
 </ul>
-</div>
-</div>
-<div class="section" id="location">
-<h3><a class="toc-backref" href="#id37">Location</a></h3>
-<p>Sabotin (top)
-Geo location: 45.9883, 13.63469</p>
-<div class="figure">
-<img alt="Device location on map" src="../images/device/sabotin01/sabotin01-elab-arcc.jpg" />
-<p class="caption">Device geo location</p>
-</div>
-<div class="figure">
-<img alt="The LoraWAN bush" src="../images/device/sabotin01/sabotin01_01.jpg" />
-<p class="caption">The LoraWAN bush</p>
-</div>
-<div class="figure">
-<img alt="Device bush installation" src="../images/device/sabotin01/sabotin01_02.jpg" />
-<p class="caption">Device bush installation</p>
-</div>
-<div class="figure">
-<img alt="Look at the bush from another angle" src="../images/device/sabotin01/sabotin01_03.jpg" />
-<p class="caption">Look at the bush from another angle</p>
-</div>
-<div class="figure">
-<img alt="#1 View from the location of the device" src="../images/device/sabotin01/sabotin01_04.jpg" />
-<p class="caption">#1 View from the location of the device</p>
-</div>
-<div class="figure">
-<img alt="#2 View from the location of the device" src="../images/device/sabotin01/sabotin01_05.jpg" />
-<p class="caption">#2 View from the location of the device</p>
-</div>
-</div>
-<div class="section" id="internals">
-<h3><a class="toc-backref" href="#id38">Internals</a></h3>
-<div class="figure">
-<img alt="Device internals" src="../images/device/sabotin01/sabotin01_internals_01.jpg" />
-<p class="caption">Device internals</p>
-</div>
-</div>
-<div class="section" id="summary">
-<h3><a class="toc-backref" href="#id39">Summary</a></h3>
-<p>To be aware, dispose of the device/node in nature with any LiPo/Li-Ion battery it can
-be a dangerous think, from fire ignition perspectives. The purpose of this
-experiment was show case for monitoring the temperature of undergrowth in fire
-alarming scenario!</p>
 <ul class="simple">
 <li></li>
 </ul>
+</div>
 </div>
 </div>
 
