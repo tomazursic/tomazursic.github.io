@@ -6836,6 +6836,14 @@ Contains 3 sensors:
 &lt;td&gt;ADC&lt;/td&gt;
 &lt;td&gt;Leaf&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;F&lt;/td&gt;
+&lt;td&gt;USB&lt;/td&gt;
+&lt;td&gt;USB socket (5V)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;E&lt;/td&gt;
+&lt;td&gt;5V&lt;/td&gt;
+&lt;td&gt;Solar&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;div class="admonition note"&gt;
