@@ -17,7 +17,7 @@ consequences are - extreme temperature leaks!&lt;/p&gt;
 &lt;/div&gt;
 </content><category term="blog"></category><category term="life-hack"></category><category term="lorawan"></category><category term="iot"></category><category term="network"></category></entry><entry><title>LoRaWAN Network Data</title><link href="/lorawan-network-data.html" rel="alternate"></link><published>2020-01-16T19:20:00+01:00</published><updated>2020-01-16T19:20:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2020-01-16:/lorawan-network-data.html</id><summary type="html">Analize LoraWAN network data with jupyter notebook and pandas</summary><content type="html">&lt;div class="section" id="analyse-lorawan-network-data"&gt;
 &lt;h2&gt;Analyse LoRaWAN Network Data&lt;/h2&gt;
-&lt;p&gt;Representation of using Folium with TTN data including gateways meta data.&lt;/p&gt;
+&lt;p&gt;Example using &lt;a class="reference external" href="https://github.com/python-visualization/folium"&gt;Folium&lt;/a&gt; with TTN data for mapping gateways.&lt;/p&gt;
 &lt;p&gt;Source TTN &lt;a class="reference external" href="http://noc.thethingsnetwork.org:8085/api/v2/gateways"&gt;NOC&lt;/a&gt;&lt;/p&gt;
 &lt;pre class="code text literal-block"&gt;
 On Jan 16, 2020:
