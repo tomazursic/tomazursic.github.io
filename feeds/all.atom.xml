@@ -1025,8 +1025,11 @@ If RSSI=-120dBm: signal is weak.
 &lt;div class="section" id="snr"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;SNR&lt;/a&gt;&lt;/h3&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;Signal-to-Noise Ratio (SNR) is the ratio between the received power signal and the noise floor power level.&lt;/li&gt;
-&lt;li&gt;The noise floor is an area of all unwanted interfering signal sources which can corrupt the transmitted signal and therefore re-transmissions will occur&lt;/li&gt;
+&lt;li&gt;Signal-to-Noise Ratio (SNR) is the ratio between the received power signal
+and the noise floor power level.&lt;/li&gt;
+&lt;li&gt;The noise floor is an area of all
+unwanted interfering signal sources which can corrupt the transmitted signal
+and therefore re-transmissions will occur&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Typical LoRa SNR values are between:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;-20dB and +10dB
@@ -1037,7 +1040,7 @@ If RSSI=-120dBm: signal is weak.
 &lt;/ul&gt;
 &lt;p&gt;so, Make sure your SNR is between typical values to get more LoRa signal
 strength.&lt;/p&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Signal-to-noise_ratio"&gt;https://en.wikipedia.org/wiki/Signal-to-noise_ratio&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Signal-to-noise_ratio"&gt;Wiki SNR&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="gateway"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id12"&gt;Gateway&lt;/a&gt;&lt;/h3&gt;
@@ -1052,7 +1055,7 @@ is part of a network that doesn’t know the device that sent the message.&lt;/p
 &lt;div class="section" id="the-things-stack-for-lorawan"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id13"&gt;The Things Stack for LoRaWAN&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;New all in one solution :)&lt;/p&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://github.com/TheThingsNetwork/lorawan-stack"&gt;https://github.com/TheThingsNetwork/lorawan-stack&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://github.com/TheThingsNetwork/lorawan-stack"&gt;LoraWAN Stack&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="network-server"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id14"&gt;Network Server&lt;/a&gt;&lt;/h3&gt;
@@ -1119,8 +1122,7 @@ still have to be compliant with the governmental and LoRaWAN limits.&lt;/p&gt;
 &lt;li&gt;Every radio device must be compliant with the regulated duty cycle
 limits. This applies to both nodes and gateways.&lt;/li&gt;
 &lt;li&gt;Calculate how much airtime each message consumes using one of the
-many &lt;a class="reference external" href="https://docs.google.com/spreadsheets/d/1QvcKsGeTTPpr9icj4XkKXq4r2zTc2j0gsHLrnplzM3I/edit"&gt;airtime
-calculators&lt;/a&gt;
+many &lt;a class="reference external" href="https://docs.google.com/spreadsheets/d/1QvcKsGeTTPpr9icj4XkKXq4r2zTc2j0gsHLrnplzM3I/edit"&gt;airtime calculators&lt;/a&gt;
 and use that information to choose a good transmit interval.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
