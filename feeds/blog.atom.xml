@@ -1219,7 +1219,6 @@ try to add some clarifications and/or graphs/schemes in the near future.&lt;/p&g
 &lt;/div&gt;
 &lt;div class="section" id="encode-decode-messages"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;Encode &amp;amp; Decode Messages&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://www.thethingsnetwork.org/forum/t/is-there-any-documentation-on-payload-functions/3441/3"&gt;https://www.thethingsnetwork.org/forum/t/is-there-any-documentation-on-payload-functions/3441/3&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Example server side decoder function&lt;/p&gt;
 &lt;pre class="code javascript literal-block"&gt;
 &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;bin2String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;array&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
@@ -1241,6 +1240,7 @@ try to add some clarifications and/or graphs/schemes in the near future.&lt;/p&g
    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;decoded&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;
+&lt;p&gt;Read more &lt;a class="reference external" href="https://www.thethingsnetwork.org/forum/t/is-there-any-documentation-on-payload-functions/3441/3"&gt;TTN Forum source&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="terminology"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id23"&gt;Terminology&lt;/a&gt;&lt;/h3&gt;
