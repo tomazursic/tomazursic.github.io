@@ -5034,7 +5034,7 @@ generating code from the syntax tree.&lt;/p&gt;
 
 
 &lt;p&gt;Example output:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="OBDII Output" src="/images/obdII_output.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="OBDII Output" src="/images/misc/obdII_output.jpg"&gt;&lt;/p&gt;
 &lt;h2&gt;Unpairing a Bluetooth device&lt;/h2&gt;
 &lt;p&gt;Start the Bluetooth utility.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;bluetoothctl

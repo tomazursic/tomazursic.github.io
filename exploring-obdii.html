@@ -122,7 +122,7 @@
 
 
 <p>Example output:</p>
-<p><img alt="OBDII Output" src="/images/obdII_output.jpg"></p>
+<p><img alt="OBDII Output" src="/images/misc/obdII_output.jpg"></p>
 <h2>Unpairing a Bluetooth device</h2>
 <p>Start the Bluetooth utility.</p>
 <div class="highlight"><pre><span></span>bluetoothctl
@@ -266,6 +266,10 @@
         $('.nav-menu').toggleClass('active');
         $('.nav-overlay').toggleClass('active');
     })
+
+    window.onload = function() {
+      var input = document.getElementById("tipue_search_input").focus();
+    }
 
   });
 
