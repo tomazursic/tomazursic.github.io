@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Web Logs - tomazursic.github.io - blog</title><link href="/" rel="alternate"></link><link href="/feeds/blog.atom.xml" rel="self"></link><id>/</id><updated>2020-01-16T19:20:00+01:00</updated><entry><title>Internet Of Useful Things</title><link href="/internet-of-useful-things.html" rel="alternate"></link><published>2020-01-16T19:20:00+01:00</published><updated>2020-01-16T19:20:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2020-01-16:/internet-of-useful-things.html</id><summary type="html">Dashboard made for measure "feelings" of temperatures in house.</summary><content type="html">&lt;div class="section" id="house-on-the-beach"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Web Logs - tomazursic.github.io - blog</title><link href="/" rel="alternate"></link><link href="/feeds/blog.atom.xml" rel="self"></link><id>/</id><updated>2020-01-17T00:00:00+01:00</updated><entry><title>Internet Of Useful Things</title><link href="/internet-of-useful-things.html" rel="alternate"></link><published>2020-01-16T19:20:00+01:00</published><updated>2020-01-16T19:20:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2020-01-16:/internet-of-useful-things.html</id><summary type="html">Dashboard made for measure "feelings" of temperatures in house.</summary><content type="html">&lt;div class="section" id="house-on-the-beach"&gt;
 &lt;h2&gt;House On The Beach&lt;/h2&gt;
 &lt;p&gt;Example of usage lorawan and five devices to measure temperature from all over the
 house.&lt;/p&gt;
@@ -15,14 +15,14 @@ The big issue is the lack of &amp;quot;external isolation&amp;quot; of the house
 consequences are - extreme temperature leaks!&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="blog"></category><category term="life-hack"></category><category term="lorawan"></category><category term="iot"></category><category term="network"></category></entry><entry><title>Vim User Disorder</title><link href="/vim-user-disorder.html" rel="alternate"></link><published>2018-09-07T13:48:16+02:00</published><updated>2018-09-07T13:48:16+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-09-07:/vim-user-disorder.html</id><summary type="html">Cheatsheet and notes for vim test editor</summary><content type="html">&lt;div class="section" id="vim-usage"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;Vim Usage&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="contents topic" id="table-of-contents"&gt;
+</content><category term="blog"></category><category term="life-hack"></category><category term="lorawan"></category><category term="iot"></category><category term="network"></category></entry><entry><title>Vim User Disorder</title><link href="/vim-user-disorder.html" rel="alternate"></link><published>2018-09-07T13:48:16+02:00</published><updated>2020-01-17T00:00:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-09-07:/vim-user-disorder.html</id><summary type="html">Cheatsheet and notes for vim test editor</summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
 &lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#vim-usage" id="id1"&gt;Vim Usage&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#vim" id="id1"&gt;Vim&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#history" id="id2"&gt;History&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#terminology" id="id3"&gt;Terminology&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#cheatsheet" id="id3"&gt;Cheatsheet&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#operator-pending-mode" id="id4"&gt;Operator pending mode&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#text-objects" id="id5"&gt;Text objects&lt;/a&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#bounded" id="id6"&gt;Bounded&lt;/a&gt;&lt;/li&gt;
@@ -45,6 +45,77 @@ consequences are - extreme temperature leaks!&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
+&lt;div class="section" id="vim"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;Vim&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The current plugged list (extensions in use)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;quot; Comment stuff out
+Plug &amp;#39;tpope/vim-commentary&amp;#39;
+
+&amp;quot; Quoting &amp;amp; parenthesizing
+Plug &amp;#39;tpope/vim-surround&amp;#39;
+
+&amp;quot; auto-close plugin
+Plug &amp;#39;rstacruz/vim-closer&amp;#39;
+
+&amp;quot; Intellisense Engine
+&amp;quot; Plug &amp;#39;neoclide/coc.nvim&amp;#39;, { &amp;#39;do&amp;#39;: &amp;#39;yarn install&amp;#39; }
+Plug &amp;#39;neoclide/coc.nvim&amp;#39;, {&amp;#39;tag&amp;#39;: &amp;#39;*&amp;#39;, &amp;#39;do&amp;#39;: { -&amp;gt; coc#util#install()}}
+
+&amp;quot; Fuzzy search fzf as well using vim-plug
+Plug &amp;#39;junegunn/fzf&amp;#39;, { &amp;#39;dir&amp;#39;: &amp;#39;~/.fzf&amp;#39;, &amp;#39;do&amp;#39;: &amp;#39;./install --all&amp;#39; }
+Plug &amp;#39;junegunn/fzf.vim&amp;#39;
+
+&amp;quot; Snippet support
+&amp;quot; Plug &amp;#39;Shougo/neosnippet&amp;#39;
+&amp;quot; Plug &amp;#39;Shougo/neosnippet-snippets&amp;#39;
+Plug &amp;#39;honza/vim-snippets&amp;#39;
+
+&amp;quot; HTML, ccs, js completion tool
+Plug &amp;#39;mattn/emmet-vim&amp;#39;, { &amp;#39;for&amp;#39;: &amp;#39;html&amp;#39; }
+
+&amp;quot; Distraction-free writing
+Plug &amp;#39;junegunn/goyo.vim&amp;#39;
+
+&amp;quot; Print function signatures in echo area
+Plug &amp;#39;Shougo/echodoc.vim&amp;#39;
+
+&amp;quot; Write different documentation styles
+Plug &amp;#39;kkoomen/vim-doge&amp;#39;
+
+&amp;quot; === Git Plugins === &amp;quot;
+&amp;quot; Enable git changes to be shown in sign column
+Plug &amp;#39;mhinz/vim-signify&amp;#39;
+Plug &amp;#39;tpope/vim-fugitive&amp;#39;
+
+&amp;quot; === Javascript Plugins === &amp;quot;
+&amp;quot; Typescript syntax highlighting
+Plug &amp;#39;HerringtonDarkholme/yats.vim&amp;#39;
+
+&amp;quot; ReactJS JSX syntax highlighting
+Plug &amp;#39;mxw/vim-jsx&amp;#39;
+
+&amp;quot; Generate JSDoc commands based on function signature
+Plug &amp;#39;heavenshell/vim-jsdoc&amp;#39;
+
+&amp;quot; === Syntax Highlighting === &amp;quot;
+
+&amp;quot; Syntax highlighting for javascript libraries
+Plug &amp;#39;othree/javascript-libraries-syntax.vim&amp;#39;
+
+&amp;quot; Improved syntax highlighting and indentation
+Plug &amp;#39;othree/yajs.vim&amp;#39;
+
+&amp;quot; === UI === &amp;quot;
+&amp;quot; File explorer
+Plug &amp;#39;scrooloose/nerdtree&amp;#39;
+
+&amp;quot; Material colorscheme
+Plug &amp;#39;NLKNguyen/papercolor-theme&amp;#39;
+
+&amp;quot; Customized vim status line
+Plug &amp;#39;vim-airline/vim-airline&amp;#39;
+Plug &amp;#39;vim-airline/vim-airline-themes&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p class="first"&gt;VUD&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Vim User Disorder&lt;/strong&gt; syndrom: The vim editor which is always in use, so
@@ -64,9 +135,9 @@ ed &amp;gt;&amp;gt; em &amp;gt;&amp;gt; ex &amp;gt;&amp;gt; vi &amp;gt;&amp;gt; 
 &lt;p&gt;Ex is a ‘line editor’ Vim is a ‘screen editor’ Ex is sub-editor within
 Vim. Amen.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="terminology"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id3"&gt;Terminology&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
+&lt;div class="section" id="cheatsheet"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id3"&gt;Cheatsheet&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="operator-pending-mode"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id4"&gt;Operator pending mode&lt;/a&gt;&lt;/h3&gt;
 &lt;pre class="code text literal-block"&gt;

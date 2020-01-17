@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/</loc>
-<lastmod>2020-01-17T15:58:02-00:00</lastmod>
+<lastmod>2020-01-17T16:12:48-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/archives.html</loc>
-<lastmod>2020-01-17T15:58:02-00:00</lastmod>
+<lastmod>2020-01-17T16:12:48-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/tags.html</loc>
-<lastmod>2020-01-17T15:58:02-00:00</lastmod>
+<lastmod>2020-01-17T16:12:48-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/categories.html</loc>
-<lastmod>2020-01-17T15:58:02-00:00</lastmod>
+<lastmod>2020-01-17T16:12:48-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -47,7 +47,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/vim-user-disorder.html</loc>
-<lastmod>2018-09-07T13:48:16+02:00</lastmod>
+<lastmod>2020-01-17T00:00:00+01:00</lastmod>
 <changefreq>always</changefreq>
 <priority>1</priority>
 </url>
@@ -152,7 +152,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/category/blog.html</loc>
-<lastmod>2020-01-16T19:20:00+01:22</lastmod>
+<lastmod>2020-01-17T00:00:00+01:22</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -194,14 +194,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/tag/vim.html</loc>
-<lastmod>2018-09-07T13:48:16+01:22</lastmod>
+<lastmod>2020-01-17T00:00:00+01:22</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/tag/tools.html</loc>
-<lastmod>2018-09-07T13:48:16+01:22</lastmod>
+<lastmod>2020-01-17T00:00:00+01:22</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -348,7 +348,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/author/tomaz.html</loc>
-<lastmod>2020-01-16T19:20:00+01:22</lastmod>
+<lastmod>2020-01-17T00:00:00+01:22</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
