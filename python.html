@@ -214,12 +214,13 @@
 <li><a class="reference internal" href="#usage-pattern-object" id="id94">Usage - Pattern object</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#python-internals" id="id95">Python Internals</a><ul>
-<li><a class="reference internal" href="#execution" id="id96">Execution</a></li>
-<li><a class="reference internal" href="#gil" id="id97">GIL</a></li>
+<li><a class="reference internal" href="#virtual-environment" id="id95">Virtual Environment</a></li>
+<li><a class="reference internal" href="#python-internals" id="id96">Python Internals</a><ul>
+<li><a class="reference internal" href="#execution" id="id97">Execution</a></li>
+<li><a class="reference internal" href="#gil" id="id98">GIL</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#terminology" id="id98">Terminology</a></li>
+<li><a class="reference internal" href="#terminology" id="id99">Terminology</a></li>
 </ul>
 </div>
 <div class="section" id="introduction">
@@ -610,6 +611,10 @@ This is a significant point. It means that x is the memory location, not just a 
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
 </pre></div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You never have to worry about cleaning up these intermediate objects or even need to know that they exist! The joy is that these operations are relatively fast, and you never had to know any of those details until now.</p>
+</div>
 </div>
 <div class="section" id="numbers">
 <h3><a class="toc-backref" href="#id28">Numbers</a></h3>
@@ -3948,10 +3953,27 @@ re.finditer(...)</td>
 </pre></div>
 </div>
 </div>
+<div class="section" id="virtual-environment">
+<h2><a class="toc-backref" href="#id95">Virtual Environment</a></h2>
+<p>Install virtualenv</p>
+<div class="highlight"><pre><span></span>$ sudo pip3 install virtualenv virtualenvwrapper
+</pre></div>
+<div class="highlight"><pre><span></span><span class="c1"># Find out the python version</span>
+<span class="err">$</span> <span class="n">which</span> <span class="n">python3</span>
+</pre></div>
+<p>Add to end of .profile file</p>
+<div class="highlight"><pre><span></span><span class="nv">VIRTUALENVWRAPPER_PYTHON</span><span class="o">=</span>/usr/bin/python3.7
+<span class="nb">export</span> <span class="nv">WORKON_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/.virtualenvs
+<span class="nb">source</span> /usr/local/bin/virtualenvwrapper.sh
+</pre></div>
+<p>And apply changes</p>
+<div class="highlight"><pre><span></span><span class="nb">source</span> ~/.profile
+</pre></div>
+</div>
 <div class="section" id="python-internals">
-<h2><a class="toc-backref" href="#id95">Python Internals</a></h2>
+<h2><a class="toc-backref" href="#id96">Python Internals</a></h2>
 <div class="section" id="execution">
-<h3><a class="toc-backref" href="#id96">Execution</a></h3>
+<h3><a class="toc-backref" href="#id97">Execution</a></h3>
 <div class="highlight"><pre><span></span>Source Code --&gt; [lexing, parsing and type checking] --&gt; Byte Code --&gt; PVM (Virtual Machine)
 </pre></div>
 <p>In Python, the source is compiled into a much simpler form called bytecode.
@@ -3963,7 +3985,7 @@ taken by Java. There is even a way of translating Python programs into Java
 byte code for the Java Virtual Machine (JVM). This can be achieved with Jython.</p>
 </div>
 <div class="section" id="gil">
-<h3><a class="toc-backref" href="#id97">GIL</a></h3>
+<h3><a class="toc-backref" href="#id98">GIL</a></h3>
 <p>One thread runs Python, while N others sleep or await I/O.&quot; Python threads can
 also wait for a threading.Lock or other synchronization object from the
 threading module; consider threads in that state to be &quot;sleeping,&quot; too.</p>
@@ -3979,7 +4001,7 @@ in detail.</p>
 </div>
 </div>
 <div class="section" id="terminology">
-<h2><a class="toc-backref" href="#id98">Terminology</a></h2>
+<h2><a class="toc-backref" href="#id99">Terminology</a></h2>
 <ul>
 <li><p class="first"><strong>Bytecode</strong></p>
 <p>Bytecode is also binary representation executed by virtual machine (not by

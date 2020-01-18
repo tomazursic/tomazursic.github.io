@@ -2095,12 +2095,13 @@ For more information see &lt;a class="reference external" href="https://docs.pyc
 &lt;li&gt;&lt;a class="reference internal" href="#usage-pattern-object" id="id94"&gt;Usage - Pattern object&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#python-internals" id="id95"&gt;Python Internals&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#execution" id="id96"&gt;Execution&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#gil" id="id97"&gt;GIL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#virtual-environment" id="id95"&gt;Virtual Environment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#python-internals" id="id96"&gt;Python Internals&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#execution" id="id97"&gt;Execution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#gil" id="id98"&gt;GIL&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#terminology" id="id98"&gt;Terminology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#terminology" id="id99"&gt;Terminology&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="introduction"&gt;
@@ -2491,6 +2492,10 @@ This is a significant point. It means that x is the memory location, not just a 
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;div class="admonition note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;You never have to worry about cleaning up these intermediate objects or even need to know that they exist! The joy is that these operations are relatively fast, and you never had to know any of those details until now.&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="numbers"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id28"&gt;Numbers&lt;/a&gt;&lt;/h3&gt;
@@ -5829,10 +5834,27 @@ re.finditer(...)&lt;/td&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;div class="section" id="virtual-environment"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id95"&gt;Virtual Environment&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Install virtualenv&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo pip3 install virtualenv virtualenvwrapper
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Find out the python version&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;which&lt;/span&gt; &lt;span class="n"&gt;python3&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Add to end of .profile file&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;VIRTUALENVWRAPPER_PYTHON&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/usr/bin/python3.7
+&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;WORKON_HOME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/.virtualenvs
+&lt;span class="nb"&gt;source&lt;/span&gt; /usr/local/bin/virtualenvwrapper.sh
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And apply changes&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;source&lt;/span&gt; ~/.profile
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
 &lt;div class="section" id="python-internals"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id95"&gt;Python Internals&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id96"&gt;Python Internals&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="execution"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id96"&gt;Execution&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id97"&gt;Execution&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Source Code --&amp;gt; [lexing, parsing and type checking] --&amp;gt; Byte Code --&amp;gt; PVM (Virtual Machine)
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;In Python, the source is compiled into a much simpler form called bytecode.
@@ -5844,7 +5866,7 @@ taken by Java. There is even a way of translating Python programs into Java
 byte code for the Java Virtual Machine (JVM). This can be achieved with Jython.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="gil"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id97"&gt;GIL&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id98"&gt;GIL&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;One thread runs Python, while N others sleep or await I/O.&amp;quot; Python threads can
 also wait for a threading.Lock or other synchronization object from the
 threading module; consider threads in that state to be &amp;quot;sleeping,&amp;quot; too.&lt;/p&gt;
@@ -5860,7 +5882,7 @@ in detail.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="terminology"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id98"&gt;Terminology&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id99"&gt;Terminology&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Bytecode&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Bytecode is also binary representation executed by virtual machine (not by
