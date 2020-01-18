@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Web Logs - tomazursic.github.io</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2020-01-17T00:00:00+01:00</updated><entry><title>Internet Of Useful Things</title><link href="/internet-of-useful-things.html" rel="alternate"></link><published>2020-01-16T19:20:00+01:00</published><updated>2020-01-16T19:20:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2020-01-16:/internet-of-useful-things.html</id><summary type="html">Dashboard made for measure "feelings" of temperatures in house.</summary><content type="html">&lt;div class="section" id="house-on-the-beach"&gt;
-&lt;h2&gt;House On The Beach&lt;/h2&gt;
-&lt;p&gt;Example of usage lorawan and five devices to measure temperature from all over the
-house.&lt;/p&gt;
-&lt;p&gt;Purpose of this dashboard is visualize air temperature measurements, to eliminate
-all the doubts of &amp;quot;is cold or warm&amp;quot;, and if &amp;quot;not&amp;quot; there is no excuse to fire up the heating:)&lt;/p&gt;
-&lt;div class="figure"&gt;
-&lt;img alt="Telemetry image" src="images/iot/beach-house.png" /&gt;
-&lt;/div&gt;
-&lt;div class="section" id="summary"&gt;
-&lt;h3&gt;Summary&lt;/h3&gt;
-&lt;p&gt;And we are all happy now! Things looks to work as expected.
-The big issue is the lack of &amp;quot;external isolation&amp;quot; of the house, and
-consequences are - extreme temperature leaks!&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</content><category term="blog"></category><category term="life-hack"></category><category term="lorawan"></category><category term="iot"></category><category term="network"></category></entry><entry><title>Vim User Disorder</title><link href="/vim-user-disorder.html" rel="alternate"></link><published>2018-09-07T13:48:16+02:00</published><updated>2020-01-17T00:00:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-09-07:/vim-user-disorder.html</id><summary type="html">Cheatsheet and notes for vim test editor</summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Web Logs - tomazursic.github.io</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2020-01-17T00:00:00+01:00</updated><entry><title>Vim User Disorder</title><link href="/vim-user-disorder.html" rel="alternate"></link><published>2018-09-07T13:48:16+02:00</published><updated>2020-01-17T00:00:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-09-07:/vim-user-disorder.html</id><summary type="html">Cheatsheet and notes for vim test editor</summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
 &lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#vim" id="id1"&gt;Vim&lt;/a&gt;&lt;ul&gt;
