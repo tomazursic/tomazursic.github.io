@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en" class="inverted">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Web Logs - tomazursic.github.io - Smart Agriculture Prototype</title>
+  <meta charset="utf-8" />
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Web Logs - tomazursic.github.io Full Atom Feed" />
+  <link href="/feeds/projects.atom.xml" type="application/atom+xml" rel="alternate" title="Web Logs - tomazursic.github.io Categories Atom Feed" />
+
+
+
+
+    <meta name="tags" content="lorawan" />
+    <meta name="tags" content="iot" />
+    <meta name="tags" content="python" />
+    <meta name="tags" content="micropython" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/theme/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/theme/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/theme/favicons/favicon-16x16.png">
+  <link rel="manifest" href="/theme/favicons/site.webmanifest">
+
+  <link rel="stylesheet" href="/theme/css/style.css"/>
+  <link rel="stylesheet" href="/theme/css/monokai.min.css"/>
+  <link rel="stylesheet" href="/theme/css/ionicons.css"/>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <script src="/theme/tipuesearch/tipuesearch_set.js"></script>
+  <script src="/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="/tipuesearch_content.js"></script>
+
+
+</head>
+
+<body id="index" class="home">
+
+  <nav class="navigation">
+    <div class="nav-logo">
+      <a href="/"><i class="ion-md-home"></i></a>
+    </div>
+    <ul class="nav-menu">
+
+          <li><a href="/category/blog.html">blog</a></li>
+          <li class="active"><a href="/category/projects.html">projects</a></li>
+          <li><a href="/pages/contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-toggle">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+  </nav>
+  <div class="nav-overlay"></div>
+
+ <div id="wrapper">
+
+        <div id="content">
+        <div id="invmode">Day</div>
+        <button onclick="goUp()" id="upBtn" title="Go to top"><i class="ion-ios-arrow-up"></i></button>
+
+
+
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="/vinode.html" rel="bookmark"
+         title="Permalink to Smart Agriculture Prototype">Smart Agriculture Prototype</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2017-03-28T21:48:00+02:00">
+      <b>Published</b>: Tue 28 March 2017
+    </time>
+    <br>
+    <time class="modified" datetime="2019-09-05T20:38:00+02:00">
+      <b>Modified</b>: Thu 05 September 2019
+    </time>
+    <div class="category">
+        <b>Category</b>: <a href="/category/projects.html">projects</a>
+    </div>
+    <div class="tags">
+        <b>Tags</b>:
+            <a href="/tag/lorawan.html">lorawan</a>
+            <a href="/tag/iot.html">iot</a>
+            <a href="/tag/python.html">python</a>
+            <a href="/tag/micropython.html">micropython</a>
+    </div>
+  </footer><!-- /.post-info -->
+
+  <div class="entry-content">
+    <div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#vinode" id="id1">Vinode</a><ul>
+<li><a class="reference internal" href="#issue" id="id2">Issue</a></li>
+<li><a class="reference internal" href="#solution" id="id3">Solution</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#overview" id="id4">Overview</a><ul>
+<li><a class="reference internal" href="#specifications" id="id5">Specifications</a><ul>
+<li><a class="reference internal" href="#ports" id="id6">Ports</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#measurements" id="id7">Measurements</a></li>
+<li><a class="reference internal" href="#message-payload" id="id8">Message Payload</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#change-log" id="id9">Change log</a><ul>
+<li><a class="reference internal" href="#current-position" id="id10">Current position</a></li>
+<li><a class="reference internal" href="#prototype" id="id11">Prototype</a></li>
+<li><a class="reference internal" href="#version-1-0" id="id12">Version 1.0</a></li>
+<li><a class="reference internal" href="#stand-version-1-0" id="id13">Stand Version 1.0</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Prototype for monitor the micro-climate conditions in agriculture.
+Collecting data from orchard/vineyards with purpose to support/help/extends the
+decisions in deals with pests/diseases.</p>
+<div class="section" id="vinode">
+<h2><a class="toc-backref" href="#id1">Vinode</a></h2>
+<p><strong>Live data:</strong> <a class="reference external" href="https://lepavida.iot.novagorica.eu/d/BfjRxSpWz/vinode?orgId=1&amp;refresh=30s&amp;from=now-30d&amp;to=now">https://lepavida.iot.novagorica.eu</a></p>
+<div class="figure">
+<a class="reference external image-reference" href="https://lepavida.iot.novagorica.eu/d/BfjRxSpWz/vinode?orgId=1&amp;refresh=30s&amp;from=now-30d&amp;to=now"><img alt="Vinode" src="images/device/vinode/vinode.jpg" /></a>
+<p class="caption">Vinode</p>
+</div>
+<div class="section" id="issue">
+<h3><a class="toc-backref" href="#id2">Issue</a></h3>
+<ul class="simple">
+<li>Fight the danger of downy mildew that in recent years has created serious
+damage across vineyards</li>
+<li>Adopt a scientific instrument to support
+decisions in order to carry out targeted interventions in the vineyard</li>
+</ul>
+</div>
+<div class="section" id="solution">
+<h3><a class="toc-backref" href="#id3">Solution</a></h3>
+<p>IoT (Internet of Things) system which consists of interconnected devices that
+operate and automatically communicate over long distances thanks to the use of
+the LoRaWAN technology.</p>
+<ul class="simple">
+<li><strong>LoRaWAN device with sensors</strong>: that measure, in real time, the
+micro-climatic conditions in the vineyard (responsible for fungal diseases
+such as downy mildew) and the physio-pathological status of the plant</li>
+<li><strong>LoRaWAN Gateway</strong>: collection and transmission of data detected by the
+wireless sensors</li>
+</ul>
+<p>The LoRa technology makes it possible to overcome the problem of distance and
+“physical interference”, two common conditions when you consider the nature of
+the viticultural land, very often characterized by slopes, wild
+vegetation and hilly landscapes.</p>
+<p>Monitor the vineyard in real time and continuously, as well as the storage of
+the historic data, which will be crucial for the organization and management of
+the vineyard, not only of the current season but also of those to come.</p>
+<p><a class="reference external" href="/lorawan-network.html">Read more about LoraWAN</a></p>
+<p>Project example with  MicroPython on esp-32 (lopy) to collect data (weather, soil, leafs..) on
+micro-locations.</p>
+</div>
+</div>
+<div class="section" id="overview">
+<h2><a class="toc-backref" href="#id4">Overview</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Device</dt>
+<dd>The main measurements unit for taking measurements, logging and sending data.
+Powered with LiPo battery and optional solar power.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Antenna</dt>
+<dd>It's part of device and responsible for transmitting and receiving data from LoraWAN network gateways</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Led</dt>
+<dd>On device cover is Led indicator active only in when running in development mode</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Connectors</dt>
+<dd>Device is equipped with four (4-Pin) circular connectors for sensors
+and one (2-Pin) circular connector for solar power supply.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>USB External</dt>
+<dd>It's USB socket on device cover, used as programming port or
+external power supply (example is Power bank)</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Shield</dt>
+<dd>Holding and protecting ambient sensors from environment.
+Contains 3 sensors:
+* Air Temperature (Celsius)
+* Air Humidity (relative %H)
+* Light (lux)</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Leaf sensor</dt>
+<dd>Getting measurements of leaf wetness on TOP/BOTTOM in (%)</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Soil Moisture</dt>
+<dd>Getting measurements of soil capacitance in (%) and temperature in (℃ )</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Solar panel:</dt>
+<dd>It's 3.5W solar panel responsible for providing power supply</dd>
+</dl>
+</li>
+</ul>
+<div class="section" id="specifications">
+<h3><a class="toc-backref" href="#id5">Specifications</a></h3>
+<ul class="simple">
+<li>1x Air temperature and relative humidity sensor</li>
+<li>1x Barometric Pressure sensor</li>
+<li>1x Luminosity sensor</li>
+<li>1x Leaf wetness sensor</li>
+<li>2x Soil moisture humidity and temperature sensor</li>
+<li>1x Internal temperature sensor</li>
+<li>1x Internal humidity sensor</li>
+<li>Solar panel with battery charger</li>
+<li>Data logger with internal data storage</li>
+</ul>
+<div class="section" id="ports">
+<h4><a class="toc-backref" href="#id6">Ports</a></h4>
+<div class="figure">
+<img alt="Ports conetors" src="images/device/vinode/device-connectors.jpg" />
+</div>
+<table border="1" class="docutils">
+<caption>Sockets</caption>
+<colgroup>
+<col width="25%" />
+<col width="19%" />
+<col width="56%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Socket</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>A</td>
+<td>I2C</td>
+<td>Shield connector</td>
+</tr>
+<tr><td>B</td>
+<td>I2C</td>
+<td>Soil 1</td>
+</tr>
+<tr><td>C</td>
+<td>I2C</td>
+<td>Soil 2</td>
+</tr>
+<tr><td>D</td>
+<td>ADC</td>
+<td>Leaf</td>
+</tr>
+<tr><td>F</td>
+<td>USB</td>
+<td>USB socket (5V)</td>
+</tr>
+<tr><td>E</td>
+<td>5V</td>
+<td>Solar</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The sensors must follow the connectors types.
+Sensors comunicating over I2C, they can be attached to any
+port (1-3), the 4th port is only for Leaf sensor!</p>
+</div>
+</div>
+</div>
+<div class="section" id="measurements">
+<h3><a class="toc-backref" href="#id7">Measurements</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://console.thethingsnetwork.org/applications/&lt;APPID&gt;">Get credentials</a></li>
+</ul>
+<ul class="simple">
+<li><a class="reference external" href="https://www.thethingsnetwork.org/docs/applications/mqtt/api.html">API reference</a></li>
+</ul>
+<ul class="simple">
+<li><a class="reference external" href="https://console.thethingsnetwork.org/mqtt-ca.pem">PEM CA</a></li>
+</ul>
+<div class="highlight"><pre><span></span>APPID - mqtt username
+APPKEY (default) - mqtt password
+</pre></div>
+<p>Example config:</p>
+<div class="highlight"><pre><span></span>MQTT_BROKER_PORT = 8883
+MQTT_BROKER_URL = &#39;eu.thethings.network&#39;
+MQTT_USERNAME = &lt;USERNAME&gt;
+MQTT_PASSWORD = &#39;ttn-account-v2.&lt;CHANGE-WITH-KEY&gt;&#39;
+</pre></div>
+<p>MQTT Topic all devices</p>
+<div class="highlight"><pre><span></span>&#39;&lt;CHANGE-WITH-APP_ID&gt;/devices/+/up&#39;
+</pre></div>
+<p>MQTT Topic specified devices</p>
+<div class="highlight"><pre><span></span>&#39;&lt;CHANGE-WITH-APP_ID&gt;/devices/&lt;CHANGE-WITH-DEVICE_ID&gt;/up&#39;
+</pre></div>
+<p>Example playload fields:</p>
+<div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;ahum&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nt">&quot;alight&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nt">&quot;atemp&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nt">&quot;bat&quot;</span><span class="p">:</span> <span class="mf">4.732</span><span class="p">,</span>
+  <span class="nt">&quot;ihum&quot;</span><span class="p">:</span> <span class="mf">68.83</span><span class="p">,</span>
+  <span class="nt">&quot;ilight&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nt">&quot;ipress&quot;</span><span class="p">:</span> <span class="mi">1002</span><span class="p">,</span>
+  <span class="nt">&quot;itemp&quot;</span><span class="p">:</span> <span class="mf">28.28</span><span class="p">,</span>
+  <span class="nt">&quot;lwbottom&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nt">&quot;lwtop&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nt">&quot;mcapa1&quot;</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span>
+  <span class="nt">&quot;mcapa2&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+  <span class="nt">&quot;mtemp1&quot;</span><span class="p">:</span> <span class="mf">27.2</span><span class="p">,</span>
+  <span class="nt">&quot;mtemp2&quot;</span><span class="p">:</span> <span class="mf">26.7</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="message-payload">
+<h3><a class="toc-backref" href="#id8">Message Payload</a></h3>
+<p>Data transmitted over LoraWAN is decoded into bytes before sending over
+the air</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="17%" />
+<col width="12%" />
+<col width="16%" />
+<col width="43%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Index</th>
+<th class="head">Name</th>
+<th class="head">Bytes</th>
+<th class="head">Numeric</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>1</td>
+<td>alight</td>
+<td><cite>(3)</cite></td>
+<td>int</td>
+<td>Ambient Light</td>
+</tr>
+<tr><td>2</td>
+<td>atemp</td>
+<td><cite>(2)</cite></td>
+<td>float</td>
+<td>Ambient Temperature</td>
+</tr>
+<tr><td>3</td>
+<td>ahum</td>
+<td><cite>(2)</cite></td>
+<td>float</td>
+<td>Ambient Humidity</td>
+</tr>
+<tr><td>4</td>
+<td>mcapa1</td>
+<td><cite>(2)</cite></td>
+<td>int</td>
+<td>Moisture #1 Capacitance</td>
+</tr>
+<tr><td>5</td>
+<td>mtemp1</td>
+<td><cite>(2)</cite></td>
+<td>float</td>
+<td>Moisture #1 Temperature</td>
+</tr>
+<tr><td>6</td>
+<td>mcapa2</td>
+<td><cite>(2)</cite></td>
+<td>int</td>
+<td>Moisture #2 Capacitance</td>
+</tr>
+<tr><td>7</td>
+<td>mtemp2</td>
+<td><cite>(2)</cite></td>
+<td>float</td>
+<td>Moisture #2 Temperature</td>
+</tr>
+<tr><td>8</td>
+<td>lwtop</td>
+<td><cite>(2)</cite></td>
+<td>int</td>
+<td>Leaf Wetness Top</td>
+</tr>
+<tr><td>9</td>
+<td>lwbottom</td>
+<td><cite>(2)</cite></td>
+<td>int</td>
+<td>Leaf Wetness Bottom</td>
+</tr>
+<tr><td>10</td>
+<td>bat</td>
+<td><cite>(3)</cite></td>
+<td>float</td>
+<td>Pysense Voltage</td>
+</tr>
+<tr><td>11</td>
+<td>temp</td>
+<td><cite>(2)</cite></td>
+<td>float</td>
+<td>Pysense Temperature</td>
+</tr>
+<tr><td>13</td>
+<td>hum</td>
+<td><cite>(2)</cite></td>
+<td>float</td>
+<td>Pysense Humidity</td>
+</tr>
+<tr><td>14</td>
+<td>light</td>
+<td><cite>(3)</cite></td>
+<td>int</td>
+<td>Pysense Light</td>
+</tr>
+<tr><td>15</td>
+<td>press</td>
+<td><cite>(3)</cite></td>
+<td>int</td>
+<td>Pysense Pressure</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="change-log">
+<h2><a class="toc-backref" href="#id9">Change log</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="35%" />
+<col width="38%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Version</th>
+<th class="head">Date</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>v001</td>
+<td>06.21.2017</td>
+<td>Prototype</td>
+</tr>
+<tr><td>v002</td>
+<td>28.08.2017</td>
+<td>Prototype</td>
+</tr>
+<tr><td>v003</td>
+<td>21.09.2017</td>
+<td>Prototype</td>
+</tr>
+<tr><td>v1.0</td>
+<td>26.11.2017</td>
+<td>Alpha</td>
+</tr>
+<tr><td>v1.0</td>
+<td>30.01.2018</td>
+<td>Beta</td>
+</tr>
+<tr><td>v1.0</td>
+<td>21.02.2018</td>
+<td>RC</td>
+</tr>
+<tr><td>v2.0</td>
+<td>27.08.2019</td>
+<td>RC_1</td>
+</tr>
+<tr><td>v2.1</td>
+<td>07.09.2019</td>
+<td>RC_2</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="current-position">
+<h3><a class="toc-backref" href="#id10">Current position</a></h3>
+<div class="figure">
+<img alt="Vinode" src="images/device/vinode/changelog/20191002_082511.jpg" />
+<p class="caption">Vinode v2.1</p>
+</div>
+<div class="figure">
+<img alt="vinode &amp; deploy tools" src="images/device/vinode/changelog/20190828_151605.jpg" />
+<p class="caption">vinode v2.0 &amp; deploy tools</p>
+</div>
+</div>
+<div class="section" id="prototype">
+<h3><a class="toc-backref" href="#id11">Prototype</a></h3>
+<div class="figure">
+<img alt="v001" src="images/device/vinode/changelog/vinode001.jpg" />
+<p class="caption">Release - vinode001</p>
+</div>
+<div class="figure">
+<img alt="v002" src="images/device/vinode/changelog/vinode002.jpg" />
+<p class="caption">Release - vinode002</p>
+</div>
+<div class="figure">
+<img alt="v002" src="images/device/vinode/changelog/vinode003.jpg" />
+<p class="caption">Release - vinode003</p>
+</div>
+</div>
+<div class="section" id="version-1-0">
+<h3><a class="toc-backref" href="#id12">Version 1.0</a></h3>
+<div class="figure">
+<img alt="v1.0.0-alpha" src="images/device/vinode/changelog/vinode-v1.0.0-alpha.jpg" />
+<p class="caption">Release - vinode-v1.0.0-alpha</p>
+</div>
+<div class="figure">
+<img alt="v1.0.0-alpha" src="images/device/vinode/changelog/vinode-v1.0.0-alpha-all.jpg" />
+<p class="caption">Release - vinode-v1.0.0-alpha with sensors</p>
+</div>
+<div class="figure">
+<img alt="v1.0.0-beta" src="images/device/vinode/changelog/vinode-v1.0.0-beta.png" />
+<p class="caption">Release - vinode-v1.0.0-beta</p>
+</div>
+<div class="figure">
+<img alt="v1.0.0-beta-assemble" src="images/device/vinode/changelog/vinode-v1.0.0-beta-assemble.png" />
+<p class="caption">Release - vinode-v1.0.0-beta assemble</p>
+</div>
+<div class="figure">
+<img alt="v1.0.0-rc" src="images/device/vinode/changelog/vinode-v1.0.0-rc.jpg" />
+<p class="caption">Release - vinode-v1.0.0-rc</p>
+</div>
+<div class="figure">
+<img alt="v1.0.0-rc1" src="images/device/vinode/changelog/vinode-v1.0.0-rc1.jpg" />
+<p class="caption">Release - vinode-v1.0.0-rc1</p>
+</div>
+</div>
+<div class="section" id="stand-version-1-0">
+<h3><a class="toc-backref" href="#id13">Stand Version 1.0</a></h3>
+<div class="figure">
+<img alt="stand v1.0" src="images/device/vinode/changelog/vinode-stand-v1.0.0.jpg" />
+<p class="caption">Release - vinode-stand-v1.0.0</p>
+</div>
+</div>
+</div>
+
+  </div><!-- /.entry-content -->
+</section>
+
+        <section id="extras" class="body">
+
+          <ul class="tags-footer">
+            <li style="font-size: 100.0%;"><a href="/tag/arm.html">arm</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/bread.html">bread</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/cheatsheet.html">cheatsheet</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/esp32.html">esp32</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/gateway.html">gateway</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/git.html">git</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/ic880a.html">ic880a</a></li>
+            <li style="font-size: 164.6%;"><a href="/tag/iot.html">IoT</a></li>
+            <li style="font-size: 139.6%;"><a href="/tag/linux.html">linux</a></li>
+            <li style="font-size: 158.0%;"><a href="/tag/lorawan.html">lorawan</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/lorrawan.html">LorRaWAN</a></li>
+            <li style="font-size: 125.0%;"><a href="/tag/micropython.html">micropython</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/misc.html">misc</a></li>
+            <li style="font-size: 125.0%;"><a href="/tag/network.html">network</a></li>
+            <li style="font-size: 125.0%;"><a href="/tag/notes.html">notes</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/obd.html">obd</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/os.html">os</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/pelican.html">pelican</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/pi.html">pi</a></li>
+            <li style="font-size: 170.2%;"><a href="/tag/python.html">python</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/raspberry-pi.html">raspberry-pi</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/reverse_beacon.html">reverse_beacon</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/snippets.html">snippets</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/tools.html">tools</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/unix.html">unix</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/vim.html">vim</a></li>
+          </ul>
+
+
+                <div class="social">
+                        <ul>
+                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
+
+        </div>
+        </section>
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
+
+ </div><!-- /.wrapper -->
+
+
+<script>var _gaq=[['_setAccount','UA-155970867-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+<script>
+  // Insert scripts
+  var scriptSrc = ["/theme/js/main.js",];
+  for (var i_2 = 0; i_2 < scriptSrc.length; i_2++) {
+    var index = scriptSrc[i_2];
+    var script = document.body.appendChild(document.createElement('script'));
+    script.async = false;
+    script.src = index;
+  }
+
+    //Get the button:
+    mybutton = document.getElementById("upBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function goUp() {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+
+
+  // Handle site search
+  $(document).ready(function() {
+    console.log("Hello")
+
+    // Search handler
+     $('#tipue_search_input').tipuesearch({
+          'mode': 'json',
+          'contentLocation': 'tipuesearch_content.json'
+     });
+
+    $('.nav-toggle').click(function(e){
+        e.preventDefault();
+        $('.nav-toggle').toggleClass('active');
+        $('.nav-menu').toggleClass('active');
+        $('.nav-overlay').toggleClass('active');
+    })
+    $('.nav-overlay').click(function(e){
+        e.preventDefault();
+        $('.nav-toggle').toggleClass('active');
+        $('.nav-menu').toggleClass('active');
+        $('.nav-overlay').toggleClass('active');
+    })
+
+    // Focus the search input by default
+    window.onload = function() {
+      var input = document.getElementById("tipue_search_input").focus();
+    }
+
+  });
+
+</script>
+</body>
+</html>
