@@ -2,9 +2,17 @@
 <html lang="en" class="inverted">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Web Logs - tomazursic.github.io - LorRaWAN tag</title>
+    <title>Web Logs - tomazursic.github.io - AI & OpenCV</title>
   <meta charset="utf-8" />
   <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Web Logs - tomazursic.github.io Full Atom Feed" />
+  <link href="/feeds/blog.atom.xml" type="application/atom+xml" rel="alternate" title="Web Logs - tomazursic.github.io Categories Atom Feed" />
+
+
+
+
+    <meta name="tags" content="LorRaWAN" />
+    <meta name="tags" content="IoT" />
+
 
   <link rel="apple-touch-icon" sizes="180x180" href="/theme/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/theme/favicons/favicon-32x32.png">
@@ -31,7 +39,7 @@
     </div>
     <ul class="nav-menu">
 
-          <li><a href="/category/blog.html">blog</a></li>
+          <li class="active"><a href="/category/blog.html">blog</a></li>
           <li><a href="/category/projects.html">projects</a></li>
           <li><a href="/pages/contact.html">Contact</a></li>
     </ul>
@@ -50,41 +58,31 @@
         <button onclick="goUp()" id="upBtn" title="Go to top"><i class="ion-ios-arrow-up"></i></button>
 
 
-          <div id="search" >
 
-            <form action="/">
-           <div class="search tipue_search_right">
-              <input type="text" class="searchTerm" placeholder="Search by keywords.."  aria-hidden="true" data-choice="active"
-                          type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required>
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="/drafts/ai-and-opencv.html" rel="bookmark"
+         title="Permalink to AI & OpenCV">AI & OpenCV</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2019-10-20T13:29:00+02:00">
+      <b>Published</b>: Sun 20 October 2019
+    </time>
+    <br>
+    <div class="category">
+        <b>Category</b>: <a href="/category/blog.html">blog</a>
+    </div>
+    <div class="tags">
+        <b>Tags</b>:
+            <a href="/tag/lorrawan.html">LorRaWAN</a>
+            <a href="/tag/iot.html">IoT</a>
+    </div>
+  </footer><!-- /.post-info -->
 
-              <button type="submit" class="searchButton">
-               <i class="ion-ios-search"></i>
-             </button>
-           </div>
-            </form>
-
-            <div id="tipue_search_content" style="margin: 2rem 0rem; padding: 1rem; border-bottom: 1px solid;"></div>
-
-          </div>
-
-<section id="content">
-<h2>Articles tagged with LorRaWAN</h2>
-
-<ol id="post-list">
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="/ai-and-opencv.html" rel="bookmark" title="Permalink to AI & OpenCV">AI & OpenCV</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2019-10-20T13:29:00+02:00"> Sun 20 October 2019 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="/author/tomaz.html">Tomaz</a>
-                    </address>
-                    <div>
-                    Tags: 
-                        <a class="url fn" href="/tag/lorrawan.html">LorRaWAN</a>
-                        <a class="url fn" href="/tag/iot.html">IoT</a>
-                    </div>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <div class="section" id="opencv">
+  <div class="entry-content">
+    <div class="section" id="opencv">
 <h2>OpenCV</h2>
 <p>Install the required dependencies:</p>
 <div class="section" id="dependences">
@@ -100,10 +98,98 @@
 <h3>Download source</h3>
 <p>Clone the OpenCV's and OpenCV contrib repositories:</p>
 <div class="highlight"><pre><span></span>mkdir ~/opencv_build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/opencv_build
-git clone https://github.com/opencv …</pre></div></div></div> </div><!-- /.entry-content -->
-        </article></li>
-</ol><!-- /#posts-list -->
-</section><!-- /#content -->
+git clone https://github.com/opencv/opencv.git
+git clone https://github.com/opencv/opencv_contrib.git
+</pre></div>
+<p>At the time of writing, the default version in the github repositories is version 4.2.0. If you want to install an older version of OpenCV, cd to both opencv and opencv_contrib directories and run git checkout &lt;opencv-version&gt;</p>
+<p>Once the download is complete, create a temporary build directory, and switch to it:</p>
+</div>
+<div class="section" id="versions">
+<h3>Versions</h3>
+<div class="highlight"><pre><span></span>git tags
+.
+..
+...
+<span class="m">4</span>.0.0
+<span class="m">4</span>.0.0-alpha
+<span class="m">4</span>.0.0-beta
+<span class="m">4</span>.0.0-openvino
+<span class="m">4</span>.0.0-rc
+<span class="m">4</span>.0.1
+<span class="m">4</span>.0.1-openvino
+<span class="m">4</span>.1.0
+<span class="m">4</span>.1.0-openvino
+<span class="m">4</span>.1.1
+<span class="m">4</span>.1.1-openvino
+<span class="m">4</span>.1.2
+<span class="m">4</span>.1.2-openvino
+<span class="m">4</span>.2.0
+</pre></div>
+<div class="highlight"><pre><span></span><span class="nb">cd</span> opencv
+git checkout &lt;TAG_NUMBER&gt;
+
+<span class="nb">cd</span> opencv_contrib
+git checkout &lt;TAG_NUMBER&gt;
+</pre></div>
+</div>
+<div class="section" id="build-process">
+<h3>Build Process</h3>
+<div class="highlight"><pre><span></span><span class="nb">cd</span> ~/opencv_build/opencv
+mkdir build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> build
+</pre></div>
+<div class="highlight"><pre><span></span>cmake -D <span class="nv">CMAKE_BUILD_TYPE</span><span class="o">=</span>RELEASE <span class="se">\</span>
+    -D <span class="nv">CMAKE_INSTALL_PREFIX</span><span class="o">=</span>/usr/local <span class="se">\</span>
+    -D <span class="nv">WITH_CUDA</span><span class="o">=</span>OFF <span class="se">\</span>
+    -D <span class="nv">INSTALL_PYTHON_EXAMPLES</span><span class="o">=</span>ON <span class="se">\</span>
+    -D <span class="nv">OPENCV_EXTRA_MODULES_PATH</span><span class="o">=</span>~/opencv_build/opencv_contrib/modules <span class="se">\</span>
+    -D <span class="nv">OPENCV_ENABLE_NONFREE</span><span class="o">=</span>ON <span class="se">\</span>
+    -D <span class="nv">BUILD_EXAMPLES</span><span class="o">=</span>ON ..
+</pre></div>
+<div class="highlight"><pre><span></span>make -j4
+sudo make install
+sudo ldconfig
+</pre></div>
+<div class="highlight"><pre><span></span>pkg-config --modversion opencv
+</pre></div>
+<div class="highlight"><pre><span></span>ls /usr/local/python/cv2/python-3.7
+</pre></div>
+</div>
+<div class="section" id="build-script">
+<h3>Build script</h3>
+<div class="highlight"><pre><span></span>pass
+</pre></div>
+</div>
+<div class="section" id="setup">
+<h3>Setup</h3>
+<div class="highlight"><pre><span></span>sudo mv /usr/lib/python3/dist-packages/cv2.so cv2.so
+
+<span class="nb">cd</span> &lt;venv&gt;/lib/python3.7/site-packages/
+ln -s /usr/lib/python3/dist-packages/cv2.so cv2.so
+
+<span class="c1"># Ubuntu</span>
+ln -s /usr/local/lib/python3.7/site-packages/cv2/python-3.7/cv2.so cv2.so
+</pre></div>
+<div class="highlight"><pre><span></span>python3 -c <span class="s2">&quot;import cv2; print(cv2.__version__)&quot;</span>
+</pre></div>
+<div class="highlight"><pre><span></span> https://medium.com/@aallan/a-magic-mirror-with-added-tensorflow-b8fcc5528a6
+ RPI https://github.com/lhelontra/tensorflow-on-arm/releases
+
+ pip install [file_name].whl
+
+https://www.tensorflow.org/install/pip
+https://drive.google.com/drive/folders/0B1tW_VtY7onidEwyQ2FtQVplWEU
+https://medium.com/@cran2367/install-and-setup-tensorflow-2-0-2c4914b9a265
+https://rubikscode.net/2019/04/22/ULTIMATE-GUIDE-TO-TENSORFLOW-2-0-IN-PYTHON/#COMMENTS
+
+pip install --upgrade tensorflow==2.0.0-rc1
+
+python -c &quot;import tensorflow as tf; x = [[2.]]; print(&#39;tensorflow version&#39;, tf.__version__); print(&#39;hello, {}&#39;.format(tf.matmul(x, x)))&quot;
+</pre></div>
+</div>
+</div>
+
+  </div><!-- /.entry-content -->
+</section>
 
         <section id="extras" class="body">
 
@@ -115,10 +201,9 @@ git clone https://github.com/opencv …</pre></div></div></div> </div><!-- /.ent
             <li style="font-size: 100.0%;"><a href="/tag/gateway.html">gateway</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/git.html">git</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/ic880a.html">ic880a</a></li>
-            <li style="font-size: 164.6%;"><a href="/tag/iot.html">IoT</a></li>
+            <li style="font-size: 158.0%;"><a href="/tag/iot.html">iot</a></li>
             <li style="font-size: 139.6%;"><a href="/tag/linux.html">linux</a></li>
             <li style="font-size: 158.0%;"><a href="/tag/lorawan.html">lorawan</a></li>
-            <li style="font-size: 100.0%;"><a href="/tag/lorrawan.html">LorRaWAN</a></li>
             <li style="font-size: 125.0%;"><a href="/tag/micropython.html">micropython</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/misc.html">misc</a></li>
             <li style="font-size: 125.0%;"><a href="/tag/network.html">network</a></li>
