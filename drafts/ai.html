@@ -92,6 +92,12 @@ pip install [file_name].whl</p>
  https://rubikscode.net/2019/04/22/ULTIMATE-GUIDE-TO-TENSORFLOW-2-0-IN-PYTHON/#COMMENTS
  pip install --upgrade tensorflow==2.0.0-rc1</p>
 <p>python -c "import tensorflow as tf; x = [[2.]]; print('tensorflow version', tf.<strong>version</strong>); print('hello, {}'.format(tf.matmul(x, x)))"</p>
+<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">opencv</span>
+<span class="n">python3</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;import cv2; print(cv2.__version__)&quot;</span>
+
+<span class="n">Location</span> <span class="n">ubuntu</span>
+<span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="o">.</span><span class="mi">6</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">cv2</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="mf">3.6</span>
+</pre></div>
   </div><!-- /.entry-content -->
 </section>
 
@@ -180,6 +186,8 @@ pip install [file_name].whl</p>
 
   // Handle site search
   $(document).ready(function() {
+    console.log("Hello")
+
     // Search handler
      $('#tipue_search_input').tipuesearch({
           'mode': 'json',

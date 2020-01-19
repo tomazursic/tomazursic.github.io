@@ -10,6 +10,8 @@
 
 
 
+    <meta name="tags" content="tmux" />
+    <meta name="tags" content="shell" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/theme/favicons/apple-touch-icon.png">
@@ -72,12 +74,25 @@
     <div class="category">
         <b>Category</b>: <a href="/category/blog.html">blog</a>
     </div>
+    <div class="tags">
+        <b>Tags</b>:
+            <a href="/tag/tmux.html">tmux</a>
+            <a href="/tag/shell.html">shell</a>
+    </div>
   </footer><!-- /.post-info -->
 
   <div class="entry-content">
-    <h1>Tmux commands in use</h1>
+    <div class="section" id="note-on-tmux">
+<h2>Note on TMUX</h2>
 <p>Open pane in new window</p>
-<p>:break-pane</p>
+<div class="highlight"><pre><span></span>&lt;prefix&gt;!
+
+# or
+
+:break-pane
+</pre></div>
+</div>
+
   </div><!-- /.entry-content -->
 </section>
 
@@ -166,6 +181,8 @@
 
   // Handle site search
   $(document).ready(function() {
+    console.log("Hello")
+
     // Search handler
      $('#tipue_search_input').tipuesearch({
           'mode': 'json',

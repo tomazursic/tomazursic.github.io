@@ -282,7 +282,7 @@ port (1-3), the 4th port is only for Leaf sensor!</p>
 <div class="section" id="measurements">
 <h3><a class="toc-backref" href="#id7">Measurements</a></h3>
 <ul class="simple">
-<li>Get credentials - <a class="reference external" href="https://console.thethingsnetwork.org/applications/enkronos-iot-001">https://console.thethingsnetwork.org/applications/enkronos-iot-001</a></li>
+<li>Get credentials - <a class="reference external" href="https://console.thethingsnetwork.org/applications">https://console.thethingsnetwork.org/applications</a>/&lt;APPID&gt;</li>
 <li>API reference - <a class="reference external" href="https://www.thethingsnetwork.org/docs/applications/mqtt/api.html">https://www.thethingsnetwork.org/docs/applications/mqtt/api.html</a></li>
 <li>PEM CA - <a class="reference external" href="https://console.thethingsnetwork.org/mqtt-ca.pem">https://console.thethingsnetwork.org/mqtt-ca.pem</a></li>
 </ul>
@@ -628,6 +628,8 @@ the air</p>
 
   // Handle site search
   $(document).ready(function() {
+    console.log("Hello")
+
     // Search handler
      $('#tipue_search_input').tipuesearch({
           'mode': 'json',
