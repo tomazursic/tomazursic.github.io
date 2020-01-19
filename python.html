@@ -3287,6 +3287,16 @@ of them. Each <tt class="docutils literal">yield</tt> statement returns the next
 <em>freezes</em> the state of the function. When iteration is resumed, the function
 continues from the point it was frozen. Note, that the result of calling the
 function is a generator</p>
+<div class="highlight"><pre><span></span><span class="c1"># Not a generator way</span>
+<span class="k">def</span> <span class="nf">fibgen</span><span class="p">(</span><span class="n">numb</span><span class="p">):</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">numb</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">fibgen</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
 <div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">fib_gen</span><span class="p">():</span>
 <span class="o">...</span>     <span class="n">val1</span><span class="p">,</span> <span class="n">val2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
 <span class="o">...</span>     <span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
@@ -3304,6 +3314,15 @@ function is a generator</p>
 <span class="mi">2</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">next</span><span class="p">(</span><span class="n">gen_iter</span><span class="p">)</span>
 <span class="mi">3</span>
+</pre></div>
+<p>Generators Expresions</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">nums_squared_lc</span> <span class="o">=</span> <span class="p">[</span><span class="n">num</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">nums_squared_gc</span> <span class="o">=</span> <span class="p">(</span><span class="n">num</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+<p>Slice iterator</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">itertools</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>  <span class="c1"># &lt;itertools.islice object at 0x7f70fab88138&gt;</span>
 </pre></div>
 </div>
 <div class="section" id="coroutines">
