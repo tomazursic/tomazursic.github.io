@@ -695,6 +695,27 @@ p.topic-title {
   text-align: center;
 }
 
+/* Tags */
 .tags-footer {
   /* padding-bottom: 100px; */
+}
+
+
+/* Note */
+.note {
+  padding: 0.3rem 0.5rem;
+  background-color: #f3f3f3;
+  border-radius: 0.1rem;
+}
+.note p {
+  margin: 0
+}
+
+.note .admonition-title {
+  display: none
+}
+
+html.inverted .note {
+  background-color: #2a4f70;
+  color: #a5caeb;
 }
