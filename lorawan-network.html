@@ -265,13 +265,15 @@ the following:</p>
 Application</p>
 <div class="figure">
 <img alt="LoRaWAN arhitecture" src="images/lorawan/lorawan_architecture.jpg" />
-<p class="caption">Node Device --(LoRa RF)--&gt; Gateway --(LoRaWAN TCP/IP)--&gt; Network Server ---&gt; Application Server</p>
-<div class="legend">
-<p>#---------- MAC Layer Communication (Network Session Key) -------------#</p>
-<p>#------------------- Application Layer Communication (Application Session Key) ---------------#</p>
-<p>LoRaWAN arhitecture</p>
 </div>
-</div>
+<div class="highlight"><pre><span></span>Node Device --(LoRa RF)--&gt; Gateway --(LoRaWAN TCP/IP)--&gt; Network Server ---&gt; Application Server
+
+#---------- MAC Layer Communication (Network Session Key) -------------#
+
+#------------------- Application Layer Communication (Application Session Key) ---------------#
+
+LoRaWAN arhitecture
+</pre></div>
 <p>For upstream messages, for example a sensor that sends information to an
 application, the flow is from left to right. The sensor value (payload)
 gets encrypted and gets transmitted over LoRa radio. One or more

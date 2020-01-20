@@ -939,13 +939,15 @@ the following:&lt;/p&gt;
 Application&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="LoRaWAN arhitecture" src="images/lorawan/lorawan_architecture.jpg" /&gt;
-&lt;p class="caption"&gt;Node Device --(LoRa RF)--&amp;gt; Gateway --(LoRaWAN TCP/IP)--&amp;gt; Network Server ---&amp;gt; Application Server&lt;/p&gt;
-&lt;div class="legend"&gt;
-&lt;p&gt;#---------- MAC Layer Communication (Network Session Key) -------------#&lt;/p&gt;
-&lt;p&gt;#------------------- Application Layer Communication (Application Session Key) ---------------#&lt;/p&gt;
-&lt;p&gt;LoRaWAN arhitecture&lt;/p&gt;
 &lt;/div&gt;
-&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Node Device --(LoRa RF)--&amp;gt; Gateway --(LoRaWAN TCP/IP)--&amp;gt; Network Server ---&amp;gt; Application Server
+
+#---------- MAC Layer Communication (Network Session Key) -------------#
+
+#------------------- Application Layer Communication (Application Session Key) ---------------#
+
+LoRaWAN arhitecture
+&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;For upstream messages, for example a sensor that sends information to an
 application, the flow is from left to right. The sensor value (payload)
 gets encrypted and gets transmitted over LoRa radio. One or more
@@ -6242,7 +6244,8 @@ $ git push origin content
 &lt;p&gt;Generate style file and add to &lt;code&gt;base.html&lt;/code&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; $ &lt;span class="nb"&gt;cd&lt;/span&gt; thems/&amp;lt;theme-name&amp;gt;/css
  $ pygmentize -S monokai -f html -a .highlight &amp;gt; pygments_vim.css
-&lt;/pre&gt;&lt;/div&gt;</content><category term="blog"></category><category term="python"></category><category term="pelican"></category></entry><entry><title>Liftoff</title><link href="/liftoff.html" rel="alternate"></link><published>2017-05-03T06:14:30+02:00</published><updated>2017-05-03T06:14:30+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-05-03:/liftoff.html</id><summary type="html">&lt;p&gt;hello world&lt;/p&gt;</summary><content type="html">&lt;h2&gt;First Post&lt;/h2&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="blog"></category><category term="python"></category><category term="pelican"></category></entry><entry><title>Liftoff</title><link href="/liftoff.html" rel="alternate"></link><published>2017-05-03T06:14:30+02:00</published><updated>2017-05-03T06:14:30+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-05-03:/liftoff.html</id><summary type="html">&lt;p&gt;hello world&lt;/p&gt;</summary><content type="html">&lt;p&gt;:status: published&lt;/p&gt;
+&lt;h2&gt;First Post&lt;/h2&gt;
 &lt;p&gt;World, hello again! This very first paragraph of the post will be used as
 excerpt in archives and feeds.&lt;/p&gt;
 &lt;p&gt;This post is consequence of merging old blog and accumulated notes.&lt;/p&gt;
