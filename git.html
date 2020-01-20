@@ -84,6 +84,29 @@
   <div class="entry-content">
     <div class="section" id="git-tips">
 <h2>Git Tips</h2>
+<div class="section" id="reset">
+<h3>Reset</h3>
+<p>Reset current git repo to match remote</p>
+<div class="highlight"><pre><span></span><span class="o">#</span> <span class="n">Save</span> <span class="n">work</span>
+<span class="n">git</span> <span class="n">co</span> <span class="o">-</span><span class="n">b</span> <span class="n">save</span><span class="o">-</span><span class="n">work</span>
+<span class="n">git</span> <span class="n">co</span> <span class="n">master</span>
+
+<span class="n">git</span> <span class="n">fetch</span> <span class="n">origin</span>
+<span class="n">git</span> <span class="n">reset</span> <span class="c1">--hard origin/master</span>
+</pre></div>
+<p>Remove wrong commit from master.
+Reset reassign the branch pointer</p>
+<div class="highlight"><pre><span></span><span class="n">HEAD</span>   <span class="n">is</span> <span class="n">the</span> <span class="n">commit</span> <span class="n">currently</span> <span class="n">siting</span> <span class="n">on</span>
+<span class="o">^</span><span class="n">HEAD</span>  <span class="n">this</span> <span class="n">commit</span> <span class="n">parent</span>
+<span class="o">^^</span><span class="n">HEAD</span> <span class="n">this</span> <span class="n">commit</span> <span class="n">grandparent</span>
+
+<span class="err">$</span> <span class="n">git</span> <span class="n">co</span> <span class="n">master</span>
+<span class="err">$</span> <span class="n">git</span> <span class="n">reset</span> <span class="c1">--hard ^HEAD</span>
+</pre></div>
+<p>Reset last commit</p>
+<div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">reset</span> <span class="c1">--hard HEAD~1</span>
+</pre></div>
+</div>
 <div class="section" id="contribute">
 <h3>Contribute</h3>
 <ol class="arabic simple">
