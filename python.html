@@ -3482,6 +3482,8 @@ is an example of the code smell</p>
 <div class="highlight"><pre><span></span><span class="n">new_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">expression</span> <span class="k">for</span> <span class="n">member</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">]</span>
 <span class="c1"># with condition</span>
 <span class="n">new_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">expression</span> <span class="k">for</span> <span class="n">member</span> <span class="ow">in</span> <span class="n">iterable</span> <span class="p">(</span><span class="k">if</span> <span class="n">conditional</span><span class="p">)]</span>
+<span class="c1"># with condition at the end of statement</span>
+<span class="n">new_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">expression</span> <span class="p">(</span><span class="k">if</span> <span class="n">conditional</span><span class="p">)</span> <span class="k">for</span> <span class="n">member</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">]</span>
 </pre></div>
 <div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">num</span><span class="o">*</span><span class="n">num</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span>
 <span class="o">...</span>           <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
