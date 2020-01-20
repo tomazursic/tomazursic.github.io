@@ -149,7 +149,7 @@
 </li>
 <li><a class="reference internal" href="#looping" id="id52">Looping</a><ul>
 <li><a class="reference internal" href="#while-loops" id="id53"><tt class="docutils literal">while</tt> Loops</a></li>
-<li><a class="reference internal" href="#iterators" id="id54">Iterators</a></li>
+<li><a class="reference internal" href="#iteration-protocol" id="id54">Iteration Protocol</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#conditionals" id="id55">Conditionals</a><ul>
@@ -236,6 +236,7 @@ resource during training, meant to be distributed as a physical notebook.
 Participants (who favor the physical characteristics of dead tree material)
 could add their own notes, thoughts, and have a valuable reference
 of curated examples.</p>
+<p><a class="reference external" href="https://www.linuxjournal.com/article/3882">Why Python?</a></p>
 </div>
 <div class="section" id="new-features">
 <h2><a class="toc-backref" href="#id12">New Features</a></h2>
@@ -2905,9 +2906,8 @@ you can break out of it</p>
 <span class="o">...</span>     <span class="n">done</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
-<div class="section" id="iterators">
-<h3><a class="toc-backref" href="#id54">Iterators</a></h3>
-<p>Iteration Protocol</p>
+<div class="section" id="iteration-protocol">
+<h3><a class="toc-backref" href="#id54">Iteration Protocol</a></h3>
 <ul>
 <li><p class="first"><strong>Iterable</strong></p>
 <p>is an object, which one can iterate over.
@@ -3355,8 +3355,8 @@ A generator is a function that produces a sequence of results instead of a singl
 <div class="highlight"><pre><span></span><span class="c1"># Not a generator way</span>
 <span class="k">def</span> <span class="nf">fibgen</span><span class="p">(</span><span class="n">numb</span><span class="p">):</span>
     <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">numb</span><span class="p">):</span>
-        <span class="k">yield</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">numb</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="sa">f</span><span class="s1">&#39;{i+1} </span><span class="si">{a}</span><span class="s1">&#39;</span>
         <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 
 <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">fibgen</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
