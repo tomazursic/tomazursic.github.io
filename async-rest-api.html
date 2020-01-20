@@ -2,9 +2,18 @@
 <html lang="en" class="inverted">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Web Logs - tomazursic.github.io - snippets tag</title>
+    <title>Web Logs - tomazursic.github.io - Async RESTful API</title>
   <meta charset="utf-8" />
   <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Web Logs - tomazursic.github.io Full Atom Feed" />
+  <link href="/feeds/blog.atom.xml" type="application/atom+xml" rel="alternate" title="Web Logs - tomazursic.github.io Categories Atom Feed" />
+
+
+
+
+    <meta name="tags" content="python" />
+    <meta name="tags" content="api" />
+    <meta name="tags" content="async" />
+
 
   <link rel="apple-touch-icon" sizes="180x180" href="/theme/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/theme/favicons/favicon-32x32.png">
@@ -31,7 +40,7 @@
     </div>
     <ul class="nav-menu">
 
-          <li><a href="/category/blog.html">blog</a></li>
+          <li class="active"><a href="/category/blog.html">blog</a></li>
           <li><a href="/category/projects.html">projects</a></li>
           <li><a href="/pages/contact.html">Contact</a></li>
     </ul>
@@ -49,46 +58,134 @@
         <div id="invmode">Day</div>
         <button onclick="goUp()" id="upBtn" title="Go to top"><i class="ion-ios-arrow-up"></i></button>
 
-          <div id="search" >
 
-            <form action="/">
-           <div class="search tipue_search_right">
-              <input type="text" class="searchTerm" placeholder="Search by keywords.."  aria-hidden="true" data-choice="active"
-                          type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required>
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="/async-rest-api.html" rel="bookmark"
+         title="Permalink to Async RESTful API">Async RESTful API</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2020-01-19T21:22:00+01:00">
+      <b>Published</b>: Sun 19 January 2020
+    </time>
+    <br>
+    <div class="category">
+        <b>Category</b>: <a href="/category/blog.html">blog</a>
+    </div>
+    <div class="tags">
+        <b>Tags</b>:
+            <a href="/tag/python.html">python</a>
+            <a href="/tag/api.html">api</a>
+            <a href="/tag/async.html">async</a>
+    </div>
+  </footer><!-- /.post-info -->
 
-              <button type="submit" class="searchButton">
-               <i class="ion-ios-search"></i>
-             </button>
-           </div>
-            </form>
+  <div class="entry-content">
+    <div class="section" id="asynchronous-rest-api-s">
+<h2>Asynchronous REST API's</h2>
+<p>Develop an asynchronous REST API with Python and <a class="reference external" href="https://fastapi.tiangolo.com/">FastAPI</a></p>
+<p><a class="reference external" href="https://fastapi.tiangolo.com/advanced/sql-databases-peewee/#about-def-vs-async-def">https://fastapi.tiangolo.com/advanced/sql-databases-peewee/#about-def-vs-async-def</a></p>
+<div class="section" id="setup">
+<h3>Setup</h3>
+<p><strong>ASGI</strong> <a class="reference external" href="https://www.starlette.io/">https://www.starlette.io/</a></p>
+<!-- https://fastapi.tiangolo.com/tutorial/security/simple-oauth2/
+https://www.uvicorn.org/#running-with-gunicorn -->
+<p>Looking for some more challenges?</p>
+<blockquote>
+Review the official tutorial. It's long but well worth a read.
+Implement async background tasks, database migrations, and auth.
+Abstract out the application configuration to a separate file.
+In a production environment, you'll probably want to stand up Gunicorn and let it manage Uvicorn. Review Running with Gunicorn and the Deployment guide for more info. Check out the official uvicorn-gunicorn-fastapi Docker image as well.</blockquote>
+<p>You can find the source code in the fastapi-crud-async repo. Thanks for reading!</p>
+<div class="section" id="project-struture">
+<h4>Project struture</h4>
+<div class="highlight"><pre><span></span>~/g/things-crud ❯❯❯ tree .
+.
+├── README.md
+└── src
+    ├── app
+    │   ├── __init__.py
+    │   └── main.py
+    └── requirements.txt
 
-            <div id="tipue_search_content" style="margin: 2rem 0rem; padding: 1rem; border-bottom: 1px solid;"></div>
+<span class="m">2</span> directories, <span class="m">4</span> files
+</pre></div>
+<table border="1" class="docutils">
+<caption>Routes</caption>
+<colgroup>
+<col width="23%" />
+<col width="23%" />
+<col width="21%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Endpoint</th>
+<th class="head">HTTP Method</th>
+<th class="head">CRUD Method</th>
+<th class="head">Result</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>/node/</td>
+<td>GET</td>
+<td>READ</td>
+<td>get all notes</td>
+</tr>
+<tr><td>/node/:id/</td>
+<td>GET</td>
+<td>READ</td>
+<td>get a single node</td>
+</tr>
+<tr><td>/node/</td>
+<td>POST</td>
+<td>CREATE</td>
+<td>add a node</td>
+</tr>
+<tr><td>/node/:id/</td>
+<td>PUT</td>
+<td>UPDATE</td>
+<td>update a node</td>
+</tr>
+<tr><td>/node/:id/</td>
+<td>DELETE</td>
+<td>DELETE</td>
+<td>delete a node</td>
+</tr>
+</tbody>
+</table>
+<!-- https://docs.sqlalchemy.org/en/13/core/
+https://docs.pytest.org/en/latest/fixture.html
+http://localhost:8002/ping
+http://localhost:8002/docs
 
-          </div>
+https://www.starlette.io/database/
+    database.fetch_all(query)
+    database.fetch_one(query)
+    database.iterate(query)
+    database.execute(query)
+    database.execute_many(query) -->
+</div>
+</div>
+<div class="section" id="postgresql">
+<h3>PostgreSQL</h3>
+<div class="highlight"><pre><span></span>docker-compose <span class="nb">exec</span> db psql --username<span class="o">=</span>hello_fastapi --dbname<span class="o">=</span>hello_fastapi_dev
+</pre></div>
+<p><a class="reference external" href="https://pydantic-docs.helpmanual.io/">https://pydantic-docs.helpmanual.io/</a>
+<a class="reference external" href="https://pydantic-docs.helpmanual.io/usage/models/">https://pydantic-docs.helpmanual.io/usage/models/</a></p>
+<p><a class="reference external" href="https://docs.pytest.org/en/latest/monkeypatch.html">https://docs.pytest.org/en/latest/monkeypatch.html</a></p>
+<div class="highlight"><pre><span></span>http POST <span class="m">0</span>.0.0.0:8002/nodes/ <span class="nv">dev_id</span><span class="o">=</span><span class="s2">&quot;d3vic3&quot;</span> <span class="nv">description</span><span class="o">=</span><span class="s2">&quot;Test device - žćčđš&quot;</span>
 
-<section id="content">
-<h2>Articles tagged with snippets</h2>
+<span class="se">\l</span>
+<span class="se">\d</span>t
+SELECT * FROM nodes<span class="p">;</span>
+</pre></div>
+</div>
+</div>
 
-<ol id="post-list">
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="/python-cheatsheet.html" rel="bookmark" title="Permalink to Python Snippets">Python Snippets</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2017-11-05T00:00:00+01:00"> Sun 05 November 2017 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="/author/tomaz.html">Tomaz</a>
-                    </address>
-                    <div>
-                    Tags: 
-                        <a class="url fn" href="/tag/python.html">python</a>
-                        <a class="url fn" href="/tag/notes.html">notes</a>
-                        <a class="url fn" href="/tag/cheatsheet.html">cheatsheet</a>
-                        <a class="url fn" href="/tag/snippets.html">snippets</a>
-                    </div>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> Code snippets </div><!-- /.entry-content -->
-        </article></li>
-</ol><!-- /#posts-list -->
-</section><!-- /#content -->
+  </div><!-- /.entry-content -->
+</section>
 
         <section id="extras" class="body">
 
