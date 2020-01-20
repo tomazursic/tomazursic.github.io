@@ -703,3 +703,10 @@ table.dockutils {
   overflow: auto;
 }
 
+#style-switch-button {
+    position: fixed;
+    top: 120px;
+    right: 0px;
+    border-radius: 0;
+    z-index: 2;
+}
