@@ -135,28 +135,29 @@
 <li><a class="reference internal" href="#loading-a-csv-file-into-a-listed-dictionary" id="id33">Loading a csv file into a listed dictionary</a></li>
 <li><a class="reference internal" href="#use-named-tuple-instead-of-a-class-for-simple-scenarios" id="id34">Use named tuple instead of a class for simple scenarios</a></li>
 <li><a class="reference internal" href="#fib-generator" id="id35">Fib generator</a></li>
-<li><a class="reference internal" href="#classes" id="id36">Classes</a><ul>
-<li><a class="reference internal" href="#python-2" id="id37">Python 2</a></li>
-<li><a class="reference internal" href="#python-3" id="id38">Python 3</a></li>
+<li><a class="reference internal" href="#palindrome" id="id36">Palindrome</a></li>
+<li><a class="reference internal" href="#classes" id="id37">Classes</a><ul>
+<li><a class="reference internal" href="#python-2" id="id38">Python 2</a></li>
+<li><a class="reference internal" href="#python-3" id="id39">Python 3</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#check-for-one-condition" id="id39">Check for one condition</a></li>
-<li><a class="reference internal" href="#check-for-all-condition" id="id40">Check for all condition</a></li>
-<li><a class="reference internal" href="#range-check" id="id41">Range check</a></li>
-<li><a class="reference internal" href="#copy-a-list" id="id42">Copy a list</a></li>
-<li><a class="reference internal" href="#list-comprehension" id="id43">List comprehension</a></li>
-<li><a class="reference internal" href="#frequency-count" id="id44">Frequency count</a></li>
-<li><a class="reference internal" href="#exceptions" id="id45">Exceptions</a></li>
-<li><a class="reference internal" href="#raising-key-error-in-dictionary" id="id46">Raising key error in dictionary</a></li>
-<li><a class="reference internal" href="#print-to-stout" id="id47">Print to stout</a><ul>
-<li><a class="reference internal" href="#import-module-from-parent" id="id48">Import module from parent</a></li>
-<li><a class="reference internal" href="#download-files-from-web" id="id49">Download files from web</a></li>
-<li><a class="reference internal" href="#download-and-extract-archives-on-the-fly" id="id50">Download and extract archives on the fly</a></li>
-<li><a class="reference internal" href="#system-version" id="id51">System version</a></li>
+<li><a class="reference internal" href="#check-for-one-condition" id="id40">Check for one condition</a></li>
+<li><a class="reference internal" href="#check-for-all-condition" id="id41">Check for all condition</a></li>
+<li><a class="reference internal" href="#range-check" id="id42">Range check</a></li>
+<li><a class="reference internal" href="#copy-a-list" id="id43">Copy a list</a></li>
+<li><a class="reference internal" href="#list-comprehension" id="id44">List comprehension</a></li>
+<li><a class="reference internal" href="#frequency-count" id="id45">Frequency count</a></li>
+<li><a class="reference internal" href="#exceptions" id="id46">Exceptions</a></li>
+<li><a class="reference internal" href="#raising-key-error-in-dictionary" id="id47">Raising key error in dictionary</a></li>
+<li><a class="reference internal" href="#print-to-stout" id="id48">Print to stout</a><ul>
+<li><a class="reference internal" href="#import-module-from-parent" id="id49">Import module from parent</a></li>
+<li><a class="reference internal" href="#download-files-from-web" id="id50">Download files from web</a></li>
+<li><a class="reference internal" href="#download-and-extract-archives-on-the-fly" id="id51">Download and extract archives on the fly</a></li>
+<li><a class="reference internal" href="#system-version" id="id52">System version</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#geolocate-ip" id="id52">Geolocate ip</a></li>
-<li><a class="reference internal" href="#geopy" id="id53">geopy</a></li>
+<li><a class="reference internal" href="#geolocate-ip" id="id53">Geolocate ip</a></li>
+<li><a class="reference internal" href="#geopy" id="id54">geopy</a></li>
 </ul>
 </li>
 </ul>
@@ -183,6 +184,10 @@
 <span class="n">done</span>
 <span class="mf">15.013195956000345</span>
 <span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">timeit</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s1">&#39;&quot;-&quot;.join(str(n) for n in range(100))&#39;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="mf">0.2326357249985449</span>
 </pre></div>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">contextlib</span>
@@ -618,10 +623,31 @@ python -m smtpd -n -c DebuggingServer localhost:25
 <span class="n">run</span><span class="p">()</span>
 </pre>
 </div>
+<div class="section" id="palindrome">
+<h3><a class="toc-backref" href="#id36">Palindrome</a></h3>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_palidrome</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span> <span class="k">if</span> <span class="n">c</span> <span class="o">!=</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">s</span> <span class="o">==</span> <span class="n">s</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">input_str</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Pleas enter a word: &quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">is_palidrome</span><span class="p">(</span><span class="n">input_str</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is palindrome&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is not a palindrome&quot;</span><span class="p">)</span>
+</pre></div>
+<p>Example using standard libraries</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">punctuation</span>
+
+<span class="k">def</span> <span class="nf">is_palidrome</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">punctuation</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">s</span> <span class="o">==</span> <span class="n">s</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
 <div class="section" id="classes">
-<h3><a class="toc-backref" href="#id36">Classes</a></h3>
+<h3><a class="toc-backref" href="#id37">Classes</a></h3>
 <div class="section" id="python-2">
-<span id="python-2-1"></span><h4><a class="toc-backref" href="#id37">Python 2</a></h4>
+<span id="python-2-1"></span><h4><a class="toc-backref" href="#id38">Python 2</a></h4>
 <pre class="code python literal-block">
 <span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
@@ -643,7 +669,7 @@ python -m smtpd -n -c DebuggingServer localhost:25
 </pre>
 </div>
 <div class="section" id="python-3">
-<span id="python-3-1"></span><h4><a class="toc-backref" href="#id38">Python 3</a></h4>
+<span id="python-3-1"></span><h4><a class="toc-backref" href="#id39">Python 3</a></h4>
 <pre class="code python literal-block">
 <span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
@@ -666,21 +692,21 @@ python -m smtpd -n -c DebuggingServer localhost:25
 </div>
 </div>
 <div class="section" id="check-for-one-condition">
-<h3><a class="toc-backref" href="#id39">Check for one condition</a></h3>
+<h3><a class="toc-backref" href="#id40">Check for one condition</a></h3>
 <pre class="code python literal-block">
 <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="n">user</span><span class="o">.</span><span class="n">is_admin</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">is_dude</span><span class="p">]):</span>
     <span class="c1"># Grant Access</span>
 </pre>
 </div>
 <div class="section" id="check-for-all-condition">
-<h3><a class="toc-backref" href="#id40">Check for all condition</a></h3>
+<h3><a class="toc-backref" href="#id41">Check for all condition</a></h3>
 <pre class="code python literal-block">
 <span class="k">if</span> <span class="nb">all</span><span class="p">([</span><span class="n">user</span><span class="o">.</span><span class="n">is_admin</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">is_dude</span><span class="p">]):</span>
     <span class="c1"># Grant Access</span>
 </pre>
 </div>
 <div class="section" id="range-check">
-<h3><a class="toc-backref" href="#id41">Range check</a></h3>
+<h3><a class="toc-backref" href="#id42">Range check</a></h3>
 <pre class="code python literal-block">
 <span class="n">status_code</span> <span class="o">=</span> <span class="mi">200</span>
 <span class="k">if</span> <span class="mi">200</span> <span class="o">&lt;=</span> <span class="n">status_code</span> <span class="o">&lt;=</span> <span class="mi">299</span><span class="p">:</span>
@@ -688,7 +714,7 @@ python -m smtpd -n -c DebuggingServer localhost:25
 </pre>
 </div>
 <div class="section" id="copy-a-list">
-<h3><a class="toc-backref" href="#id42">Copy a list</a></h3>
+<h3><a class="toc-backref" href="#id43">Copy a list</a></h3>
 <pre class="code python literal-block">
 <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">]</span>
 <span class="n">colors</span> <span class="o">=</span> <span class="n">langs</span><span class="p">[:]</span>
@@ -698,7 +724,7 @@ python -m smtpd -n -c DebuggingServer localhost:25
 </pre>
 </div>
 <div class="section" id="list-comprehension">
-<h3><a class="toc-backref" href="#id43">List comprehension</a></h3>
+<h3><a class="toc-backref" href="#id44">List comprehension</a></h3>
 <pre class="code python literal-block">
 <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 <span class="n">evens</span> <span class="o">=</span> <span class="p">[</span><span class="n">numb</span> <span class="k">for</span> <span class="n">numb</span> <span class="ow">in</span> <span class="n">numbers</span> <span class="k">if</span> <span class="n">numb</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
@@ -707,7 +733,7 @@ python -m smtpd -n -c DebuggingServer localhost:25
 </pre>
 </div>
 <div class="section" id="frequency-count">
-<h3><a class="toc-backref" href="#id44">Frequency count</a></h3>
+<h3><a class="toc-backref" href="#id45">Frequency count</a></h3>
 <pre class="code python literal-block">
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
 <span class="n">frequency</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
@@ -716,7 +742,7 @@ python -m smtpd -n -c DebuggingServer localhost:25
 </pre>
 </div>
 <div class="section" id="exceptions">
-<h3><a class="toc-backref" href="#id45">Exceptions</a></h3>
+<h3><a class="toc-backref" href="#id46">Exceptions</a></h3>
 <pre class="code python literal-block">
 <span class="k">try</span><span class="p">:</span>
    <span class="n">foo</span><span class="p">()</span>
@@ -725,7 +751,7 @@ python -m smtpd -n -c DebuggingServer localhost:25
 </pre>
 </div>
 <div class="section" id="raising-key-error-in-dictionary">
-<h3><a class="toc-backref" href="#id46">Raising key error in dictionary</a></h3>
+<h3><a class="toc-backref" href="#id47">Raising key error in dictionary</a></h3>
 <pre class="code python literal-block">
 <span class="c1">#Easier to Ask for Forgiveness than Permission</span>
 <span class="k">try</span><span class="p">:</span>
@@ -735,7 +761,7 @@ python -m smtpd -n -c DebuggingServer localhost:25
 </pre>
 </div>
 <div class="section" id="print-to-stout">
-<h3><a class="toc-backref" href="#id47">Print to stout</a></h3>
+<h3><a class="toc-backref" href="#id48">Print to stout</a></h3>
 <pre class="code python literal-block">
 <span class="kn">import</span> <span class="nn">sys</span>
 
@@ -761,12 +787,12 @@ python -m smtpd -n -c DebuggingServer localhost:25
 <span class="nb">print</span><span class="p">(</span><span class="s1">'Somethin to print'</span><span class="p">)</span>
 </pre>
 <div class="section" id="import-module-from-parent">
-<h4><a class="toc-backref" href="#id48">Import module from parent</a></h4>
+<h4><a class="toc-backref" href="#id49">Import module from parent</a></h4>
 <div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;../parent_dir&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="section" id="download-files-from-web">
-<h4><a class="toc-backref" href="#id49">Download files from web</a></h4>
+<h4><a class="toc-backref" href="#id50">Download files from web</a></h4>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span>
 
 <span class="c1"># Download the file from `url` and save it locally under `file_name`:</span>
@@ -777,7 +803,7 @@ python -m smtpd -n -c DebuggingServer localhost:25
 </pre></div>
 </div>
 <div class="section" id="download-and-extract-archives-on-the-fly">
-<h4><a class="toc-backref" href="#id50">Download and extract archives on the fly</a></h4>
+<h4><a class="toc-backref" href="#id51">Download and extract archives on the fly</a></h4>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gzip</span>
 
 <span class="c1"># Read the first 64 bytes of the file inside the .gz archive located at `url`</span>
@@ -790,7 +816,7 @@ python -m smtpd -n -c DebuggingServer localhost:25
 </pre></div>
 </div>
 <div class="section" id="system-version">
-<h4><a class="toc-backref" href="#id51">System version</a></h4>
+<h4><a class="toc-backref" href="#id52">System version</a></h4>
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">HealthMonitor</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">settings</span><span class="p">):</span>
         <span class="k">assert</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
@@ -819,7 +845,7 @@ python -m smtpd -n -c DebuggingServer localhost:25
 </div>
 </div>
 <div class="section" id="geolocate-ip">
-<h3><a class="toc-backref" href="#id52">Geolocate ip</a></h3>
+<h3><a class="toc-backref" href="#id53">Geolocate ip</a></h3>
 <pre class="code python literal-block">
 <span class="c1"># wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz</span>
 <span class="c1"># gunzip GeoLiteCity.dat.gz</span>
@@ -838,7 +864,7 @@ python -m smtpd -n -c DebuggingServer localhost:25
 </pre>
 </div>
 <div class="section" id="geopy">
-<h3><a class="toc-backref" href="#id53">geopy</a></h3>
+<h3><a class="toc-backref" href="#id54">geopy</a></h3>
 <pre class="code python literal-block">
 <span class="kn">from</span> <span class="nn">geopy</span> <span class="kn">import</span> <span class="n">distance</span> <span class="k">as</span> <span class="n">geopy_distance</span>
 

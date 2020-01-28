@@ -83,60 +83,60 @@
 
   <div class="entry-content">
     <h1>AI</h1>
-<div class="highlight"><pre><span></span><span class="w">    </span><span class="n">Install</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">required</span><span class="w"> </span><span class="nl">dependencies</span><span class="p">:</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="n">Install</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">required</span><span class="w"> </span><span class="nl">dependencies</span><span class="p">:</span><span class="w"></span>
 
-<span class="w">    </span><span class="n">sudo</span><span class="w"> </span><span class="n">apt</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">build</span><span class="o">-</span><span class="n">essential</span><span class="w"> </span><span class="n">cmake</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">pkg</span><span class="o">-</span><span class="n">config</span><span class="w"> </span><span class="n">libgtk</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="err">\</span><span class="w"></span>
-<span class="w">        </span><span class="n">libavcodec</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">libavformat</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">libswscale</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">libv4l</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="err">\</span><span class="w"></span>
-<span class="w">        </span><span class="n">libxvidcore</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">libx264</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">libjpeg</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">libpng</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">libtiff</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="err">\</span><span class="w"></span>
-<span class="w">        </span><span class="n">gfortran</span><span class="w"> </span><span class="n">openexr</span><span class="w"> </span><span class="n">libatlas</span><span class="o">-</span><span class="n">base</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">python3</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">python3</span><span class="o">-</span><span class="n">numpy</span><span class="w"> </span><span class="err">\</span><span class="w"></span>
-<span class="w">        </span><span class="n">libtbb2</span><span class="w"> </span><span class="n">libtbb</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">libdc1394</span><span class="o">-</span><span class="mi">22</span><span class="o">-</span><span class="n">dev</span><span class="w"></span>
+<span class="n">sudo</span><span class="w"> </span><span class="n">apt</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">build</span><span class="o">-</span><span class="n">essential</span><span class="w"> </span><span class="n">cmake</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">pkg</span><span class="o">-</span><span class="n">config</span><span class="w"> </span><span class="n">libgtk</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="err">\</span><span class="w"></span>
+<span class="w">    </span><span class="n">libavcodec</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">libavformat</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">libswscale</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">libv4l</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="err">\</span><span class="w"></span>
+<span class="w">    </span><span class="n">libxvidcore</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">libx264</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">libjpeg</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">libpng</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">libtiff</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="err">\</span><span class="w"></span>
+<span class="w">    </span><span class="n">gfortran</span><span class="w"> </span><span class="n">openexr</span><span class="w"> </span><span class="n">libatlas</span><span class="o">-</span><span class="n">base</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">python3</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">python3</span><span class="o">-</span><span class="n">numpy</span><span class="w"> </span><span class="err">\</span><span class="w"></span>
+<span class="w">    </span><span class="n">libtbb2</span><span class="w"> </span><span class="n">libtbb</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">libdc1394</span><span class="o">-</span><span class="mi">22</span><span class="o">-</span><span class="n">dev</span><span class="w"></span>
 
-<span class="w">    </span><span class="n">Clone</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">OpenCV</span><span class="s1">&#39;s and OpenCV contrib repositories:</span>
+<span class="n">Clone</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">OpenCV</span><span class="s1">&#39;s and OpenCV contrib repositories:</span>
 
-<span class="s1">    mkdir ~/opencv_build &amp;&amp; cd ~/opencv_build</span>
-<span class="s1">    git clone https://github.com/opencv/opencv.git</span>
-<span class="s1">    git clone https://github.com/opencv/opencv_contrib.git</span>
+<span class="s1">mkdir ~/opencv_build &amp;&amp; cd ~/opencv_build</span>
+<span class="s1">git clone https://github.com/opencv/opencv.git</span>
+<span class="s1">git clone https://github.com/opencv/opencv_contrib.git</span>
 
-<span class="s1">    At the time of writing, the default version in the github repositories is version 4.2.0. If you want to install an older version of OpenCV, cd to both opencv and opencv_contrib directories and run git checkout &lt;opencv-version&gt;</span>
+<span class="s1">At the time of writing, the default version in the github repositories is version 4.2.0. If you want to install an older version of OpenCV, cd to both opencv and opencv_contrib directories and run git checkout &lt;opencv-version&gt;</span>
 
-<span class="s1">    Once the download is complete, create a temporary build directory, and switch to it:</span>
+<span class="s1">Once the download is complete, create a temporary build directory, and switch to it:</span>
 
-<span class="s1">    cd ~/opencv_build/opencv</span>
-<span class="s1">    mkdir build &amp;&amp; cd build</span>
+<span class="s1">cd ~/opencv_build/opencv</span>
+<span class="s1">mkdir build &amp;&amp; cd build</span>
 
-<span class="s1">    Set up the OpenCV build with CMake:</span>
+<span class="s1">Set up the OpenCV build with CMake:</span>
 
-<span class="s1">    cmake -D CMAKE_BUILD_TYPE=RELEASE \</span>
-<span class="s1">        -D CMAKE_INSTALL_PREFIX=/usr/local \</span>
-<span class="s1">        -D INSTALL_C_EXAMPLES=ON \</span>
-<span class="s1">        -D INSTALL_PYTHON_EXAMPLES=ON \</span>
-<span class="s1">        -D OPENCV_GENERATE_PKGCONFIG=ON \</span>
-<span class="s1">        -D OPENCV_EXTRA_MODULES_PATH=~/opencv_build/opencv_contrib/modules \</span>
-<span class="s1">        -D BUILD_EXAMPLES=ON ..</span>
+<span class="s1">cmake -D CMAKE_BUILD_TYPE=RELEASE \</span>
+<span class="s1">    -D CMAKE_INSTALL_PREFIX=/usr/local \</span>
+<span class="s1">    -D INSTALL_C_EXAMPLES=ON \</span>
+<span class="s1">    -D INSTALL_PYTHON_EXAMPLES=ON \</span>
+<span class="s1">    -D OPENCV_GENERATE_PKGCONFIG=ON \</span>
+<span class="s1">    -D OPENCV_EXTRA_MODULES_PATH=~/opencv_build/opencv_contrib/modules \</span>
+<span class="s1">    -D BUILD_EXAMPLES=ON ..</span>
 
-<span class="s1">    https://medium.com/@aallan/a-magic-mirror-with-added-tensorflow-b8fcc5528a6</span>
-<span class="s1">    RPI</span>
-<span class="s1">    https://github.com/lhelontra/tensorflow-on-arm/releases</span>
-<span class="s1">    pip install [file_name].whl</span>
+<span class="s1">https://medium.com/@aallan/a-magic-mirror-with-added-tensorflow-b8fcc5528a6</span>
+<span class="s1">RPI</span>
+<span class="s1">https://github.com/lhelontra/tensorflow-on-arm/releases</span>
+<span class="s1">pip install [file_name].whl</span>
 
-<span class="s1">    https://www.tensorflow.org/install/pip</span>
+<span class="s1">https://www.tensorflow.org/install/pip</span>
 
-<span class="s1">    https://drive.google.com/drive/folders/0B1tW_VtY7onidEwyQ2FtQVplWEU</span>
+<span class="s1">https://drive.google.com/drive/folders/0B1tW_VtY7onidEwyQ2FtQVplWEU</span>
 
-<span class="s1">     https://medium.com/@cran2367/install-and-setup-tensorflow-2-0-2c4914b9a265</span>
-<span class="s1">     https://rubikscode.net/2019/04/22/ULTIMATE-GUIDE-TO-TENSORFLOW-2-0-IN-PYTHON/#COMMENTS</span>
-<span class="s1">     pip install --upgrade tensorflow==2.0.0-rc1</span>
+<span class="s1"> https://medium.com/@cran2367/install-and-setup-tensorflow-2-0-2c4914b9a265</span>
+<span class="s1"> https://rubikscode.net/2019/04/22/ULTIMATE-GUIDE-TO-TENSORFLOW-2-0-IN-PYTHON/#COMMENTS</span>
+<span class="s1"> pip install --upgrade tensorflow==2.0.0-rc1</span>
 
-<span class="s1">    python -c &quot;import tensorflow as tf; x = [[2.]]; print(&#39;</span><span class="n">tensorflow</span><span class="w"> </span><span class="n">version</span><span class="s1">&#39;, tf.__version__); print(&#39;</span><span class="n">hello</span><span class="p">,</span><span class="w"> </span><span class="err">{}&#39;</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)))</span><span class="ss">&quot;</span>
-
-
+<span class="s1">python -c &quot;import tensorflow as tf; x = [[2.]]; print(&#39;</span><span class="n">tensorflow</span><span class="w"> </span><span class="n">version</span><span class="s1">&#39;, tf.__version__); print(&#39;</span><span class="n">hello</span><span class="p">,</span><span class="w"> </span><span class="err">{}&#39;</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)))</span><span class="ss">&quot;</span>
 
 
-<span class="ss">    sudo apt install python3-opencv</span>
-<span class="ss">    python3 -c &quot;</span><span class="n">import</span><span class="w"> </span><span class="n">cv2</span><span class="p">;</span><span class="w"> </span><span class="k">print</span><span class="p">(</span><span class="n">cv2</span><span class="p">.</span><span class="n">__version__</span><span class="p">)</span><span class="err">&quot;</span><span class="w"></span>
 
-<span class="w">    </span><span class="n">Location</span><span class="w"> </span><span class="n">ubuntu</span><span class="w"></span>
-<span class="w">    </span><span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.6</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">cv2</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="mf">3.6</span><span class="w"></span>
+
+<span class="ss">sudo apt install python3-opencv</span>
+<span class="ss">python3 -c &quot;</span><span class="n">import</span><span class="w"> </span><span class="n">cv2</span><span class="p">;</span><span class="w"> </span><span class="k">print</span><span class="p">(</span><span class="n">cv2</span><span class="p">.</span><span class="n">__version__</span><span class="p">)</span><span class="err">&quot;</span><span class="w"></span>
+
+<span class="n">Location</span><span class="w"> </span><span class="n">ubuntu</span><span class="w"></span>
+<span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.6</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">cv2</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="mf">3.6</span><span class="w"></span>
 </pre></div>
   </div><!-- /.entry-content -->
 </section>
