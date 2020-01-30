@@ -29,9 +29,14 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#history" id="id17"&gt;History&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#glossary" id="id18"&gt;Glossary&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;VUD&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The vim editor which is always in use, so
+much that you start smashing into alien editors with vim commands.
+If you find somewhere in documents random characters &amp;quot;jjjkk&amp;quot; or any characters
+of &amp;quot;jklhzz&amp;quot; there was a vim user in this file. This acronym is just a dark fun
+invented by us, back somewhere in time.&lt;/p&gt;
 &lt;div class="section" id="neo-vim"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;Neo(vim)&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;The current plugged list (extensions in use)&lt;/p&gt;
@@ -787,19 +792,6 @@ ed &amp;gt;&amp;gt; em &amp;gt;&amp;gt; ex &amp;gt;&amp;gt; vi &amp;gt;&amp;gt; 
 &lt;p&gt;&lt;strong&gt;The Ex Editor&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Ex is a ‘line editor’ Vim is a ‘screen editor’ Ex is sub-editor within
 Vim. Amen.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="glossary"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id18"&gt;Glossary&lt;/a&gt;&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p class="first"&gt;VUD&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Vim User Disorder&lt;/strong&gt; syndrom&lt;/p&gt;
-&lt;p&gt;The vim editor which is always in use, so
-much that you start smashing into alien editors with vim commands.
-If you find somewhere in documents random characters &amp;quot;jjjkk&amp;quot; or any characters
-of &amp;quot;jklh&amp;quot; there was a vim user in this file. This acronym is just a dark fun
-invented by us, back somewhere in time.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 &lt;/div&gt;
 </content><category term="blog"></category><category term="vim"></category><category term="tools"></category></entry><entry><title>LoRaWAN Network</title><link href="/lorawan-network.html" rel="alternate"></link><published>2018-09-04T13:48:16+02:00</published><updated>2020-01-10T00:00:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-09-04:/lorawan-network.html</id><summary type="html">About LoraWAN Network</summary><content type="html">&lt;div class="section" id="lorawan-network"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;LoRaWAN Network&lt;/a&gt;&lt;/h2&gt;
