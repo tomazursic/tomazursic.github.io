@@ -32,11 +32,10 @@
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;VUD&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;The vim editor which is always in use, so
-much that you start smashing into alien editors with vim commands.
-If you find somewhere in documents random characters &amp;quot;jjjkk&amp;quot; or any characters
-of &amp;quot;jklhzz&amp;quot; there was a vim user in this file. This acronym is just a dark fun
-invented by us, back somewhere in time.&lt;/p&gt;
+&lt;p&gt;The vim editor which is always in use, so much that you start smashing into
+alien editors with vim commands. If you find somewhere in documents random
+characters &amp;quot;jjjkk&amp;quot; or any characters of &amp;quot;jklhzz&amp;quot; there was a vim user in this
+file. This acronym is just a dark fun invented by us, back somewhere in time.&lt;/p&gt;
 &lt;div class="section" id="neo-vim"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;Neo(vim)&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;The current plugged list (extensions in use)&lt;/p&gt;
@@ -1514,6 +1513,7 @@ metron, &amp;quot;measure&amp;quot;. source: &lt;a class="reference external" hr
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#terminology" id="id111"&gt;Terminology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#references" id="id112"&gt;References&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="introduction"&gt;
@@ -4686,6 +4686,8 @@ through the supplied function.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="one-liners"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id76"&gt;One-Liners&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Single-line conditional expressions&lt;/p&gt;
+&lt;p&gt;Ternary operators are more commonly known as conditional expressions&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;some_function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;some_condition&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -5463,7 +5465,7 @@ re.finditer(...)&lt;/td&gt;
 &lt;div class="section" id="virtual-environment"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id107"&gt;Virtual Environment&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Install virtualenv&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo pip3 install virtualenv virtualenvwrapper
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo python3 -m pip install virtualenv virtualenvwrapper
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Find out the python version&lt;/span&gt;
 &lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;which&lt;/span&gt; &lt;span class="n"&gt;python3&lt;/span&gt;
@@ -5530,6 +5532,14 @@ parsing and type checking similar to a compiler. But interpreter processes
 syntax tree directly to access expressions and execute statement rather than
 generating code from the syntax tree.&lt;/p&gt;
 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="references"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id112"&gt;References&lt;/a&gt;&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://book.pythontips.com"&gt;http://book.pythontips.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://www.pythonsheets.com/"&gt;https://www.pythonsheets.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://gto76.github.io/python-cheatsheet/"&gt;https://gto76.github.io/python-cheatsheet/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 </content><category term="blog"></category><category term="python"></category><category term="notes"></category></entry><entry><title>Exploring OBDII</title><link href="/exploring-obdii.html" rel="alternate"></link><published>2018-03-04T11:09:02+01:00</published><updated>2018-03-04T11:09:02+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-03-04:/exploring-obdii.html</id><summary type="html">&lt;p&gt;To satisfy the curiosity for reading car on-board diagnostics using&lt;/p&gt;</summary><content type="html">&lt;p&gt;Raspberry PI with build in Bluetooth and ODBII Bluetooth adapter.&lt;/p&gt;

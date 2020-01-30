@@ -512,9 +512,7 @@ For more information see &lt;a class="reference external" href="https://docs.pyc
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="projects"></category><category term="iot"></category><category term="python"></category><category term="lorawan"></category><category term="reverse_beacon"></category></entry><entry><title>The Bread Code Branch</title><link href="/the-bread-code-branch.html" rel="alternate"></link><published>2018-05-03T06:14:30+02:00</published><updated>2018-05-03T06:14:30+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-05-03:/the-bread-code-branch.html</id><summary type="html">The art of making bread</summary><content type="html">&lt;div class="section" id="baking-bread"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id2"&gt;Baking Bread&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="contents topic" id="table-of-contents"&gt;
+</content><category term="projects"></category><category term="iot"></category><category term="python"></category><category term="lorawan"></category><category term="reverse_beacon"></category></entry><entry><title>The Bread Code Branch</title><link href="/the-bread-code-branch.html" rel="alternate"></link><published>2018-05-03T06:14:30+02:00</published><updated>2018-05-03T06:14:30+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-05-03:/the-bread-code-branch.html</id><summary type="html">The art of making bread</summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
 &lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#baking-bread" id="id2"&gt;Baking Bread&lt;/a&gt;&lt;ul&gt;
@@ -530,6 +528,8 @@ For more information see &lt;a class="reference external" href="https://docs.pyc
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
+&lt;div class="section" id="baking-bread"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id2"&gt;Baking Bread&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="pull-dough"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id3"&gt;Pull Dough&lt;/a&gt;&lt;/h3&gt;
 &lt;table border="1" class="docutils"&gt;
