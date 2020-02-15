@@ -1,84 +1,141 @@
 <!DOCTYPE html>
-<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}">
+<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}" class="inverted">
 <head>
-        {% block head %}
-        <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
-        <meta charset="utf-8" />
-        {% if FEED_ALL_ATOM %}
-        <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
-        {% endif %}
-        {% if FEED_ALL_RSS %}
-        <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_RSS_URL %}{{ FEED_ALL_RSS_URL }}{% else %}{{ FEED_ALL_RSS }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Full RSS Feed" />
-        {% endif %}
-        {% if FEED_ATOM %}
-        <link href="{{ FEED_DOMAIN }}/{%if FEED_ATOM_URL %}{{ FEED_ATOM_URL }}{% else %}{{ FEED_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
-        {% endif %}
-        {% if FEED_RSS %}
-        <link href="{{ FEED_DOMAIN }}/{% if FEED_RSS_URL %}{{ FEED_RSS_URL }}{% else %}{{ FEED_RSS }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
-        {% endif %}
-        {% if CATEGORY_FEED_ATOM and category %}
-        <link href="{{ FEED_DOMAIN }}/{% if CATEGORY_FEED_ATOM_URL %}{{ CATEGORY_FEED_ATOM_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_ATOM.format(slug=category.slug) }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
-        {% endif %}
-        {% if CATEGORY_FEED_RSS and category %}
-        <link href="{{ FEED_DOMAIN }}/{% if CATEGORY_FEED_RSS_URL %}{{ CATEGORY_FEED_RSS_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_RSS.format(slug=category.slug) }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed" />
-        {% endif %}
-        {% if TAG_FEED_ATOM and tag %}
-        <link href="{{ FEED_DOMAIN }}/{% if TAG_FEED_ATOM_URL %}{{ TAG_FEED_ATOM_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_ATOM.format(slug=tag.slug) }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Tags Atom Feed" />
-        {% endif %}
-        {% if TAG_FEED_RSS and tag %}
-        <link href="{{ FEED_DOMAIN }}/{% if TAG_FEED_RSS_URL %}{{ TAG_FEED_RSS_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_RSS.format(slug=tag.slug) }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
-        {% endif %}
-        {% endblock head %}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% block head %}
+  <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+  <meta charset="utf-8" />
+  {% if FEED_ALL_ATOM %}
+  <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
+  {% endif %}
+  {% if FEED_ALL_RSS %}
+  <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_RSS_URL %}{{ FEED_ALL_RSS_URL }}{% else %}{{ FEED_ALL_RSS }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Full RSS Feed" />
+  {% endif %}
+  {% if FEED_ATOM %}
+  <link href="{{ FEED_DOMAIN }}/{%if FEED_ATOM_URL %}{{ FEED_ATOM_URL }}{% else %}{{ FEED_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+  {% endif %}
+  {% if FEED_RSS %}
+  <link href="{{ FEED_DOMAIN }}/{% if FEED_RSS_URL %}{{ FEED_RSS_URL }}{% else %}{{ FEED_RSS }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+  {% endif %}
+  {% if CATEGORY_FEED_ATOM and category %}
+  <link href="{{ FEED_DOMAIN }}/{% if CATEGORY_FEED_ATOM_URL %}{{ CATEGORY_FEED_ATOM_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_ATOM.format(slug=category.slug) }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
+  {% endif %}
+  {% if CATEGORY_FEED_RSS and category %}
+  <link href="{{ FEED_DOMAIN }}/{% if CATEGORY_FEED_RSS_URL %}{{ CATEGORY_FEED_RSS_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_RSS.format(slug=category.slug) }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed" />
+  {% endif %}
+  {% if TAG_FEED_ATOM and tag %}
+  <link href="{{ FEED_DOMAIN }}/{% if TAG_FEED_ATOM_URL %}{{ TAG_FEED_ATOM_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_ATOM.format(slug=tag.slug) }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Tags Atom Feed" />
+  {% endif %}
+  {% if TAG_FEED_RSS and tag %}
+  <link href="{{ FEED_DOMAIN }}/{% if TAG_FEED_RSS_URL %}{{ TAG_FEED_RSS_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_RSS.format(slug=tag.slug) }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
+  {% endif %}
+  {% endblock head %}
 
-        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css"/>
-        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/monokai.min.css"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ SITEURL }}/theme/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ SITEURL }}/theme/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ SITEURL }}/theme/favicons/favicon-16x16.png">
+  <link rel="manifest" href="{{ SITEURL }}/theme/favicons/site.webmanifest">
+
+  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css"/>
+  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/monokai.min.css"/>
+  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/ionicons.css"/>
+
+  {# Search #}
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <script src="{{ SITEURL }}/theme/tipuesearch/tipuesearch_set.js"></script>
+  <script src="{{ SITEURL }}/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="{{ SITEURL }}/tipuesearch_content.js"></script>
+
+  {# <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> #}
+  {# <script src="https://cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.js"></script> #}
+  {# <script src="https://cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch_set.js"></script> #}
+  {# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.css"/> #}
 
 </head>
 
 <body id="index" class="home">
 
- <div id="wrapper"> 
+  <nav class="navigation">
+    <div class="nav-logo">
+      <a href="{{ SITEURL }}/"><i class="ion-md-home"></i></a>
+      {# <a href="{{ SITEURL }}/">{{ SITENAME }} <strong>{{ SITESUBTITLE }}</strong></a> #}
+    </div>
+    <ul class="nav-menu">
 
-        <header id="banner" class="body">
-                <h1><a href="{{ SITEURL }}/">{{ SITENAME }} <strong>{{ SITESUBTITLE }}</strong></a></h1>
-        </header><!-- /#banner -->
-
-        <nav id="menu"><ul>
-        {% for title, link in MENUITEMS %}
-            <li><a href="{{ link }}">{{ title }}</a></li>
+      {% if DISPLAY_CATEGORIES_ON_MENU %}
+        {% for cat, null in categories %}
+          <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
         {% endfor %}
-        {% if DISPLAY_PAGES_ON_MENU %}
-          {% for p in pages %}
-            <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
-          {% endfor %}
-        {% endif %}
-        {% if DISPLAY_CATEGORIES_ON_MENU %}
-          {% for cat, null in categories %}
-            <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
-          {% endfor %}
-        {% endif %}
-        </ul></nav><!-- /#menu -->
+      {% endif %}
+      {% for title, link in MENUITEMS %}
+          <li><a href="{{ link }}">{{ title }}</a></li>
+      {% endfor %}
+      {% if DISPLAY_PAGES_ON_MENU %}
+        {% for p in pages %}
+          <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+        {% endfor %}
+      {% endif %}
+    </ul>
+    <div class="nav-toggle">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+  </nav>
+  <div class="nav-overlay"></div>
 
-        <div id="invmode">Night</div>
+ <div id="wrapper">
 
         <div id="content">
+        <div id="invmode" class="no-print">Day</div>
+        <button onclick="goUp()" id="upBtn" class="no-print" title="Go to top"><i class="ion-ios-arrow-up"></i></button>
+
+
+        {% block search %}
+          <div id="search" >
+
+            <form action="/">
+           <div class="search tipue_search_right">
+              <input type="text" class="searchTerm" placeholder="Search by keywords.."  aria-hidden="true" data-choice="active"
+                          type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required>
+
+              <button type="submit" class="searchButton">
+               <i class="ion-ios-search"></i>
+             </button>
+           </div>
+            </form>
+
+            <div id="tipue_search_content" style="margin: 2rem 0rem; padding: 1rem; border-bottom: 1px solid;"></div>
+
+          </div>
+        {% endblock search %}
+
         {% block content %}
         {% endblock %}
 
         <section id="extras" class="body">
+
+          <ul class="tags-footer">
+            {% for tag, articles in tags|sort %}
+            <li style="font-size: {{ articles|count|count_to_font_size }};"><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
+            {% endfor %}
+          </ul>
+
         {% if LINKS %}
-                <div class="blogroll">
-                        <h2>{{ LINKS_WIDGET_NAME | default('links') }}</h2>
-                        <ul>
-                        {% for name, link in LINKS %}
-                            <li><a href="{{ link }}">{{ name }}</a></li>
-                        {% endfor %}
-                        </ul>
-                </div><!-- /.blogroll -->
+          <div class="blogroll">
+                  <h2>{{ LINKS_WIDGET_NAME | default('links') }}</h2>
+                  <ul>
+                  {% for name, link in LINKS %}
+                      <li><a href="{{ link }}">{{ name }}</a></li>
+                  {% endfor %}
+                  </ul>
+
+          </div><!-- /.blogroll -->
         {% endif %}
+
         {% if SOCIAL or FEED_ALL_ATOM or FEED_ALL_RSS %}
                 <div class="social">
-                        <h2>{{ SOCIAL_WIDGET_NAME | default('social') }}</h2>
+                        {# <h2>{{ SOCIAL_WIDGET_NAME | default('social') }}</h2> #}
                         <ul>
                             {% if FEED_ALL_ATOM %}
                             <li><a href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate">atom feed</a></li>
@@ -93,8 +150,9 @@
                         </ul>
                 </div><!-- /.social -->
         {% endif %}
-        </section><!-- /#extras -->
+
         </div>
+        </section>
 
         <footer id="contentinfo" class="body">
                 <address id="about" class="vcard body">
@@ -105,15 +163,71 @@
 
  </div><!-- /.wrapper -->
 
-<script>
-var scriptSrc = ["{{ SITEURL }}/theme/js/main.js",];
-for (var i_2 = 0; i_2 < scriptSrc.length; i_2++) {
-  var index = scriptSrc[i_2];
-  var script = document.body.appendChild(document.createElement('script'));
-  script.async = false;
-  script.src = index;
-}
-</script>
 
+{% if GOOGLE_ANALYTICS %}
+<script>var _gaq=[['_setAccount','{{GOOGLE_ANALYTICS}}'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+{% endif %}
+<script>
+  // Insert scripts
+  var scriptSrc = ["{{ SITEURL }}/theme/js/main.js",];
+  for (var i_2 = 0; i_2 < scriptSrc.length; i_2++) {
+    var index = scriptSrc[i_2];
+    var script = document.body.appendChild(document.createElement('script'));
+    script.async = false;
+    script.src = index;
+  }
+
+    //Get the button:
+    mybutton = document.getElementById("upBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function goUp() {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+
+
+  // Handle site search
+  $(document).ready(function() {
+    console.log("Hello")
+
+    // Search handler
+     $('#tipue_search_input').tipuesearch({
+          'mode': 'json',
+          'contentLocation': 'tipuesearch_content.json'
+     });
+
+    $('.nav-toggle').click(function(e){
+        e.preventDefault();
+        $('.nav-toggle').toggleClass('active');
+        $('.nav-menu').toggleClass('active');
+        $('.nav-overlay').toggleClass('active');
+    })
+    $('.nav-overlay').click(function(e){
+        e.preventDefault();
+        $('.nav-toggle').toggleClass('active');
+        $('.nav-menu').toggleClass('active');
+        $('.nav-overlay').toggleClass('active');
+    })
+
+    // Focus the search input by default
+    window.onload = function() {
+      var input = document.getElementById("tipue_search_input").focus();
+    }
+
+  });
+
+</script>
 </body>
 </html>

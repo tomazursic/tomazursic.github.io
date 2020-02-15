@@ -12,7 +12,7 @@ function someControl(id, textArr, className) {
   var el = document.getElementsByTagName("html")[0];
   var acbox = document.getElementById(id),
     textNode = acbox.firstChild,
-    toggled = false;
+    toggled = true;
   acbox.addEventListener(
     clickEvent,
     function() {

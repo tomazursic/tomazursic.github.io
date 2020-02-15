@@ -1,12 +1,9 @@
 title: Exploring OBDII
-date: Mon Mar 4 11:09:02 CEST 2019
-author: Tomaz
+date: Mon Mar 4 11:09:02 CEST 2018
 category: blog
 tags: python, raspberry-pi, obd
-
-
-To satisfy the curiosity for reading car on-board diagnostics using Raspberry PI with build in Bluetooth
-and ODBII Bluetooth adapter.
+summary: To satisfy the curiosity for reading car on-board diagnostics using
+Raspberry PI with build in Bluetooth and ODBII Bluetooth adapter.
 
 Turn on the car engine after attaching the adapter.
 
@@ -45,60 +42,61 @@ sudo rfcomm bind rfcomm0 00:19:5D:FE:9A:8F
 http://brendan-w.com/python-obd
 
 ```python
-    import obd
-    connection = obd.OBD('/dev/rfcomm0')
-    cmd = obd.commands.RPM
-    c = connection.query(cmd).value
-    print(c)
+
+import obd
+connection = obd.OBD('/dev/rfcomm0')
+cmd = obd.commands.RPM
+c = connection.query(cmd).value
+print(c)
+
 ```
 
 Example output:
 
-![OBDII Output]({static}/images/obdII_output.jpg)
+![OBDII Output]({static}/images/misc/obdII_output.jpg)
 
 ## Unpairing a Bluetooth device
 
 Start the Bluetooth utility.
 
-```
-    bluetoothctl
+```sh
+bluetoothctl
 ```
 
 Unpair the Bluetooth device if required.
 
-```
-    remove <dev>
+```sh
+remove <dev>
 ```
 
 Make sure the agent is stopped for the Bluetooth device.
 
-```
-    agent off
+```sh
+agent off
 ```
 
 Make sure the Bluetooth device is powered down.
 
-```
-    power off
-
+```sh
+power off
 ```
 Exit the Bluetooth utility.
 
-```
-    quit
+```sh
+quit
 ```
 
 ## Release serail
 
 To remove the serial device do the following if required.
 
-```
-    rfcomm release 00:19:5D:FE:9A:8F
+```sh
+rfcomm release 00:19:5D:FE:9A:8F
 ```
 
 Shouldn't need this command, force rfdevices to stop.
 
-```
-    rfkill list
+```sh
+rfkill list
 ```
 

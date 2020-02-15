@@ -16,6 +16,14 @@
                         <a class="url fn" href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
                     {% endfor %}
                     </address>
+                    <div>
+                    {% if article.tags %}
+                    Tags: 
+                    {% for tag in article.tags %}
+                        <a class="url fn" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+                    {% endfor %}
+                    </div>
+                    {% endif %}
                 </footer><!-- /.post-info -->
                 <div class="entry-content"> {{ article.summary }} </div><!-- /.entry-content -->
         </article></li>

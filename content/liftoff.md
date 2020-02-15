@@ -1,7 +1,8 @@
 title: Liftoff
-date: Wed May 3 6:14:30 CEST 2018
-author: Tomaz
+date: Wed May 3 6:14:30 CEST 2017
 category: blog
+summary: hello world
+:status: published
 
 ## First Post
 
@@ -9,11 +10,6 @@ World, hello again! This very first paragraph of the post will be used as
 excerpt in archives and feeds.
 
 This post is consequence of merging old blog and accumulated notes.
-
-```python
-
-   print("Pelican is a static site generator.")
-```
 
 This is my first post on my new blog. While not super informative it
 should convey my sense of excitement and eagerness to engage with you,
