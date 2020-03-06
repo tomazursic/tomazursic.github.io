@@ -66,13 +66,19 @@ predicted and actual output)&lt;/li&gt;
 &lt;div class="section" id="ml-workflow"&gt;
 &lt;h3&gt;ML Workflow&lt;/h3&gt;
 &lt;p&gt;A typical machine learning workflow begins with:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;strong&gt;GETTING THE DATA&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;EXPLORING AND CLEANINGu (EDA)&lt;/strong&gt; up the data (handling missing values, normalizing
-values, removing bad data and outliers, encoding data in appropriate representations, and more)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;TRAINING THE MODEL&lt;/strong&gt;
-evaluating the results adjusting the model type or the hyperparameters if the
-results are not yet satisfactory&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;GETTING THE DATA&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Collecting data, creating datasets&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;EXPLORING AND CLEANING&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Known as &amp;quot;exploratory data analysis&amp;quot; (EDA) which consist of (handling missing
+values, normalizing values, removing bad data and outliers, encoding data in
+appropriate representations, and more)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;TRAINING THE MODEL&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Evaluating the results adjusting the model type or the hyperparameters if the
+results are not yet satisfactory&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="how-to-choose-data-to-train-ml-system"&gt;
