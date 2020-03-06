@@ -90,7 +90,7 @@ This are the proprieties of the things you are trying to learn about&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  ,--./,-.
  / #      \    &amp;lt;-- color
 |          |
- \        /    &amp;lt;-- weight
+ \        /    &amp;lt;-- size
   `._,._,&amp;#39;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Features of the apple might be weight and color.&lt;/p&gt;
@@ -117,9 +117,8 @@ E |           O X     A
                 COLOR
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Example: Plotting apple and oranges size and colors&lt;/p&gt;
-&lt;p&gt;Choosing useful inputs features can have big impact on the quality of
-the ML system.&lt;/p&gt;
-&lt;p&gt;Some features my not be useful enough to separate the data points.&lt;/p&gt;
+&lt;p&gt;Choosing useful inputs features can have big impact on the quality of the ML
+system. Some features my not be useful enough to separate the data points.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
