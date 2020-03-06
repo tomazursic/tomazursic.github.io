@@ -116,10 +116,10 @@ T |    A            X
   +-------------------------------&amp;gt;
                 COLOR
 &lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Example: Plotting apple and oranges weigt and colors&lt;/p&gt;
 &lt;p&gt;Choosing useful inputs features can have big impact on the quality of
 the ML system.&lt;/p&gt;
 &lt;p&gt;Some features my not be useful enough to separate the data points.&lt;/p&gt;
-&lt;p&gt;Example: Plotting apple and oranges seed count and ripeness&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
