@@ -93,7 +93,7 @@ This are the proprieties of the things you are trying to learn about&lt;/p&gt;
  \        /    &amp;lt;-- size
   `._,._,&amp;#39;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Features of the apple might be weight and color.&lt;/p&gt;
+&lt;p&gt;Features of the apple might be size and color.&lt;/p&gt;
 &lt;p&gt;2 features, would mean there are 2D (two dimensions)&lt;/p&gt;
 &lt;p&gt;The 2D system my be plotted on a graph if features are represented in a numerical way.&lt;/p&gt;
 &lt;p&gt;The ML system can learn to split the data up with a line to separate apples from oranges.&lt;/p&gt;
