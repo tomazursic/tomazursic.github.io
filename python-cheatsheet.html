@@ -158,6 +158,8 @@
 </li>
 <li><a class="reference internal" href="#geolocate-ip" id="id53">Geolocate ip</a></li>
 <li><a class="reference internal" href="#geopy" id="id54">geopy</a></li>
+<li><a class="reference internal" href="#is-prime-number" id="id55">is prime number</a></li>
+<li><a class="reference internal" href="#random-user" id="id56">random user</a></li>
 </ul>
 </li>
 </ul>
@@ -205,6 +207,26 @@
   <span class="c1"># Usage:</span>
   <span class="k">with</span> <span class="n">report_time</span><span class="p">(</span><span class="s2">&quot;run_foo&quot;</span><span class="p">):</span>
       <span class="o">...</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;start: </span><span class="si">{:&gt;9.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">start</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;end: </span><span class="si">{:&gt;9.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;span: </span><span class="si">{:&gt;9.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">))</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100000</span><span class="p">:</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Elapsed time: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">elapsed_time</span><span class="p">))</span>
 </pre></div>
 </div>
 <div class="section" id="fizzbuzz">
@@ -878,6 +900,50 @@ python -m smtpd -n -c DebuggingServer localhost:25
        <span class="k">return</span> <span class="n">d</span><span class="o">.</span><span class="n">kilometers</span>
 </pre>
 </div>
+<div class="section" id="is-prime-number">
+<h3><a class="toc-backref" href="#id55">is prime number</a></h3>
+<pre class="code python literal-block">
+<span class="kn">import</span> <span class="nn">math</span>
+
+
+<span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">for</span> <span class="n">current</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">2</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="n">current</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+<span class="k">def</span> <span class="nf">check_prime_number</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s1">'</span><span class="si">{}</span><span class="s1"> is prime </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
+
+<span class="n">check_prime_number</span><span class="p">(</span><span class="mi">534</span><span class="p">)</span>
+</pre>
+</div>
+<div class="section" id="random-user">
+<h3><a class="toc-backref" href="#id56">random user</a></h3>
+<pre class="code python literal-block">
+<span class="sd">&quot;&quot;&quot;Fetch random user&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">'https://randomuser.me/api/'</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre>
+</div>
 </div>
 
   </div><!-- /.entry-content -->
@@ -886,6 +952,7 @@ python -m smtpd -n -c DebuggingServer localhost:25
         <section id="extras" class="body">
 
           <ul class="tags-footer">
+            <li style="font-size: 100.0%;"><a href="/tag/ai.html">ai</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/arm.html">arm</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/bread.html">bread</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/cheatsheet.html">cheatsheet</a></li>
@@ -898,13 +965,14 @@ python -m smtpd -n -c DebuggingServer localhost:25
             <li style="font-size: 158.0%;"><a href="/tag/lorawan.html">lorawan</a></li>
             <li style="font-size: 125.0%;"><a href="/tag/micropython.html">micropython</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/misc.html">misc</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/ml.html">ml</a></li>
             <li style="font-size: 125.0%;"><a href="/tag/network.html">network</a></li>
             <li style="font-size: 125.0%;"><a href="/tag/notes.html">notes</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/obd.html">obd</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/os.html">os</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/pelican.html">pelican</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/pi.html">pi</a></li>
-            <li style="font-size: 170.2%;"><a href="/tag/python.html">python</a></li>
+            <li style="font-size: 175.0%;"><a href="/tag/python.html">python</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/raspberry-pi.html">raspberry-pi</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/reverse_beacon.html">reverse_beacon</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/snippets.html">snippets</a></li>

@@ -2,9 +2,18 @@
 <html lang="en" class="inverted">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Weblog - tomazursic.github.io - snippets tag</title>
+    <title>Weblog - tomazursic.github.io - Python Data Analysis and ML</title>
   <meta charset="utf-8" />
   <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Weblog - tomazursic.github.io Full Atom Feed" />
+  <link href="/feeds/blog.atom.xml" type="application/atom+xml" rel="alternate" title="Weblog - tomazursic.github.io Categories Atom Feed" />
+
+
+
+
+    <meta name="tags" content="python" />
+    <meta name="tags" content="ml" />
+    <meta name="tags" content="ai" />
+
 
   <link rel="apple-touch-icon" sizes="180x180" href="/theme/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/theme/favicons/favicon-32x32.png">
@@ -31,7 +40,7 @@
     </div>
     <ul class="nav-menu">
 
-          <li><a href="/category/blog.html">blog</a></li>
+          <li class="active"><a href="/category/blog.html">blog</a></li>
           <li><a href="/category/projects.html">projects</a></li>
           <li><a href="/pages/contact.html">Contact</a></li>
     </ul>
@@ -50,46 +59,112 @@
         <button onclick="goUp()" id="upBtn" title="Go to top"><i class="ion-ios-arrow-up"></i></button>
 
 
-          <div id="search" >
 
-            <form action="/">
-           <div class="search tipue_search_right">
-              <input type="text" class="searchTerm" placeholder="Search by keywords.."  aria-hidden="true" data-choice="active"
-                          type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required>
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="/python-data-analysis-and-ml.html" rel="bookmark"
+         title="Permalink to Python Data Analysis and ML">Python Data Analysis and ML</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2019-11-06T00:00:00+01:00">
+      <b>Published</b>: Wed 06 November 2019
+    </time>
+    <br>
+    <div class="category">
+        <b>Category</b>: <a href="/category/blog.html">blog</a>
+    </div>
+    <div class="tags">
+        <b>Tags</b>:
+            <a href="/tag/python.html">python</a>
+            <a href="/tag/ml.html">ml</a>
+            <a href="/tag/ai.html">ai</a>
+    </div>
+  </footer><!-- /.post-info -->
 
-              <button type="submit" class="searchButton">
-               <i class="ion-ios-search"></i>
-             </button>
-           </div>
-            </form>
+  <div class="entry-content">
+    <p>&gt;&gt; <strong>This post is under heavy development and with constant updates, following the learning curve.</strong></p>
+<div class="highlight"><pre><span></span>DRAFT VERSION,
+contains Typos
+contains &lt;°-(-(-(-&lt;
+contains no ( o ) ( o )
+also, no 8====D
+also, tl;dr
+</pre></div>
+<div class="section" id="basic-machine-learning-with-python">
+<h2>Basic Machine Learning with Python</h2>
+<p>In this post we will look into basic concepts of Data Analysis, Machine
+Learning and the basics of building ML models with Scikit-Learn.</p>
+<div class="section" id="ml-terminology">
+<h3>ML Terminology</h3>
+<p>Machine Learning is the process of building models from data, either to gain insight into the data or to make predictions for new data (generalization). There are two main categories:</p>
+<ul class="simple">
+<li>supervised learning, in which the data (training data) is labeled with an
+known outcome (this is the supervision part), and the aim is to predict new
+outcomes from new data; if the outcome is a category this is classification
+while if the outcome is a continuous quantity this is regression</li>
+<li>unsupervised learning, in which the data is analyzed for underlying
+patterns to gain insight; common examples are clustering (finding similar
+cases), outlier detection (finding unusual cases), and dimensionality
+reduction (reducing the number of variables needed to represent the data,
+essentially a form of lossy compression)</li>
+</ul>
+<p><strong>&quot;A technique for implementing ML&quot;</strong></p>
+<p>DL in the context of <strong>deep neural networks (DNNs)</strong> is the code
+structures you write <strong>are arranged in layers that loosely mimic the human
+brain, learning patterns of patterns</strong>.</p>
+<p>From bottom up is:</p>
+<ul class="simple">
+<li>DL is subset of ML and ML is subset of AI</li>
+<li>DL drives ML which than can enable AI</li>
+</ul>
+<div class="highlight"><pre><span></span>+-------------------------+
+|AI                       |
+|  +--------------------+ |
+|  |ML                  | |
+|  |   +--------------+ | |
+|  |   |DL            | | |
+|  |   |              | | |
+|  |   |              | | |
+|  |   |              | | |
+|  |   |              | | |
+|  |   +--------------+ | |
+|  +--------------------+ |
++-------------------------+
+</pre></div>
+<p>The data used in ML is typically tabular. The columns are called features while
+the rows are instances or observations. For supervised learning, we call the
+output the target or label. We'll often refer to the vector if features as X
+and the output (label) as y, and say that we're trying to find a function that
+approximates f(X)=y; this function is our model and is characterized by some
+model parameters.</p>
+</div>
+<div class="section" id="ml-workflow">
+<h3>ML Workflow</h3>
+<p>A typical machine learning workflow begins with:</p>
+<ul class="simple">
+<li>GETTING THE DATA
+exploring and cleaning up the data (handling missing values, normalizing
+values, removing bad data and outliers, encoding data in appropriate
+representations, and more) possibly creating some additional synthetic values
+(e.g. we could use linear regression to fit a higher-order polynomial by
+creating synthetic values that are existing values raised to the power 2, 3,
+etc; other common examples might be computing and including aggregate values
+like means and standard deviations of some of the original values) picking a
+type of model to use, and configuring the initial hyperparameters</li>
+</ul>
+<p>After which we could do multiple iterations of:</p>
+<ul class="simple">
+<li>TRAINING THE MODEL
+evaluating the results adjusting the model type or the hyperparameters if the
+results are not yet satisfactory</li>
+</ul>
+</div>
+</div>
 
-            <div id="tipue_search_content" style="margin: 2rem 0rem; padding: 1rem; border-bottom: 1px solid;"></div>
-
-          </div>
-
-<section id="content">
-<h2>Articles tagged with snippets</h2>
-
-<ol id="post-list">
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="/python-cheatsheet.html" rel="bookmark" title="Permalink to Python Snippets">Python Snippets</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2017-11-05T00:00:00+01:00"> Sun 05 November 2017 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="/author/tomaz.html">Tomaz</a>
-                    </address>
-                    <div>
-                    Tags: 
-                        <a class="url fn" href="/tag/python.html">python</a>
-                        <a class="url fn" href="/tag/notes.html">notes</a>
-                        <a class="url fn" href="/tag/cheatsheet.html">cheatsheet</a>
-                        <a class="url fn" href="/tag/snippets.html">snippets</a>
-                    </div>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> Code snippets </div><!-- /.entry-content -->
-        </article></li>
-</ol><!-- /#posts-list -->
-</section><!-- /#content -->
+  </div><!-- /.entry-content -->
+</section>
 
         <section id="extras" class="body">
 
