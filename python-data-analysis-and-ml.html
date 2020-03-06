@@ -100,11 +100,11 @@ Learning and the basics of building ML models with Scikit-Learn and TensorFlow f
 <h3>ML Terminology</h3>
 <p>Machine Learning is the process of building models from data, either to gain insight into the data or to make predictions for new data (generalization). There are two main categories:</p>
 <ul class="simple">
-<li>supervised learning, in which the data (training data) is labeled with an
+<li><strong>SUPERVISED</strong> learning, in which the data (training data) is labeled with an
 known outcome (this is the supervision part), and the aim is to predict new
 outcomes from new data; if the outcome is a category this is classification
 while if the outcome is a continuous quantity this is regression</li>
-<li>unsupervised learning, in which the data is analyzed for underlying
+<li><strong>UNSUPERVISED</strong> learning, in which the data is analyzed for underlying
 patterns to gain insight; common examples are clustering (finding similar
 cases), outlier detection (finding unusual cases), and dimensionality
 reduction (reducing the number of variables needed to represent the data,
@@ -114,6 +114,7 @@ essentially a form of lossy compression)</li>
 <p>DL in the context of <strong>deep neural networks (DNNs)</strong> is the code
 structures you write <strong>are arranged in layers that loosely mimic the human
 brain, learning patterns of patterns</strong>.</p>
+<p>Simple explanation is &quot;when we have more than 2 layers we are talking about deep leaning&quot;</p>
 <p>From bottom up is:</p>
 <ul class="simple">
 <li>DL is subset of ML and ML is subset of AI</li>
@@ -144,7 +145,7 @@ model parameters.</p>
 <h3>ML Workflow</h3>
 <p>A typical machine learning workflow begins with:</p>
 <ul class="simple">
-<li>GETTING THE DATA
+<li><strong>GETTING THE DATA</strong>
 exploring and cleaning up the data (handling missing values, normalizing
 values, removing bad data and outliers, encoding data in appropriate
 representations, and more) possibly creating some additional synthetic values
@@ -156,7 +157,7 @@ type of model to use, and configuring the initial hyperparameters</li>
 </ul>
 <p>After which we could do multiple iterations of:</p>
 <ul class="simple">
-<li>TRAINING THE MODEL
+<li><strong>TRAINING THE MODEL</strong>
 evaluating the results adjusting the model type or the hyperparameters if the
 results are not yet satisfactory</li>
 </ul>
