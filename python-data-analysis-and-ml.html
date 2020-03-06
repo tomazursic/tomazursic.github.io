@@ -98,7 +98,9 @@ also, tl;dr
 Learning and the basics of building ML models with Scikit-Learn and TensorFlow for humans.</p>
 <div class="section" id="ml-terminology">
 <h3>ML Terminology</h3>
-<p>Machine Learning is the process of building models from data, either to gain insight into the data or to make predictions for new data (generalization). There are two main categories:</p>
+<p>Machine Learning is the process of building models from data, either to gain
+insight into the data or to make predictions for new data (generalization).</p>
+<p>There are two main categories:</p>
 <ul class="simple">
 <li><strong>SUPERVISED</strong> learning, in which the data (training data) is labeled with an
 known outcome (this is the supervision part), and the aim is to predict new
@@ -134,12 +136,16 @@ brain, learning patterns of patterns</strong>.</p>
 |  +--------------------+ |
 +-------------------------+
 </pre></div>
-<p>The data used in ML is typically tabular. The columns are called features while
-the rows are instances or observations. For supervised learning, we call the
-output the target or label. We'll often refer to the vector if features as X
-and the output (label) as y, and say that we're trying to find a function that
-approximates f(X)=y; this function is our model and is characterized by some
-model parameters.</p>
+<ul class="simple">
+<li>The data used in ML is typically tabular.</li>
+<li>The <strong>columns</strong> are called <cite>features</cite> while the <strong>rows</strong> are <cite>instances or observations</cite>.</li>
+<li>For supervised learning, we call the output the target or label.</li>
+<li>Often refer to the vector if features as <cite>X</cite> and the output (label) as <cite>y</cite>, and say that we're trying to find a function that approximates <cite>f(X)=y</cite>; this
+function is our model and is characterized by some model parameters.</li>
+<li>We choose the type or class of model, and then use ML techniques to learn the
+model parameters that minimize the error (the difference between the
+predicted and actual output)</li>
+</ul>
 </div>
 <div class="section" id="ml-workflow">
 <h3>ML Workflow</h3>
@@ -161,6 +167,47 @@ type of model to use, and configuring the initial hyperparameters</li>
 evaluating the results adjusting the model type or the hyperparameters if the
 results are not yet satisfactory</li>
 </ul>
+</div>
+<div class="section" id="how-to-choose-data-to-train-ml-system">
+<h3>How to choose data to train ML system</h3>
+<div class="section" id="features-attributes">
+<h4>Features / Attributes</h4>
+<p>Features (aka attributes) are used to train ML system.
+This are the proprieties of the things you are trying to learn about</p>
+<div class="highlight"><pre><span></span>  ,--./,-.
+ / #      \    &lt;-- color
+|          |
+ \        /    &lt;-- weight
+  `._,._,&#39;
+</pre></div>
+<p>Features of the apple might be weight and color.</p>
+<p>2 features, would mean there are 2D (two dimensions)</p>
+<p>The 2D system my be plotted on a graph if features are represented in a numerical way.</p>
+<p>The ML system can learn to split the data up with a line to separate apples from oranges.</p>
+<div class="highlight"><pre><span></span>  ^
+  |
+W |                           X
+E |           A             X
+I |                       X
+G |          A          X
+H |            AA     X
+T |    A            X
+  |        A      X    O
+  |           A X     O
+  |           X  O
+  |     AA  X                           A = Apples
+  |       X   O O                       O = Oranges
+  |     X           O                   X = Line
+  |   X  O
+  | X
+  +-------------------------------&gt;
+                COLOR
+</pre></div>
+<p>Choosing useful inputs features can have big impact on the quality of
+the ML system.</p>
+<p>Some features my not be useful enough to separate the data points.</p>
+<p>Example: Plotting apple and oranges seed count and ripeness</p>
+</div>
 </div>
 </div>
 

@@ -14,7 +14,9 @@ also, tl;dr
 Learning and the basics of building ML models with Scikit-Learn and TensorFlow for humans.&lt;/p&gt;
 &lt;div class="section" id="ml-terminology"&gt;
 &lt;h3&gt;ML Terminology&lt;/h3&gt;
-&lt;p&gt;Machine Learning is the process of building models from data, either to gain insight into the data or to make predictions for new data (generalization). There are two main categories:&lt;/p&gt;
+&lt;p&gt;Machine Learning is the process of building models from data, either to gain
+insight into the data or to make predictions for new data (generalization).&lt;/p&gt;
+&lt;p&gt;There are two main categories:&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;strong&gt;SUPERVISED&lt;/strong&gt; learning, in which the data (training data) is labeled with an
 known outcome (this is the supervision part), and the aim is to predict new
@@ -50,12 +52,16 @@ brain, learning patterns of patterns&lt;/strong&gt;.&lt;/p&gt;
 |  +--------------------+ |
 +-------------------------+
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The data used in ML is typically tabular. The columns are called features while
-the rows are instances or observations. For supervised learning, we call the
-output the target or label. We'll often refer to the vector if features as X
-and the output (label) as y, and say that we're trying to find a function that
-approximates f(X)=y; this function is our model and is characterized by some
-model parameters.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;The data used in ML is typically tabular.&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;columns&lt;/strong&gt; are called &lt;cite&gt;features&lt;/cite&gt; while the &lt;strong&gt;rows&lt;/strong&gt; are &lt;cite&gt;instances or observations&lt;/cite&gt;.&lt;/li&gt;
+&lt;li&gt;For supervised learning, we call the output the target or label.&lt;/li&gt;
+&lt;li&gt;Often refer to the vector if features as &lt;cite&gt;X&lt;/cite&gt; and the output (label) as &lt;cite&gt;y&lt;/cite&gt;, and say that we're trying to find a function that approximates &lt;cite&gt;f(X)=y&lt;/cite&gt;; this
+function is our model and is characterized by some model parameters.&lt;/li&gt;
+&lt;li&gt;We choose the type or class of model, and then use ML techniques to learn the
+model parameters that minimize the error (the difference between the
+predicted and actual output)&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="ml-workflow"&gt;
 &lt;h3&gt;ML Workflow&lt;/h3&gt;
@@ -77,6 +83,47 @@ type of model to use, and configuring the initial hyperparameters&lt;/li&gt;
 evaluating the results adjusting the model type or the hyperparameters if the
 results are not yet satisfactory&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="how-to-choose-data-to-train-ml-system"&gt;
+&lt;h3&gt;How to choose data to train ML system&lt;/h3&gt;
+&lt;div class="section" id="features-attributes"&gt;
+&lt;h4&gt;Features / Attributes&lt;/h4&gt;
+&lt;p&gt;Features (aka attributes) are used to train ML system.
+This are the proprieties of the things you are trying to learn about&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  ,--./,-.
+ / #      \    &amp;lt;-- color
+|          |
+ \        /    &amp;lt;-- weight
+  `._,._,&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Features of the apple might be weight and color.&lt;/p&gt;
+&lt;p&gt;2 features, would mean there are 2D (two dimensions)&lt;/p&gt;
+&lt;p&gt;The 2D system my be plotted on a graph if features are represented in a numerical way.&lt;/p&gt;
+&lt;p&gt;The ML system can learn to split the data up with a line to separate apples from oranges.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  ^
+  |
+W |                           X
+E |           A             X
+I |                       X
+G |          A          X
+H |            AA     X
+T |    A            X
+  |        A      X    O
+  |           A X     O
+  |           X  O
+  |     AA  X                           A = Apples
+  |       X   O O                       O = Oranges
+  |     X           O                   X = Line
+  |   X  O
+  | X
+  +-------------------------------&amp;gt;
+                COLOR
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Choosing useful inputs features can have big impact on the quality of
+the ML system.&lt;/p&gt;
+&lt;p&gt;Some features my not be useful enough to separate the data points.&lt;/p&gt;
+&lt;p&gt;Example: Plotting apple and oranges seed count and ripeness&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </content><category term="blog"></category><category term="python"></category><category term="ml"></category><category term="ai"></category></entry><entry><title>Vim User Disorder</title><link href="/vim-user-disorder.html" rel="alternate"></link><published>2018-09-07T13:48:16+02:00</published><updated>2020-01-17T00:00:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-09-07:/vim-user-disorder.html</id><summary type="html">Cheatsheet and notes for (neo)vim editor</summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
