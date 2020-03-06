@@ -99,24 +99,24 @@ This are the proprieties of the things you are trying to learn about&lt;/p&gt;
 &lt;p&gt;The ML system can learn to split the data up with a line to separate apples from oranges.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  ^
   |
-W |                           X
-E |           A             X
-I |                       X
-G |          A          X
-H |            AA     X
-T |    A            X
-  |        A      X    O
-  |           A X     O
-  |           X  O
-  |     AA  X                           A = Apples
-  |       X   O O                       O = Oranges
-  |     X           O                   X = Line
-  |   X  O
+  |                           X
+  |           O             X
+  |                       X
+  |          O          X
+S |            OO     X
+I |    O            X
+Z |        O      X    A
+E |           O X     A
+  |           X  A
+  |     OO  X                           A = Apples
+  |       X   A A                       O = Oranges
+  |     X           A                   X = Line
+  |   X  A
   | X
   +-------------------------------&amp;gt;
                 COLOR
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Example: Plotting apple and oranges weigt and colors&lt;/p&gt;
+&lt;p&gt;Example: Plotting apple and oranges size and colors&lt;/p&gt;
 &lt;p&gt;Choosing useful inputs features can have big impact on the quality of
 the ML system.&lt;/p&gt;
 &lt;p&gt;Some features my not be useful enough to separate the data points.&lt;/p&gt;
