@@ -67,18 +67,9 @@ predicted and actual output)&lt;/li&gt;
 &lt;h3&gt;ML Workflow&lt;/h3&gt;
 &lt;p&gt;A typical machine learning workflow begins with:&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;strong&gt;GETTING THE DATA&lt;/strong&gt;
-exploring and cleaning up the data (handling missing values, normalizing
-values, removing bad data and outliers, encoding data in appropriate
-representations, and more) possibly creating some additional synthetic values
-(e.g. we could use linear regression to fit a higher-order polynomial by
-creating synthetic values that are existing values raised to the power 2, 3,
-etc; other common examples might be computing and including aggregate values
-like means and standard deviations of some of the original values) picking a
-type of model to use, and configuring the initial hyperparameters&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;After which we could do multiple iterations of:&lt;/p&gt;
-&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;strong&gt;GETTING THE DATA&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;EXPLORING AND CLEANINGu (EDA)&lt;/strong&gt; up the data (handling missing values, normalizing
+values, removing bad data and outliers, encoding data in appropriate representations, and more)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;TRAINING THE MODEL&lt;/strong&gt;
 evaluating the results adjusting the model type or the hyperparameters if the
 results are not yet satisfactory&lt;/li&gt;
