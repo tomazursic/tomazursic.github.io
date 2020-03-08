@@ -10,8 +10,8 @@ also, tl;dr
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="basic-machine-learning-with-python"&gt;
 &lt;h2&gt;Basic Machine Learning with Python&lt;/h2&gt;
-&lt;p&gt;In this post we will look into basic concepts of Data Analysis, Machine
-Learning and the basics of building ML models with Scikit-Learn and TensorFlow for humans.&lt;/p&gt;
+&lt;p&gt;About basic concepts of Data Analysis, Machine Learning and the basics of
+building ML models with Scikit-Learn and TensorFlow for humans.&lt;/p&gt;
 &lt;div class="section" id="ml-terminology"&gt;
 &lt;h3&gt;ML Terminology&lt;/h3&gt;
 &lt;p&gt;Machine Learning is the process of building models from data, either to gain
