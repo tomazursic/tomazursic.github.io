@@ -663,7 +663,7 @@ For more information see &lt;a class="reference external" href="https://docs.pyc
 &lt;/li&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#hardware-components" id="id15"&gt;Hardware components&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#hardware-components-mobile" id="id16"&gt;Hardware components mobile&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#examples-gateways" id="id17"&gt;Examples gateways&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#examples" id="id17"&gt;Examples&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -826,7 +826,7 @@ with IMST ic800a backplate and Raspberry pi.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="setup-packet-forwarder"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id13"&gt;Setup packet forwarder&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://github.com/tomazursic/LoraGW-Setup"&gt;https://github.com/tomazursic/LoraGW-Setup&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://github.com/ch2i/LoraGW-Setup"&gt;https://github.com/ch2i/LoraGW-Setup&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="references"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id14"&gt;References&lt;/a&gt;&lt;/h3&gt;
@@ -944,8 +944,8 @@ with IMST ic800a backplate and Raspberry pi.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;div class="section" id="examples-gateways"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id17"&gt;Examples gateways&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="examples"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id17"&gt;Examples&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="Image" src="images/lorawan-gw/2019-08-31_13.14.04.jpg" /&gt;
 &lt;p class="caption"&gt;#1 DIY Raspberry PI Zero &amp;amp; ic880a&lt;/p&gt;
@@ -1017,6 +1017,7 @@ such as downy mildew) and the physio-pathological status of the plant&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;LoRaWAN Gateway&lt;/strong&gt;: collection and transmission of data detected by the
 wireless sensors&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;&lt;a class="reference external" href="/setup-lorawan-gateway.html"&gt;How to setup LoraWAN Gateway&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The LoRa technology makes it possible to overcome the problem of distance and
 “physical interference”, two common conditions when you consider the nature of
 the viticultural land, very often characterized by slopes, wild
