@@ -7232,7 +7232,7 @@ python -m smtpd -n -c DebuggingServer localhost:25
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="blog"></category><category term="python"></category><category term="notes"></category><category term="cheatsheet"></category><category term="snippets"></category></entry><entry><title>Setup LoRaWAN gateway</title><link href="/setup-lorawan-gateway.html" rel="alternate"></link><published>2017-09-03T22:46:00+02:00</published><updated>2018-10-27T01:04:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-09-03:/setup-lorawan-gateway.html</id><summary type="html">Notes for assembling LoraWAN gateway</summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
+</content><category term="blog"></category><category term="python"></category><category term="notes"></category><category term="cheatsheet"></category><category term="snippets"></category></entry><entry><title>Setup LoRaWAN gateway</title><link href="/setup-lorawan-gateway.html" rel="alternate"></link><published>2017-09-03T22:46:00+02:00</published><updated>2018-10-27T01:04:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-09-03:/setup-lorawan-gateway.html</id><summary type="html">Notes for assembling LoRaWAN gateway</summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
 &lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#setup-lorawan-gateway" id="id1"&gt;Setup LoRaWAN gateway&lt;/a&gt;&lt;ul&gt;
@@ -7794,7 +7794,7 @@ such as downy mildew) and the physio-pathological status of the plant&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;LoRaWAN Gateway&lt;/strong&gt;: collection and transmission of data detected by the
 wireless sensors&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;a class="reference external" href="/setup-lorawan-gateway.html"&gt;How to setup LoraWAN Gateway&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="/setup-lorawan-gateway.html"&gt;How to setup LoRaWAN Gateway&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The LoRa technology makes it possible to overcome the problem of distance and
 “physical interference”, two common conditions when you consider the nature of
 the viticultural land, very often characterized by slopes, wild
@@ -7802,7 +7802,7 @@ vegetation and hilly landscapes.&lt;/p&gt;
 &lt;p&gt;Monitor the vineyard in real time and continuously, as well as the storage of
 the historic data, which will be crucial for the organization and management of
 the vineyard, not only of the current season but also of those to come.&lt;/p&gt;
-&lt;p&gt;&lt;a class="reference external" href="/lorawan-network.html"&gt;Read more about LoraWAN&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="/lorawan-network.html"&gt;Read more about LoRaWAN&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Project example with  MicroPython on esp-32 (lopy) to collect data (weather, soil, leafs..) on
 micro-locations.&lt;/p&gt;
 &lt;/div&gt;
@@ -7818,7 +7818,7 @@ Powered with LiPo battery and optional solar power.&lt;/dd&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;dl class="first docutils"&gt;
 &lt;dt&gt;Antenna&lt;/dt&gt;
-&lt;dd&gt;It's part of device and responsible for transmitting and receiving data from LoraWAN network gateways&lt;/dd&gt;
+&lt;dd&gt;It's part of device and responsible for transmitting and receiving data from LoRaWAN network gateways&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;dl class="first docutils"&gt;
@@ -7976,7 +7976,7 @@ MQTT_PASSWORD = &amp;#39;ttn-account-v2.&amp;lt;CHANGE-WITH-KEY&amp;gt;&amp;#39;
 &lt;/div&gt;
 &lt;div class="section" id="message-payload"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id8"&gt;Message Payload&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Data transmitted over LoraWAN is decoded into bytes before sending over
+&lt;p&gt;Data transmitted over LoRaWAN is decoded into bytes before sending over
 the air&lt;/p&gt;
 &lt;table border="1" class="docutils"&gt;
 &lt;colgroup&gt;
