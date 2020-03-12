@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Weblog - tomazursic.github.io</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2020-01-17T00:00:00+01:00</updated><entry><title>Python Data Analysis and ML</title><link href="/python-data-analysis-and-ml.html" rel="alternate"></link><published>2019-11-06T00:00:00+01:00</published><updated>2019-11-06T00:00:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2019-11-06:/python-data-analysis-and-ml.html</id><summary type="html">&lt;p class="first last"&gt;Learning notes for Data Science and Machine Learning using Python&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Weblog - tomazursic.github.io</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2020-03-12T11:22:00+01:00</updated><entry><title>Python Data Analysis and ML</title><link href="/python-data-analysis-and-ml.html" rel="alternate"></link><published>2019-11-06T00:00:00+01:00</published><updated>2019-11-06T00:00:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2019-11-06:/python-data-analysis-and-ml.html</id><summary type="html">&lt;p class="first last"&gt;Learning notes for Data Science and Machine Learning using Python&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;&amp;gt;&amp;gt; &lt;strong&gt;This post is under heavy development and with constant updates, following the learning curve.&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;DRAFT VERSION,
 contains Typos
@@ -7232,7 +7232,7 @@ python -m smtpd -n -c DebuggingServer localhost:25
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="blog"></category><category term="python"></category><category term="notes"></category><category term="cheatsheet"></category><category term="snippets"></category></entry><entry><title>Setup LoRaWAN gateway</title><link href="/setup-lorawan-gateway.html" rel="alternate"></link><published>2017-09-03T22:46:00+02:00</published><updated>2018-10-27T01:04:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-09-03:/setup-lorawan-gateway.html</id><summary type="html">Notes for assembling LoRaWAN gateway</summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
+</content><category term="blog"></category><category term="python"></category><category term="notes"></category><category term="cheatsheet"></category><category term="snippets"></category></entry><entry><title>Setup LoRaWAN gateway</title><link href="/setup-lorawan-gateway.html" rel="alternate"></link><published>2017-09-03T22:46:00+02:00</published><updated>2020-03-12T11:22:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-09-03:/setup-lorawan-gateway.html</id><summary type="html">Notes for assembling LoRaWAN gateway</summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
 &lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#setup-lorawan-gateway" id="id1"&gt;Setup LoRaWAN Gateway&lt;/a&gt;&lt;ul&gt;
@@ -7756,7 +7756,7 @@ speedometer. It was true I could follow the stars in the general direction of
 Helium, but without knowing the exact location of the city or the speed at
 which I was traveling my chances for finding it were slim.&lt;/p&gt;
 &lt;p&gt;-- &lt;cite&gt; Moby-Dick - Novel by Herman Melville &lt;/cite&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</content><category term="blog"></category></entry><entry><title>Smart Agriculture Prototype</title><link href="/vinode.html" rel="alternate"></link><published>2017-03-28T21:48:00+02:00</published><updated>2019-09-05T20:38:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-03-28:/vinode.html</id><summary type="html">&lt;p class="first last"&gt;DIY - device for taking micro climate measurements&lt;/p&gt;
+&lt;/blockquote&gt;</content><category term="blog"></category></entry><entry><title>Smart Agriculture Prototype</title><link href="/vinode.html" rel="alternate"></link><published>2017-03-28T21:48:00+02:00</published><updated>2020-03-12T11:22:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-03-28:/vinode.html</id><summary type="html">&lt;p class="first last"&gt;DIY - device for taking micro climate measurements&lt;/p&gt;
 </summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
 &lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;

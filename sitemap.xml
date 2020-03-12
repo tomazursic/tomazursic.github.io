@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/</loc>
-<lastmod>2020-03-12T11:21:37-00:00</lastmod>
+<lastmod>2020-03-12T11:22:36-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/archives.html</loc>
-<lastmod>2020-03-12T11:21:37-00:00</lastmod>
+<lastmod>2020-03-12T11:22:36-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/tags.html</loc>
-<lastmod>2020-03-12T11:21:37-00:00</lastmod>
+<lastmod>2020-03-12T11:22:36-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/categories.html</loc>
-<lastmod>2020-03-12T11:21:37-00:00</lastmod>
+<lastmod>2020-03-12T11:22:36-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -96,7 +96,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/setup-lorawan-gateway.html</loc>
-<lastmod>2018-10-27T01:04:00+02:00</lastmod>
+<lastmod>2020-03-12T11:22:00+01:00</lastmod>
 <changefreq>always</changefreq>
 <priority>1</priority>
 </url>
@@ -124,7 +124,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/vinode.html</loc>
-<lastmod>2019-09-05T20:38:00+02:00</lastmod>
+<lastmod>2020-03-12T11:22:00+01:00</lastmod>
 <changefreq>always</changefreq>
 <priority>1</priority>
 </url>
@@ -159,14 +159,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/category/projects.html</loc>
-<lastmod>2019-09-05T20:38:00+01:22</lastmod>
+<lastmod>2020-03-12T11:22:00+01:22</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/tag/python.html</loc>
-<lastmod>2020-01-10T00:00:00+01:22</lastmod>
+<lastmod>2020-03-12T11:22:00+01:22</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -208,21 +208,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/tag/lorawan.html</loc>
-<lastmod>2020-01-10T00:00:00+01:22</lastmod>
+<lastmod>2020-03-12T11:22:00+01:22</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/tag/iot.html</loc>
-<lastmod>2020-01-10T00:00:00+01:22</lastmod>
+<lastmod>2020-03-12T11:22:00+01:22</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/tag/network.html</loc>
-<lastmod>2020-01-10T00:00:00+01:22</lastmod>
+<lastmod>2020-03-12T11:22:00+01:22</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -285,14 +285,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/tag/gateway.html</loc>
-<lastmod>2018-10-27T01:04:00+01:22</lastmod>
+<lastmod>2020-03-12T11:22:00+01:22</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/tag/ic880a.html</loc>
-<lastmod>2018-10-27T01:04:00+01:22</lastmod>
+<lastmod>2020-03-12T11:22:00+01:22</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -320,7 +320,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/tag/micropython.html</loc>
-<lastmod>2019-09-05T20:38:00+01:22</lastmod>
+<lastmod>2020-03-12T11:22:00+01:22</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -362,7 +362,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/author/tomaz.html</loc>
-<lastmod>2020-01-17T00:00:00+01:22</lastmod>
+<lastmod>2020-03-12T11:22:00+01:22</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
