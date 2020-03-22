@@ -1,3 +1,4 @@
+
 html {
  background-color:#fefefe
 }
@@ -719,4 +720,14 @@ p.topic-title {
 html.inverted .note {
   background-color: #2a4f70;
   color: #a5caeb;
+}
+
+@media print {    
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+    pre {
+        white-space: pre-wrap !important;
+    }
 }
