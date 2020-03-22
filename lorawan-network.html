@@ -111,7 +111,7 @@
 <li><a class="reference internal" href="#the-things-stack-for-lorawan" id="id13">The Things Stack for LoRaWAN</a></li>
 <li><a class="reference internal" href="#network-server" id="id14">Network Server</a></li>
 <li><a class="reference internal" href="#duty-cycle" id="id15">Duty Cycle</a><ul>
-<li><a class="reference internal" href="#ttn-fair-access-policy" id="id16">TTN Fair Access Policy</a></li>
+<li><a class="reference internal" href="#fair-access-policy" id="id16">Fair Access Policy</a></li>
 <li><a class="reference internal" href="#compliance" id="id17">Compliance</a></li>
 </ul>
 </li>
@@ -197,7 +197,7 @@ IoE (Internet of Everything) or M2M (Machine to Machine) area, or
 industrial internet of things (IIoT).</p>
 <p>We’re typically looking at (small) sensors/devices/things that are
 battery operated and communicate limited information on a limited
-interval (<strong>Fair Access Policy</strong> and <strong>Duty Cycle</strong>).</p>
+interval (<a class="reference internal" href="#fair-access-policy">Fair Access Policy</a> and <a class="reference internal" href="#duty-cycle">Duty Cycle</a>)</p>
 <p>Some examples of use cases:</p>
 <ul class="simple">
 <li>Telemetry:<ul>
@@ -474,7 +474,10 @@ it into an MQTT queue.</p>
 </div>
 <div class="section" id="duty-cycle">
 <h3><a class="toc-backref" href="#id15">Duty Cycle</a></h3>
-<p>Indicates the fraction of time a resource is busy.</p>
+<p>Duty cycle is the proportion of time during which a component, device, or
+system is operated. In other words indicates the fraction of time a resource is
+busy.</p>
+<p>The duty cycle can be expressed as a ratio or as a percentage.</p>
 <p>In Europe, duty cycles are regulated by section 7.2.3 of the ETSI
 EN300.220 standard. This standard defines the following sub-bands and
 their duty cycles:</p>
@@ -490,9 +493,9 @@ the total period (T) of the waveform.</p>
 <pre class="code text literal-block">
 Duty Cycle = PW/T * 100%
 </pre>
-<p>Here’s a diagram to help you better visualize what a duty cycle is:</p>
-<div class="section" id="ttn-fair-access-policy">
-<h4><a class="toc-backref" href="#id16">TTN Fair Access Policy</a></h4>
+<p>Details: <a class="reference external" href="https://www.thethingsnetwork.org/docs/lorawan/duty-cycle.html">https://www.thethingsnetwork.org/docs/lorawan/duty-cycle.html</a></p>
+<div class="section" id="fair-access-policy">
+<h4><a class="toc-backref" href="#id16">Fair Access Policy</a></h4>
 <p>The Things Network’s public community network, we have a Fair Access
 Policy that limits the uplink airtime to 30 seconds per day (24 hours)
 per node and the downlink messages to 10 messages per day (24 hours) per

@@ -939,7 +939,7 @@ Vim. Amen.&lt;/p&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#the-things-stack-for-lorawan" id="id13"&gt;The Things Stack for LoRaWAN&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#network-server" id="id14"&gt;Network Server&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#duty-cycle" id="id15"&gt;Duty Cycle&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#ttn-fair-access-policy" id="id16"&gt;TTN Fair Access Policy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#fair-access-policy" id="id16"&gt;Fair Access Policy&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#compliance" id="id17"&gt;Compliance&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -1025,7 +1025,7 @@ IoE (Internet of Everything) or M2M (Machine to Machine) area, or
 industrial internet of things (IIoT).&lt;/p&gt;
 &lt;p&gt;We’re typically looking at (small) sensors/devices/things that are
 battery operated and communicate limited information on a limited
-interval (&lt;strong&gt;Fair Access Policy&lt;/strong&gt; and &lt;strong&gt;Duty Cycle&lt;/strong&gt;).&lt;/p&gt;
+interval (&lt;a class="reference internal" href="#fair-access-policy"&gt;Fair Access Policy&lt;/a&gt; and &lt;a class="reference internal" href="#duty-cycle"&gt;Duty Cycle&lt;/a&gt;)&lt;/p&gt;
 &lt;p&gt;Some examples of use cases:&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;Telemetry:&lt;ul&gt;
@@ -1302,7 +1302,10 @@ it into an MQTT queue.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="duty-cycle"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id15"&gt;Duty Cycle&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Indicates the fraction of time a resource is busy.&lt;/p&gt;
+&lt;p&gt;Duty cycle is the proportion of time during which a component, device, or
+system is operated. In other words indicates the fraction of time a resource is
+busy.&lt;/p&gt;
+&lt;p&gt;The duty cycle can be expressed as a ratio or as a percentage.&lt;/p&gt;
 &lt;p&gt;In Europe, duty cycles are regulated by section 7.2.3 of the ETSI
 EN300.220 standard. This standard defines the following sub-bands and
 their duty cycles:&lt;/p&gt;
@@ -1318,9 +1321,9 @@ the total period (T) of the waveform.&lt;/p&gt;
 &lt;pre class="code text literal-block"&gt;
 Duty Cycle = PW/T * 100%
 &lt;/pre&gt;
-&lt;p&gt;Here’s a diagram to help you better visualize what a duty cycle is:&lt;/p&gt;
-&lt;div class="section" id="ttn-fair-access-policy"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id16"&gt;TTN Fair Access Policy&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Details: &lt;a class="reference external" href="https://www.thethingsnetwork.org/docs/lorawan/duty-cycle.html"&gt;https://www.thethingsnetwork.org/docs/lorawan/duty-cycle.html&lt;/a&gt;&lt;/p&gt;
+&lt;div class="section" id="fair-access-policy"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id16"&gt;Fair Access Policy&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;The Things Network’s public community network, we have a Fair Access
 Policy that limits the uplink airtime to 30 seconds per day (24 hours)
 per node and the downlink messages to 10 messages per day (24 hours) per
