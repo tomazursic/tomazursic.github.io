@@ -7,94 +7,6 @@
 
 .. contents:: Table of Contents
 
-**VUD** 
-
-The vim editor which is always in use, so much that you start smashing into
-alien editors with vim commands. If you find somewhere in documents random
-characters "jjjkk" or any characters of "jklhzz" there was a vim user in this
-file. This acronym is just a dark fun invented by us, back somewhere in time.
-
-
-Neo(vim)
-========
-
-The current plugged list (extensions in use)
-
-.. code-block:: text
-
-  " Comment stuff out
-  Plug 'tpope/vim-commentary'
-
-  " Quoting & parenthesizing
-  Plug 'tpope/vim-surround'
-
-  " auto-close plugin
-  Plug 'rstacruz/vim-closer'
-
-  " Intellisense Engine
-  " Plug 'neoclide/coc.nvim', { 'do': 'yarn install' }
-  Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-
-  " Fuzzy search fzf as well using vim-plug
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'junegunn/fzf.vim'
-
-  " Snippet support
-  Plug 'honza/vim-snippets'
-
-  " HTML, ccs, js completion tool
-  Plug 'mattn/emmet-vim', { 'for': 'html' }
-
-  " Distraction-free writing
-  Plug 'junegunn/goyo.vim'
-
-  " Print function signatures in echo area
-  Plug 'Shougo/echodoc.vim'
-
-  " Write different documentation styles
-  Plug 'kkoomen/vim-doge'
-
-  " === Git Plugins === "
-  " Enable git changes to be shown in sign column
-  Plug 'mhinz/vim-signify'
-  Plug 'tpope/vim-fugitive'
-
-  " === Javascript Plugins === "
-  " Typescript syntax highlighting
-  Plug 'HerringtonDarkholme/yats.vim'
-
-  " ReactJS JSX syntax highlighting
-  Plug 'mxw/vim-jsx'
-
-  " Generate JSDoc commands based on function signature
-  Plug 'heavenshell/vim-jsdoc'
-
-  " === Syntax Highlighting === "
-
-  " Syntax highlighting for javascript libraries
-  Plug 'othree/javascript-libraries-syntax.vim'
-
-  " Improved syntax highlighting and indentation
-  Plug 'othree/yajs.vim'
-
-  " === UI === "
-  " File explorer
-  Plug 'scrooloose/nerdtree'
-
-  " Material colorscheme
-  Plug 'NLKNguyen/papercolor-theme'
-
-  " Customized vim status line
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
-
-
-Coc Extra:
-
-.. code:: text
-
-  : CocInstall coc-python coc-rls coc-tsserver coc-eslint coc-json coc-prettier coc-emme
-
 Cheatsheet
 ==========
 
@@ -756,7 +668,9 @@ For scrolling avoid ``j`` and ``k``.
 Install Neovim
 ==============
 
-Install on ubuntu::
+Install on ubuntu
+
+.. code-block:: shell
 
     $ sudo apt-get install software-properties-common
     $ sudo apt-get install python-dev python-pip python3-dev python3-pip
@@ -771,18 +685,24 @@ Transition
 
 Set `neovim` to use `vimrc`
 
-Create `nvim` config::
+Create `nvim` config
+
+.. code-block:: shell
 
     mkdir ~/.config/nvim && cd !$ && touch init.vim
 
-Add to `init.vim`::
+Add to `init.vim`
+
+.. code-block:: shell
 
     set runtimepath^=~/.vim runtimepath+=~/.vim/after
     let &packpath = &runtimepath
     source ~/.vimrc
 
 
-View help for transition::
+View help for transition
+
+.. code-block:: shell
 
     :help nvim-from-vim 
 
@@ -801,3 +721,94 @@ The Evolution:
 
 Ex is a ‘line editor’ Vim is a ‘screen editor’ Ex is sub-editor within
 Vim. Amen.
+
+
+Neo(vim)
+========
+
+The current plugged list (extensions in use)
+
+.. code-block:: text
+
+  " Comment stuff out
+  Plug 'tpope/vim-commentary'
+
+  " Quoting & parenthesizing
+  Plug 'tpope/vim-surround'
+
+  " auto-close plugin
+  Plug 'rstacruz/vim-closer'
+
+  " Intellisense Engine
+  " Plug 'neoclide/coc.nvim', { 'do': 'yarn install' }
+  Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+
+  " Fuzzy search fzf as well using vim-plug
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
+
+  " Snippet support
+  Plug 'honza/vim-snippets'
+
+  " HTML, ccs, js completion tool
+  Plug 'mattn/emmet-vim', { 'for': 'html' }
+
+  " Distraction-free writing
+  Plug 'junegunn/goyo.vim'
+
+  " Print function signatures in echo area
+  Plug 'Shougo/echodoc.vim'
+
+  " Write different documentation styles
+  Plug 'kkoomen/vim-doge'
+
+  " === Git Plugins === "
+  " Enable git changes to be shown in sign column
+  Plug 'mhinz/vim-signify'
+  Plug 'tpope/vim-fugitive'
+
+  " === Javascript Plugins === "
+  " Typescript syntax highlighting
+  Plug 'HerringtonDarkholme/yats.vim'
+
+  " ReactJS JSX syntax highlighting
+  Plug 'mxw/vim-jsx'
+
+  " Generate JSDoc commands based on function signature
+  Plug 'heavenshell/vim-jsdoc'
+
+  " === Syntax Highlighting === "
+
+  " Syntax highlighting for javascript libraries
+  Plug 'othree/javascript-libraries-syntax.vim'
+
+  " Improved syntax highlighting and indentation
+  Plug 'othree/yajs.vim'
+
+  " === UI === "
+  " File explorer
+  Plug 'scrooloose/nerdtree'
+
+  " Material colorscheme
+  Plug 'NLKNguyen/papercolor-theme'
+
+  " Customized vim status line
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+
+
+Coc Extra:
+
+.. code:: text
+
+  : CocInstall coc-python coc-rls coc-tsserver coc-eslint coc-json coc-prettier coc-emme
+
+Extra
+======
+
+**VUD** 
+
+The vim editor which is always in use, so much that you start smashing into
+alien editors with vim commands. If you find somewhere in documents random
+characters "jjjkk" or any characters of "jklhzz" there was a vim user in this
+file. This acronym is just a dark fun invented by us, back somewhere in time.

@@ -909,6 +909,8 @@ We can also do *slicing* operations on most sequences
 Dictionaries
 --------------
 
+They are insertion ordered Python 3.6+
+
 Dictionaries are mutable mappings of keys to values. Keys
 must be hashable, but values can be any object
 
@@ -964,7 +966,7 @@ must be hashable, but values can be any object
   Operation                                                         Result
   ================================================================= ============================================================
   ``d.clear()``                                                     Remove all items (mutates ``d``)
-  ``d.copy()``                                                      Shallow copy
+  ``d.copy()``                                                      Returns shallow copy of ``d``
   ``d.fromkeys(iter, value=None)``                                  Create dict from iterable with values set to value
   ``d.get(key, [default])``                                         Get value for ``key`` or return default (``None``)
   ``d.items()``                                                     View of (key, value) pairs
@@ -976,6 +978,68 @@ must be hashable, but values can be any object
   ``d.values()``                                                    View of values
   ================================================================= ============================================================
 
+Create a dictionary
+^^^^^^^^^^^^^^^^^^^^
+
+1. `dict()` constructor 
+
+.. code:: python
+
+  >>> d = dict(alpha=1, bravo=2)
+  >>> d
+  {'alpha': 1, 'bravo': 2}
+
+Combining dictionary with keyword arguments `dict(mapping, **kwarg)`
+
+.. code:: python
+
+   >>> d2 = dict(d, charlie=3, delta=4)
+   >>> d2
+   {'alpha': 1, 'bravo': 2, 'charlie': 3, 'delta': 4}
+
+2. Using two lists and iterator of tuples
+
+.. code:: python
+
+   # zip --> iterator --> dict 
+
+   >>> codes = ["alpha", "bravo", "charlie", "delta"]
+   >>> numbers = [1, 2, 3, 4]
+   >>> d = dict(zip(codes, numbers))
+   >>> d
+   {'alpha': 1, 'bravo': 2, 'charlie': 3, 'delta': 4}
+
+Shallow & Deepcopy 
+^^^^^^^^^^^^^^^^^^^
+
+Docs https://docs.python.org/3/library/copy.html
+
+**Shallow** copy Create bindings between a target and an object
+
+
+.. code:: python
+
+  >>> d = dict(alpha=[1, 11], bravo=[2, 22])
+  >>> d2 = d.copy()
+  >>> d2["alpha"][1] = 222
+  >>> d
+  {'alpha': [1, 222], 'bravo': [2, 22]}
+  >>> 
+
+**Deepcopy** is only relevant when the dictionary contains other objects like
+lists, since those objects will be referenced instead of duplicated (shallow
+copy). To create a fully independent clone of the original dictionary, we have
+to make a deep copy.
+
+.. code:: python
+
+  >>> import copy
+  >>> d = dict(alpha=[1, 11], bravo=[2, 22])
+  >>> d2 = copy.deepcopy(d)
+  >>> d2["alpha"][1] = 222
+  >>> d
+  {'alpha': [1, 11], 'bravo': [2, 22]}
+  >>> 
 
 Tuples
 -------
