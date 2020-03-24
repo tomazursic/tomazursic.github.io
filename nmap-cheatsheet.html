@@ -100,8 +100,8 @@
 <li><a class="reference internal" href="#firewall-ids-evasion-and-spoofing" id="id11">Firewall / IDS Evasion and Spoofing</a></li>
 <li><a class="reference internal" href="#output" id="id12">Output</a></li>
 <li><a class="reference internal" href="#output-examples" id="id13">Output examples</a></li>
-<li><a class="reference internal" href="#common-commands" id="id14">Common commands</a></li>
-<li><a class="reference internal" href="#misc" id="id15">Misc</a></li>
+<li><a class="reference internal" href="#misc" id="id14">Misc</a></li>
+<li><a class="reference internal" href="#common-commands" id="id15">Common commands</a></li>
 </ul>
 </div>
 <div class="section" id="targets">
@@ -744,36 +744,8 @@ your-own-ip,decoy-ip3,decoy-ip4 remote-host-ip</td>
 </tbody>
 </table>
 </div>
-<div class="section" id="common-commands">
-<h2><a class="toc-backref" href="#id14">Common commands</a></h2>
-<table border="1" class="docutils">
-<colgroup>
-<col width="55%" />
-<col width="45%" />
-</colgroup>
-<thead valign="bottom">
-<tr><th class="head">Command</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr><td>nmap -iR 10 -PS22-25,80,113,1050,35000 -v -sn</td>
-<td>Discovery only on ports x, no port scan</td>
-</tr>
-<tr><td>nmap 192.168.1.1-1/24 -PR -sn -vv</td>
-<td>Arp discovery only on local network, no port scan</td>
-</tr>
-<tr><td>nmap -iR 10 -sn -traceroute</td>
-<td>Traceroute to random targets, no port scan</td>
-</tr>
-<tr><td>nmap 192.168.1.1-50 -sL --dns-server 192.168.1.1</td>
-<td>Query the Internal DNS for hosts, list targets only</td>
-</tr>
-</tbody>
-</table>
-</div>
 <div class="section" id="misc">
-<h2><a class="toc-backref" href="#id15">Misc</a></h2>
+<h2><a class="toc-backref" href="#id14">Misc</a></h2>
 <table border="1" class="docutils">
 <colgroup>
 <col width="22%" />
@@ -794,6 +766,46 @@ your-own-ip,decoy-ip3,decoy-ip4 remote-host-ip</td>
 <tr><td>-h</td>
 <td>nmap -h nmap</td>
 <td>Help screen</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="common-commands">
+<h2><a class="toc-backref" href="#id15">Common commands</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="38%" />
+<col width="62%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Command</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>nmap -sP 192.168.1.0/24</td>
+<td>Find all available hosts per subnet with no port scan after host discovery</td>
+</tr>
+<tr><td>nmap -v -sS -A -T4 target</td>
+<td>Verbose scan, runs syn stealth, T4 timing (should be ok on LAN), OS and service version info, traceroute and scripts against services</td>
+</tr>
+<tr><td>nmap -v -sS -p–A -T4 target</td>
+<td>All TCP porst</td>
+</tr>
+<tr><td>nmap -v -sU -sS -p- -A -T4 target</td>
+<td>All TCP and UDP ports</td>
+</tr>
+<tr><td>nmap -iR 10 -PS22-25,80,113,1050,35000 -v -sn</td>
+<td>Discovery only on ports x, no port scan</td>
+</tr>
+<tr><td>nmap 192.168.1.1-1/24 -PR -sn -vv</td>
+<td>Arp discovery only on local network, no port scan</td>
+</tr>
+<tr><td>nmap -iR 10 -sn -traceroute</td>
+<td>Traceroute to random targets, no port scan</td>
+</tr>
+<tr><td>nmap 192.168.1.1-50 -sL --dns-server 192.168.1.1</td>
+<td>Query the Internal DNS for hosts, list targets only</td>
 </tr>
 </tbody>
 </table>
