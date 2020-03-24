@@ -417,15 +417,14 @@
 </tr>
 </tbody>
 </table>
-<!-- longtable: format: {>{\hangindent=1em\hangafter=1\raggedright\arraybackslash }p{.3\textwidth} >{\hangindent=1em\hangafter=1\raggedright\arraybackslash }p{.6\textwidth}} -->
 </div>
 <div class="section" id="performance">
 <h2><a class="toc-backref" href="#id8">Performance</a></h2>
 <table border="1" class="docutils">
 <colgroup>
-<col width="26%" />
-<col width="17%" />
-<col width="57%" />
+<col width="43%" />
+<col width="13%" />
+<col width="44%" />
 </colgroup>
 <thead valign="bottom">
 <tr><th class="head">Switch</th>
@@ -438,41 +437,21 @@
 <td>1s; 4m; 2h</td>
 <td>Give up on target after this long</td>
 </tr>
-<tr><td>--min-rtt-timeout &lt;time&gt;</td>
+<tr><td>--min-rtt-timeout,--max-rtt-timeout,--initial-rtt-timeout &lt;time&gt;</td>
 <td>1s; 4m; 2h</td>
 <td>Specifies probe round trip time</td>
 </tr>
-<tr><td>--max-rtt-timeout &lt;time&gt;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr><td>--initial-rtt-timeout &lt;time&gt;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr><td>--min-hostgroup &lt;size&gt;&lt;size&gt;</td>
+<tr><td>--min-hostgroup,--max-hostgroup,--max-hostgroup &lt;size&gt;&lt;size&gt;</td>
 <td>50; 1024</td>
 <td>Parallel host scan group sizes</td>
 </tr>
-<tr><td>--max-hostgroup &lt;size&lt;size&gt;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr><td>--min-parallelism &lt;numprobes&gt;</td>
+<tr><td>--min-parallelism,--max-parallelism &lt;numprobes&gt;</td>
 <td>10; 1</td>
 <td>Probe parallelization</td>
 </tr>
-<tr><td>--max-parallelism &lt;numprobes&gt;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr><td>--scan-delay &lt;time&gt;</td>
+<tr><td>--scan-delay,--max-scan-delay &lt;time&gt;</td>
 <td>20ms; 2s; 4m; 5h</td>
 <td>Adjust delay between probes</td>
-</tr>
-<tr><td>--max-scan-delay &lt;time&gt;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
 </tr>
 <tr><td>--max-retries &lt;tries&gt;</td>
 <td>5</td>
@@ -483,7 +462,7 @@
 <td>Send packets no slower than &lt;numberr&gt; per second</td>
 </tr>
 <tr><td>--max-rate &lt;number&gt;</td>
-<td>100</td>
+<td>60</td>
 <td>Send packets no faster than &lt;number&gt; per second</td>
 </tr>
 </tbody>
