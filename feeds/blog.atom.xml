@@ -2653,7 +2653,7 @@ justify their code reviews)&lt;/p&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id28"&gt;Variables&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Python variables are like cattle tags, they point to objects (which can be
 classes, instances, modules, or functions), but variables are not the objects. You can
-reuse variable names for different object types (though you probably shouldn't)&lt;/p&gt;
+reuse variable &lt;strong&gt;names&lt;/strong&gt; for different object types (though you probably shouldn't)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;400&lt;/span&gt;     &lt;span class="c1"&gt;# a points to an integer&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;400&amp;#39;&lt;/span&gt;   &lt;span class="c1"&gt;# a now points to a string&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -5158,10 +5158,9 @@ named &lt;tt class="docutils literal"&gt;cls&lt;/tt&gt; (as &lt;tt class="docuti
 &lt;p class="last"&gt;In the above example, we had an implicit line continuation without a
 backslash, because there was a &lt;tt class="docutils literal"&gt;(&lt;/tt&gt; on the line.&lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;The &lt;tt class="docutils literal"&gt;staticmethod&lt;/tt&gt; decorator lets you attach functions to
-a class. (I don't like them, just use a function). Note
-that they don't get an implicit first argument. It can be
-called on the instance or the class&lt;/p&gt;
+&lt;p&gt;The &lt;tt class="docutils literal"&gt;staticmethod&lt;/tt&gt; decorator lets you attach functions to a class. Note that
+they don't get an implicit first argument. It can be called on the instance or
+the class method does not depend on state of the object itself.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Recumbent&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Bike&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
 &lt;span class="o"&gt;...&lt;/span&gt;     &lt;span class="nd"&gt;@staticmethod&lt;/span&gt;
 &lt;span class="o"&gt;...&lt;/span&gt;     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;is_fast&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
@@ -5174,6 +5173,12 @@ called on the instance or the class&lt;/p&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;lawnchair&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;is_fast&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;span class="kc"&gt;True&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;It reduces memory usage because doesn't have to instantiate a
+bound-method for each object instiantiated&lt;/p&gt;
+&lt;p&gt;Static methods have limited use, because they don't have access to the
+attributes of an instance of a class (like a regular method does), and they
+don't have access to the attributes of the class itself (like a class method
+does).&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="properties"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id64"&gt;Properties&lt;/a&gt;&lt;/h3&gt;

@@ -550,7 +550,7 @@ justify their code reviews)</p>
 <h3><a class="toc-backref" href="#id28">Variables</a></h3>
 <p>Python variables are like cattle tags, they point to objects (which can be
 classes, instances, modules, or functions), but variables are not the objects. You can
-reuse variable names for different object types (though you probably shouldn't)</p>
+reuse variable <strong>names</strong> for different object types (though you probably shouldn't)</p>
 <div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">400</span>     <span class="c1"># a points to an integer</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;400&#39;</span>   <span class="c1"># a now points to a string</span>
 </pre></div>
@@ -3055,10 +3055,9 @@ named <tt class="docutils literal">cls</tt> (as <tt class="docutils literal">cla
 <p class="last">In the above example, we had an implicit line continuation without a
 backslash, because there was a <tt class="docutils literal">(</tt> on the line.</p>
 </div>
-<p>The <tt class="docutils literal">staticmethod</tt> decorator lets you attach functions to
-a class. (I don't like them, just use a function). Note
-that they don't get an implicit first argument. It can be
-called on the instance or the class</p>
+<p>The <tt class="docutils literal">staticmethod</tt> decorator lets you attach functions to a class. Note that
+they don't get an implicit first argument. It can be called on the instance or
+the class method does not depend on state of the object itself.</p>
 <div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">class</span> <span class="nc">Recumbent</span><span class="p">(</span><span class="n">Bike</span><span class="p">):</span>
 <span class="o">...</span>     <span class="nd">@staticmethod</span>
 <span class="o">...</span>     <span class="k">def</span> <span class="nf">is_fast</span><span class="p">():</span>
@@ -3071,6 +3070,12 @@ called on the instance or the class</p>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">lawnchair</span><span class="o">.</span><span class="n">is_fast</span><span class="p">()</span>
 <span class="kc">True</span>
 </pre></div>
+<p>It reduces memory usage because doesn't have to instantiate a
+bound-method for each object instiantiated</p>
+<p>Static methods have limited use, because they don't have access to the
+attributes of an instance of a class (like a regular method does), and they
+don't have access to the attributes of the class itself (like a class method
+does).</p>
 </div>
 <div class="section" id="properties">
 <h3><a class="toc-backref" href="#id64">Properties</a></h3>
