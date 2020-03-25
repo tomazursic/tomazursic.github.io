@@ -192,6 +192,30 @@
 <span class="mf">0.2326357249985449</span>
 </pre></div>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="k">def</span> <span class="nf">timing</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">():</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">func</span><span class="p">()</span>
+        <span class="n">finish</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Elapsed time: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">finish</span> <span class="o">-</span> <span class="n">start</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="nd">@timing</span>
+<span class="k">def</span> <span class="nf">f1</span><span class="p">():</span>
+    <span class="n">elements</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100000</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">elements</span><span class="p">)):</span>
+        <span class="n">elements</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+<span class="nd">@timing</span>
+<span class="k">def</span> <span class="nf">f2</span><span class="p">():</span>
+    <span class="n">elements</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100000</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">elements</span><span class="p">)):</span>
+        <span class="n">elements</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">f1</span><span class="p">()</span>  <span class="c1"># Elapsed time: 0.007998943328857422</span>
+<span class="n">f2</span><span class="p">()</span>  <span class="c1"># Elapsed time: 0.9251341819763184</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">contextlib</span>
 
 <span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
