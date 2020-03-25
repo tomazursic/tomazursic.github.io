@@ -2830,178 +2830,178 @@ For more information see &lt;a class="reference external" href="https://docs.pyc
 </content><category term="projects"></category><category term="bread"></category><category term="misc"></category></entry><entry><title>Python Notes</title><link href="/python.html" rel="alternate"></link><published>2018-04-20T22:51:00+02:00</published><updated>2020-01-10T00:00:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-04-20:/python.html</id><summary type="html">Notes and references for Python</summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
 &lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#introduction" id="id11"&gt;Introduction&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#new-features" id="id12"&gt;New Features&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#python-3-8" id="id13"&gt;Python 3.8&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#positional-only-arguments" id="id14"&gt;Positional-Only Arguments&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#f-string" id="id15"&gt;f-string&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#arbitrary-expressions" id="id16"&gt;Arbitrary Expressions&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#assignment-expressions" id="id17"&gt;Assignment Expressions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#introduction" id="id5"&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#new-features" id="id6"&gt;New Features&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#python-3-8" id="id7"&gt;Python 3.8&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#positional-only-arguments" id="id8"&gt;Positional-Only Arguments&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#f-string" id="id9"&gt;f-string&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#arbitrary-expressions" id="id10"&gt;Arbitrary Expressions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#assignment-expressions" id="id11"&gt;Assignment Expressions&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#running-python" id="id18"&gt;Running Python&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#installation" id="id19"&gt;Installation&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#build-from-source" id="id20"&gt;Build from source&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#running-python" id="id12"&gt;Running Python&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#installation" id="id13"&gt;Installation&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#build-from-source" id="id14"&gt;Build from source&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#troubleshooting" id="id21"&gt;Troubleshooting&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#jupyter-notebook" id="id22"&gt;Jupyter Notebook&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#invoking-python" id="id23"&gt;Invoking Python&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#repl" id="id24"&gt;REPL&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#pip" id="id25"&gt;PIP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#troubleshooting" id="id15"&gt;Troubleshooting&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#jupyter-notebook" id="id16"&gt;Jupyter Notebook&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#invoking-python" id="id17"&gt;Invoking Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#repl" id="id18"&gt;REPL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#pip" id="id19"&gt;PIP&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#the-zen-of-python" id="id26"&gt;The Zen of Python&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#built-in-types" id="id27"&gt;Built-in Types&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#variables" id="id28"&gt;Variables&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#immutable" id="id29"&gt;Immutable&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#mutable" id="id30"&gt;Mutable&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#the-zen-of-python" id="id20"&gt;The Zen of Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#built-in-types" id="id21"&gt;Built-in Types&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#variables" id="id22"&gt;Variables&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#immutable" id="id23"&gt;Immutable&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#mutable" id="id24"&gt;Mutable&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#data-structures" id="id31"&gt;Data structures&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#primitive" id="id32"&gt;Primitive&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#non-primitive" id="id33"&gt;Non-primitive&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#data-structures" id="id25"&gt;Data structures&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#primitive" id="id26"&gt;Primitive&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#non-primitive" id="id27"&gt;Non-primitive&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#numbers" id="id34"&gt;Numbers&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#booleans" id="id35"&gt;Booleans&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#strings" id="id36"&gt;Strings&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#lists" id="id37"&gt;Lists&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#deque" id="id38"&gt;Deque&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#numbers" id="id28"&gt;Numbers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#booleans" id="id29"&gt;Booleans&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#strings" id="id30"&gt;Strings&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#lists" id="id31"&gt;Lists&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#deque" id="id32"&gt;Deque&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#dictionaries" id="id39"&gt;Dictionaries&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#create-a-dictionary" id="id40"&gt;Create a dictionary&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#shallow-deepcopy" id="id41"&gt;Shallow &amp;amp; Deepcopy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#defaultdict" id="id42"&gt;Defaultdict&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#dictionaries" id="id33"&gt;Dictionaries&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#create-a-dictionary" id="id34"&gt;Create a dictionary&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#shallow-deepcopy" id="id35"&gt;Shallow &amp;amp; Deepcopy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#defaultdict" id="id36"&gt;Defaultdict&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#tuples" id="id43"&gt;Tuples&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#unpacking" id="id44"&gt;Unpacking&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#dynamic-size" id="id45"&gt;Dynamic size&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#namedtuple" id="id46"&gt;Namedtuple&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#tuples" id="id37"&gt;Tuples&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#unpacking" id="id38"&gt;Unpacking&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#dynamic-size" id="id39"&gt;Dynamic size&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#namedtuple" id="id40"&gt;Namedtuple&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#sets" id="id47"&gt;Sets&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#sets" id="id41"&gt;Sets&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#built-in-functions" id="id48"&gt;Built in Functions&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#unicode" id="id49"&gt;Unicode&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#string-formatting" id="id50"&gt;String Formatting&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#conversion-flags" id="id51"&gt;Conversion Flags&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#format-specification" id="id52"&gt;Format Specification&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#some-format-examples" id="id53"&gt;Some &lt;tt class="docutils literal"&gt;format&lt;/tt&gt; Examples&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#built-in-functions" id="id42"&gt;Built in Functions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#unicode" id="id43"&gt;Unicode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#string-formatting" id="id44"&gt;String Formatting&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#conversion-flags" id="id45"&gt;Conversion Flags&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#format-specification" id="id46"&gt;Format Specification&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#some-format-examples" id="id47"&gt;Some &lt;tt class="docutils literal"&gt;format&lt;/tt&gt; Examples&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#files" id="id54"&gt;Files&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#writing-files" id="id55"&gt;Writing Files&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#reading-files" id="id56"&gt;Reading Files&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#files" id="id48"&gt;Files&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#writing-files" id="id49"&gt;Writing Files&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#reading-files" id="id50"&gt;Reading Files&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#functions" id="id57"&gt;Functions&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#defining-functions" id="id58"&gt;Defining functions&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#calling-functions" id="id59"&gt;Calling Functions&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#getting-help" id="id60"&gt;Getting Help&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#functions" id="id51"&gt;Functions&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#defining-functions" id="id52"&gt;Defining functions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#calling-functions" id="id53"&gt;Calling Functions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#getting-help" id="id54"&gt;Getting Help&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#classes" id="id61"&gt;Classes&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#subclasses" id="id62"&gt;Subclasses&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#class-methods-and-static-methods" id="id63"&gt;Class Methods and Static Methods&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#properties" id="id64"&gt;Properties&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#data-classes" id="id65"&gt;Data Classes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#classes" id="id55"&gt;Classes&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#subclasses" id="id56"&gt;Subclasses&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#class-methods-and-static-methods" id="id57"&gt;Class Methods and Static Methods&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#properties" id="id58"&gt;Properties&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#data-classes" id="id59"&gt;Data Classes&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#looping" id="id66"&gt;Looping&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#while-loops" id="id67"&gt;&lt;tt class="docutils literal"&gt;while&lt;/tt&gt; Loops&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#iteration-protocol" id="id68"&gt;Iteration Protocol&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#looping" id="id60"&gt;Looping&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#while-loops" id="id61"&gt;&lt;tt class="docutils literal"&gt;while&lt;/tt&gt; Loops&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#iteration-protocol" id="id62"&gt;Iteration Protocol&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#conditionals" id="id69"&gt;Conditionals&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#truthiness" id="id70"&gt;Truthiness&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#short-circuiting" id="id71"&gt;Short Circuiting&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#ternary-operator" id="id72"&gt;Ternary Operator&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#conditionals" id="id63"&gt;Conditionals&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#truthiness" id="id64"&gt;Truthiness&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#short-circuiting" id="id65"&gt;Short Circuiting&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#ternary-operator" id="id66"&gt;Ternary Operator&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#exceptions" id="id73"&gt;Exceptions&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#raising-exceptions" id="id74"&gt;Raising Exceptions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#exceptions" id="id67"&gt;Exceptions&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#raising-exceptions" id="id68"&gt;Raising Exceptions&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#decorators" id="id75"&gt;Decorators&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#parameterized-decorators" id="id76"&gt;Parameterized Decorators&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#decorators" id="id69"&gt;Decorators&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#parameterized-decorators" id="id70"&gt;Parameterized Decorators&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#class-decorators-and-metaclasses" id="id77"&gt;Class Decorators and Metaclasses&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#class-decorators" id="id78"&gt;Class Decorators&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#creating-classes-with-type" id="id79"&gt;Creating Classes with &lt;tt class="docutils literal"&gt;type&lt;/tt&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#metaclasses-with-functions" id="id80"&gt;Metaclasses with Functions&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#metaclasses-with-classes" id="id81"&gt;Metaclasses with Classes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#class-decorators-and-metaclasses" id="id71"&gt;Class Decorators and Metaclasses&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#class-decorators" id="id72"&gt;Class Decorators&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#creating-classes-with-type" id="id73"&gt;Creating Classes with &lt;tt class="docutils literal"&gt;type&lt;/tt&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#metaclasses-with-functions" id="id74"&gt;Metaclasses with Functions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#metaclasses-with-classes" id="id75"&gt;Metaclasses with Classes&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#functional-programming" id="id82"&gt;Functional programming&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#lambda-functions" id="id83"&gt;Lambda Functions&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#one-liners" id="id84"&gt;One-Liners&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#functional-programming" id="id76"&gt;Functional programming&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#lambda-functions" id="id77"&gt;Lambda Functions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#one-liners" id="id78"&gt;One-Liners&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#generators" id="id85"&gt;Generators&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#generator-expressions" id="id86"&gt;Generator Expressions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#generators" id="id79"&gt;Generators&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#generator-expressions" id="id80"&gt;Generator Expressions&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#coroutines" id="id87"&gt;Coroutines&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#asynchronous-generators" id="id88"&gt;Asynchronous Generators&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#coroutines" id="id81"&gt;Coroutines&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#asynchronous-generators" id="id82"&gt;Asynchronous Generators&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#comprehensions" id="id89"&gt;Comprehensions&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#list-comprehensions-warlus" id="id90"&gt;List Comprehensions - Warlus&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#list-comprehensions" id="id91"&gt;List Comprehensions&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#set-comprehensions" id="id92"&gt;Set Comprehensions&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#dict-comprehensions" id="id93"&gt;Dict Comprehensions&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#asynchronous-comprehensions" id="id94"&gt;Asynchronous Comprehensions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#comprehensions" id="id83"&gt;Comprehensions&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#list-comprehensions-warlus" id="id84"&gt;List Comprehensions - Warlus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#list-comprehensions" id="id85"&gt;List Comprehensions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#set-comprehensions" id="id86"&gt;Set Comprehensions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#dict-comprehensions" id="id87"&gt;Dict Comprehensions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#asynchronous-comprehensions" id="id88"&gt;Asynchronous Comprehensions&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#context-managers" id="id95"&gt;Context Managers&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#function-based-context-managers" id="id96"&gt;Function Based Context Managers&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#class-based-context-managers" id="id97"&gt;Class Based Context Managers&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#context-objects" id="id98"&gt;Context objects&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#context-managers" id="id89"&gt;Context Managers&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#function-based-context-managers" id="id90"&gt;Function Based Context Managers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#class-based-context-managers" id="id91"&gt;Class Based Context Managers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#context-objects" id="id92"&gt;Context objects&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#type-annotations" id="id99"&gt;Type Annotations&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#the-typing-module" id="id100"&gt;The &lt;tt class="docutils literal"&gt;typing&lt;/tt&gt; Module&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id5" id="id101"&gt;Functions&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#id6" id="id102"&gt;Classes&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#type-checking" id="id103"&gt;Type Checking&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#type-annotations" id="id93"&gt;Type Annotations&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#the-typing-module" id="id94"&gt;The &lt;tt class="docutils literal"&gt;typing&lt;/tt&gt; Module&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id95"&gt;Functions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id4" id="id96"&gt;Classes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#type-checking" id="id97"&gt;Type Checking&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#scripts-packages-and-modules" id="id104"&gt;Scripts, Packages, and Modules&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#scripts" id="id105"&gt;Scripts&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#modules" id="id106"&gt;Modules&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#packages" id="id107"&gt;Packages&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#importing" id="id108"&gt;Importing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#scripts-packages-and-modules" id="id98"&gt;Scripts, Packages, and Modules&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#scripts" id="id99"&gt;Scripts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#modules" id="id100"&gt;Modules&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#packages" id="id101"&gt;Packages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#importing" id="id102"&gt;Importing&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#environments" id="id109"&gt;Environments&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#installing-packages" id="id110"&gt;Installing Packages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#environments" id="id103"&gt;Environments&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#installing-packages" id="id104"&gt;Installing Packages&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#regular-expresions" id="id111"&gt;Regular Expresions&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#meta-character" id="id112"&gt;Meta-Character&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#repeating" id="id113"&gt;Repeating&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#usage-pattern-object" id="id114"&gt;Usage - Pattern object&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#regular-expresions" id="id105"&gt;Regular Expresions&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#meta-character" id="id106"&gt;Meta-Character&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#repeating" id="id107"&gt;Repeating&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#usage-pattern-object" id="id108"&gt;Usage - Pattern object&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#virtual-environment" id="id115"&gt;Virtual Environment&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#python-internals" id="id116"&gt;Python Internals&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#execution" id="id117"&gt;Execution&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#gil" id="id118"&gt;GIL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#virtual-environment" id="id109"&gt;Virtual Environment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#python-internals" id="id110"&gt;Python Internals&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#execution" id="id111"&gt;Execution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#gil" id="id112"&gt;GIL&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#terminology" id="id119"&gt;Terminology&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#references" id="id120"&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#terminology" id="id113"&gt;Terminology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#references" id="id114"&gt;References&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="introduction"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;Introduction&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;Introduction&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;This content is fruit of extending and applying own annotations to original source &lt;a class="reference external" href="link-blockhttps://github.com/mattharrison/Tiny-Python-3.6-Notebook."&gt;Tiny-Python-3.6-Notebook&lt;/a&gt;.
 This is not so much an instructional manual, but rather notes, tables, and
 examples for Python syntax. It was created by the author as an additional
@@ -3012,11 +3012,11 @@ of curated examples.&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://www.linuxjournal.com/article/3882"&gt;Why Python?&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="new-features"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;New Features&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;New Features&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="python-3-8"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id13"&gt;Python 3.8&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id7"&gt;Python 3.8&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="section" id="positional-only-arguments"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id14"&gt;Positional-Only Arguments&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id8"&gt;Positional-Only Arguments&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;use / to denote that all arguments before it must be specified by position&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;expense&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mf"&gt;3.14&lt;/span&gt;
@@ -3039,7 +3039,7 @@ arguments after the slash&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="f-string"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id15"&gt;f-string&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id9"&gt;f-string&lt;/a&gt;&lt;/h4&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;string&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;It can be uppercase f eather:&lt;/p&gt;
@@ -3050,7 +3050,7 @@ arguments after the slash&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="arbitrary-expressions"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id16"&gt;Arbitrary Expressions&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id10"&gt;Arbitrary Expressions&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;Because f-strings are evaluated at runtime, you can put any and all valid
 Python expressions in them. This allows you to do some nifty things.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;{round(0.5233* 6, 3)}&amp;quot;&lt;/span&gt;
@@ -3071,7 +3071,7 @@ Python expressions in them. This allows you to do some nifty things.&lt;/p&gt;
 &lt;p&gt;The fstring is faster than % and .format&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="assignment-expressions"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id17"&gt;Assignment Expressions&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id11"&gt;Assignment Expressions&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://www.python.org/dev/peps/pep-0572/"&gt;PEP 572&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Assign and return a value in the same expression&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;walrus&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;
@@ -3088,14 +3088,14 @@ Python expressions in them. This allows you to do some nifty things.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="running-python"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id18"&gt;Running Python&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;Running Python&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="installation"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id19"&gt;Installation&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id13"&gt;Installation&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;To check if Python is installed, run the following from a terminal&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ python3 --version
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="build-from-source"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id20"&gt;Build from source&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id14"&gt;Build from source&lt;/a&gt;&lt;/h4&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;Dependences and requirements&lt;/li&gt;
 &lt;/ol&gt;
@@ -3147,7 +3147,7 @@ Python &lt;span class="m"&gt;3&lt;/span&gt;.9.0a1
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="troubleshooting"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id21"&gt;Troubleshooting&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id15"&gt;Troubleshooting&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Add to system path the python version&lt;/p&gt;
 &lt;pre class="code shell literal-block"&gt;
 $ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/usr/bin/python-3.9/bin:&lt;span class="nv"&gt;$PATH&lt;/span&gt;
@@ -3180,7 +3180,7 @@ ENABLE_USER_SITE: True
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="jupyter-notebook"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;Jupyter Notebook&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id16"&gt;Jupyter Notebook&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Install &lt;cite&gt;jupyter notebook&lt;/cite&gt; and extensions&lt;/p&gt;
 &lt;pre class="code shell literal-block"&gt;
 $ python3 -m pip install -U jupyter notebook jupyter-contrib-nbextensions
@@ -3191,7 +3191,7 @@ $ jupyter notebook
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="section" id="invoking-python"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id23"&gt;Invoking Python&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id17"&gt;Invoking Python&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;The Python executable will behave differently depending on the command line options you give it:&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;Start the Python REPL&lt;/li&gt;
@@ -3225,7 +3225,7 @@ $ python3 -c &lt;span class="s2"&gt;&amp;quot;print('hi')&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="section" id="repl"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id24"&gt;REPL&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id18"&gt;REPL&lt;/a&gt;&lt;/h3&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;Use the &lt;tt class="docutils literal"&gt;help&lt;/tt&gt; function to read the documentation for a module/class/function. As a standalone invocation,
 you enter the help system and can explore various topics.&lt;/li&gt;
@@ -3238,7 +3238,7 @@ are typing it in, ignore the primary and secondary prompts (&lt;tt class="docuti
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="pip"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id25"&gt;PIP&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id19"&gt;PIP&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;The package manager&lt;/p&gt;
 &lt;p&gt;Update or install pip for current login user&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ python3 -m pip install -U pip -user
@@ -3249,7 +3249,7 @@ are typing it in, ignore the primary and secondary prompts (&lt;tt class="docuti
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="the-zen-of-python"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id26"&gt;The Zen of Python&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id20"&gt;The Zen of Python&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Run the following in an interpreter to get an Easter egg that describes some of the ethos behind Python. This is also codified in PEP 20&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt;&amp;gt;&amp;gt; import this
 The Zen of Python, by Tim Peters
@@ -3287,9 +3287,9 @@ every once in a while and see if these hold true for their code. (Or to
 justify their code reviews)&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="built-in-types"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id27"&gt;Built-in Types&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id21"&gt;Built-in Types&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="variables"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id28"&gt;Variables&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;Variables&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Python variables are like cattle tags, they point to objects (which can be
 classes, instances, modules, or functions), but variables are not the objects. You can
 reuse variable &lt;strong&gt;names&lt;/strong&gt; for different object types (though you probably shouldn't)&lt;/p&gt;
@@ -3399,7 +3399,7 @@ This is a significant point. It means that x is the memory location, not just a 
 &lt;p&gt;Lots of commonly used primitive types are immutable (int, float, bool, complex,
 tuple, frozenset, str)&lt;/p&gt;
 &lt;div class="section" id="immutable"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id29"&gt;Immutable&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id23"&gt;Immutable&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;Integer is immutable&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;id&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -3441,7 +3441,7 @@ tuple, frozenset, str)&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="mutable"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id30"&gt;Mutable&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id24"&gt;Mutable&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;List are mutable&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
@@ -3475,9 +3475,9 @@ tuple, frozenset, str)&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="data-structures"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id31"&gt;Data structures&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id25"&gt;Data structures&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="section" id="primitive"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id32"&gt;Primitive&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id26"&gt;Primitive&lt;/a&gt;&lt;/h4&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;Integers&lt;/li&gt;
 &lt;li&gt;Floats&lt;/li&gt;
@@ -3486,7 +3486,7 @@ tuple, frozenset, str)&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="non-primitive"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id33"&gt;Non-primitive&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id27"&gt;Non-primitive&lt;/a&gt;&lt;/h4&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;Lists&lt;/li&gt;
 &lt;li&gt;Arrays&lt;/li&gt;
@@ -3497,7 +3497,7 @@ tuple, frozenset, str)&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="numbers"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id34"&gt;Numbers&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id28"&gt;Numbers&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Python includes three types of numeric literals:
 &lt;em&gt;integers&lt;/em&gt;, &lt;em&gt;floats&lt;/em&gt;, and &lt;em&gt;complex numbers&lt;/em&gt;.
 Python 3.6 adds the ability to use underscores to
@@ -3731,7 +3731,7 @@ the standard library.&lt;/p&gt;
 &lt;/table&gt;
 &lt;/div&gt;
 &lt;div class="section" id="booleans"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id35"&gt;Booleans&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id29"&gt;Booleans&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;cite&gt;bool(x)&lt;/cite&gt; is a subclass of &lt;cite&gt;int&lt;/cite&gt; and as such can be invoked with class methods
 of &lt;cite&gt;int&lt;/cite&gt; and will even refer to the same hash&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="fm"&gt;__hash__&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
@@ -3748,7 +3748,7 @@ of &lt;cite&gt;int&lt;/cite&gt; and will even refer to the same hash&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="strings"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id36"&gt;Strings&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id30"&gt;Strings&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Python 3 strings hold unicode data. Python has a few ways to represent strings. There is also a bytes type (PEP 3137):&lt;/p&gt;
 &lt;!-- longtable: format: {r l} --&gt;
 &lt;table border="1" class="docutils"&gt;
@@ -4062,7 +4062,7 @@ of &lt;cite&gt;int&lt;/cite&gt; and will even refer to the same hash&lt;/p&gt;
 &lt;/table&gt;
 &lt;/div&gt;
 &lt;div class="section" id="lists"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id37"&gt;Lists&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id31"&gt;Lists&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Lists are ordered mutable sequences&lt;/p&gt;
 &lt;pre class="code python literal-block"&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;people&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'Paul'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'John'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'George'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
@@ -4262,7 +4262,7 @@ of &lt;cite&gt;int&lt;/cite&gt; and will even refer to the same hash&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;div class="section" id="deque"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id38"&gt;Deque&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id32"&gt;Deque&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;List-like container with fast appends and pops on either end
 Deque is a double-ended queue that supports adding and removing elements from either end&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;collections&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;deque&lt;/span&gt;
@@ -4281,7 +4281,7 @@ Deque is a double-ended queue that supports adding and removing elements from ei
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="dictionaries"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id39"&gt;Dictionaries&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id33"&gt;Dictionaries&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;They are insertion ordered Python 3.6+.
 Use OrderedDict for future proof to save the order of key inserts you should do
 this explicitly through defining OrderedDict instance from &lt;cite&gt;collections&lt;/cite&gt; module&lt;/p&gt;
@@ -4414,7 +4414,7 @@ must be hashable, but values can be any object&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;div class="section" id="create-a-dictionary"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id40"&gt;Create a dictionary&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id34"&gt;Create a dictionary&lt;/a&gt;&lt;/h4&gt;
 &lt;ol class="arabic simple"&gt;
 &lt;li&gt;&lt;cite&gt;dict()&lt;/cite&gt; constructor&lt;/li&gt;
 &lt;/ol&gt;
@@ -4443,7 +4443,7 @@ must be hashable, but values can be any object&lt;/p&gt;
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="section" id="shallow-deepcopy"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id41"&gt;Shallow &amp;amp; Deepcopy&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id35"&gt;Shallow &amp;amp; Deepcopy&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;Docs &lt;a class="reference external" href="https://docs.python.org/3/library/copy.html"&gt;https://docs.python.org/3/library/copy.html&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Shallow&lt;/strong&gt; copy Create bindings between a target and an object&lt;/p&gt;
 &lt;pre class="code python literal-block"&gt;
@@ -4469,7 +4469,7 @@ to make a deep copy.&lt;/p&gt;
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="section" id="defaultdict"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id42"&gt;Defaultdict&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id36"&gt;Defaultdict&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;Defaultdict, on the contrary, will not raise an error.&lt;/p&gt;
 &lt;pre class="code python literal-block"&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;collections&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;defaultdict&lt;/span&gt;
@@ -4483,7 +4483,7 @@ to make a deep copy.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="tuples"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id43"&gt;Tuples&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id37"&gt;Tuples&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Tuples are immutable sequences. Typically they are used to store
 &lt;em&gt;record&lt;/em&gt; type data&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;member&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Paul&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Bass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1942&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -4498,7 +4498,7 @@ to make a deep copy.&lt;/p&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;row6&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;           &lt;span class="c1"&gt;# Empty tuple&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="unpacking"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id44"&gt;Unpacking&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id38"&gt;Unpacking&lt;/a&gt;&lt;/h4&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;coord&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;54.53260&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;70.09275&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;coord&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;
@@ -4511,7 +4511,7 @@ to make a deep copy.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="dynamic-size"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id45"&gt;Dynamic size&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id39"&gt;Dynamic size&lt;/a&gt;&lt;/h4&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;tup&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;tuple&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)])&lt;/span&gt;
 &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
@@ -4522,7 +4522,7 @@ to make a deep copy.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="namedtuple"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id46"&gt;Namedtuple&lt;/a&gt;&lt;/h4&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id40"&gt;Namedtuple&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;Named tuples can be used in place of normal tuples and allow context (or names)
 to be added to positional members. The syntax for creating them is a little
 different because we are dynamically creating a class first (hence the
@@ -4653,7 +4653,7 @@ capitalized variable)&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="sets"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id47"&gt;Sets&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id41"&gt;Sets&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;A set is a mutable unordered collection that cannot contain duplicates. Sets are used to
 remove duplicates and test for membership&lt;/p&gt;
 &lt;p&gt;Python has two types of sets: regular &lt;cite&gt;set&lt;/cite&gt; and &lt;cite&gt;frozenset&lt;/cite&gt;.
@@ -4893,7 +4893,7 @@ elements to frozenset after its initialization.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="built-in-functions"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id48"&gt;Built in Functions&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id42"&gt;Built in Functions&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;In the default namespace you have access to various callables:&lt;/p&gt;
 &lt;!-- longtable: format: {p{.35\textwidth} p{.55\textwidth}} --&gt;
 &lt;!-- longtable: format: {&gt;{\hangindent=1em\hangafter=1\raggedright\arraybackslash }p{.35\textwidth}  &gt;{\hangindent=1em\hangafter=1\raggedright\arraybackslash }p{.55\textwidth}} --&gt;
@@ -5135,7 +5135,7 @@ elements to frozenset after its initialization.&lt;/p&gt;
 &lt;/table&gt;
 &lt;/div&gt;
 &lt;div class="section" id="unicode"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id49"&gt;Unicode&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id43"&gt;Unicode&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Python 3 represents strings as Unicode. We can &lt;em&gt;encode&lt;/em&gt; strings to a series of
 bytes such as UTF-8. If we have bytes, we can &lt;em&gt;decode&lt;/em&gt; them to a Unicode string&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;x_sq&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;x²&amp;#39;&lt;/span&gt;
@@ -5179,7 +5179,7 @@ about the decoding as there are potentially other encodings that we could decode
 that might give the user erroneous data, or &lt;em&gt;mojibake&lt;/em&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="string-formatting"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id50"&gt;String Formatting&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id44"&gt;String Formatting&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Using f-strings &lt;strong&gt;Available in +3.6&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Most modern Python code uses the &lt;tt class="docutils literal"&gt;.format&lt;/tt&gt; method (PEP 3101) to create strings from other parts. The format method uses &lt;tt class="docutils literal"&gt;{}&lt;/tt&gt; as a placeholder.&lt;/p&gt;
 &lt;p&gt;Inside of the placeholder we can provide different specifiers:&lt;/p&gt;
@@ -5210,7 +5210,7 @@ that might give the user erroneous data, or &lt;em&gt;mojibake&lt;/em&gt;.&lt;/p
 &lt;p&gt;F-strings inspect variables that are available and allow you to
 inline methods, or attributes from those variables.&lt;/p&gt;
 &lt;div class="section" id="conversion-flags"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id51"&gt;Conversion Flags&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id45"&gt;Conversion Flags&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;You can provide a &lt;em&gt;conversion flag&lt;/em&gt; inside the placeholder.&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;tt class="docutils literal"&gt;!s&lt;/tt&gt; - Call &lt;tt class="docutils literal"&gt;str()&lt;/tt&gt; on argument&lt;/li&gt;
@@ -5236,7 +5236,7 @@ inline methods, or attributes from those variables.&lt;/p&gt;
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="section" id="format-specification"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id52"&gt;Format Specification&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id46"&gt;Format Specification&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;You can provide a format specification following a colon. The grammar for format specification is as follows:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 .. code-block:: text
@@ -5368,7 +5368,7 @@ separators&lt;/td&gt;
 &lt;/table&gt;
 &lt;/div&gt;
 &lt;div class="section" id="some-format-examples"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id53"&gt;Some &lt;tt class="docutils literal"&gt;format&lt;/tt&gt; Examples&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id47"&gt;Some &lt;tt class="docutils literal"&gt;format&lt;/tt&gt; Examples&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Here are a few examples of using &lt;tt class="docutils literal"&gt;.format&lt;/tt&gt;.
 Let’s format a string in the center of 12 characters surrounded by &lt;tt class="docutils literal"&gt;*&lt;/tt&gt;.
 &lt;tt class="docutils literal"&gt;*&lt;/tt&gt; is the &lt;em&gt;fill&lt;/em&gt; character, &lt;tt class="docutils literal"&gt;^&lt;/tt&gt; is the &lt;em&gt;align&lt;/em&gt; field, and &lt;tt class="docutils literal"&gt;12&lt;/tt&gt; is the
@@ -5396,7 +5396,7 @@ to a percentage&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="files"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id54"&gt;Files&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id48"&gt;Files&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;The &lt;tt class="docutils literal"&gt;open&lt;/tt&gt; function will take a file path and mode as input and return a file
 handle. There are various modes to open a file, depending on the content and
 your needs. If you open the file in binary mode, you will get bytes out. In text
@@ -5444,7 +5444,7 @@ mode you will get strings back:&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;div class="section" id="writing-files"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id55"&gt;Writing Files&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id49"&gt;Writing Files&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;We use a context manager with a file to ensure that the file is closed when the
 context block exits.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/tmp/names.txt&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;w&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;fout&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -5453,7 +5453,7 @@ context block exits.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="reading-files"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id56"&gt;Reading Files&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id50"&gt;Reading Files&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;With an opened text file, you can iterate over the lines. This saves memory as
 the lines are read in as needed&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/tmp/names.txt&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;fin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -5561,7 +5561,7 @@ the lines are read in as needed&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="functions"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id57"&gt;Functions&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id51"&gt;Functions&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Functions are essentially objects that are invoked with the &lt;cite&gt;__call__&lt;/cite&gt; magic function
 They can be passed around like any other object and can even have attributes
 assigned to them. This can be useful for passing callback functions.&lt;/p&gt;
@@ -5577,7 +5577,7 @@ assigned to them. This can be useful for passing callback functions.&lt;/p&gt;
 &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="defining-functions"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id58"&gt;Defining functions&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id52"&gt;Defining functions&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Functions may take input, do some processing, and return output. You can
 provide a docstring directly following the name
 and parameters of the function&lt;/p&gt;
@@ -5658,7 +5658,7 @@ gives you &lt;em&gt;keyword only&lt;/em&gt; parameters (PEP 3102)&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="calling-functions"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id59"&gt;Calling Functions&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id53"&gt;Calling Functions&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;You can also use &lt;tt class="docutils literal"&gt;*&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;**&lt;/tt&gt; to &lt;em&gt;unpack&lt;/em&gt; sequence and dictionary
 arguments&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;add_all&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
@@ -5691,7 +5691,7 @@ arguments&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="getting-help"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id60"&gt;Getting Help&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id54"&gt;Getting Help&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;You can get help on a function that has a docstring by using &lt;tt class="docutils literal"&gt;help&lt;/tt&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;add_all&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;Help&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="n"&gt;add_all&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;module&lt;/span&gt; &lt;span class="n"&gt;__main__&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -5702,7 +5702,7 @@ arguments&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="classes"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id61"&gt;Classes&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id55"&gt;Classes&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Python supports object oriented programming but doesn't require you to create classes. You
 can use the built-in data structures to great effect. Here's a class for a simple bike. The class attribute,
 &lt;tt class="docutils literal"&gt;num_passengers&lt;/tt&gt;, is shared for all instances of &lt;tt class="docutils literal"&gt;Bike&lt;/tt&gt;. The instance attributes, &lt;tt class="docutils literal"&gt;size&lt;/tt&gt; and
@@ -5738,7 +5738,7 @@ but Python passes that around for us automatically&lt;/p&gt;
 &lt;p&gt;If an attribute is not found on the instance, Python will then look for it on the class, it will look through
 the parent classes to continue to try and find it. If the lookup is unsuccessful, an &lt;tt class="docutils literal"&gt;AttributeError&lt;/tt&gt; is raised.&lt;/p&gt;
 &lt;div class="section" id="subclasses"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id62"&gt;Subclasses&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id56"&gt;Subclasses&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;To subclass a class, simply place the parent class name in parentheses following
 the class name in the declaration. We can call the &lt;tt class="docutils literal"&gt;super&lt;/tt&gt; function to gain access to parent
 methods&lt;/p&gt;
@@ -5772,7 +5772,7 @@ brace that hasn't been closed
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="class-methods-and-static-methods"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id63"&gt;Class Methods and Static Methods&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id57"&gt;Class Methods and Static Methods&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;The &lt;tt class="docutils literal"&gt;classmethod&lt;/tt&gt; decorator is used to create methods that you
 can invoke directly on the
 class. This allows us to create alternate constructors. Note
@@ -5827,7 +5827,7 @@ are static methods? Just make them ordinary methods.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="properties"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id64"&gt;Properties&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id58"&gt;Properties&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;If you want to have actions occur under the covers on attribute access,
 you can use properties to do that&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Person&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -5857,7 +5857,7 @@ you can use properties to do that&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="data-classes"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id65"&gt;Data Classes&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id59"&gt;Data Classes&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Example usage of new feature in Python 3.7 &amp;quot;data classes&amp;quot;
 Is the a way of automating the generation of boiler-plate code for
 classes which store multiple properties.&lt;/p&gt;
@@ -5877,7 +5877,7 @@ classes which store multiple properties.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="looping"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id66"&gt;Looping&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id60"&gt;Looping&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;You can loop over objects in a sequence&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;names&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;John&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Paul&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Ringo&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;names&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -5921,7 +5921,7 @@ over, and a &lt;tt class="docutils literal"&gt;break&lt;/tt&gt; was never encoun
 &lt;span class="mf"&gt;3.&lt;/span&gt; &lt;span class="n"&gt;Ringo&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="while-loops"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id67"&gt;&lt;tt class="docutils literal"&gt;while&lt;/tt&gt; Loops&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id61"&gt;&lt;tt class="docutils literal"&gt;while&lt;/tt&gt; Loops&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;You can use &lt;tt class="docutils literal"&gt;while&lt;/tt&gt; loops to create loops as well. If it is an infinite loop,
 you can break out of it&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;done&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;
@@ -5931,7 +5931,7 @@ you can break out of it&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="iteration-protocol"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id68"&gt;Iteration Protocol&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id62"&gt;Iteration Protocol&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Iterable&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;is an object, which one can iterate over.
@@ -6007,7 +6007,7 @@ there are no more elements, it raises a StopIteration.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="conditionals"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id69"&gt;Conditionals&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id63"&gt;Conditionals&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Python has an &lt;tt class="docutils literal"&gt;if&lt;/tt&gt; statement with zero or more &lt;tt class="docutils literal"&gt;elif&lt;/tt&gt; statements, and an
 optional &lt;tt class="docutils literal"&gt;else&lt;/tt&gt; statement at the end. In Python, the word &lt;tt class="docutils literal"&gt;elif&lt;/tt&gt; is Dutch
 for &lt;em&gt;else if&lt;/em&gt;&lt;/p&gt;
@@ -6052,7 +6052,7 @@ a similar construct&lt;/p&gt;
 &lt;span class="mi"&gt;5&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="truthiness"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id70"&gt;Truthiness&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id64"&gt;Truthiness&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;You can define the &lt;tt class="docutils literal"&gt;__bool__&lt;/tt&gt; method to teach your classes how to act in a boolean context. If that doesn't exists, Python will use &lt;tt class="docutils literal"&gt;__len__&lt;/tt&gt;, and finally default to &lt;tt class="docutils literal"&gt;True&lt;/tt&gt;.&lt;/p&gt;
 &lt;p&gt;The following table lists &lt;em&gt;truthy&lt;/em&gt; and &lt;em&gt;falsey&lt;/em&gt; values:&lt;/p&gt;
 &lt;table border="1" class="docutils"&gt;
@@ -6098,7 +6098,7 @@ a similar construct&lt;/p&gt;
 &lt;/table&gt;
 &lt;/div&gt;
 &lt;div class="section" id="short-circuiting"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id71"&gt;Short Circuiting&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id65"&gt;Short Circuiting&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;The &lt;tt class="docutils literal"&gt;and&lt;/tt&gt; statement will short circuit if it evaluates to false&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
 &lt;span class="mi"&gt;0&lt;/span&gt;
@@ -6109,7 +6109,7 @@ a similar construct&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="ternary-operator"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id72"&gt;Ternary Operator&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id66"&gt;Ternary Operator&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Python has its own ternary operator, called a &lt;em&gt;conditional expression&lt;/em&gt; (see PEP
 308). These are handy as they can be used in comprehension constructs and
 &lt;tt class="docutils literal"&gt;lambda&lt;/tt&gt; functions&lt;/p&gt;
@@ -6122,7 +6122,7 @@ determine between the two, is to remember that an expression follows a
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="exceptions"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id73"&gt;Exceptions&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id67"&gt;Exceptions&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Python can catch one or more exceptions (PEP 3110). You can provide a chain of
 different exceptions to catch if you want to react differently.
 A few hints:&lt;/p&gt;
@@ -6157,7 +6157,7 @@ is raised from.&lt;/p&gt;
 &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;str&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="raising-exceptions"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id74"&gt;Raising Exceptions&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id68"&gt;Raising Exceptions&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;You can raise an exception using the &lt;tt class="docutils literal"&gt;raise&lt;/tt&gt; statement (PEP 3109)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;bad_code&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
 &lt;span class="o"&gt;...&lt;/span&gt;     &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="ne"&gt;ValueError&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Bad code&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -6170,7 +6170,7 @@ is raised from.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="decorators"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id75"&gt;Decorators&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id69"&gt;Decorators&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;A decorator (PEP 318) allows us to insert logic before and after a function is
 called. You can define a decorator with a function that takes a function as
 input and returns a function as output. Here is the identity decorator&lt;/p&gt;
@@ -6215,7 +6215,7 @@ function will still call our original function, but add in some &lt;tt class="do
 &lt;span class="mi"&gt;1&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="parameterized-decorators"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id76"&gt;Parameterized Decorators&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id70"&gt;Parameterized Decorators&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Because we can use closures to create functions, we can use closures to create decorators as well.
 This is very similar to our decorator above, but now we make a function that will
 return a decorator. Based on the inputs to that function, we can control (or parameterize)
@@ -6248,11 +6248,11 @@ because we need to invoke the function to create a decorator&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="class-decorators-and-metaclasses"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id77"&gt;Class Decorators and Metaclasses&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id71"&gt;Class Decorators and Metaclasses&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Python allows you to dynamically create and modify classes. Class decorators and
 metaclasses are two ways to do this.&lt;/p&gt;
 &lt;div class="section" id="class-decorators"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id78"&gt;Class Decorators&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id72"&gt;Class Decorators&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;You can decorate a class definition with a &lt;em&gt;class decorator&lt;/em&gt; (PEP 3129). It is a function that takes a class as input and returns a class.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;add_chirp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;cls&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
 &lt;span class="o"&gt;...&lt;/span&gt;     &lt;span class="s1"&gt;&amp;#39;Class decorator to add speak method&amp;#39;&lt;/span&gt;
@@ -6271,7 +6271,7 @@ metaclasses are two ways to do this.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="creating-classes-with-type"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id79"&gt;Creating Classes with &lt;tt class="docutils literal"&gt;type&lt;/tt&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id73"&gt;Creating Classes with &lt;tt class="docutils literal"&gt;type&lt;/tt&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;You can use &lt;tt class="docutils literal"&gt;type&lt;/tt&gt; to determine the type of an object, but you can also
 provide the name, parents, and attributes map, and it will return a class.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;howl&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
@@ -6287,7 +6287,7 @@ provide the name, parents, and attributes map, and it will return a class.&lt;/p
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="metaclasses-with-functions"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id80"&gt;Metaclasses with Functions&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id74"&gt;Metaclasses with Functions&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;In the class definition you can specify a metaclass (PEP 3115), which can be a
 function or a class. Here is an example of a function that can
 alter the class.&lt;/p&gt;
@@ -6306,7 +6306,7 @@ alter the class.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="metaclasses-with-classes"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id81"&gt;Metaclasses with Classes&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id75"&gt;Metaclasses with Classes&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;You can define a class decorator and use either &lt;tt class="docutils literal"&gt;__new__&lt;/tt&gt; or
 &lt;tt class="docutils literal"&gt;__init__&lt;/tt&gt;. Typically most use &lt;tt class="docutils literal"&gt;__new__&lt;/tt&gt; as it can alter
 attributes like &lt;tt class="docutils literal"&gt;__slots__&lt;/tt&gt;.&lt;/p&gt;
@@ -6334,9 +6334,9 @@ attributes like &lt;tt class="docutils literal"&gt;__slots__&lt;/tt&gt;.&lt;/p&g
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="functional-programming"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id82"&gt;Functional programming&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id76"&gt;Functional programming&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="lambda-functions"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id83"&gt;Lambda Functions&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id77"&gt;Lambda Functions&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# anonymous functions&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="kc"&gt;True&lt;/span&gt;
@@ -6375,7 +6375,7 @@ through the supplied function.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="one-liners"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id84"&gt;One-Liners&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id78"&gt;One-Liners&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Single-line conditional expressions&lt;/p&gt;
 &lt;p&gt;Ternary operators are more commonly known as conditional expressions&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;some_function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;some_condition&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;
@@ -6383,7 +6383,7 @@ through the supplied function.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="generators"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id85"&gt;Generators&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id79"&gt;Generators&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Generator function contains one or more yield statement.
 When called, it returns an object (iterator) but does not start execution
 immediately.&lt;/p&gt;
@@ -6424,7 +6424,7 @@ A generator is a function that produces a sequence of results instead of a singl
 &lt;span class="mi"&gt;3&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="generator-expressions"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id86"&gt;Generator Expressions&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id80"&gt;Generator Expressions&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;If you replace the &lt;tt class="docutils literal"&gt;[&lt;/tt&gt; with &lt;tt class="docutils literal"&gt;(&lt;/tt&gt;, you will get a generator instead of a
 list. This is called a &lt;em&gt;generator expression&lt;/em&gt; (PEP 289)&lt;/p&gt;
 &lt;p&gt;Create generator:&lt;/p&gt;
@@ -6451,7 +6451,7 @@ list. This is called a &lt;em&gt;generator expression&lt;/em&gt; (PEP 289)&lt;/p
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="coroutines"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id87"&gt;Coroutines&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id81"&gt;Coroutines&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;The &lt;tt class="docutils literal"&gt;asyncio&lt;/tt&gt; library (PEP 3153) provides asynchronous I/O in Python 3. We
 use &lt;tt class="docutils literal"&gt;async def&lt;/tt&gt; to define a &lt;em&gt;coroutine function&lt;/em&gt; (see PEP 492). The result of
 calling this is a &lt;em&gt;coroutine object&lt;/em&gt;. Inside a coroutine we can use &lt;tt class="docutils literal"&gt;var =
@@ -6504,7 +6504,7 @@ decorated with &lt;tt class="docutils literal"&gt;&amp;#64;asyncio.coroutine&lt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="asynchronous-generators"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id88"&gt;Asynchronous Generators&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id82"&gt;Asynchronous Generators&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Python 3.6 adds asynchronous generators (PEP 525). You can use the &lt;tt class="docutils literal"&gt;yield&lt;/tt&gt;
 statement in an &lt;tt class="docutils literal"&gt;async def&lt;/tt&gt; function&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;async&lt;/span&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fib&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
@@ -6533,7 +6533,7 @@ statement in an &lt;tt class="docutils literal"&gt;async def&lt;/tt&gt; function
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="comprehensions"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id89"&gt;Comprehensions&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id83"&gt;Comprehensions&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Comprehension constructs allow us to combine the functional ideas behind map and filter into an
 easy to read, single line of code. When you see code that is aggregating into a list (or dict, set, or
 generator), you
@@ -6583,7 +6583,7 @@ it is a tuple&lt;/li&gt;
           &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;num&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="list-comprehensions-warlus"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id90"&gt;List Comprehensions - Warlus&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id84"&gt;List Comprehensions - Warlus&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;random&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_weather_data&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
 &lt;span class="o"&gt;...&lt;/span&gt;     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;randrange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;90&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;110&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -6593,7 +6593,7 @@ it is a tuple&lt;/li&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="list-comprehensions"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id91"&gt;List Comprehensions&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id85"&gt;List Comprehensions&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;A way to create lists&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;squares&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;squares&lt;/span&gt;
@@ -6601,7 +6601,7 @@ it is a tuple&lt;/li&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="set-comprehensions"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id92"&gt;Set Comprehensions&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id86"&gt;Set Comprehensions&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;If you replace the &lt;tt class="docutils literal"&gt;[&lt;/tt&gt; with &lt;tt class="docutils literal"&gt;{&lt;/tt&gt;, you will get a set comprehension (PEP 274)
 instead of a list comprehension&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;num&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;num&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;num&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;nums&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;num&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
@@ -6609,7 +6609,7 @@ instead of a list comprehension&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="dict-comprehensions"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id93"&gt;Dict Comprehensions&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id87"&gt;Dict Comprehensions&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;If you replace the &lt;tt class="docutils literal"&gt;[&lt;/tt&gt; with &lt;tt class="docutils literal"&gt;{&lt;/tt&gt;, and separate the key and value with a colon,
 you will get a dictionary comprehension (PEP 274)&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;num&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;num&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;num&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;num&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;nums&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;num&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
@@ -6621,7 +6621,7 @@ you will get a dictionary comprehension (PEP 274)&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="asynchronous-comprehensions"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id94"&gt;Asynchronous Comprehensions&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id88"&gt;Asynchronous Comprehensions&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Python 3.6 (PEP 530) gives us &lt;em&gt;asynchronous comprehensions&lt;/em&gt;. You can add
 &lt;tt class="docutils literal"&gt;async&lt;/tt&gt; following what you are collecting to make it asynchronous. If you had
 the following code&lt;/p&gt;
@@ -6639,7 +6639,7 @@ the following code&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="context-managers"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id95"&gt;Context Managers&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id89"&gt;Context Managers&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;If you find code where you need to make sure something happens before &lt;em&gt;and&lt;/em&gt; after a block,
 a context manager (PEP 343) is a convenient way to enforce that. Another code smell that indicates
 you could be using a context manager is a &lt;tt class="docutils literal"&gt;try&lt;/tt&gt;/&lt;tt class="docutils literal"&gt;finally&lt;/tt&gt; block.&lt;/p&gt;
@@ -6671,7 +6671,7 @@ the environments are closed properly&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This code can use a context manager to be a little cleaner.&lt;/p&gt;
 &lt;div class="section" id="function-based-context-managers"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id96"&gt;Function Based Context Managers&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id90"&gt;Function Based Context Managers&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;To create a context manager with a function, decorate with
 &lt;tt class="docutils literal"&gt;contextlib.contextmanager&lt;/tt&gt;, and yield where you want to insert your block&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;contextlib&lt;/span&gt;
@@ -6695,7 +6695,7 @@ the environments are closed properly&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="class-based-context-managers"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id97"&gt;Class Based Context Managers&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id91"&gt;Class Based Context Managers&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;To create a class based context manager, implement the &lt;tt class="docutils literal"&gt;__enter__&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;__exit__&lt;/tt&gt; methods&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;env&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
 &lt;span class="o"&gt;...&lt;/span&gt;     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
@@ -6724,7 +6724,7 @@ the environments are closed properly&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="context-objects"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id98"&gt;Context objects&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id92"&gt;Context objects&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Some context managers create objects that we can use while inside of the context.
 The &lt;tt class="docutils literal"&gt;open&lt;/tt&gt; context manager returns a file object&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/tmp/test.txt&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;fin&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -6735,22 +6735,16 @@ In a class based context manager, return the object in the &lt;tt class="docutil
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="type-annotations"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id99"&gt;Type Annotations&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id93"&gt;Type Annotations&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;type annotation&amp;quot; == &amp;quot;type hint&amp;quot;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Documentation: &lt;a class="reference external" href="https://docs.python.org/3/library/typing.html"&gt;typing — Support for type hints&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Python 3.6 (PEP 483 and 484) allows you to provide types for
 input and output of functions. They can be used to:&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;Allow 3rd party libraries such as mypy &lt;a class="footnote-reference" href="#id4" id="id3"&gt;[2]&lt;/a&gt; to run static typing&lt;/li&gt;
+&lt;li&gt;Allow 3rd party libraries such as &lt;a class="reference external" href="http://mypy-lang.org/"&gt;mypy&lt;/a&gt; to run static typing&lt;/li&gt;
 &lt;li&gt;Assist editors with type inference&lt;/li&gt;
 &lt;li&gt;Aid developers in understanding code&lt;/li&gt;
 &lt;/ul&gt;
-&lt;table class="docutils footnote" frame="void" id="id4" rules="none"&gt;
-&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
-&lt;tbody valign="top"&gt;
-&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id3"&gt;[2]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="http://mypy-lang.org/"&gt;http://mypy-lang.org/&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
 &lt;p&gt;Types can be expressed as:&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;Built-in classes&lt;/li&gt;
@@ -6761,7 +6755,7 @@ input and output of functions. They can be used to:&lt;/p&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;Type hints only work before runtime. They don't do runtime checking of values.&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="section" id="the-typing-module"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id100"&gt;The &lt;tt class="docutils literal"&gt;typing&lt;/tt&gt; Module&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id94"&gt;The &lt;tt class="docutils literal"&gt;typing&lt;/tt&gt; Module&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;This module allows you to provide hints for:&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;Callback functions&lt;/li&gt;
@@ -6818,8 +6812,8 @@ input and output of functions. They can be used to:&lt;/p&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;ages&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt;  &lt;span class="c1"&gt;# type: Dict[str, int]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id5"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id101"&gt;Functions&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id95"&gt;Functions&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;typing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Optional&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;List&lt;/span&gt;
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_vowels_from_word&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;word&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;maxVowels&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Optional&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;List&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt;
@@ -6833,8 +6827,8 @@ input and output of functions. They can be used to:&lt;/p&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;vowels&lt;/span&gt;  &lt;span class="c1"&gt;# Return all the vowels fown in word.&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="id6"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id102"&gt;Classes&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="id4"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id96"&gt;Classes&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Book&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;author&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;no_pages&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;price&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
         &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;author&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;author&lt;/span&gt;
@@ -6846,7 +6840,7 @@ input and output of functions. They can be used to:&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="type-checking"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id103"&gt;Type Checking&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id97"&gt;Type Checking&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Python 3.6 provides no support for type checking. You will need to install a tool like &lt;tt class="docutils literal"&gt;mypy&lt;/tt&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install mypy
 $ python3 -m mypy script.py
@@ -6854,9 +6848,9 @@ $ python3 -m mypy script.py
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="scripts-packages-and-modules"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id104"&gt;Scripts, Packages, and Modules&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id98"&gt;Scripts, Packages, and Modules&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="scripts"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id105"&gt;Scripts&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id99"&gt;Scripts&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;A script is a Python file that you invoke &lt;tt class="docutils literal"&gt;python&lt;/tt&gt; on. Typically there is a line near
 the bottom that looks like this&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -6867,14 +6861,14 @@ The &lt;tt class="docutils literal"&gt;__name__&lt;/tt&gt; attribute of a module
 if you import the module, it will be the name of the module (without &lt;tt class="docutils literal"&gt;.py&lt;/tt&gt;).&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="modules"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id106"&gt;Modules&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id100"&gt;Modules&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Modules are files that end in &lt;tt class="docutils literal"&gt;.py&lt;/tt&gt;. According to PEP 8, we lowercase the
 module name and don't put underscores between the words in them. Any
 module found in the &lt;tt class="docutils literal"&gt;PYTHONPATH&lt;/tt&gt; environment variable or the &lt;tt class="docutils literal"&gt;sys.path&lt;/tt&gt;
 list, can be imported.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="packages"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id107"&gt;Packages&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id101"&gt;Packages&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;A directory that has a file named &lt;tt class="docutils literal"&gt;__init__.py&lt;/tt&gt; in it is a &lt;em&gt;package&lt;/em&gt;. A package can
 have modules in it as well as sub packages. The package should be found in
 &lt;tt class="docutils literal"&gt;PYTHONPATH&lt;/tt&gt; or &lt;tt class="docutils literal"&gt;sys.path&lt;/tt&gt; to be imported. An example might look like this&lt;/p&gt;
@@ -6889,7 +6883,7 @@ have modules in it as well as sub packages. The package should be found in
 package to remove nesting in import statements.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="importing"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id108"&gt;Importing&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id102"&gt;Importing&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;You can import a package or a module&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;packagename&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;packagename.module1&lt;/span&gt;
@@ -6914,7 +6908,7 @@ you will need to use the fully qualified name, &lt;tt class="docutils literal"&g
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="environments"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id109"&gt;Environments&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id103"&gt;Environments&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Python 3 includes the &lt;tt class="docutils literal"&gt;venv&lt;/tt&gt; module for creating a sandbox for your project or a &lt;em&gt;virtual environment&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;To create an environment on Unix systems, run&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ python3 -m venv /path/to/env
@@ -6933,37 +6927,25 @@ To &lt;em&gt;deactivate&lt;/em&gt; an environment on both platforms, just run th
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;env&lt;span class="o"&gt;)&lt;/span&gt; $ deactivate
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="installing-packages"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id110"&gt;Installing Packages&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;You should now have a &lt;tt class="docutils literal"&gt;pip&lt;/tt&gt; executable, that will install a package from PyPI &lt;a class="footnote-reference" href="#id8" id="id7"&gt;[3]&lt;/a&gt;  into your virtual environment&lt;/p&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id104"&gt;Installing Packages&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;You should now have a &lt;tt class="docutils literal"&gt;pip&lt;/tt&gt; executable, that will install a package from &lt;a class="reference external" href="https://pypi.python.org/pypi"&gt;PyPI&lt;/a&gt;  into your virtual environment&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;env&lt;span class="o"&gt;)&lt;/span&gt; $ pip install click
 &lt;/pre&gt;&lt;/div&gt;
-&lt;table class="docutils footnote" frame="void" id="id8" rules="none"&gt;
-&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
-&lt;tbody valign="top"&gt;
-&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id7"&gt;[3]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="https://pypi.python.org/pypi"&gt;https://pypi.python.org/pypi&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
 &lt;p&gt;To uninstall a package run&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;env&lt;span class="o"&gt;)&lt;/span&gt; $ pip uninstall click
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;If you are having issues installing a package, you might want to look into
-alternative Python distributions such as Anaconda &lt;a class="footnote-reference" href="#id10" id="id9"&gt;[4]&lt;/a&gt; that have prepackaged
+alternative Python distributions such as &lt;a class="reference external" href="https://docs.continuum.io/anaconda/"&gt;Anaconda&lt;/a&gt; that have prepackaged
 many harder to install packages.&lt;/p&gt;
-&lt;table class="docutils footnote" frame="void" id="id10" rules="none"&gt;
-&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
-&lt;tbody valign="top"&gt;
-&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id9"&gt;[4]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="https://docs.continuum.io/anaconda/"&gt;https://docs.continuum.io/anaconda/&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
 &lt;p&gt;Install from directory&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install -e .
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="regular-expresions"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id111"&gt;Regular Expresions&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id105"&gt;Regular Expresions&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="meta-character"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id112"&gt;Meta-Character&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id106"&gt;Meta-Character&lt;/a&gt;&lt;/h3&gt;
 &lt;table border="1" class="docutils"&gt;
 &lt;caption&gt;Meta-Character&lt;/caption&gt;
 &lt;colgroup&gt;
@@ -7031,7 +7013,7 @@ many harder to install packages.&lt;/p&gt;
 &lt;/table&gt;
 &lt;/div&gt;
 &lt;div class="section" id="repeating"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id113"&gt;Repeating&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id107"&gt;Repeating&lt;/a&gt;&lt;/h3&gt;
 &lt;table border="1" class="docutils"&gt;
 &lt;caption&gt;Repeating&lt;/caption&gt;
 &lt;colgroup&gt;
@@ -7072,7 +7054,7 @@ many harder to install packages.&lt;/p&gt;
 &lt;/table&gt;
 &lt;/div&gt;
 &lt;div class="section" id="usage-pattern-object"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id114"&gt;Usage - Pattern object&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id108"&gt;Usage - Pattern object&lt;/a&gt;&lt;/h3&gt;
 &lt;table border="1" class="docutils"&gt;
 &lt;caption&gt;Pattern object&lt;/caption&gt;
 &lt;colgroup&gt;
@@ -7153,7 +7135,7 @@ re.finditer(...)&lt;/td&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="virtual-environment"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id115"&gt;Virtual Environment&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id109"&gt;Virtual Environment&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Install virtualenv&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo python3 -m pip install virtualenv virtualenvwrapper
 &lt;/pre&gt;&lt;/div&gt;
@@ -7170,9 +7152,9 @@ re.finditer(...)&lt;/td&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="python-internals"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id116"&gt;Python Internals&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id110"&gt;Python Internals&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="execution"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id117"&gt;Execution&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id111"&gt;Execution&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Source Code --&amp;gt; [lexing, parsing and type checking] --&amp;gt; Byte Code --&amp;gt; PVM (Virtual Machine)
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;In Python, the source is compiled into a much simpler form called bytecode.
@@ -7184,7 +7166,7 @@ taken by Java. There is even a way of translating Python programs into Java
 byte code for the Java Virtual Machine (JVM). This can be achieved with Jython.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="gil"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id118"&gt;GIL&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id112"&gt;GIL&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;One thread runs Python, while N others sleep or await I/O.&amp;quot; Python threads can
 also wait for a threading.Lock or other synchronization object from the
 threading module; consider threads in that state to be &amp;quot;sleeping,&amp;quot; too.&lt;/p&gt;
@@ -7200,7 +7182,7 @@ in detail.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="terminology"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id119"&gt;Terminology&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id113"&gt;Terminology&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;Bytecode&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Bytecode is also binary representation executed by virtual machine (not by
@@ -7225,7 +7207,7 @@ generating code from the syntax tree.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="references"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id120"&gt;References&lt;/a&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id114"&gt;References&lt;/a&gt;&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference external" href="http://book.pythontips.com"&gt;http://book.pythontips.com&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://www.pythonsheets.com/"&gt;https://www.pythonsheets.com/&lt;/a&gt;&lt;/li&gt;
