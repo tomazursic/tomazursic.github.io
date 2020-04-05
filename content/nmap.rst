@@ -1,6 +1,6 @@
 :Title: Nmap Cheatsheet
 :Date: 2020-03-24 19:29
-:Category: blog
+:Category: notes
 :Tags: nmap, network, security
 :Summary: Nmap Network Scanning notes collection
 

@@ -1,7 +1,7 @@
 :title: LoraWAN Reverse Beacon
 :date: 2018-05-27
 :tags: iot, python, lorawan, reverse_beacon
-:category: projects
+:category: blog
 :slug: lorawan-reverse-beacon
 :summary: Exploring LoraWAN coverage with drop node deployed higher than the receivers
 

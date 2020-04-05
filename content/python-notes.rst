@@ -1,9 +1,9 @@
 :Title: Python Notes
 :Date: 2018-04-20 22:51
 :Modified: 2020-01-10
-:Category: blog
+:Category: notes
 :Slug: python
-:Tags: python, notes
+:Tags: python
 :Summary: Notes and references for Python
 
 

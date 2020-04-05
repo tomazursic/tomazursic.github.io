@@ -1,6 +1,6 @@
 :Title: The Bread Code Branch
 :Date: Wed May 3 6:14:30 CEST 2018
-:Category: projects
+:Category: blog
 :Tags: bread, misc
 :Summary: The art of making bread
 

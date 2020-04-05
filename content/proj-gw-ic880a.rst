@@ -2,7 +2,7 @@
 :Date: 2017-09-03 22:46
 :Modified: 2020-03-12 11:22
 :Tags: iot, lorawan, gateway, network, ic880a
-:Category: projects
+:Category: blog
 :authors: Tomaz
 :Slug: setup-lorawan-gateway
 :Summary: Notes for assembling LoRaWAN gateway

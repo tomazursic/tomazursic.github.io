@@ -1,7 +1,7 @@
 :Title: Python Snippets
 :Date: 2017-11-05
 :Modified: 2020-01-4
-:Category: blog
+:Category: notes
 :Slug: python-cheatsheet
 :Tags: python, notes, cheatsheet, snippets
 :Summary: Code snippets

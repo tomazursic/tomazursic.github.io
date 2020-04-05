@@ -1,7 +1,7 @@
 :title: Git Notes
 :date: 2017-07-08
 :tags: git, linux
-:category: blog
+:category: notes
 :slug: git
 :summary: Notes using git
 

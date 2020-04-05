@@ -5,7 +5,7 @@
 :slug: vinode
 :authors: Tomaz
 :tags: lorawan, iot, python, micropython
-:category: projects
+:category: blog
 
 .. contents:: Table of Contents
 
