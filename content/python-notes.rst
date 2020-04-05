@@ -374,7 +374,7 @@ Variables
 
 Python variables are like cattle tags, they point to objects (which can be
 classes, instances, modules, or functions), but variables are not the objects. You can
-reuse variable names for different object types (though you probably shouldn't)
+reuse variable **names** for different object types (though you probably shouldn't)
 
 .. code-block:: python
 
@@ -500,6 +500,15 @@ This is a significant point. It means that x is the memory location, not just a 
                                  | refcount: 1    |
                                  +----------------+
 
+In Python, there are two types of objects:
+
+* **Immutable** objects can’t be changed.
+* **Mutable** objects can be changed.
+
+Lots of commonly used primitive types are immutable (int, float, bool, complex,
+tuple, frozenset, str)
+
+
 Immutable
 ^^^^^^^^^
 
@@ -508,16 +517,48 @@ Integer is immutable
 .. code-block:: python
 
    >>> a = 3
+   >>> id(a)
+   9302240
    >>> b = a
+   >>> id(b)
+   9302240
    >>> a = 4  # Modify the value of a in-place at its current memory address
    # The assignment causes a to point to a new address in memory which contains a 4
    # Integer is immutable
 
-   >>> print(a)
-   >>> 4
-   >>> print(b)
-   >>> 3
+   >>> b
+   3
+   >>> id(a)
+   9302272
 
+Integers are immutable
+
+.. code-block:: python
+
+  >>> a = 1
+  >>> a
+  1
+  >>> id(a)
+  9302176
+  >>> a -= 1
+  >>> id(a)
+  9302144
+  >>> a
+  0
+
+Strings are also immutable
+
+.. code-block:: python
+
+   >>> id(a)
+   9302272
+   >>> s = "String"
+   >>> id(s)
+   140698800236400
+   >>> s += "."
+   >>> id(s)
+   140698799439536
+   >>> 
 
 Mutable
 ^^^^^^^^^
@@ -526,20 +567,30 @@ List are mutable
 
 .. code-block:: python
 
-   >>> a = [1, 2, 3]
-   >>> b = a
-   >>> a = [4, 5, 6]
-   >>> c = a
-   >>> a.append(7)
-   # Lists are mutable (in-place)
-   # And c is pointing to the same address.
+     >>> a = list(range(5))
+     >>> a
+     [0, 1, 2, 3, 4]
+     >>> id(a)
+     140698799563552
+     >>> a.append(5)
+     # Lists are mutable (in-place)
+     # And c is pointing to the same address.
+     >>> id(a)
+     140698799563552
+     >>> 
 
-   >>> print(a)
-   >>> [1, 2, 3, 7]
-   >>> print(b)
-   >>> [4, 5, 6]
-   >>> print(c)
-   >>> [1, 2, 3, 7]
+     >>> a = [1, 2, 3]
+     >>> b = a
+     >>> a = [4, 5, 6]
+     >>> c = a
+     >>> a.append(7)
+
+     >>> a
+     >>> [1, 2, 3, 7]
+     >>> b
+     >>> [4, 5, 6]
+     >>> c
+     >>> [1, 2, 3, 7]
 
 .. note::
 
@@ -549,6 +600,26 @@ List are mutable
 
    %\Needspace{5\baselineskip}
    \clearpage
+
+Data structures
+---------------
+
+Primitive
+^^^^^^^^^^
+
+- Integers
+- Floats
+- Strings
+- Booleans
+
+Non-primitive
+^^^^^^^^^^^^^^
+
+- Lists
+- Arrays
+- Tuples
+- Dicts
+- Sets
 
 Numbers
 -----------
@@ -650,7 +721,27 @@ the standard library.
   ``f.is_integer()``                 Boolean if whole number
   ================================== ========================
 
+Booleans
+---------
 
+`bool(x)` is a subclass of `int` and as such can be invoked with class methods
+of `int` and will even refer to the same hash
+
+.. code-block:: python
+
+    >>> True.__hash__() is 1
+    True
+
+.. code-block:: python
+
+    >>> isinstance(False, int)
+    True
+    >>> isinstance(True, int)
+    True
+    >>> False == 1 == 1.0 and False == 0 == 0.0
+    True
+    >>> True + 1
+    2
 
 Strings
 -----------
@@ -904,12 +995,33 @@ We can also do *slicing* operations on most sequences
   ``l.sort([key=], reverse=False)``                            In-place sort, by optional ``key`` function (mutates ``l``)
   ============================================================ ============================================================
 
+Deque
+^^^^^
 
+List-like container with fast appends and pops on either end
+Deque is a double-ended queue that supports adding and removing elements from either end 
+
+.. code-block:: python
+
+  >>> from collections import deque
+  >>> dq = deque([2, 4, 6, 8, 10])
+  >>> dq.append(12)
+  >>> dq
+  deque([2, 4, 6, 8, 10, 12])
+  >>> dq.appendleft(0)
+  >>> dq
+  deque([0, 2, 4, 6, 8, 10, 12])
+  >>> dq.popleft()
+  0
+  >>> dq
+  deque([2, 4, 6, 8, 10, 12])
 
 Dictionaries
 --------------
 
-They are insertion ordered Python 3.6+
+They are insertion ordered Python 3.6+.
+Use OrderedDict for future proof to save the order of key inserts you should do
+this explicitly through defining OrderedDict instance from `collections` module
 
 Dictionaries are mutable mappings of keys to values. Keys
 must be hashable, but values can be any object
@@ -1041,6 +1153,21 @@ to make a deep copy.
   {'alpha': [1, 11], 'bravo': [2, 22]}
   >>> 
 
+Defaultdict
+^^^^^^^^^^^
+
+Defaultdict, on the contrary, will not raise an error. 
+
+.. code:: python
+
+    >>> from collections import defaultdict
+    >>> d = defaultdict(list)
+    >>> d['ports']
+    []
+    >>> d['ports'].append(22)
+    >>> d['ports']
+    [22]
+
 Tuples
 -------
 
@@ -1068,7 +1195,16 @@ Unpacking
 
 .. code-block:: python
 
-  >>> a, b = row
+  >>> coord = (54.53260, 70.09275)
+  >>> x, y = coord
+  >>> x
+  >>> 54.53260
+
+  >>> f'Lat: {coord[1]}'
+  'Lat: 70.09275'
+  >>> 'Lon: ' + coord[1]
+  'Lon: 70.09275'
+
 
 Dynamic size 
 ^^^^^^^^^^^^^
@@ -1078,6 +1214,10 @@ Dynamic size
   >>> tup = tuple([x ** 2 for x in range(10)])
   (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
 
+  >>> tup = (True, "String")
+  >>> tup + (6,)
+  (True, 'String', 6)
+  >>> 
 
 Namedtuple
 ^^^^^^^^^^
@@ -1152,6 +1292,10 @@ Sets
 A set is a mutable unordered collection that cannot contain duplicates. Sets are used to
 remove duplicates and test for membership
 
+Python has two types of sets: regular `set` and `frozenset`. 
+The only difference between regular set and frozenset is that you can’t add new
+elements to frozenset after its initialization.
+
 .. code-block:: python
 
   >>> digits = [0, 1, 1, 2, 3, 4, 5, 6,
@@ -1175,11 +1319,23 @@ Sets are useful because they provide *set operations*, such as union
   >>> prime & even  # in intersection
   {2}
 
+  >>> prime.intersection(even)
+  {2}
+
   >>> odd | even    # in both
   {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
 
+  >>> odd.union(prime)
+  {1, 2, 3, 5, 7, 9}
+
   >>> even ^ prime  # not in both
   {0, 3, 4, 5, 6, 7, 8}
+
+  >>> even - prime  # difference
+  {1, 9}
+
+  >>> odd.difference(prime)
+  {1, 9}
 
 .. raw:: latex
 
@@ -1998,10 +2154,9 @@ named ``cls`` (as ``class`` is a keyword and will error out)
   In the above example, we had an implicit line continuation without a
   backslash, because there was a ``(`` on the line.
 
-The ``staticmethod`` decorator lets you attach functions to
-a class. (I don't like them, just use a function). Note
-that they don't get an implicit first argument. It can be
-called on the instance or the class
+The ``staticmethod`` decorator lets you attach functions to a class. Note that
+they don't get an implicit first argument. It can be called on the instance or
+the class method does not depend on state of the object itself. 
 
 .. code-block:: python
 
@@ -2016,6 +2171,22 @@ called on the instance or the class
   >>> lawnchair = Recumbent(20, 4)
   >>> lawnchair.is_fast()
   True
+
+It reduces memory usage because doesn't have to instantiate a
+bound-method for each object instiantiated
+
+Static methods have limited use, because they don't have access to the
+attributes of an instance of a class (like a regular method does), and they
+don't have access to the attributes of the class itself (like a class method
+does).
+
+
+.. note::
+
+  Static methods are weird. They have no access to their owning instance (self)
+  or class. So why are they part of the class? It can only be for encapsulation.
+  But if they're private and only used inside the class, then why care that they
+  are static methods? Just make them ordinary methods.
 
 Properties
 ----------
@@ -2079,7 +2250,7 @@ classes which store multiple properties.
 Looping
 =======
 
-You can loop over objects in a sequence::
+You can loop over objects in a sequence
 
 .. code-block:: python
 
@@ -3160,11 +3331,11 @@ Documentation: `typing — Support for type hints`_
 Python 3.6 (PEP 483 and 484) allows you to provide types for
 input and output of functions. They can be used to:
 
-* Allow 3rd party libraries such as mypy [#]_ to run static typing
+* Allow 3rd party libraries such as `mypy`_ to run static typing
 * Assist editors with type inference
 * Aid developers in understanding code
 
-.. [#] http://mypy-lang.org/
+.. _`mypy`: http://mypy-lang.org/
 
 Types can be expressed as:
 
@@ -3422,13 +3593,13 @@ To *deactivate* an environment on both platforms, just run the following
 Installing Packages
 -------------------
 
-You should now have a ``pip`` executable, that will install a package from PyPI [#]_  into your virtual environment
+You should now have a ``pip`` executable, that will install a package from `PyPI`_  into your virtual environment
 
 .. code-block:: shell
 
   (env) $ pip install click
 
-.. [#] https://pypi.python.org/pypi
+.. _`PyPI`: https://pypi.python.org/pypi
 
 To uninstall a package run
 
@@ -3437,10 +3608,10 @@ To uninstall a package run
   (env) $ pip uninstall click
 
 If you are having issues installing a package, you might want to look into
-alternative Python distributions such as Anaconda [#]_ that have prepackaged
+alternative Python distributions such as `Anaconda`_ that have prepackaged
 many harder to install packages.
 
-.. [#] https://docs.continuum.io/anaconda/
+.. _`Anaconda`: https://docs.continuum.io/anaconda/
 
 Install from directory
 

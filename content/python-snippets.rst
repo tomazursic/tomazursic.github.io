@@ -44,6 +44,32 @@ Profiling
 
 .. code-block:: python
 
+   import time
+   def timing(func):
+       def wrapper():
+           start = time.time()
+           func()
+           finish = time.time()
+           print('Elapsed time: {}'.format(finish - start))
+       return wrapper
+
+   @timing
+   def f1():
+       elements = [1] * 100000
+       for _ in range(len(elements)):
+           elements.pop()
+
+   @timing
+   def f2():
+       elements = [1] * 100000
+       for _ in range(len(elements)):
+           elements.pop(0)
+
+   f1()  # Elapsed time: 0.007998943328857422
+   f2()  # Elapsed time: 0.9251341819763184
+
+.. code-block:: python
+
   import time
   import contextlib
 
