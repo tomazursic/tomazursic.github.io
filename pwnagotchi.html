@@ -228,14 +228,17 @@ $ ssh -o <span class="nv">PreferredAuthentications</span><span class="o">=</span
 </div>
 <div class="section" id="using-android-phone-for-interface">
 <h3><a class="toc-backref" href="#id10">Using Android phone for interface</a></h3>
-<p>Ensure Bluetooth tethering is turned on, on your phone, under “Settings:
-Connections --&gt; Mobile Hotspot and Tethering”.</p>
-<p>Then enable Bluetooth discovery scan on the phone. Find your MAC address for
-your phone, at Settings -&gt; About Phone -&gt; Status.</p>
+<p>Enable Bluetooth tethering on &quot;Android phone&quot; under:</p>
+<div class="highlight"><pre><span></span>Settings: Connections --&gt; Mobile Hotspot and Tethering
+</pre></div>
+<p>Then enable Bluetooth discovery scan on the phone.</p>
+<p>Find phone MAC address:</p>
+<div class="highlight"><pre><span></span>Settings -&gt; About Phone -&gt; Status
+</pre></div>
 <div class="section" id="find-phone-mac">
 <h4><a class="toc-backref" href="#id11">1. Find phone MAC</a></h4>
-<p>Now SSH into the pwnagotchi and run the following command to find the phone:
-!This is dummy example MAC <tt class="docutils literal">E:DB:EE:F0:CO:FE</tt></p>
+<p>Now SSH into the pwnagotchi and run the following command to find the phone:</p>
+<p><strong>NOTE:</strong> This is just example MAC address <tt class="docutils literal">E:DB:EE:F0:CO:FE</tt></p>
 <div class="highlight"><pre><span></span>$ sudo bluetoothctl
 $ scan on
 
