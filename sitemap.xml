@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/</loc>
-<lastmod>2020-03-25T06:22:47-00:00</lastmod>
+<lastmod>2020-04-05T20:04:30-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/archives.html</loc>
-<lastmod>2020-03-25T06:22:47-00:00</lastmod>
+<lastmod>2020-04-05T20:04:30-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/tags.html</loc>
-<lastmod>2020-03-25T06:22:47-00:00</lastmod>
+<lastmod>2020-04-05T20:04:30-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/categories.html</loc>
-<lastmod>2020-03-25T06:22:47-00:00</lastmod>
+<lastmod>2020-04-05T20:04:30-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -36,6 +36,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <lastmod>2018-05-03T09:14:30+02:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
+</url>
+
+<url>
+<loc>/pwnagotchi.html</loc>
+<lastmod>2020-04-05T17:29:00+02:00</lastmod>
+<changefreq>always</changefreq>
+<priority>1</priority>
 </url>
 
 <url>
@@ -159,7 +166,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/category/blog.html</loc>
-<lastmod>2020-03-24T19:29:00+01:22</lastmod>
+<lastmod>2020-04-05T17:29:00+01:22</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -172,14 +179,35 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>/tag/nmap.html</loc>
-<lastmod>2020-03-24T19:29:00+01:22</lastmod>
+<loc>/tag/wireless.html</loc>
+<lastmod>2020-04-05T17:29:00+01:22</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/tag/network.html</loc>
+<lastmod>2020-04-05T17:29:00+01:22</lastmod>
+<changefreq>hourly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/tag/ai.html</loc>
+<lastmod>2020-04-05T17:29:00+01:22</lastmod>
+<changefreq>hourly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/tag/rl.html</loc>
+<lastmod>2020-04-05T17:29:00+01:22</lastmod>
+<changefreq>hourly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/tag/nmap.html</loc>
 <lastmod>2020-03-24T19:29:00+01:22</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
@@ -208,13 +236,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/tag/ml.html</loc>
-<lastmod>2019-11-06T00:00:00+01:22</lastmod>
-<changefreq>hourly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>/tag/ai.html</loc>
 <lastmod>2019-11-06T00:00:00+01:22</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
@@ -383,7 +404,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/author/tomaz.html</loc>
-<lastmod>2020-03-24T19:29:00+01:22</lastmod>
+<lastmod>2020-04-05T17:29:00+01:22</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>

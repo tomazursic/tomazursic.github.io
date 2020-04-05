@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en" class="inverted">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weblog - tomazursic.github.io - Isolation Days With AI and Pwnagotchi</title>
+  <meta charset="utf-8" />
+  <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Weblog - tomazursic.github.io Full Atom Feed" />
+  <link href="/feeds/blog.atom.xml" type="application/atom+xml" rel="alternate" title="Weblog - tomazursic.github.io Categories Atom Feed" />
+
+
+
+
+    <meta name="tags" content="wireless" />
+    <meta name="tags" content="network" />
+    <meta name="tags" content="ai" />
+    <meta name="tags" content="rl" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/theme/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/theme/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/theme/favicons/favicon-16x16.png">
+  <link rel="manifest" href="/theme/favicons/site.webmanifest">
+
+  <link rel="stylesheet" href="/theme/css/style.css"/>
+  <link rel="stylesheet" href="/theme/css/monokai.min.css"/>
+  <link rel="stylesheet" href="/theme/css/ionicons.css"/>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <script src="/theme/tipuesearch/tipuesearch_set.js"></script>
+  <script src="/theme/tipuesearch/tipuesearch.min.js"></script>
+  <script src="/tipuesearch_content.js"></script>
+
+
+</head>
+
+<body id="index" class="home">
+
+  <nav class="navigation">
+    <div class="nav-logo">
+      <a href="/"><i class="ion-md-home"></i></a>
+    </div>
+    <ul class="nav-menu">
+
+          <li class="active"><a href="/category/blog.html">blog</a></li>
+          <li><a href="/category/projects.html">projects</a></li>
+          <li><a href="/pages/contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-toggle">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+  </nav>
+  <div class="nav-overlay"></div>
+
+ <div id="wrapper">
+
+        <div id="content">
+        <div id="invmode" class="no-print">Day</div>
+        <button onclick="goUp()" id="upBtn" class="no-print" title="Go to top"><i class="ion-ios-arrow-up"></i></button>
+
+
+
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="/pwnagotchi.html" rel="bookmark"
+         title="Permalink to Isolation Days With AI and Pwnagotchi">Isolation Days With AI and Pwnagotchi</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2020-04-05T17:29:00+02:00">
+      <b>Published</b>: Sun 05 April 2020
+    </time>
+    <br>
+    <div class="category">
+        <b>Category</b>: <a href="/category/blog.html">blog</a>
+    </div>
+    <div class="tags">
+        <b>Tags</b>:
+            <a href="/tag/wireless.html">wireless</a>
+            <a href="/tag/network.html">network</a>
+            <a href="/tag/ai.html">ai</a>
+            <a href="/tag/rl.html">rl</a>
+    </div>
+  </footer><!-- /.post-info -->
+
+  <div class="entry-content">
+    <div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#isolation-days-with-ai-and-pwnagotchi" id="id1">Isolation Days With AI and Pwnagotchi</a><ul>
+<li><a class="reference internal" href="#hardware" id="id2">Hardware</a></li>
+<li><a class="reference internal" href="#setup" id="id3">Setup</a><ul>
+<li><a class="reference internal" href="#flash-the-image-on-sd" id="id4">1. Flash the image on SD</a></li>
+<li><a class="reference internal" href="#before-first-boot" id="id5">2. Before first boot</a></li>
+<li><a class="reference internal" href="#boot" id="id6">3. Boot</a></li>
+<li><a class="reference internal" href="#find-the-device" id="id7">4. Find the device</a></li>
+<li><a class="reference internal" href="#setup-network-interfaces" id="id8">4. Setup network interfaces</a></li>
+<li><a class="reference internal" href="#ssh-into-device" id="id9">5. SSH into device</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-android-phone-for-interface" id="id10">Using Android phone for interface</a><ul>
+<li><a class="reference internal" href="#find-phone-mac" id="id11">1. Find phone MAC</a></li>
+<li><a class="reference internal" href="#edit-config" id="id12">2. Edit config</a></li>
+<li><a class="reference internal" href="#paring" id="id13">3. Paring</a></li>
+<li><a class="reference internal" href="#restart-in-auto-mode" id="id14">4. Restart in AUTO mode</a></li>
+<li><a class="reference internal" href="#verify-bt-pan-addres" id="id15">4. Verify bt-pan addres</a></li>
+<li><a class="reference internal" href="#access-the-web-ui-on-phone" id="id16">5. Access the Web UI on phone</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="isolation-days-with-ai-and-pwnagotchi">
+<h2><a class="toc-backref" href="#id1">Isolation Days With AI and Pwnagotchi</a></h2>
+<p>As written on <cite>pwnagotchi.io</cite>:</p>
+<blockquote>
+...an excuse to learn about reinforcement learning and WiFi networking—and have a reason to get out for more walks.</blockquote>
+<p>The last claim, get out in this days, sounds wrong but with a deep sound of silence out there it's a big pleasure!
+Driven with collecting data one way or another, this project is freaking out.</p>
+<div class="section" id="hardware">
+<h3><a class="toc-backref" href="#id2">Hardware</a></h3>
+<ul class="simple">
+<li>Raspberry Pi Zero W</li>
+<li>Zebra Zero Raspberry Pi Zero Case - Black Ice</li>
+<li>SD card 16GB</li>
+<li>RTC DS3231 (for replacing fake-hw clock)</li>
+<li>Micro-USB cable (with enough wires to support data transfer)</li>
+</ul>
+<div class="figure">
+<img alt="pwnagotchi HW" src="../images/pwnagotchi/hw.jpg" />
+</div>
+<p>RJ45 is banana for scale :)</p>
+<p><strong>Next Upgrade:</strong> <cite>Black &amp; White e-ink displays</cite> - Waveshare eInk 2.13” Display V2</p>
+<p>More about supported displays: <a class="reference external" href="https://pwnagotchi.ai/installation/#display">https://pwnagotchi.ai/installation/#display</a></p>
+</div>
+<div class="section" id="setup">
+<h3><a class="toc-backref" href="#id3">Setup</a></h3>
+<div class="section" id="flash-the-image-on-sd">
+<h4><a class="toc-backref" href="#id4">1. Flash the image on SD</a></h4>
+<div class="highlight"><pre><span></span>sudo pv -tpreb pwnagotchi-raspbian-lite-v1.4.3.img <span class="p">|</span> sudo dd <span class="nv">of</span><span class="o">=</span>/dev/mmcblk0 <span class="nv">bs</span><span class="o">=</span>512K
+</pre></div>
+<p>More details: <a class="reference external" href="https://pwnagotchi.ai/installation/#flashing-an-image">https://pwnagotchi.ai/installation/#flashing-an-image</a></p>
+</div>
+<div class="section" id="before-first-boot">
+<h4><a class="toc-backref" href="#id5">2. Before first boot</a></h4>
+<p>Add <tt class="docutils literal">config.yml</tt> to <tt class="docutils literal">/boot</tt> partition on SD card.</p>
+<p>If not sure about valid <tt class="docutils literal">YAML</tt> syntax check your config with online
+validator - <a class="reference external" href="https://codebeautify.org/yaml-validator">https://codebeautify.org/yaml-validator</a></p>
+<div class="highlight"><pre><span></span>main:
+  name: &#39;&lt;CHANGE_TO_NAME_FOR_DEVICE&gt;&#39;
+  whitelist:
+    - &#39;&lt;CHANGE_THIS_TO_HOME_WIFI_BSSID_OR_ESSID&gt;&#39;
+  plugins:
+    grid:
+      enabled: true
+      report: true
+      exclude:
+        - &#39;&lt;CHANGE_THIS_TO_HOME_WIFI_BSSID_OR_ESSID&gt;&#39;
+ui:
+    web:
+        username: &lt;CHANGE_THIS_TO_USERNAME_FOR_WEB_UI&gt;
+        password: &lt;CHANGE_THIS_TO_PASSWORD_FOR_WEB_UI&gt;
+</pre></div>
+<p>More details: <a class="reference external" href="https://pwnagotchi.ai/configuration/#initial-configuration">https://pwnagotchi.ai/configuration/#initial-configuration</a></p>
+</div>
+<div class="section" id="boot">
+<h4><a class="toc-backref" href="#id6">3. Boot</a></h4>
+<p>Plug Micro-USB into &quot;DATA PORT&quot; on Raspberry Pi Zero to run in OTG (On The Go)
+mode allowing device to act as an Ethernet device.</p>
+<p>Read more: <a class="reference external" href="https://pwnagotchi.ai/configuration/#connect-to-your-pwnagotchi">https://pwnagotchi.ai/configuration/#connect-to-your-pwnagotchi</a></p>
+</div>
+<div class="section" id="find-the-device">
+<h4><a class="toc-backref" href="#id7">4. Find the device</a></h4>
+<p>Find device assigned address. The address is different each time we change the
+USB port it can be (enp0s20u1, or enp0s20u2 ...) this on Ubuntu machine.</p>
+<div class="highlight"><pre><span></span># List usb device
+$ lsusb
+
+# check interfaces
+$ ip a
+</pre></div>
+</div>
+<div class="section" id="setup-network-interfaces">
+<h4><a class="toc-backref" href="#id8">4. Setup network interfaces</a></h4>
+<p>Open Network connections manager (Ubuntu) and edit <strong>Wire connection</strong></p>
+<div class="highlight"><pre><span></span>$ nm-connection-editor
+</pre></div>
+<p>Select the new interface</p>
+<div class="figure">
+<img alt="Wire interface setup 1" src="../images/pwnagotchi/setup-iface-1.png" />
+</div>
+<p>Check the interface name</p>
+<div class="figure">
+<img alt="Wire interface setup 2" src="../images/pwnagotchi/setup-iface-2.png" />
+</div>
+<p>Add new static address under <tt class="docutils literal">IPv4 Settings</tt></p>
+<div class="highlight"><pre><span></span>IP: 10.0.0.1
+Netmask: 255.255.255.0
+Gateway: 10.0.0.1
+DNS: 8.8.8.8 (or wathever)
+</pre></div>
+<div class="figure">
+<img alt="Wire interface setup 3" src="../images/pwnagotchi/setup-iface-3.png" />
+</div>
+<p>Save and close and recheck the interface if settings are applied</p>
+<div class="highlight"><pre><span></span>$ ip a
+</pre></div>
+</div>
+<div class="section" id="ssh-into-device">
+<h4><a class="toc-backref" href="#id9">5. SSH into device</a></h4>
+<p>Default password: <strong>raspberry</strong></p>
+<div class="highlight"><pre><span></span>$ ssh pi@10.0.0.2
+
+<span class="c1"># Trubles with ssh</span>
+<span class="c1"># --</span>
+<span class="c1"># Received disconnect from 10.0.0.2 port 22:2: Too many authentication failures</span>
+<span class="c1"># Disconnected from 10.0.0.2 port 22</span>
+<span class="c1"># --</span>
+
+$ ssh -o <span class="nv">PreferredAuthentications</span><span class="o">=</span>password pi@10.0.0.2
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-android-phone-for-interface">
+<h3><a class="toc-backref" href="#id10">Using Android phone for interface</a></h3>
+<p>Ensure Bluetooth tethering is turned on, on your phone, under “Settings:
+Connections --&gt; Mobile Hotspot and Tethering”.</p>
+<p>Then enable Bluetooth discovery scan on the phone. Find your MAC address for
+your phone, at Settings -&gt; About Phone -&gt; Status.</p>
+<div class="section" id="find-phone-mac">
+<h4><a class="toc-backref" href="#id11">1. Find phone MAC</a></h4>
+<p>Now SSH into the pwnagotchi and run the following command to find the phone:</p>
+<div class="highlight"><pre><span></span>$ sudo bluetoothctl
+$ scan on
+
+......
+<span class="o">[</span>CHG<span class="o">]</span> Device DE:DB:EE:F0:CO:FE
+</pre></div>
+</div>
+<div class="section" id="edit-config">
+<h4><a class="toc-backref" href="#id12">2. Edit config</a></h4>
+<p>For Android phones default address is <tt class="docutils literal">192.168.44.x</tt> maybe :)</p>
+<p>Add to <tt class="docutils literal">/etc/pwnagotchi config.yml</tt></p>
+<div class="highlight"><pre><span></span><span class="nt">bt-tether</span><span class="p">:</span>
+  <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="nt">devices</span><span class="p">:</span>
+    <span class="nt">&lt;CHANGE_TO_PHONE_NAME&gt;</span><span class="p">:</span>
+      <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+      <span class="nt">search_order</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+      <span class="nt">mac</span><span class="p">:</span> <span class="s">&#39;DE:DB:EE:F0:CO:FE&#39;</span>
+      <span class="nt">ip</span><span class="p">:</span> <span class="s">&#39;192.168.44.44&#39;</span>
+      <span class="nt">netmask</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">24</span>
+      <span class="nt">interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+      <span class="nt">scantime</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">15</span>
+      <span class="nt">share_internet</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+      <span class="nt">priority</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">99</span>
+      <span class="nt">max_tries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+</pre></div>
+</div>
+<div class="section" id="paring">
+<h4><a class="toc-backref" href="#id13">3. Paring</a></h4>
+<p>Paring with phone</p>
+<div class="highlight"><pre><span></span>pair DE:DB:EE:F0:CO:FE
+...<span class="o">(</span>pair<span class="o">)</span> yes/no
+yes
+
+<span class="c1"># here your phone will ask if you want to pair with some code ... say yes on phone and yes in terminal</span>
+trust DE:DB:EE:F0:CO:FE
+</pre></div>
+</div>
+<div class="section" id="restart-in-auto-mode">
+<h4><a class="toc-backref" href="#id14">4. Restart in AUTO mode</a></h4>
+<p>Shutdown pwnagotchi</p>
+<div class="highlight"><pre><span></span>$ sudo shutdown -h now
+</pre></div>
+<p>Change Micro-USB into <strong>POWR port</strong> on PI and plug into Power Bank or any other 5V power supply</p>
+<p>Wait.... the Bluetooth connection with pwnagotchi need to established.</p>
+</div>
+<div class="section" id="verify-bt-pan-addres">
+<h4><a class="toc-backref" href="#id15">4. Verify bt-pan addres</a></h4>
+<p>Verify if address added to config <tt class="docutils literal">192.168.44.44</tt> is correct!</p>
+<p>Using Termux on phone (note: the BT connection need to be established, to list the bt-pan interface)</p>
+<div class="highlight"><pre><span></span><span class="c1"># ifconfig bt-pan</span>
+</pre></div>
+</div>
+<div class="section" id="access-the-web-ui-on-phone">
+<h4><a class="toc-backref" href="#id16">5. Access the Web UI on phone</a></h4>
+<p>Open phone browser and point to url:</p>
+<div class="highlight"><pre><span></span>http://192.168.44.44:8080
+</pre></div>
+<div class="figure">
+<img alt="pwnagotchi on phone" src="../images/pwnagotchi/phone-web-ui.jpg" />
+</div>
+<p>And now wait .. 15min or more for AI to begin (more details: <a class="reference external" href="https://pwnagotchi.ai/usage/#ai">https://pwnagotchi.ai/usage/#ai</a>)</p>
+</div>
+</div>
+</div>
+
+  </div><!-- /.entry-content -->
+</section>
+
+        <section id="extras" class="body">
+
+          <ul class="tags-footer">
+            <li style="font-size: 125.0%;"><a href="/tag/ai.html">ai</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/arm.html">arm</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/bread.html">bread</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/cheatsheet.html">cheatsheet</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/ds.html">ds</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/esp32.html">esp32</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/gateway.html">gateway</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/git.html">git</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/ic880a.html">ic880a</a></li>
+            <li style="font-size: 158.0%;"><a href="/tag/iot.html">iot</a></li>
+            <li style="font-size: 139.6%;"><a href="/tag/linux.html">linux</a></li>
+            <li style="font-size: 158.0%;"><a href="/tag/lorawan.html">lorawan</a></li>
+            <li style="font-size: 125.0%;"><a href="/tag/micropython.html">micropython</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/misc.html">misc</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/ml.html">ml</a></li>
+            <li style="font-size: 150.0%;"><a href="/tag/network.html">network</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/nmap.html">nmap</a></li>
+            <li style="font-size: 125.0%;"><a href="/tag/notes.html">notes</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/obd.html">obd</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/os.html">os</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/pelican.html">pelican</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/pi.html">pi</a></li>
+            <li style="font-size: 175.0%;"><a href="/tag/python.html">python</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/raspberry-pi.html">raspberry-pi</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/reverse_beacon.html">reverse_beacon</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/rl.html">rl</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/security.html">security</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/snippets.html">snippets</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/tools.html">tools</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/unix.html">unix</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/vim.html">vim</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/wireless.html">wireless</a></li>
+          </ul>
+
+
+                <div class="social">
+                        <ul>
+                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
+
+        </div>
+        </section>
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
+
+ </div><!-- /.wrapper -->
+
+
+<script>var _gaq=[['_setAccount','UA-155970867-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+<script>
+  // Insert scripts
+  var scriptSrc = ["/theme/js/main.js",];
+  for (var i_2 = 0; i_2 < scriptSrc.length; i_2++) {
+    var index = scriptSrc[i_2];
+    var script = document.body.appendChild(document.createElement('script'));
+    script.async = false;
+    script.src = index;
+  }
+
+    //Get the button:
+    mybutton = document.getElementById("upBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function goUp() {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+
+
+  // Handle site search
+  $(document).ready(function() {
+    console.log("Hello")
+
+    // Search handler
+     $('#tipue_search_input').tipuesearch({
+          'mode': 'json',
+          'contentLocation': 'tipuesearch_content.json'
+     });
+
+    $('.nav-toggle').click(function(e){
+        e.preventDefault();
+        $('.nav-toggle').toggleClass('active');
+        $('.nav-menu').toggleClass('active');
+        $('.nav-overlay').toggleClass('active');
+    })
+    $('.nav-overlay').click(function(e){
+        e.preventDefault();
+        $('.nav-toggle').toggleClass('active');
+        $('.nav-menu').toggleClass('active');
+        $('.nav-overlay').toggleClass('active');
+    })
+
+    // Focus the search input by default
+    window.onload = function() {
+      var input = document.getElementById("tipue_search_input").focus();
+    }
+
+  });
+
+</script>
+</body>
+</html>
