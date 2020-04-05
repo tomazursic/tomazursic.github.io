@@ -146,7 +146,8 @@ Connections --&amp;gt; Mobile Hotspot and Tethering”.&lt;/p&gt;
 your phone, at Settings -&amp;gt; About Phone -&amp;gt; Status.&lt;/p&gt;
 &lt;div class="section" id="find-phone-mac"&gt;
 &lt;h4&gt;&lt;a class="toc-backref" href="#id11"&gt;1. Find phone MAC&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;Now SSH into the pwnagotchi and run the following command to find the phone:&lt;/p&gt;
+&lt;p&gt;Now SSH into the pwnagotchi and run the following command to find the phone:
+!This is dummy example MAC &lt;tt class="docutils literal"&gt;E:DB:EE:F0:CO:FE&lt;/tt&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo bluetoothctl
 $ scan on
 
@@ -212,7 +213,7 @@ trust DE:DB:EE:F0:CO:FE
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="blog"></category><category term="wireless"></category><category term="network"></category><category term="ai"></category><category term="rl"></category></entry><entry><title>Nmap Cheatsheet</title><link href="/nmap-cheatsheet.html" rel="alternate"></link><published>2020-03-24T19:29:00+01:00</published><updated>2020-03-24T19:29:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2020-03-24:/nmap-cheatsheet.html</id><summary type="html">Nmap Network Scanning notes collection</summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
+</content><category term="blog"></category><category term="wireless"></category><category term="network"></category><category term="ai"></category><category term="rl"></category><category term="hacktheplanet"></category></entry><entry><title>Nmap Cheatsheet</title><link href="/nmap-cheatsheet.html" rel="alternate"></link><published>2020-03-24T19:29:00+01:00</published><updated>2020-03-24T19:29:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2020-03-24:/nmap-cheatsheet.html</id><summary type="html">Nmap Network Scanning notes collection</summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
 &lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#targets" id="id1"&gt;Targets&lt;/a&gt;&lt;/li&gt;
