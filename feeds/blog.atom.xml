@@ -155,7 +155,7 @@ $ ssh -o &lt;span class="nv"&gt;PreferredAuthentications&lt;/span&gt;&lt;span cl
 $ scan on
 
 ......
-.. Device DE:DB:EE:F0:CO:FE
+&lt;span class="o"&gt;[&lt;/span&gt;NEW&lt;span class="o"&gt;]&lt;/span&gt; Device DE:DB:EE:F0:CO:FE
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="edit-config"&gt;
