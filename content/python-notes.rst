@@ -185,10 +185,10 @@ Support for develop GUI applications require Tkinter module:
 
 .. code:: shell
 
-  $ wget https://www.python.org/ftp/python/3.9.0/
-  $ tar xf Python-3.9.0a1.tar.xz
-  $ rm -rf Python-3.9.0a1.tar.xz
-  $ cd Python-3.9.0a1
+  $ wget https://www.python.org/ftp/python/3.8.2/Python-3.8.2.tar.xz
+  $ tar xf Python-3.8.2.tar.xz
+  $ rm -rf Python-3.8.2.tar.xz
+  $ cd Python-3.8.2
 
   $ ./configure --enable-optimizations --with-ensurepip=install
   $ make -j 8
@@ -204,8 +204,8 @@ Support for develop GUI applications require Tkinter module:
 
 .. code:: shell
 
-  $ python3.9 -V
-  Python 3.9.0a1
+  $ python3.8 -V
+  Python 3.8.2
 
 Troubleshooting
 ---------------
@@ -242,7 +242,7 @@ Find out where are all the packages are located
 
 .. code-block:: shell
 
-  $ python3 -c "import site; print(site.getsitepackages())"                                              
+  $ python3 -c "import site; print(site.getsitepackages())"
   ['/usr/local/lib/python3.7/dist-packages', '/usr/lib/python3/dist-packages', '/usr/lib/python3.7/dist-packages']
 
 Jupyter Notebook
@@ -558,7 +558,7 @@ Strings are also immutable
    >>> s += "."
    >>> id(s)
    140698799439536
-   >>> 
+   >>>
 
 Mutable
 ^^^^^^^^^
@@ -577,7 +577,7 @@ List are mutable
      # And c is pointing to the same address.
      >>> id(a)
      140698799563552
-     >>> 
+     >>>
 
      >>> a = [1, 2, 3]
      >>> b = a
@@ -999,7 +999,7 @@ Deque
 ^^^^^
 
 List-like container with fast appends and pops on either end
-Deque is a double-ended queue that supports adding and removing elements from either end 
+Deque is a double-ended queue that supports adding and removing elements from either end
 
 .. code-block:: python
 
@@ -1093,7 +1093,7 @@ must be hashable, but values can be any object
 Create a dictionary
 ^^^^^^^^^^^^^^^^^^^^
 
-1. `dict()` constructor 
+1. `dict()` constructor
 
 .. code:: python
 
@@ -1113,7 +1113,7 @@ Combining dictionary with keyword arguments `dict(mapping, **kwarg)`
 
 .. code:: python
 
-   # zip --> iterator --> dict 
+   # zip --> iterator --> dict
 
    >>> codes = ["alpha", "bravo", "charlie", "delta"]
    >>> numbers = [1, 2, 3, 4]
@@ -1121,7 +1121,7 @@ Combining dictionary with keyword arguments `dict(mapping, **kwarg)`
    >>> d
    {'alpha': 1, 'bravo': 2, 'charlie': 3, 'delta': 4}
 
-Shallow & Deepcopy 
+Shallow & Deepcopy
 ^^^^^^^^^^^^^^^^^^^
 
 Docs https://docs.python.org/3/library/copy.html
@@ -1136,7 +1136,7 @@ Docs https://docs.python.org/3/library/copy.html
   >>> d2["alpha"][1] = 222
   >>> d
   {'alpha': [1, 222], 'bravo': [2, 22]}
-  >>> 
+  >>>
 
 **Deepcopy** is only relevant when the dictionary contains other objects like
 lists, since those objects will be referenced instead of duplicated (shallow
@@ -1151,12 +1151,12 @@ to make a deep copy.
   >>> d2["alpha"][1] = 222
   >>> d
   {'alpha': [1, 11], 'bravo': [2, 22]}
-  >>> 
+  >>>
 
 Defaultdict
 ^^^^^^^^^^^
 
-Defaultdict, on the contrary, will not raise an error. 
+Defaultdict, on the contrary, will not raise an error.
 
 .. code:: python
 
@@ -1190,7 +1190,7 @@ Note that parentheses aren't usually required
   >>> row5 = 'Bill',      # 1 item tuple
   >>> row6 = ()           # Empty tuple
 
-Unpacking 
+Unpacking
 ^^^^^^^^^^
 
 .. code-block:: python
@@ -1206,7 +1206,7 @@ Unpacking
   'Lon: 70.09275'
 
 
-Dynamic size 
+Dynamic size
 ^^^^^^^^^^^^^
 
 .. code-block:: python
@@ -1217,7 +1217,7 @@ Dynamic size
   >>> tup = (True, "String")
   >>> tup + (6,)
   (True, 'String', 6)
-  >>> 
+  >>>
 
 Namedtuple
 ^^^^^^^^^^
@@ -1292,7 +1292,7 @@ Sets
 A set is a mutable unordered collection that cannot contain duplicates. Sets are used to
 remove duplicates and test for membership
 
-Python has two types of sets: regular `set` and `frozenset`. 
+Python has two types of sets: regular `set` and `frozenset`.
 The only difference between regular set and frozenset is that you can’t add new
 elements to frozenset after its initialization.
 
@@ -2156,7 +2156,7 @@ named ``cls`` (as ``class`` is a keyword and will error out)
 
 The ``staticmethod`` decorator lets you attach functions to a class. Note that
 they don't get an implicit first argument. It can be called on the instance or
-the class method does not depend on state of the object itself. 
+the class method does not depend on state of the object itself.
 
 .. code-block:: python
 
@@ -2324,12 +2324,12 @@ you can break out of it
 Iteration Protocol
 ------------------
 
-* **Iterable** 
+* **Iterable**
 
   is an object, which one can iterate over.
-  It generates an Iterator when passed to iter() method. 
+  It generates an Iterator when passed to iter() method.
 
-* **Iterator** 
+* **Iterator**
 
   is an object, which is used to iterate over an iterable object using
   __next__() method. Iterators have __next__() method, which returns the next
@@ -2822,16 +2822,16 @@ through the supplied function.
 .. code-block:: python
 
   # There are built-in higher order functions
-  map(add_10, [1, 2, 3])  
+  map(add_10, [1, 2, 3])
   >>> [11, 12, 13]
-  map(max, [1, 2, 3], [4, 2, 1])  
+  map(max, [1, 2, 3], [4, 2, 1])
   >>> [4, 2, 3]
 
 Using filter
 
 .. code-block:: python
 
-  >>> filter(lambda x: x > 5, [3, 4, 5, 6, 7])  
+  >>> filter(lambda x: x > 5, [3, 4, 5, 6, 7])
   [6, 7]
 
   # We can use list comprehensions for nice maps and filters
@@ -2860,10 +2860,10 @@ One-Liners
 
 Single-line conditional expressions
 
-Ternary operators are more commonly known as conditional expressions 
+Ternary operators are more commonly known as conditional expressions
 
 .. code-block:: python
-   
+
    result = some_function() if some_condition else None
 
 Generators

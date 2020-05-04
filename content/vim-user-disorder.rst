@@ -1,7 +1,7 @@
 :Title: Vim User Disorder 
 :Date: Fri Sep 7 13:48:16 CEST 2018 
 :Modified: Jan 17, 2020
-:Category: blog 
+:Category: notes 
 :Tags: vim, tools 
 :Summary: Cheatsheet and notes for (neo)vim editor
 

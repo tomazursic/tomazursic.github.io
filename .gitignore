@@ -40,3 +40,4 @@ nosetests.xml
 .projects
 .pydevproject
 __pycache__
+env
