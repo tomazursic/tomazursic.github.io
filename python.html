@@ -84,7 +84,7 @@
 
   <div class="entry-content">
     <div class="contents topic" id="table-of-contents">
-<p class="topic-title first">Table of Contents</p>
+<p class="topic-title">Table of Contents</p>
 <ul class="simple">
 <li><a class="reference internal" href="#introduction" id="id5">Introduction</a></li>
 <li><a class="reference internal" href="#new-features" id="id6">New Features</a><ul>
@@ -291,7 +291,7 @@ of curated examples.</p>
 combine regular arguments with positional-only ones by placing the regular
 arguments after the slash</p>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="n">speed</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{name}</span><span class="s2">/</span><span class="si">{speed}</span><span class="s2">&quot;</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">speed</span><span class="si">}</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
 <div class="section" id="f-string">
@@ -301,7 +301,7 @@ arguments after the slash</p>
 <p>It can be uppercase f eather:</p>
 <div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;World&quot;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">punc</span> <span class="o">=</span> <span class="s2">&quot;!&quot;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="sa">F</span><span class="s2">&quot;Hello, </span><span class="si">{string}{punc}</span><span class="s2">&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="sa">F</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">string</span><span class="si">}{</span><span class="n">punc</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="s1">&#39;Hello, Eric. You are 74.&#39;</span>
 </pre></div>
 </div>
@@ -309,18 +309,18 @@ arguments after the slash</p>
 <h4><a class="toc-backref" href="#id10">Arbitrary Expressions</a></h4>
 <p>Because f-strings are evaluated at runtime, you can put any and all valid
 Python expressions in them. This allows you to do some nifty things.</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="sa">f</span><span class="s2">&quot;{round(0.5233* 6, 3)}&quot;</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="mf">0.5233</span><span class="o">*</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="s1">&#39;3.14&#39;</span>
 </pre></div>
 <p>Use __repr__ with !r</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{foo!r}</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">foo</span><span class="si">!r}</span><span class="s2">&quot;</span>
 </pre></div>
 <p>Multiline string</p>
 <div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Foo&quot;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">lastseen</span> <span class="o">=</span> <span class="s2">&quot;1980-01-01&quot;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">message</span> <span class="o">=</span> <span class="p">(</span>
-<span class="o">...</span>     <span class="sa">f</span><span class="s2">&quot;User: </span><span class="si">{name}</span><span class="s2">. &quot;</span>
-<span class="o">...</span>     <span class="sa">f</span><span class="s2">&quot;Last seen: </span><span class="si">{lastseen}</span><span class="s2">&quot;</span>
+<span class="o">...</span>     <span class="sa">f</span><span class="s2">&quot;User: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">. &quot;</span>
+<span class="o">...</span>     <span class="sa">f</span><span class="s2">&quot;Last seen: </span><span class="si">{</span><span class="n">lastseen</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="o">...</span> <span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">message</span>
 </pre></div>
@@ -335,7 +335,7 @@ Python expressions in them. This allows you to do some nifty things.</p>
 <span class="o">&gt;&gt;&gt;</span> <span class="kc">False</span>
 </pre></div>
 <p>walrus operator</p>
-<div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">walrus</span> <span class="p">:</span><span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">walrus</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kc">True</span>
 </pre></div>
 <p><strong>PEP505</strong></p>
@@ -378,10 +378,10 @@ $ sudo apt install tk-dev
 <li>Build process</li>
 </ol>
 <pre class="code shell literal-block">
-$ wget https://www.python.org/ftp/python/3.9.0/
-$ tar xf Python-3.9.0a1.tar.xz
-$ rm -rf Python-3.9.0a1.tar.xz
-$ <span class="nb">cd</span> Python-3.9.0a1
+$ wget https://www.python.org/ftp/python/3.8.2/Python-3.8.2.tar.xz
+$ tar xf Python-3.8.2.tar.xz
+$ rm -rf Python-3.8.2.tar.xz
+$ <span class="nb">cd</span> Python-3.8.2
 
 $ ./configure --enable-optimizations --with-ensurepip<span class="o">=</span>install
 $ make -j <span class="m">8</span>
@@ -397,8 +397,8 @@ $ sudo make altinstall
 <li>Verification</li>
 </ol>
 <pre class="code shell literal-block">
-$ python3.9 -V
-Python <span class="m">3</span>.9.0a1
+$ python3.8 -V
+Python <span class="m">3</span>.8.2
 </pre>
 </div>
 </div>
@@ -1760,7 +1760,7 @@ to make a deep copy.</p>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="mf">54.53260</span>
 
-<span class="o">&gt;&gt;&gt;</span> <span class="sa">f</span><span class="s1">&#39;Lat: </span><span class="si">{coord[1]}</span><span class="s1">&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="sa">f</span><span class="s1">&#39;Lat: </span><span class="si">{</span><span class="n">coord</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span>
 <span class="s1">&#39;Lat: 70.09275&#39;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;Lon: &#39;</span> <span class="o">+</span> <span class="n">coord</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="s1">&#39;Lon: 70.09275&#39;</span>
@@ -2449,7 +2449,7 @@ that might give the user erroneous data, or <em>mojibake</em>.</p>
 <pre class="code python literal-block">
 <span class="n">person</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'name'</span><span class="p">:</span> <span class="s1">'paul'</span><span class="p">,</span> <span class="s1">'instrument'</span><span class="p">:</span> <span class="s1">'bass'</span><span class="p">}</span>
 <span class="n">inst</span> <span class="o">=</span> <span class="n">person</span><span class="p">[</span><span class="s1">'instrument'</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Name: </span><span class="si">{person['name']}</span><span class="s2"> plays: </span><span class="si">{inst}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Name: </span><span class="si">{</span><span class="n">person</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span><span class="si">}</span><span class="s2"> plays: </span><span class="si">{</span><span class="n">inst</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">Name</span><span class="p">:</span> <span class="n">Paul</span> <span class="n">plays</span><span class="p">:</span> <span class="n">Bass</span>
 </pre>
 <pre class="code python literal-block">
@@ -2460,7 +2460,7 @@ that might give the user erroneous data, or <em>mojibake</em>.</p>
 </pre>
 <p>You can also use <em>f-strings</em> in Python 3.6 (see PEP 498)</p>
 <pre class="code python literal-block">
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Name: </span><span class="si">{person[&quot;name&quot;]}</span><span class="s1"> plays: </span><span class="si">{inst}</span><span class="s1">'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Name: </span><span class="si">{</span><span class="n">person</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1"> plays: </span><span class="si">{</span><span class="n">inst</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 <span class="n">Name</span><span class="p">:</span> <span class="n">Paul</span> <span class="n">plays</span><span class="p">:</span> <span class="n">Bass</span>
 </pre>
 <p>F-strings inspect variables that are available and allow you to
@@ -3655,7 +3655,7 @@ A generator is a function that produces a sequence of results instead of a singl
 <span class="k">def</span> <span class="nf">fibgen</span><span class="p">(</span><span class="n">numb</span><span class="p">):</span>
     <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">numb</span><span class="p">):</span>
-        <span class="k">yield</span> <span class="sa">f</span><span class="s1">&#39;{i+1} </span><span class="si">{a}</span><span class="s1">&#39;</span>
+        <span class="k">yield</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s1">&#39;</span>
         <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 
 <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">fibgen</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
@@ -3843,7 +3843,7 @@ it is a tuple</li>
 <div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">random</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">get_weather_data</span><span class="p">():</span>
 <span class="o">...</span>     <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">110</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">hot_temps</span> <span class="o">=</span> <span class="p">[</span><span class="n">temp</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="n">temp</span> <span class="p">:</span><span class="o">=</span> <span class="n">get_weather_data</span><span class="p">())</span> <span class="o">&gt;=</span> <span class="mi">100</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">hot_temps</span> <span class="o">=</span> <span class="p">[</span><span class="n">temp</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="n">temp</span> <span class="o">:=</span> <span class="n">get_weather_data</span><span class="p">())</span> <span class="o">&gt;=</span> <span class="mi">100</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">hot_temps</span>
 <span class="p">[</span><span class="mi">107</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">109</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">107</span><span class="p">,</span> <span class="mi">109</span><span class="p">,</span> <span class="mi">108</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">104</span><span class="p">]</span>
 </pre></div>

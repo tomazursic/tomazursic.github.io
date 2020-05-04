@@ -90,7 +90,7 @@
 
   <div class="entry-content">
     <div class="contents topic" id="table-of-contents">
-<p class="topic-title first">Table of Contents</p>
+<p class="topic-title">Table of Contents</p>
 <ul class="simple">
 <li><a class="reference internal" href="#snippets" id="id1">Snippets</a><ul>
 <li><a class="reference internal" href="#profiling" id="id2">Profiling</a></li>
@@ -622,7 +622,7 @@ python -m smtpd -n -c DebuggingServer localhost:25
 <span class="k">def</span> <span class="nf">fibgen</span><span class="p">(</span><span class="n">numb</span><span class="p">):</span>
     <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">numb</span><span class="p">):</span>
-        <span class="k">yield</span> <span class="sa">f</span><span class="s1">'{i+1} </span><span class="si">{a}</span><span class="s1">'</span>
+        <span class="k">yield</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s1">'</span>
         <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 
 <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">fibgen</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
