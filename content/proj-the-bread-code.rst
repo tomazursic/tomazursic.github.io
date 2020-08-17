@@ -33,6 +33,12 @@ Process
 #. Knead the dough for 20 minutes, ball it
 #. Brush the dough with oil and let it rest +20 min
 
+.. figure:: images/bread-code/burek.jpg
+   :alt: Burek
+
+
+
+
 Pizza Dough
 -----------
 
@@ -71,4 +77,8 @@ Process
 #. Let the dough come to room temperature (2-3 hours).
 #. Preheat the oven (at least 1 hour) with the baking stone/steel to around 270°C/520°F. (I used a stone and pizza screen. Might get a baking steel one day.)
 #. Bake pizza with top and lower heat element for 7 minutes then turn on broiler for 1 to 2 minutes.
+
+
+.. figure:: images/bread-code/pizza.jpg
+   :alt: Burek
 
