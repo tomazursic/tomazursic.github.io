@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Weblog - tomazursic.github.io - hacktheplanet</title><link href="/" rel="alternate"></link><link href="/feeds/hacktheplanet.tag.atom.xml" rel="self"></link><id>/</id><updated>2020-04-05T17:29:00+02:00</updated><entry><title>Isolation Days With AI and Pwnagotchi</title><link href="/pwnagotchi.html" rel="alternate"></link><published>2020-04-05T17:29:00+02:00</published><updated>2020-04-05T17:29:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2020-04-05:/pwnagotchi.html</id><summary type="html">&lt;p class="first last"&gt;Self isolation with an AI that wants to eat wireless handshakes #HackThePlanet&lt;/p&gt;
+</summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
+&lt;p class="topic-title"&gt;Table of Contents&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#isolation-days-with-ai-and-pwnagotchi" id="id1"&gt;Isolation Days With AI and Pwnagotchi&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#hardware" id="id2"&gt;Hardware&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#features" id="id3"&gt;Features&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#setup" id="id4"&gt;Setup&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#flash-the-image-on-sd" id="id5"&gt;1. Flash the image on SD&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#before-first-boot" id="id6"&gt;2. Before first boot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#boot" id="id7"&gt;3. Boot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#find-the-device" id="id8"&gt;4. Find the device&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#setup-network-interfaces" id="id9"&gt;4. Setup network interfaces&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#ssh-into-device" id="id10"&gt;5. SSH into device&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#using-android-phone-for-interface" id="id11"&gt;Using Android phone for interface&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#find-phone-mac" id="id12"&gt;1. Find phone MAC&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#edit-config" id="id13"&gt;2. Edit config&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#paring" id="id14"&gt;3. Paring&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#restart-in-auto-mode" id="id15"&gt;4. Restart in AUTO mode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#verify-bt-pan-addres" id="id16"&gt;4. Verify bt-pan addres&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#access-the-web-ui-on-phone" id="id17"&gt;5. Access the Web UI on phone&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="isolation-days-with-ai-and-pwnagotchi"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;Isolation Days With AI and Pwnagotchi&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;As written on &lt;a class="reference external" href="https://pwnagotchi.ai/"&gt;pwnagotchi.ai&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+...an excuse to learn about reinforcement learning and WiFi networking—and have a reason to get out for more walks.&lt;/blockquote&gt;
+&lt;p&gt;The last claim, get out in this days, sounds wrong but with a deep sound of silence out there it's a big pleasure!
+Driven with collecting data one way or another, this project is freaking out.&lt;/p&gt;
+&lt;div class="section" id="hardware"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id2"&gt;Hardware&lt;/a&gt;&lt;/h3&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Raspberry Pi Zero W&lt;/li&gt;
+&lt;li&gt;Zebra Zero Raspberry Pi Zero Case - Black Ice&lt;/li&gt;
+&lt;li&gt;SD card 16GB&lt;/li&gt;
+&lt;li&gt;RTC DS3231 (for replacing fake-hw clock)&lt;/li&gt;
+&lt;li&gt;Micro-USB cable (with enough wires to support data transfer)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="pwnagotchi HW" src="../images/pwnagotchi/hw.jpg" /&gt;
+&lt;/div&gt;
+&lt;p&gt;RJ45 is banana for scale :)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Next Upgrade:&lt;/strong&gt; &lt;cite&gt;Black &amp;amp; White e-ink displays&lt;/cite&gt; - Waveshare eInk 2.13” Display V2&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="features"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id3"&gt;Features&lt;/a&gt;&lt;/h3&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://pwnagotchi.ai/usage/#ai"&gt;AI&lt;/a&gt; reinforcement learn on Wifi audits&lt;/li&gt;
+&lt;li&gt;Support for &lt;a class="reference external" href="https://pwnagotchi.ai/installation/#display"&gt;e-ink displays&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://pwnagotchi.ai/configuration/#bluetooth"&gt;Bluetooth&lt;/a&gt; connection sharing and web UI on phone&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://pwnagotchi.ai/usage/#pwnmail"&gt;PwnMAIL&lt;/a&gt; an &amp;quot;crypto-pager&amp;quot;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://pwnagotchi.ai/usage/#bettercap-s-web-ui"&gt;BetterCAP’s&lt;/a&gt; web UI (only in MANU mode)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And of course the community &lt;a class="reference external" href="https://www.reddit.com/r/pwnagotchi/"&gt;r/pwnagotchi&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="setup"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id4"&gt;Setup&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="flash-the-image-on-sd"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id5"&gt;1. Flash the image on SD&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo pv -tpreb pwnagotchi-raspbian-lite-v1.4.3.img &lt;span class="p"&gt;|&lt;/span&gt; sudo dd &lt;span class="nv"&gt;of&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/mmcblk0 &lt;span class="nv"&gt;bs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;512K
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;More details: &lt;a class="reference external" href="https://pwnagotchi.ai/installation/#flashing-an-image"&gt;https://pwnagotchi.ai/installation/#flashing-an-image&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="before-first-boot"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id6"&gt;2. Before first boot&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Add &lt;tt class="docutils literal"&gt;config.yml&lt;/tt&gt; to &lt;tt class="docutils literal"&gt;/boot&lt;/tt&gt; partition on SD card.&lt;/p&gt;
+&lt;p&gt;If not sure about valid &lt;tt class="docutils literal"&gt;YAML&lt;/tt&gt; syntax check your config with online
+validator - &lt;a class="reference external" href="https://codebeautify.org/yaml-validator"&gt;https://codebeautify.org/yaml-validator&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;main:
+  name: &amp;#39;&amp;lt;CHANGE_TO_NAME_FOR_DEVICE&amp;gt;&amp;#39;
+  whitelist:
+    - &amp;#39;&amp;lt;CHANGE_THIS_TO_HOME_WIFI_BSSID_OR_ESSID&amp;gt;&amp;#39;
+  plugins:
+    grid:
+      enabled: true
+      report: true
+      exclude:
+        - &amp;#39;&amp;lt;CHANGE_THIS_TO_HOME_WIFI_BSSID_OR_ESSID&amp;gt;&amp;#39;
+ui:
+    web:
+        username: &amp;lt;CHANGE_THIS_TO_USERNAME_FOR_WEB_UI&amp;gt;
+        password: &amp;lt;CHANGE_THIS_TO_PASSWORD_FOR_WEB_UI&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;More details: &lt;a class="reference external" href="https://pwnagotchi.ai/configuration/#initial-configuration"&gt;https://pwnagotchi.ai/configuration/#initial-configuration&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="boot"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id7"&gt;3. Boot&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Plug Micro-USB into &amp;quot;DATA PORT&amp;quot; on Raspberry Pi Zero to run in OTG (On The Go)
+mode allowing device to act as an Ethernet device.&lt;/p&gt;
+&lt;p&gt;Read more: &lt;a class="reference external" href="https://pwnagotchi.ai/configuration/#connect-to-your-pwnagotchi"&gt;https://pwnagotchi.ai/configuration/#connect-to-your-pwnagotchi&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="find-the-device"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id8"&gt;4. Find the device&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Find device assigned address. The address is different each time we change the
+USB port it can be (enp0s20u1, or enp0s20u2 ...) this on Ubuntu machine.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# List usb device
+$ lsusb
+
+# check interfaces
+$ ip a
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="setup-network-interfaces"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id9"&gt;4. Setup network interfaces&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Open Network connections manager (Ubuntu) and edit &lt;strong&gt;Wire connection&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ nm-connection-editor
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Select the new interface&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Wire interface setup 1" src="../images/pwnagotchi/setup-iface-1.png" /&gt;
+&lt;/div&gt;
+&lt;p&gt;Check the interface name&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Wire interface setup 2" src="../images/pwnagotchi/setup-iface-2.png" /&gt;
+&lt;/div&gt;
+&lt;p&gt;Add new static address under &lt;tt class="docutils literal"&gt;IPv4 Settings&lt;/tt&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;IP: 10.0.0.1
+Netmask: 255.255.255.0
+Gateway: 10.0.0.1
+DNS: 8.8.8.8 (or wathever)
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Wire interface setup 3" src="../images/pwnagotchi/setup-iface-3.png" /&gt;
+&lt;/div&gt;
+&lt;p&gt;Save and close and recheck the interface if settings are applied&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ip a
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="ssh-into-device"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id10"&gt;5. SSH into device&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Default password: &lt;strong&gt;raspberry&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ssh pi@10.0.0.2
+
+&lt;span class="c1"&gt;# Trubles with ssh&lt;/span&gt;
+&lt;span class="c1"&gt;# --&lt;/span&gt;
+&lt;span class="c1"&gt;# Received disconnect from 10.0.0.2 port 22:2: Too many authentication failures&lt;/span&gt;
+&lt;span class="c1"&gt;# Disconnected from 10.0.0.2 port 22&lt;/span&gt;
+&lt;span class="c1"&gt;# --&lt;/span&gt;
+
+$ ssh -o &lt;span class="nv"&gt;PreferredAuthentications&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;password pi@10.0.0.2
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="using-android-phone-for-interface"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;Using Android phone for interface&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Enable Bluetooth tethering on &amp;quot;Android phone&amp;quot; under:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Settings: Connections --&amp;gt; Mobile Hotspot and Tethering
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Then enable Bluetooth discovery scan on the phone.&lt;/p&gt;
+&lt;p&gt;Find phone MAC address:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Settings -&amp;gt; About Phone -&amp;gt; Status
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="section" id="find-phone-mac"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id12"&gt;1. Find phone MAC&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Now SSH into the pwnagotchi and run the following command to find the phone:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; This is just example MAC address &lt;tt class="docutils literal"&gt;E:DB:EE:F0:CO:FE&lt;/tt&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo bluetoothctl
+$ scan on
+
+......
+&lt;span class="o"&gt;[&lt;/span&gt;NEW&lt;span class="o"&gt;]&lt;/span&gt; Device DE:DB:EE:F0:CO:FE
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="edit-config"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id13"&gt;2. Edit config&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;For Android phones default address is &lt;tt class="docutils literal"&gt;192.168.44.x&lt;/tt&gt; maybe :)&lt;/p&gt;
+&lt;p&gt;Add to &lt;tt class="docutils literal"&gt;/etc/pwnagotchi config.yml&lt;/tt&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;bt-tether&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="nt"&gt;enabled&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;true&lt;/span&gt;
+  &lt;span class="nt"&gt;devices&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;CHANGE_TO_PHONE_NAME&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="nt"&gt;enabled&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;true&lt;/span&gt;
+      &lt;span class="nt"&gt;search_order&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;1&lt;/span&gt;
+      &lt;span class="nt"&gt;mac&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;DE:DB:EE:F0:CO:FE&amp;#39;&lt;/span&gt;
+      &lt;span class="nt"&gt;ip&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;192.168.44.44&amp;#39;&lt;/span&gt;
+      &lt;span class="nt"&gt;netmask&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;24&lt;/span&gt;
+      &lt;span class="nt"&gt;interval&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;1&lt;/span&gt;
+      &lt;span class="nt"&gt;scantime&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;15&lt;/span&gt;
+      &lt;span class="nt"&gt;share_internet&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;true&lt;/span&gt;
+      &lt;span class="nt"&gt;priority&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;99&lt;/span&gt;
+      &lt;span class="nt"&gt;max_tries&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;0&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="paring"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id14"&gt;3. Paring&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Paring with phone&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pair DE:DB:EE:F0:CO:FE
+...&lt;span class="o"&gt;(&lt;/span&gt;pair&lt;span class="o"&gt;)&lt;/span&gt; yes/no
+yes
+
+&lt;span class="c1"&gt;# here your phone will ask if you want to pair with some code ... say yes on phone and yes in terminal&lt;/span&gt;
+trust DE:DB:EE:F0:CO:FE
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="restart-in-auto-mode"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id15"&gt;4. Restart in AUTO mode&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Shutdown pwnagotchi&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo shutdown -h now
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Change Micro-USB into &lt;strong&gt;POWR port&lt;/strong&gt; on PI and plug into Power Bank or any other 5V power supply&lt;/p&gt;
+&lt;p&gt;Wait.... the Bluetooth connection with pwnagotchi need to established.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="verify-bt-pan-addres"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id16"&gt;4. Verify bt-pan addres&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Verify if address added to config &lt;tt class="docutils literal"&gt;192.168.44.44&lt;/tt&gt; is correct!&lt;/p&gt;
+&lt;p&gt;Using Termux on phone (note: the BT connection need to be established, to list the bt-pan interface)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# ifconfig bt-pan&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="access-the-web-ui-on-phone"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id17"&gt;5. Access the Web UI on phone&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Open phone browser and point to url:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;http://192.168.44.44:8080
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="pwnagotchi on phone" src="../images/pwnagotchi/phone-web-ui.jpg" /&gt;
+&lt;/div&gt;
+&lt;p&gt;And now wait .. 15min or more for AI to begin&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="blog"></category><category term="wireless"></category><category term="network"></category><category term="ai"></category><category term="rl"></category><category term="hacktheplanet"></category></entry></feed>

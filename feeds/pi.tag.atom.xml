@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Weblog - tomazursic.github.io - pi</title><link href="/" rel="alternate"></link><link href="/feeds/pi.tag.atom.xml" rel="self"></link><id>/</id><updated>2017-02-10T14:29:00+01:00</updated><entry><title>Raspberry Pi</title><link href="/raspberry-pi.html" rel="alternate"></link><published>2017-02-10T14:29:00+01:00</published><updated>2017-02-10T14:29:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-02-10:/raspberry-pi.html</id><summary type="html">&lt;p&gt;Setup and usage of Raspian Pi&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Advice is use TMUX! Run all commands in tmux session to prevent catastrophic consequences&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;Setup&lt;/h2&gt;
+&lt;h3&gt;Step 1: Flash Operating System&lt;/h3&gt;
+&lt;p&gt;You need to flash a micro SD image with an operating system.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    Download Raspian Lite&lt;span class="o"&gt;(&lt;/span&gt;Stretch&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;352MB&lt;span class="o"&gt;)&lt;/span&gt;.
+    Follow OS specific guides here.
+    Leave micro SD card in your machine and edit/create some files as below:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Get the image:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    https://www.raspberrypi.org/downloads/raspbian/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Latest image: &lt;code&gt;raspbian_lite-2019-09-30/2019-09-26-raspbian-buster-lite.zip&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    wget https://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2019-09-30/2019-09-26-raspbian-buster-lite.zip
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;bring img on sd card&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    sudo pv -tpreb name.img &lt;span class="p"&gt;|&lt;/span&gt; sudo dd &lt;span class="nv"&gt;of&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/sdX &lt;span class="nv"&gt;bs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;4M
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;create image from sd card&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    sudo pv -tpreb /dev/sdX &lt;span class="p"&gt;|&lt;/span&gt; sudo dd &lt;span class="nv"&gt;of&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;name.img &lt;span class="nv"&gt;bs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;4M
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 2: Setup the WiFi for first boot&lt;/h3&gt;
+&lt;p&gt;We can create a special file which will be used to login to wifi on first boot. More reading here, but we will walk you through it.&lt;/p&gt;
+&lt;p&gt;On Windows, with your memory card image burned and memory disc still inserted, you should see two drives, which are actually two partitions on the mem disc. One is labeled boot. On Mac and Linux, you should also have access to the boot partition of the mem disc. This is formatted with the common FAT type and is where we will edit some files to help it find and log-on to your wifi on its first boot.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    Note: If boot is not visible right away, try unplugging and re-inserting the memory card reader.
+
+    Start a text editor: gedit on Linux. Notepad++ on Windows. TextEdit on a Mac.
+    Paste and edit this contents to match your wifi:
+
+    &lt;span class="nv"&gt;country&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;US
+    &lt;span class="nv"&gt;ctrl_interface&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;DIR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/var/run/wpa_supplicant &lt;span class="nv"&gt;GROUP&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;netdev
+    &lt;span class="nv"&gt;update_config&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
+
+    &lt;span class="nv"&gt;network&lt;/span&gt;&lt;span class="o"&gt;={&lt;/span&gt;
+        &lt;span class="nv"&gt;ssid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;lt;your network name&amp;gt;&amp;quot;&lt;/span&gt;
+        &lt;span class="nv"&gt;psk&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;lt;your password&amp;gt;&amp;quot;&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Replace &lt;your network name&gt; with the ID of your network. Leave the quotes. I've seen problems when the network name contained an apostrophe, like "Joe's iPhone". Replace &lt;your password&gt; with your password, leaving it surrounded by quotes. If it bothers you to leave your password unencrypted, you may change the contents later once you've gotten the pi to boot and log-in.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    Save this file to the root of boot partition with the filename wpa_supplicant.conf. On first boot, this file will be moved to /etc/wpa_supplicant/wpa_supplicant.conf where it may be edited later. If you are using Notepad on Windows, make sure it doesn&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;t have a .txt at the end.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 3: Setup Pi's Hostname&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    Note: This step only possible on a linux host pc. Otherwise you can &lt;span class="nb"&gt;set&lt;/span&gt; it up later in raspi-config after logging in to your pi.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We can also setup the hostname so that your Pi easier to find once on the network. If yours is the only Pi on the network, then you can find it with&lt;/p&gt;
+&lt;p&gt;ping raspberrypi.local&lt;/p&gt;
+&lt;p&gt;once it's booted. If there are many other Pi's on the network, then this will have problems. If you are on a Linux machine, or are able to edit the UUID partition, then you can edit the /etc/hostname and /etc/hosts files now to make finding your pi on the network easier after boot. Edit those to replace raspberrypi with a name of your choosing. Use all lower case, no special characters, no hyphens, yes underscores _.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    sudo vi /media/userID/UUID/etc/hostname
+    sudo vi /media/userID/UUID/etc/hosts
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 4: Enable SSH on Boot&lt;/h3&gt;
+&lt;p&gt;Put a file named ssh in the root of your boot partition.&lt;/p&gt;
+&lt;p&gt;Now your SD card is ready. Eject it from your computer, put it in the Pi and plug in the Pi.&lt;/p&gt;
+&lt;h3&gt;Step 5: Connecting to the Pi&lt;/h3&gt;
+&lt;p&gt;If you followed the above instructions to add wifi access, your Pi should now be connected to your wifi network. Now you need to find its IP address so you can connect to it via SSH.&lt;/p&gt;
+&lt;p&gt;The easiest way (on Ubuntu) is to use the findcar donkey command. You can try ping raspberrypi.local. If you've modified the hostname, then you should try:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    ping &amp;lt;your hostname&amp;gt;.local
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will fail on a windows machine. Windows users will need the full IP address (unless using cygwin).&lt;/p&gt;
+&lt;p&gt;If you are having troubles locating your Pi on the network, you will want to plug in an HDMI monitor and USB keyboard into the Pi. Boot it. Login with:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    Username: pi
+    Password: raspberry
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then try the command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    ifconfig wlan0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If this has a valid IPv4 address, 4 groups of numbers separated by dots, then you can try that with your SSH command. If you don't see anything like that, then your wifi config might have a mistake. You can try to fix with&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you don't have a HDMI monitor and keyboard, you can plug-in the Pi with a CAT5 cable to a router with DHCP. If that router is on the same network as your PC, you can try:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    ping raspberrypi.local
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Hopefully, one of those methods worked and you are now ready to SSH into your Pi. On Mac and Linux, you can open Terminal. On Windows you can install Putty, one of the alternatives, or on Windows 10 you may have ssh via the command prompt.&lt;/p&gt;
+&lt;p&gt;If you have a command prompt, you can try:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    ssh pi@raspberrypi.local
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;or&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    ssh pi@&amp;lt;your pi ip address&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;or via Putty.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    Username: pi
+    Password: raspberry
+    Hostname:&amp;lt;your pi IP address&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 6: Update and Upgrade&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    sudo apt-get update
+    sudo apt-get upgrade
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 7: Raspi-config&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo raspi-config
+
+    change default password &lt;span class="k"&gt;for&lt;/span&gt; pi
+    change hostname
+    &lt;span class="nb"&gt;enable&lt;/span&gt; Interfacing Options &lt;span class="p"&gt;|&lt;/span&gt; I2C
+    &lt;span class="nb"&gt;enable&lt;/span&gt; Interfacing Options &lt;span class="p"&gt;|&lt;/span&gt; Camera
+    Advanced Options &lt;span class="p"&gt;|&lt;/span&gt; Exapand Filesystem
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Choose and hit enter.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    Note: Reboot after changing these settings. Should happen &lt;span class="k"&gt;if&lt;/span&gt; you say yes.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 8: Install Dependencies&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt-get install &lt;span class="se"&gt;\&lt;/span&gt;
+         build-essential python3 python3-dev python3-pip &lt;span class="se"&gt;\&lt;/span&gt;
+         python3-virtualenv python3-numpy python3-picamera python3-pandas &lt;span class="se"&gt;\&lt;/span&gt;
+         python3-rpi.gpio i2c-tools avahi-utils joystick libopenjp2-7-dev libtiff5-dev &lt;span class="se"&gt;\&lt;/span&gt;
+         gfortran libatlas-base-dev libopenblas-dev libhdf5-serial-dev git ntp
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 9: Install Optional OpenCV Dependencies&lt;/h3&gt;
+&lt;p&gt;If you are going for a minimal install, you can get by without these. But it can be handy to have OpenCV.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    sudo apt-get install libilmbase-dev libopenexr-dev libgstreamer1.0-dev &lt;span class="se"&gt;\&lt;/span&gt;
+    libjasper-dev libwebp-dev libatlas-base-dev libavcodec-dev libavformat-dev &lt;span class="se"&gt;\&lt;/span&gt;
+    libswscale-dev libqtgui4 libqt4-test
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 10: Setup Virtual Env&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    python3 -m virtualenv -p python3 env --system-site-packages
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;source env/bin/activate&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bashrc
+    &lt;span class="nb"&gt;source&lt;/span&gt; ~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Modifying your .bashrc in this way will automatically enable this environment
+each time you login. To return to the system python you can type deactivate.&lt;/p&gt;
+&lt;h3&gt;Step 11: Install Donkeycar Python Code&lt;/h3&gt;
+&lt;p&gt;Change to a dir you would like to use as the head of your projects.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    mkdir projects
+    &lt;span class="nb"&gt;cd&lt;/span&gt; projects
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Fix the LC_errors&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    etc/envirmonet
+    &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games&amp;quot;&lt;/span&gt;
+    &lt;span class="nv"&gt;LC_ALL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;en_GB.UTF-8
+    &lt;span class="nv"&gt;LANG&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;en_GB.UTF-8
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Install Open CV&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    sudo apt install python3-opencv
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Setup I2C&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    sudo usermod -aG i2c &amp;lt;username&amp;gt;
+    sudo reboot
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;After a reboot, then try:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    sudo i2cdetect -r -y &lt;span class="m"&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Raspberry Pi:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    sudo apt-get install i2c-tools
+    sudo i2cdetect -y &lt;span class="m"&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This should show you a grid of addresses like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;         &lt;span class="m"&gt;0&lt;/span&gt;  &lt;span class="m"&gt;1&lt;/span&gt;  &lt;span class="m"&gt;2&lt;/span&gt;  &lt;span class="m"&gt;3&lt;/span&gt;  &lt;span class="m"&gt;4&lt;/span&gt;  &lt;span class="m"&gt;5&lt;/span&gt;  &lt;span class="m"&gt;6&lt;/span&gt;  &lt;span class="m"&gt;7&lt;/span&gt;  &lt;span class="m"&gt;8&lt;/span&gt;  &lt;span class="m"&gt;9&lt;/span&gt;  a  b  c  d  e  f
+    &lt;span class="m"&gt;00&lt;/span&gt;:          -- -- -- -- -- -- -- -- -- -- -- -- --
+    &lt;span class="m"&gt;10&lt;/span&gt;: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    &lt;span class="m"&gt;20&lt;/span&gt;: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    &lt;span class="m"&gt;30&lt;/span&gt;: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    &lt;span class="m"&gt;40&lt;/span&gt;: &lt;span class="m"&gt;40&lt;/span&gt; -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    &lt;span class="m"&gt;50&lt;/span&gt;: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    &lt;span class="m"&gt;60&lt;/span&gt;: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    &lt;span class="m"&gt;70&lt;/span&gt;: &lt;span class="m"&gt;70&lt;/span&gt; -- -- -- -- -- -- --
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In this case, the 40 shows up as the address of our PCA9685 board. If this does
+not show up, then check your wiring to the board. On a pi, ensure I2C is
+enabled in sudo raspi-config&lt;/p&gt;
+&lt;h2&gt;Nodejs&lt;/h2&gt;
+&lt;p&gt;use of nvm&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    https://github.com/nvm-sh/nvm
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh &lt;span class="p"&gt;|&lt;/span&gt; bash
+    &lt;span class="nb"&gt;source&lt;/span&gt; ~/.bashrc
+    nvm --version
+    nvm install node
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.raspberryconnect.com/projects/65-raspberrypi-hotspot-accesspoints/158-raspberry-pi-auto-wifi-hotspot-switch-direct-connection"&gt;raspberry-pi-auto-wifi-hotspot-switch-direct-connection&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/lhelontra/tensorflow-on-arm/releases"&gt;Tensorflow ARM&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands"&gt;UFW Firewall&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Motioneye&lt;/h2&gt;
+&lt;p&gt;https://github.com/ccrisan/motioneyeos/releases&lt;/p&gt;</content><category term="blog"></category><category term="pi"></category><category term="arm"></category><category term="linux"></category></entry></feed>
