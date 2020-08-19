@@ -1,6 +1,6 @@
 title: Liftoff
 date: Wed May 3 6:14:30 CEST 2017
-category: blog
+category: logs
 summary: hello world
 :status: published
 

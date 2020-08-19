@@ -41,10 +41,3 @@ Writing code to run on bare metal and setting up system which consists of
 interconnected devices that operate and automatically communicate
 over long distances thanks to the use of the LoRaWAN technology.
 
-Ex Profession
---------------
-
-The first professional role for 12 years was [emergency medical technician 
-`EMT`_ and than I meet Linux in 2004.
-
-.. _`EMT`: https://en.wikipedia.org/wiki/Emergency_medical_technician

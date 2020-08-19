@@ -3,6 +3,7 @@
 :Category: notes
 :Tags: nmap, network, security
 :Summary: Nmap Network Scanning notes collection
+:Status: draft
 
 .. contents:: Table of Contents
 

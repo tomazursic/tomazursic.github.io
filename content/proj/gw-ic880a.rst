@@ -2,10 +2,14 @@
 :Date: 2017-09-03 22:46
 :Modified: 2020-03-12 11:22
 :Tags: iot, lorawan, gateway, network, ic880a
-:Category: blog
+:Category: projects
 :authors: Tomaz
 :Slug: setup-lorawan-gateway
 :Summary: Notes for assembling LoRaWAN gateway
+:banner: ../images/lorawan-gw/2019-08-31_15.33.53.jpg
+
+.. figure:: images/lorawan-gw/2019-08-31_15.33.53.jpg
+  :alt: Image
 
 .. contents:: Table of Contents
 
@@ -20,7 +24,7 @@ Overview
 --------
 
 * Solder headers on backplate ic880a adapter
-* Assemble ic880a concentrator plate and adapter 
+* Assemble ic880a concentrator plate and adapter
 * Assemble ic880a concentrator and Raspberry pi (use of stendoffs only for Rpi3 combination)
 * Wiring UBEC and passive PoE
 * Connect UBEC between Rasberry and ic880a concentrator plate
@@ -73,8 +77,8 @@ Reference images for ic880a
 
     Concetrator plate bottom
 
-2. Assemble concentrator plate and adapter 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+2. Assemble concentrator plate and adapter
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. figure:: ../images/lorawan-gw/ic880a/concentrator-plate-assemble.jpg
     :width: 400px
@@ -280,7 +284,7 @@ Examples
 
 .. figure:: images/lorawan-gw/2019-08-31_15.33.53.jpg
   :alt: Image
-  
+
   #2 DIY Raspberry PI Zero & ic880a
 
 Commercial solutions
@@ -291,7 +295,7 @@ RAK7246
 
 * https://www.rakwireless.com/en-us/products/lorawan-gateways-and-concentrators/rak7246g
 
-RAK7244 
+RAK7244
 --------
 
 * https://store.rakwireless.com/products/rak7244-developer-lorawan-gateway

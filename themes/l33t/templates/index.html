@@ -18,13 +18,19 @@
                     </address>
                     <div>
                     {% if article.tags %}
-                    Tags: 
+                    Tags:
                     {% for tag in article.tags %}
                         <a class="url fn" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
                     {% endfor %}
                     </div>
                     {% endif %}
                 </footer><!-- /.post-info -->
+                {% if article.banner %}
+                <div class="figure banner">
+                    <img alt="" src="{{ article.banner }}">
+                </div>
+                {% endif %}
+
                 <div class="entry-content"> {{ article.summary }} </div><!-- /.entry-content -->
         </article></li>
 {% endfor %}

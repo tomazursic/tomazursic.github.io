@@ -1,21 +1,24 @@
 :title: MicroPython and Lopy
 :date: 2017-03-17 00:31
 :tags: iot, python, lorawan, micropython, esp32
-:category: blog
+:category: projects
 :slug: micropython-lopy
 :modified: 2019-05-05 21:07
 :summary: How to setup and use lorawan device, using MicroPython and Lopy
           (ESP-32) module
+:banner: ../images/components/lopy-banner.jpg
 
-Micropython and Lopy
-====================
+
+.. figure:: images/components/lopy-banner.jpg
+  :alt: Lopy Module Image
 
 About ruining Python on bare metal, using Pycom_ Lopy and Micropython_.
 
 .. _Pycom: https://pycom.io/
 .. _Micropython: https://micropython.org/
 
-`Awesome MicroPython`_
+More at `Awesome MicroPython`_
+
 .. _`Awesome MicroPython`: https://python.awesome-programming.com/en/awesome/gh-100020/awesome-micropython
 
 .. contents:: Table of Contents

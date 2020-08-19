@@ -1,6 +1,6 @@
 :title: Python Data Analysis and ML
 :date: 2019-11-06
-:category: blog
+:category: logs
 :tags: python, ds, ml, ai
 :summary: Learning notes for Data Science and Machine Learning using Python
 

@@ -1,6 +1,6 @@
 title: Exploring OBDII
 date: Mon Mar 4 11:09:02 CEST 2018
-category: notes
+category: logs
 tags: python, raspberry-pi, obd
 summary: To satisfy the curiosity for reading car on-board diagnostics using
 Raspberry PI with build in Bluetooth and ODBII Bluetooth adapter.

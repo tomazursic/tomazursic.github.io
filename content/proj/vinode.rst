@@ -5,7 +5,13 @@
 :slug: vinode
 :authors: Tomaz
 :tags: lorawan, iot, python, micropython
-:category: blog
+:category: projects
+:banner: ../images/device/vinode/vinode.jpg
+
+.. figure:: images/device/vinode/vinode.jpg
+  :alt: Vinode
+  :target: https://lepavida.iot.novagorica.eu/d/BfjRxSpWz/vinode?orgId=1&refresh=30s&from=now-30d&to=now
+
 
 .. contents:: Table of Contents
 
@@ -17,15 +23,10 @@ decisions in deals with pests/diseases.
 Vinode
 ======
 
-**Live data:** `https://lepavida.iot.novagorica.eu`_
+**View archived data:** `https://lepavida.iot.novagorica.eu`_
 
 .. _`https://lepavida.iot.novagorica.eu`: https://lepavida.iot.novagorica.eu/d/BfjRxSpWz/vinode?orgId=1&refresh=30s&from=now-30d&to=now
 
-
-
-.. figure:: images/device/vinode/vinode.jpg
-  :alt: Vinode 
-  :target: https://lepavida.iot.novagorica.eu/d/BfjRxSpWz/vinode?orgId=1&refresh=30s&from=now-30d&to=now
 
 
 Issue
@@ -38,7 +39,7 @@ Issue
 * Adopt a scientific instrument to support
   decisions in order to carry out targeted interventions in the vineyard
 
-Solution 
+Solution
 --------
 
 IoT (Internet of Things) system which consists of interconnected devices that
@@ -55,7 +56,7 @@ the LoRaWAN technology.
 
 `How to setup LoRaWAN Gateway`_
 
-.. _`How to setup LoRaWAN Gateway`: {filename}/proj-gw-ic880a.rst
+.. _`How to setup LoRaWAN Gateway`: {filename}/proj/gw-ic880a.rst
 
 The LoRa technology makes it possible to overcome the problem of distance and
 “physical interference”, two common conditions when you consider the nature of
@@ -289,7 +290,7 @@ Current position
   :alt: Vinode
 
   Vinode v2.1
-  
+
 
 .. figure:: images/device/vinode/changelog/20190828_151605.jpg
   :alt: vinode & deploy tools

@@ -1,6 +1,6 @@
 title: Setup Pelican
 date: Wed May 3 7:10:56 CEST 2017
-category: notes
+category: logs
 tags: python, pelican
 summary: Let play with static site generator to reorder mess of memories
 

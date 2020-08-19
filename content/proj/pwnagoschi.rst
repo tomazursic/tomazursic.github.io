@@ -1,9 +1,14 @@
 :title: Isolation Days With AI and Pwnagotchi
 :date: 2020-04-05 17:29
 :tags: wireless, network, ai, rl, hacktheplanet
-:category: blog
+:category: projects
 :slug: pwnagotchi
 :summary: Self isolation with an AI that wants to eat wireless handshakes #HackThePlanet
+:banner: ../images/pwnagotchi/phone-web-ui.jpg
+
+.. figure:: ../images/pwnagotchi/phone-web-ui.jpg
+   :scale: 80%
+   :alt: pwnagotchi on phone
 
 .. contents:: Table of Contents
 
@@ -281,9 +286,5 @@ Open phone browser and point to url:
 .. code-block:: bash
 
    http://192.168.44.44:8080
-
-.. figure:: ../images/pwnagotchi/phone-web-ui.jpg
-   :scale: 80%
-   :alt: pwnagotchi on phone
 
 And now wait .. 15min or more for AI to begin 

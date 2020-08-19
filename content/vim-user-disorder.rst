@@ -1,8 +1,8 @@
-:Title: Vim User Disorder 
-:Date: Fri Sep 7 13:48:16 CEST 2018 
+:Title: Vim User Disorder
+:Date: Fri Sep 7 13:48:16 CEST 2018
 :Modified: Jan 17, 2020
-:Category: notes 
-:Tags: vim, tools 
+:Category: logs
+:Tags: vim, tools
 :Summary: Cheatsheet and notes for (neo)vim editor
 
 .. contents:: Table of Contents
@@ -704,7 +704,7 @@ View help for transition
 
 .. code-block:: shell
 
-    :help nvim-from-vim 
+    :help nvim-from-vim
 
 `Link nvim-from-vim: <https://neovim.io/doc/user/nvim.html#nvim-from-vim>`_
 
@@ -806,7 +806,7 @@ Coc Extra:
 Extra
 ======
 
-**VUD** 
+**VUD**
 
 The vim editor which is always in use, so much that you start smashing into
 alien editors with vim commands. If you find somewhere in documents random

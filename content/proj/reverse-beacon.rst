@@ -1,19 +1,21 @@
 :title: LoraWAN Reverse Beacon
 :date: 2018-05-27
-:tags: iot, python, lorawan, reverse_beacon
-:category: blog
+:tags: iot, python, lorawan
+:category: projects
 :slug: lorawan-reverse-beacon
 :summary: Exploring LoraWAN coverage with drop node deployed higher than the receivers
-
-Reverse-Beacon
-==============
-
-.. contents:: Table of Contents
-
+:banner: ../images/device/sabotin01/sabotin01_charts.png
 
 .. figure:: ../images/device/sabotin01/sabotin01_charts.png
    :scale: 80%
    :alt: Data visulaization
+
+**View archived data**: sabotin01_
+
+.. _sabotin01: https://lepavida.iot.novagorica.eu/d/000000012/sabotin01-archive?orgId=1&from=1527409859151&to=1538318789963
+
+
+.. contents:: Table of Contents
 
 ------------
 
@@ -37,10 +39,6 @@ In the meantime is taking measurements (temperature and humidity) of undergrowth
 * Temperature & Humidity (undergrowth)
 * Atmospheric pressure
 * Device internal (temperature, humidity and current voltage)
-
-Link to public archived data: sabotin01_
-
-.. _sabotin01: https://lepavida.iot.novagorica.eu/d/000000012/sabotin01-archive
 
 Location
 --------

@@ -1,6 +1,6 @@
 title: Raspberry Pi
 date: 2017-02-10 14:29
-category: blog
+category: logs
 tags: pi, arm, linux
 summary: Setup and usage of Raspian Pi
 

@@ -26,6 +26,10 @@ DEFAULT_LANG = "en"
 STATIC_PATHS = ["images"]
 
 # Feed generation is usually not desired when developing
+# FEED_ALL_ATOM = 'feeds/all.atom.xml'
+# TAG_FEED_ATOM = 'feeds/%s.tag.atom.xml'
+# CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
+
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
@@ -68,3 +72,7 @@ SITEMAP = {
     "priorities": {"articles": 1, "indexes": 0.5, "pages": 0.5,},
     "changefreqs": {"articles": "always", "indexes": "hourly", "pages": "monthly"},
 }
+# MENUITEMS = [
+#     ['RSS', "feeds/all.atom.xml"]
+# ]
+DEFAULT_TITLE = None

@@ -1,13 +1,15 @@
 :Title: The Bread Code Branch
 :Date: Wed May 3 6:14:30 CEST 2018
-:Category: blog
-:Tags: bread, misc
+:Category: wtf
+:Tags: bread, food, pizza, dough
 :Summary: The art of making bread
+:banner: ../images/bread-code/bread-code.jpg
+
+
+.. figure:: images/bread-code/bread-code.jpg
+   :alt: Bread
 
 .. contents:: Table of Contents
-
-Baking Bread
-============
 
 Pull Dough
 ----------

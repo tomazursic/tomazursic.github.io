@@ -1,6 +1,6 @@
 :Title: LoRaWAN Network
 :Date: Fri Sep 4 13:48:16 CEST 2018
-:Category: blog
+:Category: logs
 :Tags: lorawan, iot, network
 :Summary: About LoraWAN Network
 :Modified: 2020-01-10
