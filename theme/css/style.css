@@ -467,6 +467,10 @@ form input[type=search]:focus {
   max-width: 100%;
 }
 
+.figure.banner img {
+  margin-top: 15px;
+}
+
 /* NAV */
 
 
@@ -684,7 +688,7 @@ ul.tags li { display: inline-block; }
 }
 
 .entry-content {
-  margin-top: 35px;
+  margin-top: 20px;
 }
 p.topic-title {
   margin-top: 35px;

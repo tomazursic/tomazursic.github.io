@@ -5,42 +5,42 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/</loc>
-<lastmod>2020-08-19T12:07:58-00:00</lastmod>
+<lastmod>2020-08-19T13:20:02-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/tags.html</loc>
-<lastmod>2020-08-19T12:07:58-00:00</lastmod>
+<lastmod>2020-08-19T13:20:02-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/categories.html</loc>
-<lastmod>2020-08-19T12:07:58-00:00</lastmod>
+<lastmod>2020-08-19T13:20:02-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/authors.html</loc>
-<lastmod>2020-08-19T12:07:58-00:00</lastmod>
+<lastmod>2020-08-19T13:20:02-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/archives.html</loc>
-<lastmod>2020-08-19T12:07:58-00:00</lastmod>
+<lastmod>2020-08-19T13:20:02-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/search.html</loc>
-<lastmod>2020-08-19T12:07:58-00:00</lastmod>
+<lastmod>2020-08-19T13:20:02-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -55,13 +55,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>/pwnagotchi.html</loc>
 <lastmod>2020-04-05T17:29:00+02:00</lastmod>
-<changefreq>always</changefreq>
-<priority>1</priority>
-</url>
-
-<url>
-<loc>/nmap-cheatsheet.html</loc>
-<lastmod>2020-03-24T19:29:00+01:00</lastmod>
 <changefreq>always</changefreq>
 <priority>1</priority>
 </url>
@@ -172,15 +165,22 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>/category/blog.html</loc>
+<loc>/category/logs.html</loc>
+<lastmod>2020-01-17T00:00:00+01:22</lastmod>
+<changefreq>hourly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/category/projects.html</loc>
 <lastmod>2020-04-05T17:29:00+01:22</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/category/notes.html</loc>
-<lastmod>2020-03-24T19:29:00+01:22</lastmod>
+<loc>/category/wtf.html</loc>
+<lastmod>2018-05-03T06:14:30+01:22</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -216,20 +216,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>/tag/hacktheplanet.html</loc>
 <lastmod>2020-04-05T17:29:00+01:22</lastmod>
-<changefreq>hourly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>/tag/nmap.html</loc>
-<lastmod>2020-03-24T19:29:00+01:22</lastmod>
-<changefreq>hourly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>/tag/security.html</loc>
-<lastmod>2020-03-24T19:29:00+01:22</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -284,13 +270,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>/tag/reverse_beacon.html</loc>
-<lastmod>2018-05-27T00:00:00+01:22</lastmod>
-<changefreq>hourly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>/tag/bread.html</loc>
 <lastmod>2018-05-03T06:14:30+01:22</lastmod>
 <changefreq>hourly</changefreq>
@@ -298,7 +277,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>/tag/misc.html</loc>
+<loc>/tag/food.html</loc>
+<lastmod>2018-05-03T06:14:30+01:22</lastmod>
+<changefreq>hourly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/tag/pizza.html</loc>
+<lastmod>2018-05-03T06:14:30+01:22</lastmod>
+<changefreq>hourly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/tag/dough.html</loc>
 <lastmod>2018-05-03T06:14:30+01:22</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>

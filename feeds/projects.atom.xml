@@ -1,622 +1,278 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Weblog - tomazursic.github.io - iot</title><link href="/" rel="alternate"></link><link href="/feeds/iot.tag.atom.xml" rel="self"></link><id>/</id><updated>2020-03-12T11:22:00+01:00</updated><entry><title>LoRaWAN Network</title><link href="/lorawan-network.html" rel="alternate"></link><published>2018-09-04T13:48:16+02:00</published><updated>2020-01-10T00:00:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-09-04:/lorawan-network.html</id><summary type="html">About LoraWAN Network</summary><content type="html">&lt;div class="section" id="lorawan-network"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;LoRaWAN Network&lt;/a&gt;&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Weblog - tomazursic.github.io - projects</title><link href="/" rel="alternate"></link><link href="/feeds/projects.atom.xml" rel="self"></link><id>/</id><updated>2020-04-05T17:29:00+02:00</updated><entry><title>Isolation Days With AI and Pwnagotchi</title><link href="/pwnagotchi.html" rel="alternate"></link><published>2020-04-05T17:29:00+02:00</published><updated>2020-04-05T17:29:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2020-04-05:/pwnagotchi.html</id><summary type="html">&lt;p class="first last"&gt;Self isolation with an AI that wants to eat wireless handshakes #HackThePlanet&lt;/p&gt;
+</summary><content type="html">&lt;div class="figure"&gt;
+&lt;img alt="pwnagotchi on phone" src="../images/pwnagotchi/phone-web-ui.jpg" /&gt;
+&lt;/div&gt;
 &lt;div class="contents topic" id="table-of-contents"&gt;
 &lt;p class="topic-title"&gt;Table of Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#lorawan-network" id="id1"&gt;LoRaWAN Network&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#about-lorawan" id="id2"&gt;About LoRaWAN&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#lora-or-lorawan" id="id3"&gt;LoRa or LoRaWAN&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#isolation-days-with-ai-and-pwnagotchi" id="id1"&gt;Isolation Days With AI and Pwnagotchi&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#hardware" id="id2"&gt;Hardware&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#features" id="id3"&gt;Features&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#setup" id="id4"&gt;Setup&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#flash-the-image-on-sd" id="id5"&gt;1. Flash the image on SD&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#before-first-boot" id="id6"&gt;2. Before first boot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#boot" id="id7"&gt;3. Boot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#find-the-device" id="id8"&gt;4. Find the device&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#setup-network-interfaces" id="id9"&gt;4. Setup network interfaces&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#ssh-into-device" id="id10"&gt;5. SSH into device&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#use-cases" id="id4"&gt;Use cases&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#architecture" id="id5"&gt;Architecture&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#devices" id="id6"&gt;Devices&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#device-classes" id="id7"&gt;Device classes&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#device-addressing" id="id8"&gt;Device addressing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#using-android-phone-for-interface" id="id11"&gt;Using Android phone for interface&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#find-phone-mac" id="id12"&gt;1. Find phone MAC&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#edit-config" id="id13"&gt;2. Edit config&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#paring" id="id14"&gt;3. Paring&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#restart-in-auto-mode" id="id15"&gt;4. Restart in AUTO mode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#verify-bt-pan-addres" id="id16"&gt;4. Verify bt-pan addres&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#access-the-web-ui-on-phone" id="id17"&gt;5. Access the Web UI on phone&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#lora-radio" id="id9"&gt;LoRa radio&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#rssi" id="id10"&gt;RSSI&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#snr" id="id11"&gt;SNR&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#gateway" id="id12"&gt;Gateway&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#the-things-stack-for-lorawan" id="id13"&gt;The Things Stack for LoRaWAN&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#network-server" id="id14"&gt;Network Server&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#duty-cycle" id="id15"&gt;Duty Cycle&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#fair-access-policy" id="id16"&gt;Fair Access Policy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#compliance" id="id17"&gt;Compliance&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#security" id="id18"&gt;Security&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#joining-the-network" id="id19"&gt;Joining the network&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#activation-by-personalization-abp" id="id20"&gt;Activation By Personalization (ABP)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#over-the-air-activation-otaa" id="id21"&gt;Over The Air Activation (OTAA)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#encode-decode-messages" id="id22"&gt;Encode &amp;amp; Decode Messages&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#terminology" id="id23"&gt;Terminology&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div class="section" id="about-lorawan"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id2"&gt;About LoRaWAN&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;LoRaWAN is a point-to-multipoint networking protocol that uses Semtech’s LoRa
-modulation scheme.&lt;/p&gt;
-&lt;p&gt;The interesting thing is not about radio waves but how radio waves communicate with
-LoRaWAN gateways encryption and identification, and to not forget LoRa is one
-of the most competitive technologies because of its low power consumption and
-low cost design.&lt;/p&gt;
-&lt;p&gt;LoRaWAN stands for Long Range Wide Area Network. It’s a standard for
-wireless communication that allows IoT devices to communicate over large
-distance with minimal battery usage. This post is a try to explain
-LoRaWAN in a technical but simply understandable way.&lt;/p&gt;
-&lt;div class="section" id="lora-or-lorawan"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id3"&gt;LoRa or LoRaWAN&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="section" id="isolation-days-with-ai-and-pwnagotchi"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;Isolation Days With AI and Pwnagotchi&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;As written on &lt;a class="reference external" href="https://pwnagotchi.ai/"&gt;pwnagotchi.ai&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+...an excuse to learn about reinforcement learning and WiFi networking—and have a reason to get out for more walks.&lt;/blockquote&gt;
+&lt;p&gt;The last claim, get out in this days, sounds wrong but with a deep sound of silence out there it's a big pleasure!
+Driven with collecting data one way or another, this project is freaking out.&lt;/p&gt;
+&lt;div class="section" id="hardware"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id2"&gt;Hardware&lt;/a&gt;&lt;/h3&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;LoRa = Physical Layer&lt;/li&gt;
-&lt;li&gt;LoRaWAN = MAC Layer&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;LoRa defines the standard for the physical (layer 1), LoRaWAN defines
-all that plus the MAC layer and application standards.&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;LoRa defines the physical layer, the reason behind the long-range
-communication. LoRaWAN defines the communication protocol and system
-architecture for the network.&lt;/li&gt;
-&lt;li&gt;LoRa refer to a wireless modulation allowing a low power high radio
-budget communication. LoRaWAN refer to a network protocol using LoRa
-chips for the communication.&lt;/li&gt;
-&lt;li&gt;We can use LoRa modulation in networks without LoRaWAN. We can also
-use LoRaWAN like network without LoRa radio, but it won’t be
-practical.&lt;/li&gt;
-&lt;li&gt;LoRa is Chirp Spread Spectrum (CSS) modulation used to provide
-different data rates using different spreading factors. LoRaWAN is
-wireless network used as Wide Area Network (WAN) due to its wide
-coverage capabilities.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The main characteristics of LoRaWAN are:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Long range (&amp;gt;5 km urban, &amp;gt;10 km suburban, &amp;gt;80 km VLOS)&lt;/li&gt;
-&lt;li&gt;Long battery life (&amp;gt;10 years)&lt;/li&gt;
-&lt;li&gt;Low cost (&amp;lt;$5/module)&lt;/li&gt;
-&lt;li&gt;Low data rate (0.3 bps – 50 kbps, typically ~10 kB/day)&lt;/li&gt;
-&lt;li&gt;Secure&lt;/li&gt;
-&lt;li&gt;Operates in unlicensed spectrum&lt;/li&gt;
-&lt;li&gt;Localisation support&lt;/li&gt;
-&lt;li&gt;Bidirectional&lt;/li&gt;
-&lt;li&gt;Signal bounce effect in urban environment (works with no line of sight)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;As you can see in the list of characteristics, everything sounds
-outstanding except when we’re looking at the data rate. Unfortunately,
-physically limited, wireless communication is always a trade off between
-distance, speed and power (energy). LoRa was designed with use cases in
-mind where this data rate should be enough and the other characteristics
-are way more important.&lt;/p&gt;
-&lt;p&gt;LoRaWAN was also designed with large service providers in mind. Just as
-with the cellphone network: a few operators that maintain and control
-the network and millions of users that exploit the network and do not
-need to care about the infrastructure. Nevertheless, since LoRa is
-operating in unlicensed spectrum, its perfectly possible to set up your
-own gateway(s), have a coverage of a few kilometers and run your own
-network for a few hundred Euro or Dollar.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="use-cases"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id4"&gt;Use cases&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;As mentioned before, LoRa allows for low power, long range but low data
-rates. Typical use cases can be found in the IoT (Internet of Things),
-IoE (Internet of Everything) or M2M (Machine to Machine) area, or
-industrial internet of things (IIoT).&lt;/p&gt;
-&lt;p&gt;We’re typically looking at (small) sensors/devices/things that are
-battery operated and communicate limited information on a limited
-interval (&lt;a class="reference internal" href="#fair-access-policy"&gt;Fair Access Policy&lt;/a&gt; and &lt;a class="reference internal" href="#duty-cycle"&gt;Duty Cycle&lt;/a&gt;)&lt;/p&gt;
-&lt;p&gt;Some examples of use cases:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Telemetry:&lt;ul&gt;
-&lt;li&gt;Sends 1 to 5 messages a days about the current usage&lt;/li&gt;
-&lt;li&gt;For example: gas/water/electricity&lt;/li&gt;
-&lt;li&gt;(~10) years on battery&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Smart beehives:&lt;ul&gt;
-&lt;li&gt;Telemetry for beekeepers (weight, temperature, humidity, sound)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Precision agriculture:&lt;ul&gt;
-&lt;li&gt;Telemetry for wine makers&lt;/li&gt;
-&lt;li&gt;Monitoring/predictions orchard/vineyards&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Social science telemetry:&lt;ul&gt;
-&lt;li&gt;passenger/visitors flow measurements in real-time (it counts how many mobile devices are around)&lt;/li&gt;
-&lt;li&gt;PAX counter's&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Smart parking:&lt;ul&gt;
-&lt;li&gt;Sends a message when a vehicle arrives or leaves a parking spot&lt;/li&gt;
-&lt;li&gt;Can be combined with an app to find a free parking spot&lt;/li&gt;
-&lt;li&gt;No cabling required, low maintenance&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Smart bin:&lt;ul&gt;
-&lt;li&gt;Sends a message when a trashcan is full&lt;/li&gt;
-&lt;li&gt;Optimize route for garbage collection, save labor and fuel&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Smart lighting:&lt;ul&gt;
-&lt;li&gt;Control streetlight status and operation&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Environment monitoring&lt;ul&gt;
-&lt;li&gt;For example: sound, temperature, pollution, radiation, humidity,…&lt;/li&gt;
-&lt;li&gt;Create valuable insights in combination with Geo location&lt;/li&gt;
-&lt;li&gt;air pollution (PM) / forest fires&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Asset management&lt;ul&gt;
-&lt;li&gt;Check status and location of various assets&lt;/li&gt;
-&lt;li&gt;Control tanks, relays, locks, lights, devices status&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Healthcare&lt;ul&gt;
-&lt;li&gt;For example: activity/fall detection, personal alarm, status&lt;/li&gt;
-&lt;li&gt;Low power consumption, great network coverage&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Tracking&lt;ul&gt;
-&lt;li&gt;Track goods, vehicles, animals&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="architecture"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id5"&gt;Architecture&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;From a high level, the architecture of a typical LoRa network looks like
-the following:&lt;/p&gt;
-&lt;p&gt;Devices -&amp;gt; LoRa radio -&amp;gt; Gateway -&amp;gt; 3G/Ethernet -&amp;gt; Network Server -&amp;gt;
-Application&lt;/p&gt;
-&lt;div class="figure"&gt;
-&lt;img alt="LoRaWAN arhitecture" src="images/lorawan/lorawan_architecture.jpg" /&gt;
-&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Node Device --(LoRa RF)--&amp;gt; Gateway --(LoRaWAN TCP/IP)--&amp;gt; Network Server ---&amp;gt; Application Server
-
-#---------- MAC Layer Communication (Network Session Key) -------------#
-
-#------------------- Application Layer Communication (Application Session Key) ---------------#
-
-LoRaWAN arhitecture
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;For upstream messages, for example a sensor that sends information to an
-application, the flow is from left to right. The sensor value (payload)
-gets encrypted and gets transmitted over LoRa radio. One or more
-gateways receive the message and forward it over another network
-(typically 3G or Ethernet) to a Network Server. The Network Server
-routes the message to the correct end application.&lt;/p&gt;
-&lt;p&gt;For downstream messages, for example a signal to turn on a light, the
-flow is from right to left. Upstream messages are initiated by the
-device itself and downstream by the end application. Since LoRa is
-designed with as low energy usage as possible, not all devices are
-always listening for incoming messages. This depends on the device
-classes&lt;/p&gt;
-&lt;p&gt;In the next chapters, I’ll go deeper into each component of the above
-diagram and try to go a little more into detail for each.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="devices"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id6"&gt;Devices&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;LoRaWAN devices can be anything that sends or receives information,
-there is no real definition for them but usually we’re speaking about
-sensors, detectors, actuators.&lt;/p&gt;
-&lt;p&gt;Some examples of devices:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Adeunis LorRaWAN demonstrator
-(&lt;a class="reference external" href="http://www.adeunis-rf.com/en/products/lorawan-products/lorawan-demonstrator-by-adeunis-rf"&gt;http://www.adeunis-rf.com/en/products/lorawan-products/lorawan-demonstrator-by-adeunis-rf&lt;/a&gt;)&lt;ul&gt;
-&lt;li&gt;This is a device to deminstrate LoRa&lt;/li&gt;
-&lt;li&gt;GPS / Temperature / Accelerometer sensor&lt;/li&gt;
-&lt;li&gt;Self-powered and rechargeable&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;NKE Watteco smartplug&lt;ul&gt;
-&lt;li&gt;Ability to turn connected device on/off&lt;/li&gt;
-&lt;li&gt;Measures power, voltage and frequency&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Abeeway&lt;/li&gt;
-&lt;li&gt;Raspberry Pi or Ardunio&lt;ul&gt;
-&lt;li&gt;Combined with sensors: temperature, pressure, humidity, light,
-sound, GPS Location, accelerometer, motion detector, air quality,
-mangetic switch,…&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="section" id="device-classes"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id7"&gt;Device classes&lt;/a&gt;&lt;/h4&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;strong&gt;A&lt;/strong&gt;: Can only receive a message at the time the device is sending a
-message&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;B&lt;/strong&gt;: Same as A but listens for incoming messages on regular
-intervals&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;C&lt;/strong&gt;: Continuously listening for incoming messages&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Logically, class A devices can last the longest on battery and class C
-devices are typically not battery powered.&lt;/p&gt;
-&lt;p&gt;The LoRaWAN standard describes two different types of messages: MAC
-messages, to control the radio and network and data messages, the actual
-payload that is application/device specific. Since we’re limited in the
-time and number of messages we can send over the air, MAC messages can
-be piggybacked (send together) with data messages and multiple MAC
-messages can be sent in one time.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="device-addressing"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id8"&gt;Device addressing&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;As with most networking standards, devices need some kind of address and
-identification to be able to contact them and differentiate them from
-each other. LoRa uses the following addressing.&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;strong&gt;DevEUI&lt;/strong&gt;: Device unique hardware ID: 64 bits address. Comparable
-with a MAC-addresss for a TCP/IP device.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DevAddr&lt;/strong&gt;: Device address: 32 bits address assigned or chosen
-specific on the network. Comparable with an IP address for a TCP/IP
-device.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AppEUI&lt;/strong&gt;: Application ID: EUI64 address format. Uniquely identifies
-the application provider of the device. Then AppEUI is stored in the
-end-device before the activation procedure is executed.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Fport&lt;/strong&gt;: identifies end application/service. Port 0 is reserved for
-MAC messages. Comparable with a TCP/UDP port number for a TCP/IP
-device.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="lora-radio"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id9"&gt;LoRa radio&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;LoRa is using RF signals to communicate. It’s operating in unlicensed
-spectrum. This means that everybody can freely use this band without
-paying or getting a license as longs as you follow some regulations.
-Specifically, LoRa is operating in the ISM (Industrial, Science,
-Medical) band. Unfortunately, the ranges in the ISM band are
-geographically different.&lt;/p&gt;
-&lt;p&gt;To accomplish the goals of LoRa in terms of range and data rate, the
-following frequencies are used: Europ: 868Mhz and 433 Mhz, US: 915Mhz
-and AS: 430 Mhz. Obviously this makes gateways and devices for Europe
-incompatible with the ones manufactured for the US, etc. A big
-disadvantage for LoRa if you ask me.&lt;/p&gt;
-&lt;p&gt;LoRa is using different techniques to improve data reliability. I will
-try to mention the most important ones:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Spread Spectrum: This a technique originally designed for military
-applications where the actual information (for example one bit) is
-spread over a larger frequency. By doing this, the signal to noise
-ration is very small and the signal (the bit sent) is much more
-resistant to noise, interference or jamming signals.&lt;/li&gt;
-&lt;li&gt;ADR: Adaptive Data Rate: Dynamically change the data rate and
-transmit power in function of the signal quality and distance to the
-gateway. Slower transmission (higher spreading factor) allows for a
-longer and more reliable range:&lt;/li&gt;
+&lt;li&gt;Raspberry Pi Zero W&lt;/li&gt;
+&lt;li&gt;Zebra Zero Raspberry Pi Zero Case - Black Ice&lt;/li&gt;
+&lt;li&gt;SD card 16GB&lt;/li&gt;
+&lt;li&gt;RTC DS3231 (for replacing fake-hw clock)&lt;/li&gt;
+&lt;li&gt;Micro-USB cable (with enough wires to support data transfer)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="figure"&gt;
-&lt;img alt="ADR" src="images/lorawan/adr.jpg" /&gt;
-&lt;p class="caption"&gt;ADR&lt;/p&gt;
+&lt;img alt="pwnagotchi HW" src="../images/pwnagotchi/hw.jpg" /&gt;
 &lt;/div&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;FEC: Forward Error Correction: Add redundant information
-(recovery/parity bits) to each message to be able to correct small
-errors&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;RJ45 is banana for scale :)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Next Upgrade:&lt;/strong&gt; &lt;cite&gt;Black &amp;amp; White e-ink displays&lt;/cite&gt; - Waveshare eInk 2.13” Display V2&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="rssi"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id10"&gt;RSSI&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Received Signal Strength Indication (RSSI) is the received signal power
-in milliwatts and is measured in dBm. This value can be used as a
-measurement of how well a receiver can “hear” a signal from a sender.&lt;/p&gt;
-&lt;p&gt;The RSSI is measured in dBm and is a negative value.&lt;/p&gt;
-&lt;p&gt;The closer to 0 the better the signal is.&lt;/p&gt;
+&lt;div class="section" id="features"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id3"&gt;Features&lt;/a&gt;&lt;/h3&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;Typical LoRa RSSI values are:&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://pwnagotchi.ai/usage/#ai"&gt;AI&lt;/a&gt; reinforcement learn on Wifi audits&lt;/li&gt;
+&lt;li&gt;Support for &lt;a class="reference external" href="https://pwnagotchi.ai/installation/#display"&gt;e-ink displays&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://pwnagotchi.ai/configuration/#bluetooth"&gt;Bluetooth&lt;/a&gt; connection sharing and web UI on phone&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://pwnagotchi.ai/usage/#pwnmail"&gt;PwnMAIL&lt;/a&gt; an &amp;quot;crypto-pager&amp;quot;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://pwnagotchi.ai/usage/#bettercap-s-web-ui"&gt;BetterCAP’s&lt;/a&gt; web UI (only in MANU mode)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;RSSI minimum = -120 dBm.
-If RSSI=-30dBm: signal is strong.
-If RSSI=-120dBm: signal is weak.
+&lt;p&gt;And of course the community &lt;a class="reference external" href="https://www.reddit.com/r/pwnagotchi/"&gt;r/pwnagotchi&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="setup"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id4"&gt;Setup&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="section" id="flash-the-image-on-sd"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id5"&gt;1. Flash the image on SD&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo pv -tpreb pwnagotchi-raspbian-lite-v1.4.3.img &lt;span class="p"&gt;|&lt;/span&gt; sudo dd &lt;span class="nv"&gt;of&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/mmcblk0 &lt;span class="nv"&gt;bs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;512K
 &lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;More details: &lt;a class="reference external" href="https://pwnagotchi.ai/installation/#flashing-an-image"&gt;https://pwnagotchi.ai/installation/#flashing-an-image&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="snr"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;SNR&lt;/a&gt;&lt;/h3&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Signal-to-Noise Ratio (SNR) is the ratio between the received power signal
-and the noise floor power level.&lt;/li&gt;
-&lt;li&gt;The noise floor is an area of all
-unwanted interfering signal sources which can corrupt the transmitted signal
-and therefore re-transmissions will occur&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Typical LoRa SNR values are between:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;-20dB and +10dB
+&lt;div class="section" id="before-first-boot"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id6"&gt;2. Before first boot&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Add &lt;tt class="docutils literal"&gt;config.yml&lt;/tt&gt; to &lt;tt class="docutils literal"&gt;/boot&lt;/tt&gt; partition on SD card.&lt;/p&gt;
+&lt;p&gt;If not sure about valid &lt;tt class="docutils literal"&gt;YAML&lt;/tt&gt; syntax check your config with online
+validator - &lt;a class="reference external" href="https://codebeautify.org/yaml-validator"&gt;https://codebeautify.org/yaml-validator&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;main:
+  name: &amp;#39;&amp;lt;CHANGE_TO_NAME_FOR_DEVICE&amp;gt;&amp;#39;
+  whitelist:
+    - &amp;#39;&amp;lt;CHANGE_THIS_TO_HOME_WIFI_BSSID_OR_ESSID&amp;gt;&amp;#39;
+  plugins:
+    grid:
+      enabled: true
+      report: true
+      exclude:
+        - &amp;#39;&amp;lt;CHANGE_THIS_TO_HOME_WIFI_BSSID_OR_ESSID&amp;gt;&amp;#39;
+ui:
+    web:
+        username: &amp;lt;CHANGE_THIS_TO_USERNAME_FOR_WEB_UI&amp;gt;
+        password: &amp;lt;CHANGE_THIS_TO_PASSWORD_FOR_WEB_UI&amp;gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;A value closer to +10dB means the received signal is less corrupted.&lt;/li&gt;
-&lt;li&gt;LoRa can demodulate signals which are -7.5 dB to -20 dB below the noise floor.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;so, Make sure your SNR is between typical values to get more LoRa signal
-strength.&lt;/p&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Signal-to-noise_ratio"&gt;Wiki SNR&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;More details: &lt;a class="reference external" href="https://pwnagotchi.ai/configuration/#initial-configuration"&gt;https://pwnagotchi.ai/configuration/#initial-configuration&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="gateway"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id12"&gt;Gateway&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;The gateway, also called modem or access point, is the device that is
-receiving all LoRa radio sent by the devices in it’s range. By design,
-there isn’t really a association between a device and a specific LoRa
-gateway. Every gateway in the range of the RF signal sent out by a
-device will pick up the signal and process it, even if this LoRa gateway
-is part of a network that doesn’t know the device that sent the message.&lt;/p&gt;
-&lt;!-- Some examples of LoRa gateways currently available: --&gt;
+&lt;div class="section" id="boot"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id7"&gt;3. Boot&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Plug Micro-USB into &amp;quot;DATA PORT&amp;quot; on Raspberry Pi Zero to run in OTG (On The Go)
+mode allowing device to act as an Ethernet device.&lt;/p&gt;
+&lt;p&gt;Read more: &lt;a class="reference external" href="https://pwnagotchi.ai/configuration/#connect-to-your-pwnagotchi"&gt;https://pwnagotchi.ai/configuration/#connect-to-your-pwnagotchi&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="the-things-stack-for-lorawan"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id13"&gt;The Things Stack for LoRaWAN&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;New all in one solution :)&lt;/p&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://github.com/TheThingsNetwork/lorawan-stack"&gt;LoraWAN Stack&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="network-server"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id14"&gt;Network Server&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;After a device sent a message that was received by a LoRa gateway, it
-will most likely be forwarded to a Network Server. This component is the
-most intelligent part in the LoRaWAN network. The Network Server is
-responsible for the following taks:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Aggregate the incoming data from all LoRaWAN gateways in it’s network
-and all sensors in the range of them.&lt;/li&gt;
-&lt;li&gt;Route/forward incoming messages to the correct end application&lt;/li&gt;
-&lt;li&gt;Contral LoRa radion configuration to the gateways&lt;/li&gt;
-&lt;li&gt;Select the best gateway for downlink message in case multiple
-gateways are in the range of one device&lt;/li&gt;
-&lt;li&gt;Downlink buffering: store messages until a LoRa class A or B device
-is ready to receive a message&lt;/li&gt;
-&lt;li&gt;Remove duplicates: since there is no association between device and
-gateway there is a good chance that multiple gateways pick up the
-same message so dulicates need to be filtered&lt;/li&gt;
-&lt;li&gt;Monitor the devices and gateways&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Some examples of Network Server software:&lt;/p&gt;
-&lt;!-- Add some GW exaples --&gt;
-&lt;pre class="code text literal-block"&gt;
-Actility Thingpark: https://www.actility.com/products/
-Loraserver: https://github.com/brocaar/loraserver
-Semtech: https://semtech.force.com/lora
-&lt;/pre&gt;
-&lt;p&gt;In most cases, the network server will route/forward the message from a
-certain id and fport combination to a predefined application. Usually
-this is done by either forwarding it to a HTTP(S) webservice or putting
-it into an MQTT queue.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="duty-cycle"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id15"&gt;Duty Cycle&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Duty cycle is the proportion of time during which a component, device, or
-system is operated. In other words indicates the fraction of time a resource is
-busy.&lt;/p&gt;
-&lt;p&gt;The duty cycle can be expressed as a ratio or as a percentage.&lt;/p&gt;
-&lt;p&gt;In Europe, duty cycles are regulated by section 7.2.3 of the ETSI
-EN300.220 standard. This standard defines the following sub-bands and
-their duty cycles:&lt;/p&gt;
-&lt;pre class="code text literal-block"&gt;
-g (863.0 – 868.0 MHz): 1%
-g1 (868.0 – 868.6 MHz): 1%
-g2 (868.7 – 869.2 MHz): 0.1%
-g3 (869.4 – 869.65 MHz): 10%
-g4 (869.7 – 870.0 MHz): 1%
-&lt;/pre&gt;
-&lt;p&gt;The percentage of the ratio of pulse duration, or pulse width (PW) to
-the total period (T) of the waveform.&lt;/p&gt;
-&lt;pre class="code text literal-block"&gt;
-Duty Cycle = PW/T * 100%
-&lt;/pre&gt;
-&lt;p&gt;Details: &lt;a class="reference external" href="https://www.thethingsnetwork.org/docs/lorawan/duty-cycle.html"&gt;https://www.thethingsnetwork.org/docs/lorawan/duty-cycle.html&lt;/a&gt;&lt;/p&gt;
-&lt;div class="section" id="fair-access-policy"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id16"&gt;Fair Access Policy&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;The Things Network’s public community network, we have a Fair Access
-Policy that limits the uplink airtime to 30 seconds per day (24 hours)
-per node and the downlink messages to 10 messages per day (24 hours) per
-node. If you use a private network, these limits do not apply, but you
-still have to be compliant with the governmental and LoRaWAN limits.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="compliance"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id17"&gt;Compliance&lt;/a&gt;&lt;/h4&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Every radio device must be compliant with the regulated duty cycle
-limits. This applies to both nodes and gateways.&lt;/li&gt;
-&lt;li&gt;Calculate how much airtime each message consumes using one of the
-many &lt;a class="reference external" href="https://docs.google.com/spreadsheets/d/1QvcKsGeTTPpr9icj4XkKXq4r2zTc2j0gsHLrnplzM3I/edit"&gt;airtime calculators&lt;/a&gt;
-and use that information to choose a good transmit interval.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="security"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id18"&gt;Security&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;As I mentioned in the beginning of this article, LoRaWAN is designed
-with security in mind,&lt;/p&gt;
-&lt;p&gt;The basic idea is that communication should be secure on multiple
-levels. A Network Server does not need to be able to read the actual
-contents of the message if it’s not relevant for the network or
-infrastructure. Therefore there are two different keys in the picture
-during normal message exchange:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;The network session key (NwkSKey) is used to encrypt the whole frame
-(headers + payload) in case a MAC-command is sent. When data is sent,
-this key is used to sign the message which allows the network server
-to verify the identity of the sender&lt;/li&gt;
-&lt;li&gt;The application session key (AppSKey) is used to encrypt the payload
-in the frame. This key doesn’t need to be known by the Network Server
-to be able to know where to forward the message to. The application
-server then decrypts the information using the same key.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="section" id="joining-the-network"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id19"&gt;Joining the network&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;Until here, things are still quite understandable but the way that a
-device can join the network makes it more complicated. Since you
-wouldn’t want that for every application/use case, that the user is
-responsible for configuring network access/subscriptions/service
-provider choice but you also wouldn’t want any type of device to be tied
-to a specific network there re basically two ways of activating a device
-on a LoRa network.&lt;/p&gt;
-&lt;p&gt;The goal of this activation process is to get a NwkSKey, AppSKey and
-NwkAddr. Once these are received or configured, the rest of the
-communication is exactly the same for both of the activation methods.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="activation-by-personalization-abp"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id20"&gt;Activation By Personalization (ABP)&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;ABP is the most simple way to activate a LoRa device on a network. With
-ABP, the supplier of the device agrees with the network provider and
-buys/reserves a range of DevAddr from a network provider and
-pre-provisions his devices with this. Once the device is turned on, it’s
-immediately ready to send data. There is no over the air join process.&lt;/p&gt;
-&lt;p&gt;Steps in the progress:&lt;/p&gt;
-&lt;ol class="arabic simple"&gt;
-&lt;li&gt;Manufacturer.supplier of LoRa device buys connectivity from the
-network operator. AppSKey is generated in advance.&lt;/li&gt;
-&lt;li&gt;Service provider is delivering a NwkSKey and DevAddr for each DevEU.&lt;/li&gt;
-&lt;li&gt;Before shipping devices, they are pre-provisioned with: NwkSKey,
-AppSKey and DevAddr&lt;/li&gt;
-&lt;li&gt;On first use, there is no need to join the network and the device can
-communicate immediately as they already know the necessary
-information&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;div class="section" id="over-the-air-activation-otaa"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id21"&gt;Over The Air Activation (OTAA)&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;In the OTAA mode, an end node communicates with the network server to perform
-the activation process, which is called join procedure
-OTAA is a little more complicated but allows for devices to join any
-network in the range and doesn’t require a special agreement between
-network operator and the device supplier. As with ABP, the goal of the
-process is to become the NwkSKey, DevAddr and AppSKey for each device
-prior to sending actual data.&lt;/p&gt;
-&lt;p&gt;To retrieve this information in a secure way, there is an extra key
-involved which is pre-provisioned in the device: the Appkey.
-The Appkey is a different 128 bit key.&lt;/p&gt;
-&lt;p&gt;Steps in the OTAA join process:&lt;/p&gt;
-&lt;ol class="arabic simple"&gt;
-&lt;li&gt;LoRa Device sends JOIN_REQUEST (signed with AppKey). The join request
-contains the following information: AppEUI, DevEUI, DevNonce.
-DevNonce is a randomly generated number by the end node.
-An application key (AppKey) is preshared between the end node and the network server.&lt;/li&gt;
-&lt;li&gt;The Network Server receives the JOIN_REQUEST and calculates AppSKey
-and NwkSKey based on: AppKey, AppNonce, NetID and DevNonce. As with
-DevNonce, the AppNonce is randomly generated number by the network server.&lt;/li&gt;
-&lt;li&gt;Network Server generates JOIN_ACCEPT and includes AppNonce&lt;/li&gt;
-&lt;li&gt;Device receives JOIN_ACCEPT (encrypted with AppKey). The JOIN_ACCEPT
-contains the following information: AppNonce, NetID, DevAddr, RFU,
-RxDely, CFList Since at this point both the Network Server and LoRa
-device have the same information, the LoRa device can equally
-calculate the NwkSkey and AppSKey
-Finally, the whole join accept message is encrypted with the AppKey.&lt;/li&gt;
-&lt;li&gt;Transfer App_SKey&lt;/li&gt;
-&lt;li&gt;After receiving the join accept message, the end node decrypts it and
-generates session keys using extracted parameters.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;If reading carefully, you can see that at no point in the whole progress
-keys are sent over the air but only the missing parts of a calculation,
-from both sides are exchanged. This makes it impossible to generate any
-key by intercepting traffic over the air.&lt;/p&gt;
-&lt;p&gt;All the above explanation is far from complete but I hope that my brief
-explanation of it give a better understanding of this technology. I’ll
-try to add some clarifications and/or graphs/schemes in the near future.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="encode-decode-messages"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;Encode &amp;amp; Decode Messages&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Example server side decoder function&lt;/p&gt;
-&lt;pre class="code javascript literal-block"&gt;
-&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;bin2String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;array&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-   &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-   &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="nx"&gt;array&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;length&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-      &lt;span class="nx"&gt;result&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="nb"&gt;String&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;fromCharCode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;parseInt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;array&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
-  &lt;span class="p"&gt;}&lt;/span&gt;
-  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;result&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="section" id="find-the-device"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id8"&gt;4. Find the device&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Find device assigned address. The address is different each time we change the
+USB port it can be (enp0s20u1, or enp0s20u2 ...) this on Ubuntu machine.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# List usb device
+$ lsusb
 
-&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;Decoder&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;port&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;decoded&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{};&lt;/span&gt;
-   &lt;span class="nx"&gt;decoded&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;pm10&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-   &lt;span class="nx"&gt;decoded&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;pm25&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-   &lt;span class="nx"&gt;decoded&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;temperature&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mf"&gt;273.15&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-   &lt;span class="nx"&gt;decoded&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;humidity&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-   &lt;span class="nx"&gt;decoded&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;vbatt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
-   &lt;span class="nx"&gt;decoded&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;duration&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
-   &lt;span class="nx"&gt;decoded&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;version&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;bin2String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;slice&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;length&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
-   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;decoded&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;
-&lt;p&gt;Read more &lt;a class="reference external" href="https://www.thethingsnetwork.org/forum/t/is-there-any-documentation-on-payload-functions/3441/3"&gt;TTN Forum source&lt;/a&gt;&lt;/p&gt;
+# check interfaces
+$ ip a
+&lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="section" id="terminology"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id23"&gt;Terminology&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p class="first"&gt;LPWAN&lt;/p&gt;
-&lt;p&gt;Is not a single technology, but a group of various low-power, wide area
-network technologies that take many shapes and forms. LPWANs can use licensed
-or unlicensed frequencies and include proprietary or open standard options.
-Created for machine-to-machine (M2M) and internet of things (IoT) networks,
-LPWANs operate at a lower cost with greater power efficiency than traditional
-mobile networks. They are also able to support a greater number of connected
-devices over a larger area.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;Narrowband-IoT&lt;/p&gt;
-&lt;p&gt;(NB-IoT) and LTE-M are both 3rd Generation Partnership Project (3GPP)
-standards that operate on the licensed spectrum.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;Telemetry
-is the collection of measurements or other data at remote or inaccessible
-points and their automatic transmission to receiving equipment for
-monitoring. The word is derived from Greek the roots tele, &amp;quot;remote&amp;quot;, and
-metron, &amp;quot;measure&amp;quot;. source: &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Telemetry"&gt;wikipedia&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</content><category term="blog"></category><category term="lorawan"></category><category term="iot"></category><category term="network"></category></entry><entry><title>LoraWAN Reverse Beacon</title><link href="/lorawan-reverse-beacon.html" rel="alternate"></link><published>2018-05-27T00:00:00+02:00</published><updated>2018-05-27T00:00:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-05-27:/lorawan-reverse-beacon.html</id><summary type="html">&lt;p class="first last"&gt;Exploring LoraWAN coverage with drop node deployed higher than the receivers&lt;/p&gt;
-</summary><content type="html">&lt;div class="section" id="reverse-beacon"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;Reverse-Beacon&lt;/a&gt;&lt;/h2&gt;
-&lt;div class="contents topic" id="table-of-contents"&gt;
-&lt;p class="topic-title"&gt;Table of Contents&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#reverse-beacon" id="id14"&gt;Reverse-Beacon&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#location" id="id15"&gt;Location&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#internals" id="id16"&gt;Internals&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#summary" id="id17"&gt;Summary&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#parts" id="id18"&gt;Parts&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#sensors" id="id19"&gt;Sensors&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#sht10" id="id20"&gt;SHT10&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#internal-sensors" id="id21"&gt;Internal sensors&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#mpl3115a2" id="id22"&gt;MPL3115A2&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#si7006a20" id="id23"&gt;SI7006A20&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#current-voltage" id="id24"&gt;Current Voltage&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#components" id="id25"&gt;Components&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#milvent" id="id26"&gt;Milvent&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#li-po-battery" id="id27"&gt;Li-Po Battery&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#module" id="id28"&gt;Module&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#lopy" id="id29"&gt;LoPy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#pysense" id="id30"&gt;Pysense&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#antenna" id="id31"&gt;Antenna&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#connectors" id="id32"&gt;Connectors&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#i2c-hub" id="id33"&gt;I2C Hub&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#cables" id="id34"&gt;Cables&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#i2c-cable" id="id35"&gt;I2C Cable&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#i2c-jump-cable" id="id36"&gt;I2C Jump Cable&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#enclosure" id="id37"&gt;Enclosure&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#spacers-screws" id="id38"&gt;Spacers Screws&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#o-ring-seal" id="id39"&gt;O Ring Seal&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
+&lt;div class="section" id="setup-network-interfaces"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id9"&gt;4. Setup network interfaces&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Open Network connections manager (Ubuntu) and edit &lt;strong&gt;Wire connection&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ nm-connection-editor
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Select the new interface&lt;/p&gt;
 &lt;div class="figure"&gt;
+&lt;img alt="Wire interface setup 1" src="../images/pwnagotchi/setup-iface-1.png" /&gt;
+&lt;/div&gt;
+&lt;p&gt;Check the interface name&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Wire interface setup 2" src="../images/pwnagotchi/setup-iface-2.png" /&gt;
+&lt;/div&gt;
+&lt;p&gt;Add new static address under &lt;tt class="docutils literal"&gt;IPv4 Settings&lt;/tt&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;IP: 10.0.0.1
+Netmask: 255.255.255.0
+Gateway: 10.0.0.1
+DNS: 8.8.8.8 (or wathever)
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Wire interface setup 3" src="../images/pwnagotchi/setup-iface-3.png" /&gt;
+&lt;/div&gt;
+&lt;p&gt;Save and close and recheck the interface if settings are applied&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ip a
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="ssh-into-device"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id10"&gt;5. SSH into device&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Default password: &lt;strong&gt;raspberry&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ssh pi@10.0.0.2
+
+&lt;span class="c1"&gt;# Trubles with ssh&lt;/span&gt;
+&lt;span class="c1"&gt;# --&lt;/span&gt;
+&lt;span class="c1"&gt;# Received disconnect from 10.0.0.2 port 22:2: Too many authentication failures&lt;/span&gt;
+&lt;span class="c1"&gt;# Disconnected from 10.0.0.2 port 22&lt;/span&gt;
+&lt;span class="c1"&gt;# --&lt;/span&gt;
+
+$ ssh -o &lt;span class="nv"&gt;PreferredAuthentications&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;password pi@10.0.0.2
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="using-android-phone-for-interface"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id11"&gt;Using Android phone for interface&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Enable Bluetooth tethering on &amp;quot;Android phone&amp;quot; under:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Settings: Connections --&amp;gt; Mobile Hotspot and Tethering
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Then enable Bluetooth discovery scan on the phone.&lt;/p&gt;
+&lt;p&gt;Find phone MAC address:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Settings -&amp;gt; About Phone -&amp;gt; Status
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="section" id="find-phone-mac"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id12"&gt;1. Find phone MAC&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Now SSH into the pwnagotchi and run the following command to find the phone:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; This is just example MAC address &lt;tt class="docutils literal"&gt;E:DB:EE:F0:CO:FE&lt;/tt&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo bluetoothctl
+$ scan on
+
+......
+&lt;span class="o"&gt;[&lt;/span&gt;NEW&lt;span class="o"&gt;]&lt;/span&gt; Device DE:DB:EE:F0:CO:FE
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="edit-config"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id13"&gt;2. Edit config&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;For Android phones default address is &lt;tt class="docutils literal"&gt;192.168.44.x&lt;/tt&gt; maybe :)&lt;/p&gt;
+&lt;p&gt;Add to &lt;tt class="docutils literal"&gt;/etc/pwnagotchi config.yml&lt;/tt&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;bt-tether&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="nt"&gt;enabled&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;true&lt;/span&gt;
+  &lt;span class="nt"&gt;devices&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;CHANGE_TO_PHONE_NAME&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+      &lt;span class="nt"&gt;enabled&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;true&lt;/span&gt;
+      &lt;span class="nt"&gt;search_order&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;1&lt;/span&gt;
+      &lt;span class="nt"&gt;mac&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;DE:DB:EE:F0:CO:FE&amp;#39;&lt;/span&gt;
+      &lt;span class="nt"&gt;ip&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;192.168.44.44&amp;#39;&lt;/span&gt;
+      &lt;span class="nt"&gt;netmask&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;24&lt;/span&gt;
+      &lt;span class="nt"&gt;interval&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;1&lt;/span&gt;
+      &lt;span class="nt"&gt;scantime&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;15&lt;/span&gt;
+      &lt;span class="nt"&gt;share_internet&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;true&lt;/span&gt;
+      &lt;span class="nt"&gt;priority&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;99&lt;/span&gt;
+      &lt;span class="nt"&gt;max_tries&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;0&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="paring"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id14"&gt;3. Paring&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Paring with phone&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pair DE:DB:EE:F0:CO:FE
+...&lt;span class="o"&gt;(&lt;/span&gt;pair&lt;span class="o"&gt;)&lt;/span&gt; yes/no
+yes
+
+&lt;span class="c1"&gt;# here your phone will ask if you want to pair with some code ... say yes on phone and yes in terminal&lt;/span&gt;
+trust DE:DB:EE:F0:CO:FE
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="restart-in-auto-mode"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id15"&gt;4. Restart in AUTO mode&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Shutdown pwnagotchi&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo shutdown -h now
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Change Micro-USB into &lt;strong&gt;POWR port&lt;/strong&gt; on PI and plug into Power Bank or any other 5V power supply&lt;/p&gt;
+&lt;p&gt;Wait.... the Bluetooth connection with pwnagotchi need to established.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="verify-bt-pan-addres"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id16"&gt;4. Verify bt-pan addres&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Verify if address added to config &lt;tt class="docutils literal"&gt;192.168.44.44&lt;/tt&gt; is correct!&lt;/p&gt;
+&lt;p&gt;Using Termux on phone (note: the BT connection need to be established, to list the bt-pan interface)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# ifconfig bt-pan&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="access-the-web-ui-on-phone"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id17"&gt;5. Access the Web UI on phone&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Open phone browser and point to url:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;http://192.168.44.44:8080
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And now wait .. 15min or more for AI to begin&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="projects"></category><category term="wireless"></category><category term="network"></category><category term="ai"></category><category term="rl"></category><category term="hacktheplanet"></category></entry><entry><title>LoraWAN Reverse Beacon</title><link href="/lorawan-reverse-beacon.html" rel="alternate"></link><published>2018-05-27T00:00:00+02:00</published><updated>2018-05-27T00:00:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-05-27:/lorawan-reverse-beacon.html</id><summary type="html">&lt;p class="first last"&gt;Exploring LoraWAN coverage with drop node deployed higher than the receivers&lt;/p&gt;
+</summary><content type="html">&lt;div class="figure"&gt;
 &lt;img alt="Data visulaization" src="../images/device/sabotin01/sabotin01_charts.png" /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;View archived data&lt;/strong&gt;: &lt;a class="reference external" href="https://lepavida.iot.novagorica.eu/d/000000012/sabotin01-archive?orgId=1&amp;amp;from=1527409859151&amp;amp;to=1538318789963"&gt;sabotin01&lt;/a&gt;&lt;/p&gt;
+&lt;div class="contents topic" id="table-of-contents"&gt;
+&lt;p class="topic-title"&gt;Table of Contents&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#location" id="id14"&gt;Location&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#internals" id="id15"&gt;Internals&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#summary" id="id16"&gt;Summary&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#parts" id="id17"&gt;Parts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#sensors" id="id18"&gt;Sensors&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#sht10" id="id19"&gt;SHT10&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#internal-sensors" id="id20"&gt;Internal sensors&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#mpl3115a2" id="id21"&gt;MPL3115A2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#si7006a20" id="id22"&gt;SI7006A20&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#current-voltage" id="id23"&gt;Current Voltage&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#components" id="id24"&gt;Components&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#milvent" id="id25"&gt;Milvent&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#li-po-battery" id="id26"&gt;Li-Po Battery&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#module" id="id27"&gt;Module&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#lopy" id="id28"&gt;LoPy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#pysense" id="id29"&gt;Pysense&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#antenna" id="id30"&gt;Antenna&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#connectors" id="id31"&gt;Connectors&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#i2c-hub" id="id32"&gt;I2C Hub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#cables" id="id33"&gt;Cables&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#i2c-cable" id="id34"&gt;I2C Cable&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#i2c-jump-cable" id="id35"&gt;I2C Jump Cable&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#enclosure" id="id36"&gt;Enclosure&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#spacers-screws" id="id37"&gt;Spacers Screws&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#o-ring-seal" id="id38"&gt;O Ring Seal&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;hr class="docutils" /&gt;
 &lt;p&gt;Status project:&lt;/p&gt;
@@ -636,9 +292,8 @@ reporting what stations they hear, when and how well.&lt;/p&gt;
 &lt;li&gt;Atmospheric pressure&lt;/li&gt;
 &lt;li&gt;Device internal (temperature, humidity and current voltage)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Link to public archived data: &lt;a class="reference external" href="https://lepavida.iot.novagorica.eu/d/000000012/sabotin01-archive"&gt;sabotin01&lt;/a&gt;&lt;/p&gt;
 &lt;div class="section" id="location"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id15"&gt;Location&lt;/a&gt;&lt;/h3&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id14"&gt;Location&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Sabotin (top)
 Geo location: 45.9883, 13.63469&lt;/p&gt;
 &lt;div class="figure"&gt;
@@ -667,21 +322,21 @@ Geo location: 45.9883, 13.63469&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="internals"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id16"&gt;Internals&lt;/a&gt;&lt;/h3&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id15"&gt;Internals&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="Device internals" src="../images/device/sabotin01/sabotin01_internals_01.jpg" /&gt;
 &lt;p class="caption"&gt;Device internals&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="summary"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id17"&gt;Summary&lt;/a&gt;&lt;/h3&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id16"&gt;Summary&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;To be aware, dispose of the device/node in nature with any LiPo/Li-Ion battery it can
 be a dangerous think, from fire ignition perspectives. The purpose of this
 experiment was show case for monitoring the temperature of undergrowth in fire
 alarming scenario!&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="parts"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id18"&gt;Parts&lt;/a&gt;&lt;/h3&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id17"&gt;Parts&lt;/a&gt;&lt;/h2&gt;
 &lt;table border="1" class="docutils"&gt;
 &lt;caption&gt;Table of all hardware components included in device&lt;/caption&gt;
 &lt;colgroup&gt;
@@ -772,9 +427,9 @@ alarming scenario!&lt;/p&gt;
 &lt;/table&gt;
 &lt;/div&gt;
 &lt;div class="section" id="sensors"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id19"&gt;Sensors&lt;/a&gt;&lt;/h3&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id18"&gt;Sensors&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="sht10"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id20"&gt;SHT10&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id19"&gt;SHT10&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="SHT10" src="../images/components/sabotin01/sht10.jpg" /&gt;
 &lt;/div&gt;
@@ -817,9 +472,9 @@ alarming scenario!&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="internal-sensors"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id21"&gt;Internal sensors&lt;/a&gt;&lt;/h3&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id20"&gt;Internal sensors&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="mpl3115a2"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id22"&gt;MPL3115A2&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id21"&gt;MPL3115A2&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Barometric Pressure Sensor with Altimeter (MPL3115A2)&lt;/p&gt;
 &lt;div class="admonition note"&gt;
 &lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
@@ -829,7 +484,7 @@ For more information see &lt;a class="reference external" href="https://docs.pyc
 &lt;p&gt;Monitor measurements inside device enclosure&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="si7006a20"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id23"&gt;SI7006A20&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;SI7006A20&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Humidity and Temperature Sensor (SI7006A20)&lt;/p&gt;
 &lt;div class="admonition note"&gt;
 &lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
@@ -837,15 +492,15 @@ For more information see &lt;a class="reference external" href="https://docs.pyc
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="current-voltage"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id24"&gt;Current Voltage&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id23"&gt;Current Voltage&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Monitor power supply current voltage&lt;/p&gt;
 &lt;p&gt;Using on module Analog to Digital Conversion&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="components"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id25"&gt;Components&lt;/a&gt;&lt;/h3&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id24"&gt;Components&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="milvent"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id26"&gt;Milvent&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id25"&gt;Milvent&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Protective vents pressure balance valve&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;M12*1.5&lt;/li&gt;
@@ -858,7 +513,7 @@ For more information see &lt;a class="reference external" href="https://docs.pyc
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="li-po-battery"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id27"&gt;Li-Po Battery&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id26"&gt;Li-Po Battery&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;LI-PO 3.7V 2200mAH Polymer Lithium Ion&lt;/p&gt;
 &lt;p&gt;Features:&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -877,9 +532,9 @@ For more information see &lt;a class="reference external" href="https://docs.pyc
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="module"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id28"&gt;Module&lt;/a&gt;&lt;/h3&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id27"&gt;Module&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="lopy"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id29"&gt;LoPy&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id28"&gt;LoPy&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;MicroPython enabled microcontroller&lt;/p&gt;
 &lt;p&gt;LoPy Features:&lt;/p&gt;
 &lt;ul class="simple"&gt;
@@ -967,7 +622,7 @@ For more information see &lt;a class="reference external" href="https://docs.pyc
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="pysense"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id30"&gt;Pysense&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id29"&gt;Pysense&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Features&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;Ambient light sensor&lt;/li&gt;
@@ -987,7 +642,7 @@ For more information see &lt;a class="reference external" href="https://docs.pyc
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="antenna"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id31"&gt;Antenna&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id30"&gt;Antenna&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;LoRa (868MHz/915MHz)&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;External antenna.&lt;/li&gt;
@@ -997,9 +652,9 @@ For more information see &lt;a class="reference external" href="https://docs.pyc
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="connectors"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id32"&gt;Connectors&lt;/a&gt;&lt;/h3&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id31"&gt;Connectors&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="section" id="i2c-hub"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id33"&gt;I2C Hub&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id32"&gt;I2C Hub&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;I2C Hub Grove is an extension Grove module for connecting multiply I2C devices&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;Use with cable:  Universal 4 Pin to X2 4 Pin cable&lt;/li&gt;
@@ -1040,7 +695,7 @@ For more information see &lt;a class="reference external" href="https://docs.pyc
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="cables"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id34"&gt;Cables&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id33"&gt;Cables&lt;/a&gt;&lt;/h3&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;20cm - 4 Pin Grove I2C cable with connector&lt;/li&gt;
 &lt;li&gt;5cm - 4 Pin Grove I2C cable with connector&lt;/li&gt;
@@ -1048,13 +703,13 @@ For more information see &lt;a class="reference external" href="https://docs.pyc
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="i2c-cable"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id35"&gt;I2C Cable&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id34"&gt;I2C Cable&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="I2C cable 10cm" src="../images/components/i2c_cable_10cm.jpg" /&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="i2c-jump-cable"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id36"&gt;I2C Jump Cable&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id35"&gt;I2C Jump Cable&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Jumper Wires&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="I2C cable 5cm" src="../images/components/i2c_cable_5cm.jpg" /&gt;
@@ -1062,25 +717,27 @@ For more information see &lt;a class="reference external" href="https://docs.pyc
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="enclosure"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id37"&gt;Enclosure&lt;/a&gt;&lt;/h3&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id36"&gt;Enclosure&lt;/a&gt;&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;Dimensions: 8.8 x 14.6 x 3.3 cm&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="section" id="spacers-screws"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id38"&gt;Spacers Screws&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id37"&gt;Spacers Screws&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Screws for mounting internals&lt;/p&gt;
 &lt;p&gt;Type: M2&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="o-ring-seal"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id39"&gt;O Ring Seal&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id38"&gt;O Ring Seal&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Flexible Rubber O Ring Seal Washer Gasket Black&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;Dimensions: OD 16mm x CS 2mm&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+</content><category term="projects"></category><category term="iot"></category><category term="python"></category><category term="lorawan"></category></entry><entry><title>Setup LoRaWAN gateway</title><link href="/setup-lorawan-gateway.html" rel="alternate"></link><published>2017-09-03T22:46:00+02:00</published><updated>2020-03-12T11:22:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-09-03:/setup-lorawan-gateway.html</id><summary type="html">Notes for assembling LoRaWAN gateway</summary><content type="html">&lt;div class="figure"&gt;
+&lt;img alt="Image" src="images/lorawan-gw/2019-08-31_15.33.53.jpg" /&gt;
 &lt;/div&gt;
-</content><category term="blog"></category><category term="iot"></category><category term="python"></category><category term="lorawan"></category><category term="reverse_beacon"></category></entry><entry><title>Setup LoRaWAN gateway</title><link href="/setup-lorawan-gateway.html" rel="alternate"></link><published>2017-09-03T22:46:00+02:00</published><updated>2020-03-12T11:22:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-09-03:/setup-lorawan-gateway.html</id><summary type="html">Notes for assembling LoRaWAN gateway</summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
+&lt;div class="contents topic" id="table-of-contents"&gt;
 &lt;p class="topic-title"&gt;Table of Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#setup-lorawan-gateway" id="id1"&gt;Setup LoRaWAN Gateway&lt;/a&gt;&lt;ul&gt;
@@ -1421,8 +1078,11 @@ with IMST ic800a backplate and Raspberry pi.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="blog"></category><category term="iot"></category><category term="lorawan"></category><category term="gateway"></category><category term="network"></category><category term="ic880a"></category></entry><entry><title>Smart Agriculture Prototype</title><link href="/vinode.html" rel="alternate"></link><published>2017-03-28T21:48:00+02:00</published><updated>2020-03-12T11:22:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-03-28:/vinode.html</id><summary type="html">&lt;p class="first last"&gt;DIY - device for taking micro climate measurements&lt;/p&gt;
-</summary><content type="html">&lt;div class="contents topic" id="table-of-contents"&gt;
+</content><category term="projects"></category><category term="iot"></category><category term="lorawan"></category><category term="gateway"></category><category term="network"></category><category term="ic880a"></category></entry><entry><title>Smart Agriculture Prototype</title><link href="/vinode.html" rel="alternate"></link><published>2017-03-28T21:48:00+02:00</published><updated>2020-03-12T11:22:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-03-28:/vinode.html</id><summary type="html">&lt;p class="first last"&gt;DIY - device for taking micro climate measurements&lt;/p&gt;
+</summary><content type="html">&lt;div class="figure"&gt;
+&lt;a class="reference external image-reference" href="https://lepavida.iot.novagorica.eu/d/BfjRxSpWz/vinode?orgId=1&amp;amp;refresh=30s&amp;amp;from=now-30d&amp;amp;to=now"&gt;&lt;img alt="Vinode" src="images/device/vinode/vinode.jpg" /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class="contents topic" id="table-of-contents"&gt;
 &lt;p class="topic-title"&gt;Table of Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#vinode" id="id1"&gt;Vinode&lt;/a&gt;&lt;ul&gt;
@@ -1453,10 +1113,7 @@ Collecting data from orchard/vineyards with purpose to support/help/extends the
 decisions in deals with pests/diseases.&lt;/p&gt;
 &lt;div class="section" id="vinode"&gt;
 &lt;h2&gt;&lt;a class="toc-backref" href="#id1"&gt;Vinode&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Live data:&lt;/strong&gt; &lt;a class="reference external" href="https://lepavida.iot.novagorica.eu/d/BfjRxSpWz/vinode?orgId=1&amp;amp;refresh=30s&amp;amp;from=now-30d&amp;amp;to=now"&gt;https://lepavida.iot.novagorica.eu&lt;/a&gt;&lt;/p&gt;
-&lt;div class="figure"&gt;
-&lt;a class="reference external image-reference" href="https://lepavida.iot.novagorica.eu/d/BfjRxSpWz/vinode?orgId=1&amp;amp;refresh=30s&amp;amp;from=now-30d&amp;amp;to=now"&gt;&lt;img alt="Vinode" src="images/device/vinode/vinode.jpg" /&gt;&lt;/a&gt;
-&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;View archived data:&lt;/strong&gt; &lt;a class="reference external" href="https://lepavida.iot.novagorica.eu/d/BfjRxSpWz/vinode?orgId=1&amp;amp;refresh=30s&amp;amp;from=now-30d&amp;amp;to=now"&gt;https://lepavida.iot.novagorica.eu&lt;/a&gt;&lt;/p&gt;
 &lt;div class="section" id="issue"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="#id2"&gt;Issue&lt;/a&gt;&lt;/h3&gt;
 &lt;ul class="simple"&gt;
@@ -1877,53 +1534,52 @@ the air&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="blog"></category><category term="lorawan"></category><category term="iot"></category><category term="python"></category><category term="micropython"></category></entry><entry><title>MicroPython and Lopy</title><link href="/micropython-lopy.html" rel="alternate"></link><published>2017-03-17T00:31:00+01:00</published><updated>2019-05-05T21:07:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-03-17:/micropython-lopy.html</id><summary type="html">&lt;p class="first last"&gt;How to setup and use lorawan device, using MicroPython and Lopy
+</content><category term="projects"></category><category term="lorawan"></category><category term="iot"></category><category term="python"></category><category term="micropython"></category></entry><entry><title>MicroPython and Lopy</title><link href="/micropython-lopy.html" rel="alternate"></link><published>2017-03-17T00:31:00+01:00</published><updated>2019-05-05T21:07:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-03-17:/micropython-lopy.html</id><summary type="html">&lt;p class="first last"&gt;How to setup and use lorawan device, using MicroPython and Lopy
 (ESP-32) module&lt;/p&gt;
-</summary><content type="html">&lt;div class="section" id="micropython-and-lopy"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id2"&gt;Micropython and Lopy&lt;/a&gt;&lt;/h2&gt;
+</summary><content type="html">&lt;div class="figure"&gt;
+&lt;img alt="Lopy Module Image" src="images/components/lopy-banner.jpg" /&gt;
+&lt;/div&gt;
 &lt;p&gt;About ruining Python on bare metal, using &lt;a class="reference external" href="https://pycom.io/"&gt;Pycom&lt;/a&gt; Lopy and &lt;a class="reference external" href="https://micropython.org/"&gt;Micropython&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a class="reference internal" href="#awesome-micropython"&gt;Awesome MicroPython&lt;/a&gt;
-.. &lt;span class="target" id="awesome-micropython"&gt;Awesome MicroPython&lt;/span&gt;: &lt;a class="reference external" href="https://python.awesome-programming.com/en/awesome/gh-100020/awesome-micropython"&gt;https://python.awesome-programming.com/en/awesome/gh-100020/awesome-micropython&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;More at &lt;a class="reference external" href="https://python.awesome-programming.com/en/awesome/gh-100020/awesome-micropython"&gt;Awesome MicroPython&lt;/a&gt;&lt;/p&gt;
 &lt;div class="contents topic" id="table-of-contents"&gt;
 &lt;p class="topic-title"&gt;Table of Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#micropython-and-lopy" id="id2"&gt;Micropython and Lopy&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#lopy" id="id3"&gt;Lopy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#start" id="id4"&gt;Start&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#ftp" id="id5"&gt;FTP&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#telnet" id="id6"&gt;Telnet&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#serial" id="id7"&gt;Serial&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#lopy" id="id2"&gt;Lopy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#start" id="id3"&gt;Start&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#ftp" id="id4"&gt;FTP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#telnet" id="id5"&gt;Telnet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#serial" id="id6"&gt;Serial&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#code-example" id="id8"&gt;Code example&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#config-file" id="id9"&gt;Config file&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#boot-file" id="id10"&gt;Boot file&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#main-file" id="id11"&gt;Main file&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#code-example" id="id7"&gt;Code example&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#config-file" id="id8"&gt;Config file&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#boot-file" id="id9"&gt;Boot file&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#main-file" id="id10"&gt;Main file&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#code-snippets" id="id12"&gt;Code snippets&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#building-a-firmware-image" id="id13"&gt;Building a firmware image&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#requirements" id="id14"&gt;Requirements&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#debian-ubuntu" id="id15"&gt;Debian/Ubuntu&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#build-environment" id="id16"&gt;Build environment&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#source-code" id="id17"&gt;Source code&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#xtensa" id="id18"&gt;Xtensa&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#esp-idf" id="id19"&gt;ESP-IDF&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#build-process" id="id20"&gt;Build process&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#rebuild-process" id="id21"&gt;Rebuild process&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#code-snippets" id="id11"&gt;Code snippets&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#building-a-firmware-image" id="id12"&gt;Building a firmware image&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#requirements" id="id13"&gt;Requirements&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#debian-ubuntu" id="id14"&gt;Debian/Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#build-environment" id="id15"&gt;Build environment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#source-code" id="id16"&gt;Source code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#xtensa" id="id17"&gt;Xtensa&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#esp-idf" id="id18"&gt;ESP-IDF&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#build-process" id="id19"&gt;Build process&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#rebuild-process" id="id20"&gt;Rebuild process&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#encryption" id="id22"&gt;Encryption&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#reference" id="id23"&gt;Reference&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#encryption" id="id21"&gt;Encryption&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#reference" id="id22"&gt;Reference&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#firmware-update" id="id23"&gt;Firmware Update&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a class="reference internal" href="#firmware-update" id="id24"&gt;Firmware Update&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="lopy"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id3"&gt;Lopy&lt;/a&gt;&lt;/h3&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id2"&gt;Lopy&lt;/a&gt;&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://docs.pycom.io/"&gt;Official documentation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://docs.pycom.io/gitbook/assets/lopy4-pinout.pdf"&gt;Pinout&lt;/a&gt;&lt;/li&gt;
@@ -1931,26 +1587,26 @@ the air&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="start"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id4"&gt;Start&lt;/a&gt;&lt;/h3&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id3"&gt;Start&lt;/a&gt;&lt;/h2&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;5V&lt;/li&gt;
 &lt;li&gt;Micro USB cable&lt;/li&gt;
 &lt;li&gt;Lopy and board (Expansion, Pysense, Pytrack..)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="section" id="ftp"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id5"&gt;FTP&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id4"&gt;FTP&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Connect to access point with name &lt;cite&gt;lopy-[random characters]&lt;/cite&gt; and credentials:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;u: admin
 p: www.pycom.io
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="telnet"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id6"&gt;Telnet&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id5"&gt;Telnet&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ telent &lt;span class="m"&gt;192&lt;/span&gt;.168.4.1
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="serial"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id7"&gt;Serial&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id6"&gt;Serial&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Connecting to UART we can use any program rshell or minicom, screen..&lt;/p&gt;
 &lt;p&gt;Get information about ports:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dmesg &lt;span class="p"&gt;|&lt;/span&gt; egrep --color &lt;span class="s1"&gt;&amp;#39;serial|ttyS&amp;#39;&lt;/span&gt;
@@ -1983,7 +1639,7 @@ content
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="code-example"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id8"&gt;Code example&lt;/a&gt;&lt;/h3&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id7"&gt;Code example&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Project structure&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;project/
 ├── lib/       &amp;lt;--- Place for sensors drivers
@@ -1992,7 +1648,7 @@ content
 └── main.py    &amp;lt;--- Executed after boot
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="config-file"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id9"&gt;Config file&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id8"&gt;Config file&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# config.py&lt;/span&gt;
 
 &lt;span class="n"&gt;DEV_ID&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;lt;DEV_ID_REGISTERED_ON_LORA_SERVER&amp;quot;&lt;/span&gt;
@@ -2033,7 +1689,7 @@ content
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="boot-file"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id10"&gt;Boot file&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id9"&gt;Boot file&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# boot.py -- run on boot-up&lt;/span&gt;
 
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
@@ -2048,7 +1704,7 @@ content
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="main-file"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id11"&gt;Main file&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id10"&gt;Main file&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
 &lt;span class="sd"&gt;Basic LoRa example based on OTAA (Over The Air Authentication)&lt;/span&gt;
 &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
@@ -2158,7 +1814,7 @@ content
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="code-snippets"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id12"&gt;Code snippets&lt;/a&gt;&lt;/h3&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id11"&gt;Code snippets&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;work_handler&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;alarm&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
         &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Do some work here...&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
@@ -2166,12 +1822,12 @@ content
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="building-a-firmware-image"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id13"&gt;Building a firmware image&lt;/a&gt;&lt;/h3&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id12"&gt;Building a firmware image&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="figure align-center"&gt;
 &lt;img alt="Output console image" src="./images/iot/pycom-build.png" /&gt;
 &lt;/div&gt;
 &lt;div class="section" id="requirements"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id14"&gt;Requirements&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id13"&gt;Requirements&lt;/a&gt;&lt;/h3&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;Pycom MicroPython source code&lt;/li&gt;
 &lt;li&gt;Xtensa gcc compiler&lt;/li&gt;
@@ -2179,19 +1835,19 @@ content
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="debian-ubuntu"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id15"&gt;Debian/Ubuntu&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id14"&gt;Debian/Ubuntu&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install gcc git wget make libncurses-dev flex bison gperf
 python python-serial
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="build-environment"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id16"&gt;Build environment&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id15"&gt;Build environment&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Make build project directory&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; mkdir pycom-build
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="source-code"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id17"&gt;Source code&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id16"&gt;Source code&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Get Pycom MicroPython source code&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git clone https://github.com/pycom/pycom-micropython-sigfox
 &lt;/pre&gt;&lt;/div&gt;
@@ -2219,7 +1875,7 @@ $ git checkout v1.18.0.r1
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="xtensa"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id18"&gt;Xtensa&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id17"&gt;Xtensa&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Install xtensa gcc compiler&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build
 $ wget https://dl.espressif.com/dl/xtensa-esp32-elf-linux64-1.22.0-80-g6c4433a-5.2.0.tar.gz
@@ -2236,7 +1892,7 @@ $ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/spa
 export command!&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="esp-idf"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id19"&gt;ESP-IDF&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id18"&gt;ESP-IDF&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Install ESP-IDF tools&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build
 $ git clone https://github.com/pycom/pycom-esp-idf.git
@@ -2253,7 +1909,7 @@ $ &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;IDF_PATH&lt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class="section" id="build-process"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id20"&gt;Build process&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id19"&gt;Build process&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Read this first: &lt;a class="reference external" href="https://github.com/pycom/pycom-micropython-sigfox"&gt;https://github.com/pycom/pycom-micropython-sigfox&lt;/a&gt;&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;ol class="first arabic"&gt;
@@ -2313,7 +1969,7 @@ $ make &lt;span class="nv"&gt;ESPPORT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/sp
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="rebuild-process"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id21"&gt;Rebuild process&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id20"&gt;Rebuild process&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Making rebuild looks like this:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$PATH&lt;/span&gt;:&lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/xtensa-esp32-elf/bin
 &lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;IDF_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/pycom-build/pycom-esp-idf
@@ -2325,21 +1981,18 @@ make &lt;span class="nv"&gt;BOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&g
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="encryption"&gt;
-&lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;Encryption&lt;/a&gt;&lt;/h3&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id21"&gt;Encryption&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Use make SECURE=on [optionally SECURE_KEY ?= secure_boot_signing_key.pem] to
 enable Secure Boot and Flash Encryption mechanisms.&lt;/p&gt;
 &lt;p&gt;Use make V=1 or set BUILD_VERBOSE in your environment to increase build
 verbosity.&lt;/p&gt;
 &lt;div class="section" id="reference"&gt;
-&lt;h4&gt;&lt;a class="toc-backref" href="#id23"&gt;Reference&lt;/a&gt;&lt;/h4&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id22"&gt;Reference&lt;/a&gt;&lt;/h3&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference external" href="https://github.com/pycom/pycom-micropython-sigfox#the-esp32-version"&gt;pycom micropython&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
 &lt;div class="section" id="firmware-update"&gt;
-&lt;h2&gt;&lt;a class="toc-backref" href="#id24"&gt;Firmware Update&lt;/a&gt;&lt;/h2&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id23"&gt;Firmware Update&lt;/a&gt;&lt;/h4&gt;
 &lt;table border="1" class="docutils"&gt;
 &lt;caption&gt;Programming Modes&lt;/caption&gt;
 &lt;colgroup&gt;
@@ -2372,4 +2025,6 @@ verbosity.&lt;/p&gt;
 &lt;img alt="Lopy Module Image" src="images/components/lopy-progmode.jpg" /&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="blog"></category><category term="iot"></category><category term="python"></category><category term="lorawan"></category><category term="micropython"></category><category term="esp32"></category></entry></feed>
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="projects"></category><category term="iot"></category><category term="python"></category><category term="lorawan"></category><category term="micropython"></category><category term="esp32"></category></entry></feed>
