@@ -5,42 +5,42 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/</loc>
-<lastmod>2020-08-19T22:13:28-00:00</lastmod>
+<lastmod>2020-08-19T23:09:27-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/tags.html</loc>
-<lastmod>2020-08-19T22:13:28-00:00</lastmod>
+<lastmod>2020-08-19T23:09:27-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/categories.html</loc>
-<lastmod>2020-08-19T22:13:28-00:00</lastmod>
+<lastmod>2020-08-19T23:09:27-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/authors.html</loc>
-<lastmod>2020-08-19T22:13:28-00:00</lastmod>
+<lastmod>2020-08-19T23:09:27-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/archives.html</loc>
-<lastmod>2020-08-19T22:13:28-00:00</lastmod>
+<lastmod>2020-08-19T23:09:27-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/search.html</loc>
-<lastmod>2020-08-19T22:13:28-00:00</lastmod>
+<lastmod>2020-08-19T23:09:27-00:00</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -50,6 +50,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <lastmod>2018-05-03T09:14:30+02:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
+</url>
+
+<url>
+<loc>/movies.html</loc>
+<lastmod>2020-08-19T22:08:00+02:00</lastmod>
+<changefreq>always</changefreq>
+<priority>1</priority>
 </url>
 
 <url>
@@ -179,8 +186,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>/category/wtf.html</loc>
-<lastmod>2018-05-03T06:14:30+01:22</lastmod>
+<loc>/category/waw.html</loc>
+<lastmod>2020-08-19T22:08:00+01:22</lastmod>
+<changefreq>hourly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/tag/movies.html</loc>
+<lastmod>2020-08-19T22:08:00+01:22</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -397,7 +411,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/author/tomaz.html</loc>
-<lastmod>2020-04-05T17:29:00+01:22</lastmod>
+<lastmod>2020-08-19T22:08:00+01:22</lastmod>
 <changefreq>hourly</changefreq>
 <priority>0.5</priority>
 </url>
