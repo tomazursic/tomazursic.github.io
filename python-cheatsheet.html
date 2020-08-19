@@ -1065,7 +1065,11 @@ python -m smtpd -n -c DebuggingServer localhost:25
 
   // Handle site search
   $(document).ready(function() {
-    console.log("Hello")
+    console.log(`%c
+    |_|0|_|
+    |_|_|0|
+    |0|0|0|
+        `, "font-family:monospace")
 
     // Search handler
      $('#tipue_search_input').tipuesearch({
@@ -1087,9 +1091,9 @@ python -m smtpd -n -c DebuggingServer localhost:25
     })
 
     // Focus the search input by default
-    window.onload = function() {
-      var input = document.getElementById("tipue_search_input").focus();
-    }
+    //window.onload = function() {
+    //  var input = document.getElementById("tipue_search_input").focus();
+    //}
 
   });
 

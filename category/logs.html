@@ -105,6 +105,9 @@
                         <a class="url fn" href="/tag/tools.html">tools</a>
                     </div>
                 </footer><!-- /.post-info -->
+                <div class="figure banner">
+                    <img alt="" src="../images/vim/neovim-banner.png">
+                </div>
 
                 <div class="entry-content"> Cheatsheet and notes for (neo)vim editor </div><!-- /.entry-content -->
         </article></li>
@@ -255,7 +258,11 @@
 
   // Handle site search
   $(document).ready(function() {
-    console.log("Hello")
+    console.log(`%c
+    |_|0|_|
+    |_|_|0|
+    |0|0|0|
+        `, "font-family:monospace")
 
     // Search handler
      $('#tipue_search_input').tipuesearch({
@@ -277,9 +284,9 @@
     })
 
     // Focus the search input by default
-    window.onload = function() {
-      var input = document.getElementById("tipue_search_input").focus();
-    }
+    //window.onload = function() {
+    //  var input = document.getElementById("tipue_search_input").focus();
+    //}
 
   });
 

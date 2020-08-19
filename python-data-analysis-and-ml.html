@@ -304,7 +304,11 @@ system. Some features my not be useful enough to separate the data points.</p>
 
   // Handle site search
   $(document).ready(function() {
-    console.log("Hello")
+    console.log(`%c
+    |_|0|_|
+    |_|_|0|
+    |0|0|0|
+        `, "font-family:monospace")
 
     // Search handler
      $('#tipue_search_input').tipuesearch({
@@ -326,9 +330,9 @@ system. Some features my not be useful enough to separate the data points.</p>
     })
 
     // Focus the search input by default
-    window.onload = function() {
-      var input = document.getElementById("tipue_search_input").focus();
-    }
+    //window.onload = function() {
+    //  var input = document.getElementById("tipue_search_input").focus();
+    //}
 
   });
 
