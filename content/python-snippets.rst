@@ -514,7 +514,7 @@ Inverting a dictionary using zip
     dict(map(reversed, di.items()))
 
 Merge dictionary
----------------
+----------------
 
 Copy and update
 ~~~~~~~~~~~~~~~
