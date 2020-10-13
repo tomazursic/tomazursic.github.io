@@ -111,6 +111,74 @@ Profiling
     elapsed_time = time.perf_counter() - start
     print("Elapsed time: {}".format(elapsed_time))
 
+Timer
+-----
+
+.. code-block:: python
+
+    import signal
+    from time import sleep
+    import socket
+
+    try:
+        TimeoutError
+    except NameError:
+        # Python2
+        TimeoutError = socket.timeout
+
+
+    class Timeout:
+        def __init__(self, seconds, timeout_message=""):
+            self.seconds = int(seconds)
+            self.timeout_message = timeout_message
+
+        def _timeout_handler(self, signum, frame):
+            print(self.timeout_message)
+            raise TimeoutError(self.timeout_message)
+
+        def __enter__(self):
+            signal.signal(signal.SIGALRM, self._timeout_handler)  # Set handler for SIGALRM
+            signal.alarm(self.seconds)  # start countdown for SIGALRM to be raised
+
+        def __exit__(self, exc_type, exc_val, exc_tb):
+            signal.alarm(0)  # Cancel SIGALRM if it's scheduled
+            return exc_type is TimeoutError  # Suppress TimeoutError
+
+
+    with Timeout(3, timeout_message="Timeout message!"):
+        # Some long running task...
+        sleep(10)
+
+
+Logging
+-------
+
+.. code-block:: python
+
+    import logging
+    from contextlib import contextmanager
+
+
+    @contextmanager
+    def log(level):
+        logger = logging.getLogger()
+        current_level = logger.getEffectiveLevel()
+        logger.setLevel(level)
+        try:
+            yield
+        finally:
+            logger.setLevel(current_level)
+
+
+    def some_function():
+        logging.debug("Debug level information...")
+        logging.error("Error...")
+        logging.warning("Warning message...")
+
+
+    with log(logging.DEBUG):
+        some_function()
+
 
 FizzBuzz
 --------
@@ -345,7 +413,7 @@ Argaparse
        parser = argparse.ArgumentParser(description='Create Marketing Report')
        parser.add_argument('--accounts',
                            action='store_true',
-                           help='Process Account Data)
+                           help='Process Account Data')
        parser.add_argument('--sales',
                            action='store_true',
                            help='Process Sales Data')
@@ -445,7 +513,7 @@ Inverting a dictionary using zip
 
     dict(map(reversed, di.items()))
 
-Mege dictionary
+Merge dictionary
 ---------------
 
 Copy and update
