@@ -3124,7 +3124,7 @@ To construct a list comprehension:
               if num % 2 == 0]
 
 
-List Comprehensions - Warlus
+List Comprehensions - Walrus
 ----------------------------
 
 .. code-block:: python
