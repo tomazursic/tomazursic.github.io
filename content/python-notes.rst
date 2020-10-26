@@ -95,7 +95,9 @@ Use __repr__ with !r
 
 .. code-block:: python
 
-  >>> f"{foo!r}"
+  >>> class Foo: pass
+  >>> f"{Foo()!r}"
+  >>> <__main__.Foo object at 0x7f9f5c32ec10>
 
 Multiline string
 
@@ -109,7 +111,9 @@ Multiline string
   ... )
   >>> message
 
-The fstring is faster than % and .format
+.. note::
+
+    The fstring is faster than % and .format
 
 Assignment Expressions
 ^^^^^^^^^^^^^^^^^^^^^^^^^
