@@ -104,16 +104,17 @@
 <li><a class="reference internal" href="#boot" id="id7">3. Boot</a></li>
 <li><a class="reference internal" href="#find-the-device" id="id8">4. Find the device</a></li>
 <li><a class="reference internal" href="#setup-network-interfaces" id="id9">4. Setup network interfaces</a></li>
-<li><a class="reference internal" href="#ssh-into-device" id="id10">5. SSH into device</a></li>
+<li><a class="reference internal" href="#host-connection-sharing" id="id10">5. Host connection sharing</a></li>
+<li><a class="reference internal" href="#ssh-into-device" id="id11">6. SSH into device</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#using-android-phone-for-interface" id="id11">Using Android phone for interface</a><ul>
-<li><a class="reference internal" href="#find-phone-mac" id="id12">1. Find phone MAC</a></li>
-<li><a class="reference internal" href="#edit-config" id="id13">2. Edit config</a></li>
-<li><a class="reference internal" href="#paring" id="id14">3. Paring</a></li>
-<li><a class="reference internal" href="#restart-in-auto-mode" id="id15">4. Restart in AUTO mode</a></li>
-<li><a class="reference internal" href="#verify-bt-pan-addres" id="id16">4. Verify bt-pan addres</a></li>
-<li><a class="reference internal" href="#access-the-web-ui-on-phone" id="id17">5. Access the Web UI on phone</a></li>
+<li><a class="reference internal" href="#using-android-phone-for-interface" id="id12">Using Android phone for interface</a><ul>
+<li><a class="reference internal" href="#find-phone-mac" id="id13">1. Find phone MAC</a></li>
+<li><a class="reference internal" href="#edit-config" id="id14">2. Edit config</a></li>
+<li><a class="reference internal" href="#paring" id="id15">3. Paring</a></li>
+<li><a class="reference internal" href="#restart-in-auto-mode" id="id16">4. Restart in AUTO mode</a></li>
+<li><a class="reference internal" href="#verify-bt-pan-addres" id="id17">4. Verify bt-pan addres</a></li>
+<li><a class="reference internal" href="#access-the-web-ui-on-phone" id="id18">5. Access the Web UI on phone</a></li>
 </ul>
 </li>
 </ul>
@@ -226,8 +227,16 @@ DNS: 8.8.8.8 (or wathever)
 <div class="highlight"><pre><span></span>$ ip a
 </pre></div>
 </div>
+<div class="section" id="host-connection-sharing">
+<h4><a class="toc-backref" href="#id10">5. Host connection sharing</a></h4>
+<p>Read more: <a class="reference external" href="https://pwnagotchi.ai/configuration/#host-connection-sharing">https://pwnagotchi.ai/configuration/#host-connection-sharing</a></p>
+<p>To enable internet run the scripts:</p>
+<p><a class="reference external" href="https://github.com/evilsocket/pwnagotchi/blob/master/scripts/linux_connection_share.sh">https://github.com/evilsocket/pwnagotchi/blob/master/scripts/linux_connection_share.sh</a></p>
+<div class="highlight"><pre><span></span>$ sudo linux_connection_share.sh &lt;interface-name&gt;
+</pre></div>
+</div>
 <div class="section" id="ssh-into-device">
-<h4><a class="toc-backref" href="#id10">5. SSH into device</a></h4>
+<h4><a class="toc-backref" href="#id11">6. SSH into device</a></h4>
 <p>Default password: <strong>raspberry</strong></p>
 <div class="highlight"><pre><span></span>$ ssh pi@10.0.0.2
 
@@ -242,7 +251,7 @@ $ ssh -o <span class="nv">PreferredAuthentications</span><span class="o">=</span
 </div>
 </div>
 <div class="section" id="using-android-phone-for-interface">
-<h3><a class="toc-backref" href="#id11">Using Android phone for interface</a></h3>
+<h3><a class="toc-backref" href="#id12">Using Android phone for interface</a></h3>
 <p>Enable Bluetooth tethering on &quot;Android phone&quot; under:</p>
 <div class="highlight"><pre><span></span>Settings: Connections --&gt; Mobile Hotspot and Tethering
 </pre></div>
@@ -251,7 +260,7 @@ $ ssh -o <span class="nv">PreferredAuthentications</span><span class="o">=</span
 <div class="highlight"><pre><span></span>Settings -&gt; About Phone -&gt; Status
 </pre></div>
 <div class="section" id="find-phone-mac">
-<h4><a class="toc-backref" href="#id12">1. Find phone MAC</a></h4>
+<h4><a class="toc-backref" href="#id13">1. Find phone MAC</a></h4>
 <p>Now SSH into the pwnagotchi and run the following command to find the phone:</p>
 <p><strong>NOTE:</strong> This is just example MAC address <tt class="docutils literal">E:DB:EE:F0:CO:FE</tt></p>
 <div class="highlight"><pre><span></span>$ sudo bluetoothctl
@@ -262,7 +271,7 @@ $ scan on
 </pre></div>
 </div>
 <div class="section" id="edit-config">
-<h4><a class="toc-backref" href="#id13">2. Edit config</a></h4>
+<h4><a class="toc-backref" href="#id14">2. Edit config</a></h4>
 <p>For Android phones default address is <tt class="docutils literal">192.168.44.x</tt> maybe :)</p>
 <p>Add to <tt class="docutils literal">/etc/pwnagotchi config.yml</tt></p>
 <div class="highlight"><pre><span></span><span class="nt">bt-tether</span><span class="p">:</span>
@@ -282,7 +291,7 @@ $ scan on
 </pre></div>
 </div>
 <div class="section" id="paring">
-<h4><a class="toc-backref" href="#id14">3. Paring</a></h4>
+<h4><a class="toc-backref" href="#id15">3. Paring</a></h4>
 <p>Paring with phone</p>
 <div class="highlight"><pre><span></span>pair DE:DB:EE:F0:CO:FE
 ...<span class="o">(</span>pair<span class="o">)</span> yes/no
@@ -293,7 +302,7 @@ trust DE:DB:EE:F0:CO:FE
 </pre></div>
 </div>
 <div class="section" id="restart-in-auto-mode">
-<h4><a class="toc-backref" href="#id15">4. Restart in AUTO mode</a></h4>
+<h4><a class="toc-backref" href="#id16">4. Restart in AUTO mode</a></h4>
 <p>Shutdown pwnagotchi</p>
 <div class="highlight"><pre><span></span>$ sudo shutdown -h now
 </pre></div>
@@ -301,14 +310,14 @@ trust DE:DB:EE:F0:CO:FE
 <p>Wait.... the Bluetooth connection with pwnagotchi need to established.</p>
 </div>
 <div class="section" id="verify-bt-pan-addres">
-<h4><a class="toc-backref" href="#id16">4. Verify bt-pan addres</a></h4>
+<h4><a class="toc-backref" href="#id17">4. Verify bt-pan addres</a></h4>
 <p>Verify if address added to config <tt class="docutils literal">192.168.44.44</tt> is correct!</p>
 <p>Using Termux on phone (note: the BT connection need to be established, to list the bt-pan interface)</p>
 <div class="highlight"><pre><span></span><span class="c1"># ifconfig bt-pan</span>
 </pre></div>
 </div>
 <div class="section" id="access-the-web-ui-on-phone">
-<h4><a class="toc-backref" href="#id17">5. Access the Web UI on phone</a></h4>
+<h4><a class="toc-backref" href="#id18">5. Access the Web UI on phone</a></h4>
 <p>Open phone browser and point to url:</p>
 <div class="highlight"><pre><span></span>http://192.168.44.44:8080
 </pre></div>
