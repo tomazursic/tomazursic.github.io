@@ -166,7 +166,22 @@ Save and close and recheck the interface if settings are applied
 
   $ ip a
 
-5. SSH into device
+
+5. Host connection sharing
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Read more: https://pwnagotchi.ai/configuration/#host-connection-sharing
+
+To enable internet run the scripts:
+
+https://github.com/evilsocket/pwnagotchi/blob/master/scripts/linux_connection_share.sh
+
+.. code-block:: bash
+
+    $ sudo linux_connection_share.sh <interface-name>
+
+
+6. SSH into device
 ^^^^^^^^^^^^^^^^^^
 
 Default password: **raspberry**
