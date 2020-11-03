@@ -2,9 +2,19 @@
 <html lang="en" class="inverted">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Weblog - tomazursic.github.io - ds tag</title>
+    <title>Weblog - tomazursic.github.io - Python Data Analysis and ML</title>
   <meta charset="utf-8" />
   <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Weblog - tomazursic.github.io Full Atom Feed" />
+  <link href="/feeds/logs.atom.xml" type="application/atom+xml" rel="alternate" title="Weblog - tomazursic.github.io Categories Atom Feed" />
+
+
+
+
+    <meta name="tags" content="python" />
+    <meta name="tags" content="ds" />
+    <meta name="tags" content="ml" />
+    <meta name="tags" content="ai" />
+
 
   <link rel="apple-touch-icon" sizes="180x180" href="/theme/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/theme/favicons/favicon-32x32.png">
@@ -31,7 +41,7 @@
     </div>
     <ul class="nav-menu">
 
-          <li><a href="/category/logs.html">logs</a></li>
+          <li class="active"><a href="/category/logs.html">logs</a></li>
           <li><a href="/category/projects.html">projects</a></li>
           <li><a href="/category/waw.html">waw</a></li>
           <li><a href="/pages/contact.html">Contact</a></li>
@@ -51,58 +61,166 @@
         <button onclick="goUp()" id="upBtn" class="no-print" title="Go to top"><i class="ion-ios-arrow-up"></i></button>
 
 
-          <div id="search" >
 
-            <form action="/">
-           <div class="search tipue_search_right">
-              <input type="text" class="searchTerm" placeholder="Search by keywords.."  aria-hidden="true" data-choice="active"
-                          type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required>
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="/drafts/python-data-analysis-and-ml.html" rel="bookmark"
+         title="Permalink to Python Data Analysis and ML">Python Data Analysis and ML</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2019-11-06T00:00:00+01:00">
+      <b>Published</b>: Wed 06 November 2019
+    </time>
+    <br>
+    <div class="category">
+        <b>Category</b>: <a href="/category/logs.html">logs</a>
+    </div>
+    <div class="tags">
+        <b>Tags</b>:
+            <a href="/tag/python.html">python</a>
+            <a href="/tag/ds.html">ds</a>
+            <a href="/tag/ml.html">ml</a>
+            <a href="/tag/ai.html">ai</a>
+    </div>
+  </footer><!-- /.post-info -->
 
-              <button type="submit" class="searchButton">
-               <i class="ion-ios-search"></i>
-             </button>
-           </div>
-            </form>
+  <div class="entry-content">
+    <p>&gt;&gt; <strong>This post is under heavy development and with constant updates, following the learning curve.</strong></p>
+<div class="highlight"><pre><span></span>DRAFT VERSION,
+contains Typos
+contains &lt;°-(-(-(-&lt;
+contains no ( o ) ( o )
+also, no 8====D
+also, tl;dr
+</pre></div>
+<div class="section" id="basic-machine-learning-with-python">
+<h2>Basic Machine Learning with Python</h2>
+<p>About basic concepts of Data Analysis, Machine Learning and the basics of
+building ML models with Scikit-Learn and TensorFlow for humans.</p>
+<div class="section" id="ml-terminology">
+<h3>ML Terminology</h3>
+<p>Machine Learning is the process of building models from data, either to gain
+insight into the data or to make predictions for new data (generalization).</p>
+<p>There are two main categories:</p>
+<ul class="simple">
+<li><strong>SUPERVISED</strong> learning, in which the data (training data) is labeled with an
+known outcome (this is the supervision part), and the aim is to predict new
+outcomes from new data; if the outcome is a category this is classification
+while if the outcome is a continuous quantity this is regression</li>
+<li><strong>UNSUPERVISED</strong> learning, in which the data is analyzed for underlying
+patterns to gain insight; common examples are clustering (finding similar
+cases), outlier detection (finding unusual cases), and dimensionality
+reduction (reducing the number of variables needed to represent the data,
+essentially a form of lossy compression)</li>
+</ul>
+<p><strong>&quot;A technique for implementing ML&quot;</strong></p>
+<p>DL in the context of <strong>deep neural networks (DNNs)</strong> is the code
+structures you write <strong>are arranged in layers that loosely mimic the human
+brain, learning patterns of patterns</strong>.</p>
+<p>Simple explanation is &quot;when we have more than 2 layers we are talking about deep leaning&quot;</p>
+<p>From bottom up is:</p>
+<ul class="simple">
+<li>DL is subset of ML and ML is subset of AI</li>
+<li>DL drives ML which than can enable AI</li>
+</ul>
+<div class="highlight"><pre><span></span>+-------------------------+
+|AI                       |
+|  +--------------------+ |
+|  |ML                  | |
+|  |   +--------------+ | |
+|  |   |DL            | | |
+|  |   |              | | |
+|  |   |              | | |
+|  |   |              | | |
+|  |   |              | | |
+|  |   +--------------+ | |
+|  +--------------------+ |
++-------------------------+
+</pre></div>
+<ul class="simple">
+<li>The data used in ML is typically tabular.</li>
+<li>The <strong>columns</strong> are called <cite>features</cite> while the <strong>rows</strong> are <cite>instances or observations</cite>.</li>
+<li>For supervised learning, we call the output the target or label.</li>
+<li>Often refer to the vector if features as <cite>X</cite> and the output (label) as <cite>y</cite>, and say that we're trying to find a function that approximates <cite>f(X)=y</cite>; this
+function is our model and is characterized by some model parameters.</li>
+<li>We choose the type or class of model, and then use ML techniques to learn the
+model parameters that minimize the error (the difference between the
+predicted and actual output)</li>
+</ul>
+</div>
+<div class="section" id="ml-workflow">
+<h3>ML Workflow</h3>
+<p>A typical machine learning workflow begins with:</p>
+<ul>
+<li><p class="first"><strong>GETTING THE DATA</strong></p>
+<p>Collecting data, creating datasets</p>
+</li>
+<li><p class="first"><strong>EXPLORING AND CLEANING</strong></p>
+<p>Known as &quot;exploratory data analysis&quot; (EDA) which consist of (handling missing
+values, normalizing values, removing bad data and outliers, encoding data in
+appropriate representations, and more)</p>
+</li>
+<li><p class="first"><strong>TRAINING THE MODEL</strong></p>
+<p>Evaluating the results adjusting the model type or the hyperparameters if the
+results are not yet satisfactory</p>
+</li>
+</ul>
+</div>
+<div class="section" id="how-to-choose-data-to-train-ml-system">
+<h3>How to choose data to train ML system</h3>
+<div class="section" id="features-attributes">
+<h4>Features / Attributes</h4>
+<p>Features (aka attributes) are used to train ML system.
+This are the proprieties of the things you are trying to learn about</p>
+<div class="highlight"><pre><span></span>  ,--./,-.
+ / #      \    &lt;-- color
+|          |
+ \        /    &lt;-- size
+  `._,._,&#39;
+</pre></div>
+<p>Features of the apple might be size and color.</p>
+<p>2 features, would mean there are 2D (two dimensions)</p>
+<p>The 2D system my be plotted on a graph if features are represented in a numerical way.</p>
+<p>The ML system can learn to split the data up with a line to separate apples from oranges.</p>
+<div class="highlight"><pre><span></span>  ^
+  |
+  |                           X
+  |           O             X
+  |                       X
+  |          O          X
+S |            OO     X
+I |    O            X
+Z |        O      X    A
+E |           O X     A
+  |           X  A
+  |     OO  X                           A = Apples
+  |       X   A A                       O = Oranges
+  |     X           A                   X = Line
+  |   X  A
+  | X
+  +-------------------------------&gt;
+                COLOR
+</pre></div>
+<p>Example: Plotting apple and oranges size and colors</p>
+<p>Choosing useful inputs features can have big impact on the quality of the ML
+system. Some features my not be useful enough to separate the data points.</p>
+</div>
+</div>
+</div>
 
-            <div id="tipue_search_content" style="margin: 2rem 0rem; padding: 1rem; border-bottom: 1px solid;"></div>
-
-          </div>
-
-<section id="content">
-<h2>Articles tagged with ds</h2>
-
-<ol id="post-list">
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="/python-data-analysis-and-ml.html" rel="bookmark" title="Permalink to Python Data Analysis and ML">Python Data Analysis and ML</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2019-11-06T00:00:00+01:00"> Wed 06 November 2019 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="/author/tomaz.html">Tomaz</a>
-                    </address>
-                    <div>
-                    Tags:
-                        <a class="url fn" href="/tag/python.html">python</a>
-                        <a class="url fn" href="/tag/ds.html">ds</a>
-                        <a class="url fn" href="/tag/ml.html">ml</a>
-                        <a class="url fn" href="/tag/ai.html">ai</a>
-                    </div>
-                </footer><!-- /.post-info -->
-
-                <div class="entry-content"> <p class="first last">Learning notes for Data Science and Machine Learning using Python</p>
- </div><!-- /.entry-content -->
-        </article></li>
-</ol><!-- /#posts-list -->
-</section><!-- /#content -->
+  </div><!-- /.entry-content -->
+</section>
 
         <section id="extras" class="body">
 
           <ul class="tags-footer">
-            <li style="font-size: 125.0%;"><a href="/tag/ai.html">ai</a></li>
+            <li style="font-size: 100.0%;"><a href="/tag/ai.html">ai</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/arm.html">arm</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/bread.html">bread</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/cheatsheet.html">cheatsheet</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/dough.html">dough</a></li>
-            <li style="font-size: 100.0%;"><a href="/tag/ds.html">ds</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/esp32.html">esp32</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/food.html">food</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/gateway.html">gateway</a></li>
@@ -113,7 +231,6 @@
             <li style="font-size: 125.0%;"><a href="/tag/linux.html">linux</a></li>
             <li style="font-size: 158.0%;"><a href="/tag/lorawan.html">lorawan</a></li>
             <li style="font-size: 125.0%;"><a href="/tag/micropython.html">micropython</a></li>
-            <li style="font-size: 100.0%;"><a href="/tag/ml.html">ml</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/movies.html">movies</a></li>
             <li style="font-size: 139.6%;"><a href="/tag/network.html">network</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/notes.html">notes</a></li>
@@ -121,7 +238,7 @@
             <li style="font-size: 100.0%;"><a href="/tag/pelican.html">pelican</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/pi.html">pi</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/pizza.html">pizza</a></li>
-            <li style="font-size: 175.0%;"><a href="/tag/python.html">python</a></li>
+            <li style="font-size: 170.2%;"><a href="/tag/python.html">python</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/raspberry-pi.html">raspberry-pi</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/rl.html">rl</a></li>
             <li style="font-size: 100.0%;"><a href="/tag/snippets.html">snippets</a></li>

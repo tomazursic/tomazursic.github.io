@@ -236,141 +236,7 @@ trust DE:DB:EE:F0:CO:FE
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="projects"></category><category term="wireless"></category><category term="network"></category><category term="ai"></category><category term="rl"></category><category term="hacktheplanet"></category></entry><entry><title>Python Data Analysis and ML</title><link href="/python-data-analysis-and-ml.html" rel="alternate"></link><published>2019-11-06T00:00:00+01:00</published><updated>2019-11-06T00:00:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2019-11-06:/python-data-analysis-and-ml.html</id><summary type="html">&lt;p class="first last"&gt;Learning notes for Data Science and Machine Learning using Python&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;&amp;gt;&amp;gt; &lt;strong&gt;This post is under heavy development and with constant updates, following the learning curve.&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;DRAFT VERSION,
-contains Typos
-contains &amp;lt;°-(-(-(-&amp;lt;
-contains no ( o ) ( o )
-also, no 8====D
-also, tl;dr
-&lt;/pre&gt;&lt;/div&gt;
-&lt;div class="section" id="basic-machine-learning-with-python"&gt;
-&lt;h2&gt;Basic Machine Learning with Python&lt;/h2&gt;
-&lt;p&gt;About basic concepts of Data Analysis, Machine Learning and the basics of
-building ML models with Scikit-Learn and TensorFlow for humans.&lt;/p&gt;
-&lt;div class="section" id="ml-terminology"&gt;
-&lt;h3&gt;ML Terminology&lt;/h3&gt;
-&lt;p&gt;Machine Learning is the process of building models from data, either to gain
-insight into the data or to make predictions for new data (generalization).&lt;/p&gt;
-&lt;p&gt;There are two main categories:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;strong&gt;SUPERVISED&lt;/strong&gt; learning, in which the data (training data) is labeled with an
-known outcome (this is the supervision part), and the aim is to predict new
-outcomes from new data; if the outcome is a category this is classification
-while if the outcome is a continuous quantity this is regression&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;UNSUPERVISED&lt;/strong&gt; learning, in which the data is analyzed for underlying
-patterns to gain insight; common examples are clustering (finding similar
-cases), outlier detection (finding unusual cases), and dimensionality
-reduction (reducing the number of variables needed to represent the data,
-essentially a form of lossy compression)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;&amp;quot;A technique for implementing ML&amp;quot;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;DL in the context of &lt;strong&gt;deep neural networks (DNNs)&lt;/strong&gt; is the code
-structures you write &lt;strong&gt;are arranged in layers that loosely mimic the human
-brain, learning patterns of patterns&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;Simple explanation is &amp;quot;when we have more than 2 layers we are talking about deep leaning&amp;quot;&lt;/p&gt;
-&lt;p&gt;From bottom up is:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;DL is subset of ML and ML is subset of AI&lt;/li&gt;
-&lt;li&gt;DL drives ML which than can enable AI&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;+-------------------------+
-|AI                       |
-|  +--------------------+ |
-|  |ML                  | |
-|  |   +--------------+ | |
-|  |   |DL            | | |
-|  |   |              | | |
-|  |   |              | | |
-|  |   |              | | |
-|  |   |              | | |
-|  |   +--------------+ | |
-|  +--------------------+ |
-+-------------------------+
-&lt;/pre&gt;&lt;/div&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;The data used in ML is typically tabular.&lt;/li&gt;
-&lt;li&gt;The &lt;strong&gt;columns&lt;/strong&gt; are called &lt;cite&gt;features&lt;/cite&gt; while the &lt;strong&gt;rows&lt;/strong&gt; are &lt;cite&gt;instances or observations&lt;/cite&gt;.&lt;/li&gt;
-&lt;li&gt;For supervised learning, we call the output the target or label.&lt;/li&gt;
-&lt;li&gt;Often refer to the vector if features as &lt;cite&gt;X&lt;/cite&gt; and the output (label) as &lt;cite&gt;y&lt;/cite&gt;, and say that we're trying to find a function that approximates &lt;cite&gt;f(X)=y&lt;/cite&gt;; this
-function is our model and is characterized by some model parameters.&lt;/li&gt;
-&lt;li&gt;We choose the type or class of model, and then use ML techniques to learn the
-model parameters that minimize the error (the difference between the
-predicted and actual output)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="ml-workflow"&gt;
-&lt;h3&gt;ML Workflow&lt;/h3&gt;
-&lt;p&gt;A typical machine learning workflow begins with:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;GETTING THE DATA&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Collecting data, creating datasets&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;EXPLORING AND CLEANING&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Known as &amp;quot;exploratory data analysis&amp;quot; (EDA) which consist of (handling missing
-values, normalizing values, removing bad data and outliers, encoding data in
-appropriate representations, and more)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;&lt;strong&gt;TRAINING THE MODEL&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Evaluating the results adjusting the model type or the hyperparameters if the
-results are not yet satisfactory&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="how-to-choose-data-to-train-ml-system"&gt;
-&lt;h3&gt;How to choose data to train ML system&lt;/h3&gt;
-&lt;div class="section" id="features-attributes"&gt;
-&lt;h4&gt;Features / Attributes&lt;/h4&gt;
-&lt;p&gt;Features (aka attributes) are used to train ML system.
-This are the proprieties of the things you are trying to learn about&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  ,--./,-.
- / #      \    &amp;lt;-- color
-|          |
- \        /    &amp;lt;-- size
-  `._,._,&amp;#39;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Features of the apple might be size and color.&lt;/p&gt;
-&lt;p&gt;2 features, would mean there are 2D (two dimensions)&lt;/p&gt;
-&lt;p&gt;The 2D system my be plotted on a graph if features are represented in a numerical way.&lt;/p&gt;
-&lt;p&gt;The ML system can learn to split the data up with a line to separate apples from oranges.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  ^
-  |
-  |                           X
-  |           O             X
-  |                       X
-  |          O          X
-S |            OO     X
-I |    O            X
-Z |        O      X    A
-E |           O X     A
-  |           X  A
-  |     OO  X                           A = Apples
-  |       X   A A                       O = Oranges
-  |     X           A                   X = Line
-  |   X  A
-  | X
-  +-------------------------------&amp;gt;
-                COLOR
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Example: Plotting apple and oranges size and colors&lt;/p&gt;
-&lt;p&gt;Choosing useful inputs features can have big impact on the quality of the ML
-system. Some features my not be useful enough to separate the data points.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</content><category term="logs"></category><category term="python"></category><category term="ds"></category><category term="ml"></category><category term="ai"></category></entry><entry><title>Movies</title><link href="/movies.html" rel="alternate"></link><published>2019-08-19T22:08:00+02:00</published><updated>2019-08-19T22:08:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2019-08-19:/movies.html</id><summary type="html">List of good movies</summary><content type="html">&lt;p&gt;&lt;strong&gt;Status: WIP (Work In Progress)&lt;/strong&gt;&lt;/p&gt;
-&lt;hr class="docutils" /&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://www.imdb.com/title/tt4364194/"&gt;The Peanut Butter Falcon (2019)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://www.imdb.com/title/tt3741834/"&gt;Lion (2016)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://www.imdb.com/title/tt0095765/"&gt;Cinema Paradiso (1988)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content><category term="waw"></category><category term="movies"></category></entry><entry><title>Vim User Disorder</title><link href="/vim-user-disorder.html" rel="alternate"></link><published>2018-09-07T13:48:16+02:00</published><updated>2020-01-17T00:00:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-09-07:/vim-user-disorder.html</id><summary type="html">Cheatsheet and notes for (neo)vim editor</summary><content type="html">&lt;p&gt;Currently using neovim for main work IDE.
+</content><category term="projects"></category><category term="wireless"></category><category term="network"></category><category term="ai"></category><category term="rl"></category><category term="hacktheplanet"></category></entry><entry><title>Vim User Disorder</title><link href="/vim-user-disorder.html" rel="alternate"></link><published>2018-09-07T13:48:16+02:00</published><updated>2020-01-17T00:00:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-09-07:/vim-user-disorder.html</id><summary type="html">Cheatsheet and notes for (neo)vim editor</summary><content type="html">&lt;p&gt;Currently using neovim for main work IDE.
 Plugins for code linting, formating and auto completion and to work with git.&lt;/p&gt;
 &lt;p&gt;Config source: &lt;a class="reference external" href="https://github.com/tomazursic/_nvim"&gt;https://github.com/tomazursic/_nvim&lt;/a&gt;&lt;/p&gt;
 &lt;div class="section" id="preview"&gt;
@@ -7357,7 +7223,18 @@ with IMST ic800a backplate and Raspberry pi.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="projects"></category><category term="iot"></category><category term="lorawan"></category><category term="gateway"></category><category term="network"></category><category term="ic880a"></category></entry><entry><title>Git Notes</title><link href="/git.html" rel="alternate"></link><published>2017-07-08T00:00:00+02:00</published><updated>2017-07-08T00:00:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-07-08:/git.html</id><summary type="html">&lt;p class="first last"&gt;Notes using git&lt;/p&gt;
+</content><category term="projects"></category><category term="iot"></category><category term="lorawan"></category><category term="gateway"></category><category term="network"></category><category term="ic880a"></category></entry><entry><title>Movies</title><link href="/movies.html" rel="alternate"></link><published>2017-08-19T22:08:00+02:00</published><updated>2017-08-19T22:08:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-08-19:/movies.html</id><summary type="html">List of good movies</summary><content type="html">&lt;p&gt;&lt;strong&gt;Status: WIP (Work In Progress)&lt;/strong&gt;&lt;/p&gt;
+&lt;hr class="docutils" /&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://www.imdb.com/title/tt4364194/"&gt;The Peanut Butter Falcon (2019)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://www.imdb.com/title/tt3741834/"&gt;Lion (2016)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://www.imdb.com/title/tt0095765/"&gt;Cinema Paradiso (1988)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content><category term="waw"></category><category term="movies"></category></entry><entry><title>Git Notes</title><link href="/git.html" rel="alternate"></link><published>2017-07-08T00:00:00+02:00</published><updated>2017-07-08T00:00:00+02:00</updated><author><name>Tomaz</name></author><id>tag:None,2017-07-08:/git.html</id><summary type="html">&lt;p class="first last"&gt;Notes using git&lt;/p&gt;
 </summary><content type="html">&lt;div class="section" id="git-tips"&gt;
 &lt;h2&gt;Git Tips&lt;/h2&gt;
 &lt;div class="section" id="reset"&gt;
