@@ -47,10 +47,12 @@ html.contrast span.mfw {
  color:#117e69
 }
 html.inverted {
- background-color:#444
+ /* background-color:#444 */
+ background-color:#1d1f24
 }
 html.inverted body {
- color:#bababa
+ /* color:#bababa */
+ color: #ccc
 }
 html.inverted div#invmode {
  color:#fff;
@@ -477,7 +479,8 @@ form input[type=search]:focus {
 nav.navigation{
   position:relative;
   height:50px;
-  background-color:#3c3c3c;
+  /* background-color:#3c3c3c; */
+  background-color:#1d1f24;
   z-index:2;
   text-transform: uppercase;
 }
