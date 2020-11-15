@@ -236,15 +236,10 @@ trust DE:DB:EE:F0:CO:FE
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content><category term="projects"></category><category term="wireless"></category><category term="network"></category><category term="ai"></category><category term="rl"></category><category term="hacktheplanet"></category></entry><entry><title>Vim User Disorder</title><link href="/vim-user-disorder.html" rel="alternate"></link><published>2018-09-07T13:48:16+02:00</published><updated>2020-01-17T00:00:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-09-07:/vim-user-disorder.html</id><summary type="html">Cheatsheet and notes for (neo)vim editor</summary><content type="html">&lt;p&gt;Currently using neovim for main work IDE.
-Plugins for code linting, formating and auto completion and to work with git.&lt;/p&gt;
+</content><category term="projects"></category><category term="wireless"></category><category term="network"></category><category term="ai"></category><category term="rl"></category><category term="hacktheplanet"></category></entry><entry><title>Vim User Disorder</title><link href="/vim-user-disorder.html" rel="alternate"></link><published>2018-09-07T13:48:16+02:00</published><updated>2020-01-17T00:00:00+01:00</updated><author><name>Tomaz</name></author><id>tag:None,2018-09-07:/vim-user-disorder.html</id><summary type="html">Cheatsheet and notes for (neo)vim editor</summary><content type="html">&lt;p&gt;Currently using neovim for main work IDE&lt;/p&gt;
 &lt;p&gt;Config source: &lt;a class="reference external" href="https://github.com/tomazursic/_nvim"&gt;https://github.com/tomazursic/_nvim&lt;/a&gt;&lt;/p&gt;
 &lt;div class="section" id="preview"&gt;
 &lt;h2&gt;Preview&lt;/h2&gt;
-&lt;p&gt;Edit neovim init.vim file&lt;/p&gt;
-&lt;div class="figure"&gt;
-&lt;img alt="Neovim Init File" src="images/vim/neovim-init.png" /&gt;
-&lt;/div&gt;
 &lt;p&gt;Search files with FZF and bat preview&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="Neovim File Search And Preview" src="images/vim/neovim-file-search.png" /&gt;
@@ -260,6 +255,10 @@ Plugins for code linting, formating and auto completion and to work with git.&lt
 &lt;p&gt;Edit rust file and rust-analyzer&lt;/p&gt;
 &lt;div class="figure"&gt;
 &lt;img alt="Neovim Rust File" src="images/vim/neovim-rust.png" /&gt;
+&lt;/div&gt;
+&lt;p&gt;Edit neovim init.vim file&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="Neovim Init File" src="images/vim/neovim-init.png" /&gt;
 &lt;/div&gt;
 &lt;p&gt;Light colorscheme&lt;/p&gt;
 &lt;div class="figure"&gt;
