@@ -513,14 +513,14 @@ python -m smtpd -n -c DebuggingServer localhost:25
 <span class="c1"># Functions here</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">'Create Marketing Report'</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'--accounts'</span><span class="p">,</span>
+    <span class="n">ap</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">'Create Marketing Report'</span><span class="p">)</span>
+    <span class="n">ap</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'--accounts'</span><span class="p">,</span>
                         <span class="n">action</span><span class="o">=</span><span class="s1">'store_true'</span><span class="p">,</span>
                         <span class="n">help</span><span class="o">=</span><span class="s1">'Process Account Data'</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'--sales'</span><span class="p">,</span>
+    <span class="n">ap</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'--sales'</span><span class="p">,</span>
                         <span class="n">action</span><span class="o">=</span><span class="s1">'store_true'</span><span class="p">,</span>
                         <span class="n">help</span><span class="o">=</span><span class="s1">'Process Sales Data'</span><span class="p">)</span>
-    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">ap</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
     <span class="c1"># Process accounts</span>
     <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">accounts</span><span class="p">:</span>
         <span class="c1"># Do something</span>
@@ -529,8 +529,8 @@ python -m smtpd -n -c DebuggingServer localhost:25
         <span class="c1"># Do Something</span>
 </pre>
 <pre class="code python literal-block">
-<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'-v'</span><span class="p">,</span> <span class="s1">'--verbose'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">'count'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'-q'</span><span class="p">,</span> <span class="s1">'--quiet'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">'count'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'-v'</span><span class="p">,</span> <span class="s1">'--verbose'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">'count'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">pap</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'-q'</span><span class="p">,</span> <span class="s1">'--quiet'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">'count'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="n">logging_level</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">WARN</span> <span class="o">+</span> <span class="mi">10</span><span class="o">*</span><span class="n">args</span><span class="o">.</span><span class="n">quiet</span> <span class="o">-</span> <span class="mi">10</span><span class="o">*</span><span class="n">args</span><span class="o">.</span><span class="n">verbose</span>
 
@@ -541,6 +541,22 @@ python -m smtpd -n -c DebuggingServer localhost:25
 <span class="c1"># script -q -&gt; ERROR     # some function error</span>
 <span class="c1"># script -qq -&gt; CRITICAL # something failed application must close</span>
 </pre>
+<p>Multiple commands
+.. code:: python</p>
+<blockquote>
+<p>import argparse</p>
+<p>ap = argparse.ArgumentParser()
+ap.add_argument('-v', '--verbose', action='count', default=0)</p>
+<p>subparsers = ap.add_subparsers(dest=&quot;certs&quot;)</p>
+<p>server = subparsers.add_parser(&quot;server&quot;)
+db.add_argument(&quot;-q&quot;, &quot;--query&quot;, required=True, help=&quot;Make query on server&quot;)</p>
+<p>client = subparsers.add_parser(&quot;client&quot;)
+client.add_argument(&quot;--name&quot;, required=True, help=&quot;Set client name&quot;)</p>
+<p>args = vars(ap.parse_args())</p>
+<p># Examples:
+# script server -q foo
+# script client --name foo</p>
+</blockquote>
 </div>
 <hr class="docutils" />
 <div class="section" id="swapping-variables">
