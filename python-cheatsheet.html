@@ -71,11 +71,11 @@
   </header>
   <footer class="post-info">
     <time class="published" datetime="2017-11-05T00:00:00+01:00">
-      <b>Published</b>: Sun 05 November 2017
+      <b>Published</b>: ned 05 november 2017
     </time>
     <br>
     <time class="modified" datetime="2020-01-04T00:00:00+01:00">
-      <b>Modified</b>: Sat 04 January 2020
+      <b>Modified</b>: sob 04 januar 2020
     </time>
     <div class="category">
         <b>Category</b>: <a href="/category/logs.html">logs</a>
@@ -163,6 +163,7 @@
 <li><a class="reference internal" href="#geopy" id="id56">geopy</a></li>
 <li><a class="reference internal" href="#is-prime-number" id="id57">is prime number</a></li>
 <li><a class="reference internal" href="#random-user" id="id58">random user</a></li>
+<li><a class="reference internal" href="#calendar" id="id59">calendar</a></li>
 </ul>
 </li>
 </ul>
@@ -1053,6 +1054,26 @@ python -m smtpd -n -c DebuggingServer localhost:25
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
+</pre>
+</div>
+<div class="section" id="calendar">
+<h3><a class="toc-backref" href="#id59">calendar</a></h3>
+<p>Use weekday from the calendar module to get a day in a week</p>
+<pre class="code python literal-block">
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">calendar</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">days</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;Monday&quot;</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Tuesday&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;Wednesday&quot;</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;Thursday&quot;</span><span class="p">,</span>
+    <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;Friday&quot;</span><span class="p">,</span>
+    <span class="mi">5</span><span class="p">:</span> <span class="s2">&quot;Saturday&quot;</span><span class="p">,</span>
+    <span class="mi">6</span><span class="p">:</span> <span class="s2">&quot;Sunday&quot;</span>
+<span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">day_in_week</span> <span class="o">=</span> <span class="n">calendar</span><span class="o">.</span><span class="n">weekday</span><span class="p">(</span><span class="mi">1963</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">days</span><span class="p">[</span><span class="n">day_in_week</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s1">'Friday'</span>
 </pre>
 </div>
 </div>
