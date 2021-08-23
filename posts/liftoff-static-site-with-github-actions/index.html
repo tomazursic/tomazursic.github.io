@@ -95,12 +95,14 @@ Create site
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h2>
-<h3 id=1-install-hugo-on-local-machine>
-1. Install hugo on local machine
-<a class=heading-link href=#1-install-hugo-on-local-machine>
+<h3 id=1-install-hugo>
+1. Install hugo
+<a class=heading-link href=#1-install-hugo>
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h3>
+<p><a href=https://github.com/gohugoio/hugo>Hugo</a> is static site generators, this mean
+is capable to generate HTMl documents from e.g. markdown files <a href=https://gohugo.io/content-management/formats/>supported file types</a></p>
 <p>Download Ubuntu package from: <a href=https://github.com/gohugoio/hugo/releases>https://github.com/gohugoio/hugo/releases</a></p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ sudo dpkg -i hugo_0.87.0_Linux-64bit.deb
 </code></pre></div><p>More installing options: <a href=https://gohugo.io/getting-started/installing/>https://gohugo.io/getting-started/installing/</a></p>
@@ -110,10 +112,14 @@ Create site
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ hugo new site &lt;GITHUB-USERNAME&gt;.github.io
-
-<span style=color:#75715e># Rename to source directory the same name the repo to create on GitHub</span>
-$ mv &lt;GITHUB-USERNAME&gt;.github.io &lt;GITHUB-USERNAME&gt;.github.io.source
+<p>This will be the <strong>source</strong> repository</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ hugo new site &lt;GITHUB-USERNAME&gt;.github.io.source
+</code></pre></div><p>Setup git user if not already</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ git config --global user.name <span style=color:#e6db74>&#34;John Doe&#34;</span>
+$ git config --global user.email johndoe@example.com
+</code></pre></div><p>And create the git repository from this directory</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ cd &lt;GITHUB-USERNAME&gt;.github.io.source
+$ git init
 </code></pre></div><h3 id=3-add-hugo-template>
 3. Add Hugo template
 <a class=heading-link href=#3-add-hugo-template>
@@ -130,7 +136,7 @@ $ git submodule add https://github.com/luizdepra/hugo-coder.git themes/hugo-code
 </h3>
 <p>Remove the default confg.toml</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ rm config.toml
-</code></pre></div><p>Get the new confg file</p>
+</code></pre></div><p>Get the new configuration file and change it as you wish (can be left as it is for first steps)</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ wget https://raw.githubusercontent.com/luizdepra/hugo-coder/master/exampleSite/config.toml
 </code></pre></div><h3 id=5-add-some-content>
 5. Add some content
@@ -154,12 +160,21 @@ Setup GitHub
 </a>
 </h2>
 <p>Using two separated repositories one private for source and another one public for generated site</p>
-<p>The site is after publish available under <code>&lt;GITHUB-USERNAME>.github.io</code></p>
+<p>On GitHub create 2 repositories:</p>
 <ul>
-<li>The site source repository <code>&lt;GITHUB-USERNAME>.github.io.source</code></li>
-<li>The site repository <code>&lt;GITHUB-USERNAME>.github.io</code></li>
+<li>The site source repository (PRIVATE) <code>&lt;GITHUB-USERNAME>.github.io.source</code></li>
+<li>The site repository (PUBLIC) <code>&lt;GITHUB-USERNAME>.github.io</code></li>
 </ul>
-<h3 id=1-setup-ssh-keys-for-actions>
+<p>The site is after publish available under <code>&lt;GITHUB-USERNAME>.github.io</code></p>
+<h4 id=add-remote-source-repository-to-local-directory>
+Add remote source repository to local directory
+<a class=heading-link href=#add-remote-source-repository-to-local-directory>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ cd &lt;GITHUB-USERNAME&gt;.github.io.source
+$ git remote add origin git@github.com:&lt;GITHUB-USERNAME&gt;/&lt;GITHUB-USERNAME&gt;.github.io.source.git
+</code></pre></div><h3 id=1-setup-ssh-keys-for-actions>
 1. Setup ssh keys for actions
 <a class=heading-link href=#1-setup-ssh-keys-for-actions>
 <i class="fa fa-link" aria-hidden=true></i>
