@@ -14,15 +14,16 @@
 <meta property="og:title" content="Liftoff Static Site With GitHub Actions">
 <meta property="og:description" content="Use Hugo for GitHub pages and deploy with workflow actions">
 <meta property="og:type" content="article">
-<meta property="og:url" content="http://tomazursic.github.io/posts/liftoff-static-site-with-github-actions/"><meta property="article:section" content="posts">
+<meta property="og:url" content="http://tomazursic.github.io/posts/2021/liftoff-static-site-with-github-actions/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2021-08-17T22:13:49+02:00">
 <meta property="article:modified_time" content="2021-08-17T22:13:49+02:00">
 <title>
 Liftoff Static Site With GitHub Actions · Weblog
 </title>
-<link rel=canonical href=http://tomazursic.github.io/posts/liftoff-static-site-with-github-actions/>
+<link rel=canonical href=http://tomazursic.github.io/posts/2021/liftoff-static-site-with-github-actions/>
 <link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
 <link rel=stylesheet href=/css/coder.min.34dfa7b2f5cdeb0f5302b2628f4a7a4bfe88a2431e1397ee4ec605c56ab69701.css integrity="sha256-NN+nsvXN6w9TArJij0p6S/6IokMeE5fuTsYFxWq2lwE=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/css/coder-dark.min.aa883b9ce35a8ff4a2a5008619005175e842bb18a8a9f9cc2bbcf44dab2d91fa.css integrity="sha256-qog7nONaj/SipQCGGQBRdehCuxioqfnMK7z0Tastkfo=" crossorigin=anonymous media=screen>
 <link rel=stylesheet href=/css/custom.css>
 <link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
 <link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
@@ -30,7 +31,7 @@ Liftoff Static Site With GitHub Actions · Weblog
 <link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
 <meta name=generator content="Hugo 0.87.0">
 </head>
-<body class="preload-transitions colorscheme-light">
+<body class="preload-transitions colorscheme-auto">
 <div class=float-container>
 <a id=dark-mode-toggle class=colorscheme-toggle>
 <i class="fa fa-adjust fa-fw" aria-hidden=true></i>
@@ -59,7 +60,7 @@ Weblog
 <header>
 <div class=post-title>
 <h1 class=title>
-<a class=title-link href=http://tomazursic.github.io/posts/liftoff-static-site-with-github-actions/>
+<a class=title-link href=http://tomazursic.github.io/posts/2021/liftoff-static-site-with-github-actions/>
 Liftoff Static Site With GitHub Actions
 </a>
 </h1>
@@ -91,6 +92,20 @@ August 17, 2021
 <div>
 <figure><img src=/images/liftoff-hugo/header.png>
 </figure>
+<h2 id=tldr>
+TL;DR
+<a class=heading-link href=#tldr>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h2>
+<p>Simple way to write and publish own blog on GitHub Pages</p>
+<ol>
+<li>Create HUGO site</li>
+<li>Create source GitHub repository</li>
+<li>Create public GitHub repository</li>
+<li>Setup GitHub actions</li>
+<li>Push & Publish</li>
+</ol>
 <h2 id=create-site>
 Create site
 <a class=heading-link href=#create-site>
@@ -114,7 +129,12 @@ is capable to generate HTMl documents from e.g. markdown files <a href=https://g
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h3>
-<p>This will be the <strong>source</strong> repository</p>
+<div class="notice info">
+<div class=notice-title>
+<i class="fa fa-exclamation-circle" aria-hidden=true></i>Info
+</div>
+<div class=notice-content>This will be the <strong>source</strong> repository and is not public repository</div>
+</div>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ hugo new site &lt;GITHUB-USERNAME&gt;.github.io.source
 </code></pre></div><p>Setup git user if not already</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>$ git config --global user.name <span style=color:#e6db74>&#34;John Doe&#34;</span>
@@ -177,11 +197,16 @@ Setup GitHub
 </h2>
 <p>Using two separated repositories one private for source and another one public for generated site</p>
 <p>On GitHub create 2 repositories:</p>
-<ul>
+<div class="notice info">
+<div class=notice-title>
+<i class="fa fa-exclamation-circle" aria-hidden=true></i>Info
+</div>
+<div class=notice-content><ul>
 <li>The site source repository (PRIVATE) <code>&lt;GITHUB-USERNAME>.github.io.source</code></li>
 <li>The site repository (PUBLIC) <code>&lt;GITHUB-USERNAME>.github.io</code></li>
 </ul>
-<p>The site is after publish available under <code>&lt;GITHUB-USERNAME>.github.io</code></p>
+<p>The site is after publish available under <code>&lt;GITHUB-USERNAME>.github.io</code></div>
+</div>
 <h4 id=add-remote-source-repository-to-local-directory>
 Add remote source repository to local directory
 <a class=heading-link href=#add-remote-source-repository-to-local-directory>
@@ -226,15 +251,18 @@ $ git remote add origin git@github.com:&lt;GITHUB-USERNAME&gt;/&lt;GITHUB-USERNA
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>https://github.com/&lt;GITHUB-USERNAME&gt;/&lt;GITHUB-USERNAME&gt;.github.io./settings/keys
 </code></pre></div><figure><img src=/images/liftoff-hugo/github-public-deploy-keys.png>
 </figure>
-<h3 id=4-setup-actions-config-file>
-4. Setup actions config file
-<a class=heading-link href=#4-setup-actions-config-file>
+<h3 id=4-setup-actions-configuration-file>
+4. Setup actions configuration file
+<a class=heading-link href=#4-setup-actions-configuration-file>
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h3>
+<p>This configuration is made inside <code>&lt;GITHUB-USERNAME>.github.io.source</code> directory</p>
+<p>This are instructions for actions for every puch in master branch to generate
+public version of site</p>
 <ul>
 <li>Crate directory <code>.github/workflow</code> under root of the hugo site</li>
-<li>Add config file below into workflow directory</li>
+<li>Add config file below into <code>workflow</code> directory</li>
 <li>Replace <code>external_repository</code> with <code>&lt;GITHUB-USERNAME>/&lt;GITHUB-USERNAME>.github.io</code></li>
 </ul>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>name: hugo publish
@@ -281,7 +309,7 @@ jobs:
 <p><code>https://github.com/&lt;GITHUB-USERNAME>/&lt;GITHUB-USERNAME>.github.io.source/actions</code></p>
 <figure><img src=/images/liftoff-hugo/github-source-actions.png>
 </figure>
-<p>View the generated site at <code>https://&lt;GITHUB-USERNAME>.github.io</code></p>
+<p>If actions pass without any error visit the published site at <code>https://&lt;GITHUB-USERNAME>.github.io</code></p>
 </div>
 <footer>
 </footer>
